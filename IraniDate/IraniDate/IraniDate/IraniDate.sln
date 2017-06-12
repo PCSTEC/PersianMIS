@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IraniDate", "IraniDate.vbproj", "{9224A64C-06A9-4D77-9545-E282A3022AAB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApplication1", "..\WindowsApplication1\WindowsApplication1.vbproj", "{7F841134-7764-40C0-BAF2-D62CAE3E0E25}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9224A64C-06A9-4D77-9545-E282A3022AAB}.Debug.ActiveCfg = Debug|.NET
+		{9224A64C-06A9-4D77-9545-E282A3022AAB}.Debug.Build.0 = Debug|.NET
+		{9224A64C-06A9-4D77-9545-E282A3022AAB}.Release.ActiveCfg = Release|.NET
+		{9224A64C-06A9-4D77-9545-E282A3022AAB}.Release.Build.0 = Release|.NET
+		{7F841134-7764-40C0-BAF2-D62CAE3E0E25}.Debug.ActiveCfg = Debug|.NET
+		{7F841134-7764-40C0-BAF2-D62CAE3E0E25}.Debug.Build.0 = Debug|.NET
+		{7F841134-7764-40C0-BAF2-D62CAE3E0E25}.Release.ActiveCfg = Release|.NET
+		{7F841134-7764-40C0-BAF2-D62CAE3E0E25}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
