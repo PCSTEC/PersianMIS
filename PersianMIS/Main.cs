@@ -25,6 +25,7 @@ namespace PersianMIS
         public Main()
         {
             InitializeComponent();
+            int x;
         }
 
         private void Mnu_Exit_Click(object sender, EventArgs e)
