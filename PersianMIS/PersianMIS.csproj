@@ -59,13 +59,13 @@
     <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="FarsiLibrary.Resources">
-      <HintPath>..\..\Tools\FarsiLibrary\FarsiLibrary.Resources.dll</HintPath>
+      <HintPath>..\..\Debug\FarsiLibrary.Resources.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Utils">
-      <HintPath>..\..\Tools\FarsiLibrary\FarsiLibrary.Utils.dll</HintPath>
+      <HintPath>..\..\Debug\FarsiLibrary.Utils.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Win">
-      <HintPath>..\..\Tools\FarsiLibrary\FarsiLibrary.Win.dll</HintPath>
+      <HintPath>..\..\Debug\FarsiLibrary.Win.dll</HintPath>
     </Reference>
     <Reference Include="IKIDUtility, Version=1.0.3605.15239, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
@@ -96,7 +96,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R3 2016\Bin40\Telerik.WinControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.RadDiagram, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.3.913.40\Telerik.WinControls.RadDiagram.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -105,7 +105,6 @@
     <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -136,7 +135,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.UI, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.3.913.40\TelerikCommon.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>

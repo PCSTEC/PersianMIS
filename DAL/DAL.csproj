@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Persistent">
-      <HintPath>C:\Persistent.dll</HintPath>
+      <HintPath>..\..\Debug\Persistent.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
