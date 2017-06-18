@@ -66,7 +66,7 @@ namespace PersianMIS.StationControl
             Lbl_LineDesc.Text = Linedesc;
             Lbl_ActiveName.Text = ActiveStateDesc;
             Lbl_DeActiveName.Text = DeActiveStateDesc;
-            Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime,"","");
+            Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime,MiladiiEndDate ,MiladiEndTime);
             DTLastState = Bll_DeviceLine.GetLastStateFromSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime);
             if (Dt.Rows.Count > 0)
             {
@@ -116,7 +116,7 @@ namespace PersianMIS.StationControl
             Lbl_LineDesc.Text =   Linedesc;
             Lbl_ActiveName.Text = ActiveStateDesc;
             Lbl_DeActiveName.Text = DeActiveStateDesc;
-            Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(),MiladiStartDate, MiladiStartTime,"","");
+            Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(),MiladiStartDate, MiladiStartTime, MiladiiEndDate, MiladiEndTime);
             DTLastState= Bll_DeviceLine. GetLastStateFromSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime);
             if (Dt.Rows.Count > 0)
             {

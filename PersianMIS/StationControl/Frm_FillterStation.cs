@@ -55,7 +55,8 @@ namespace PersianMIS.StationControl
         {
             if (e.KeyChar == 13)
             {
-              Btn_OK_Click(sender, e);
+                
+                MskEndTime.Focus();
             }
         }
 
@@ -102,11 +103,20 @@ namespace PersianMIS.StationControl
         }
 
 
-        public Boolean  IsNextDay
+        public string   NumberOfNextDay
         {
             get
             {
-                return ChkNextDay.Checked ;
+                return TxtNextDayNumber.Value.ToString ()   ;
+            }
+        }
+
+        private void MskEndTime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Btn_OK_Click(sender, e);
+                MskEndTime.Focus();
             }
         }
     }

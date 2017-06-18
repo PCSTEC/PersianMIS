@@ -37,7 +37,7 @@ namespace BLL
 
         public DataTable GetSpecialLineStateByDate (string DeviceId, string LineId , string StartDate , string StartTime,string EndMiladiDate,string EndMiladiTime)
         {
-            return DAL_DeviceLine.GetSpecialLineStateByDate(DeviceId, LineId, StartDate, StartTime);
+            return DAL_DeviceLine.GetSpecialLineStateByDate(DeviceId, LineId, StartDate, StartTime,EndMiladiDate,EndMiladiTime );
 
         }
         public DataTable GetLastStateFromSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime)

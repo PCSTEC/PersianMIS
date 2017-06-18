@@ -138,7 +138,7 @@ namespace PersianMIS
         {
 
             string Date = "", BeginTime = "", ProductLineId = "" ,EndTime="";
-            Boolean IsNextDay = false;
+            int   NumberOfDay = 0;
             if (All == false)
             {
                 using (var form = new StationControl.Frm_FillterStation(0))
@@ -157,7 +157,7 @@ namespace PersianMIS
                         BeginTime = form.BeginTime;
                         EndTime = form.EndTime;
                         ProductLineId = "0";
-                        IsNextDay = form.IsNextDay;
+                        NumberOfDay = Convert.ToInt32( form.NumberOfNextDay);
                     }
                 }
             }
@@ -171,8 +171,8 @@ namespace PersianMIS
                         BeginTime = form.BeginTime;
                         EndTime = form.EndTime;
                         ProductLineId = form.ProductLineId;
-                        IsNextDay = form.IsNextDay;
-                        
+                        NumberOfDay = Convert.ToInt32(form.NumberOfNextDay);
+
                     }
                 }
             }
@@ -205,8 +205,7 @@ namespace PersianMIS
                 Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiStartDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date)).ToString());
                 Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiStartTime = BeginTime;
                 Station[Dt.DefaultView[i]["StationId"].ToString()].ShamsiStartDate = Date;
-               
-                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiiEndDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.GetPlussToIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date),1)).ToString());
+                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiiEndDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.GetPlussToIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date), NumberOfDay)).ToString());
                 Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiEndTime = EndTime;
                 Station[Dt.DefaultView[i]["StationId"].ToString()].CreateObjects();
                 Pnl_Main.Controls.Add(Station[Dt.DefaultView[i]["StationId"].ToString()]);

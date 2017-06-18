@@ -82,9 +82,9 @@ namespace DAL
         }
 
 
-        public DataTable GetSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime)
+        public DataTable GetSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime, string EndMiladiDate, string EndMiladiTime)
         {
-            Cls_Public.SqlStr = "select * from GetSpecialLineStateByDate('" + DeviceId + "','" + LineId + "','" + StartDate + "','" + StartTime + "')";
+            Cls_Public.SqlStr = "select * from GetSpecialLineStateByDate('" + DeviceId + "','" + LineId + "','" + StartDate + "','" + StartTime + "','" + EndMiladiDate+ "','" + EndMiladiTime + "')";
 
 
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);

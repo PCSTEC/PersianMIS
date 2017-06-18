@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor6 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_DeviceSetting));
-            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem6 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem7 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem8 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem9 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem10 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem11 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem12 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem13 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem14 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem15 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem17 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem18 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem19 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem20 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem21 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem22 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem23 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadTreeNode radTreeNode1 = new Telerik.WinControls.UI.RadTreeNode();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem25 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem26 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem27 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem28 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem29 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem30 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem31 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem32 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem33 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem34 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem35 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem36 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem37 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem38 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem39 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem40 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem41 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem42 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem43 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem44 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem45 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem46 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem47 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem48 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadTreeNode radTreeNode2 = new Telerik.WinControls.UI.RadTreeNode();
+            Telerik.WinControls.UI.RadTreeNode radTreeNode3 = new Telerik.WinControls.UI.RadTreeNode();
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Main_Page = new Telerik.WinControls.UI.RadPageView();
             this.Tab_ListOfDevices = new Telerik.WinControls.UI.RadPageViewPage();
@@ -177,7 +177,7 @@
             this.Main_Page.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
-            this.Main_Page.SelectedPage = this.Tab_ListOfDevices;
+            this.Main_Page.SelectedPage = this.Tab_NewDevice;
             this.Main_Page.Size = new System.Drawing.Size(1106, 660);
             this.Main_Page.TabIndex = 4;
             this.Main_Page.SelectedPageChanged += new System.EventHandler(this.Main_Page_SelectedPageChanged);
@@ -213,54 +213,54 @@
             this.Grd_ListOfDevice.MasterTemplate.ClipboardCopyMode = Telerik.WinControls.UI.GridViewClipboardCopyMode.Disable;
             this.Grd_ListOfDevice.MasterTemplate.ClipboardCutMode = Telerik.WinControls.UI.GridViewClipboardCutMode.Disable;
             this.Grd_ListOfDevice.MasterTemplate.ClipboardPasteMode = Telerik.WinControls.UI.GridViewClipboardPasteMode.Disable;
-            gridViewTextBoxColumn1.EnableExpressionEditor = false;
-            gridViewTextBoxColumn1.FieldName = "DeviceId";
-            gridViewTextBoxColumn1.HeaderText = "کد سخت افزار";
-            gridViewTextBoxColumn1.Name = "DeviceId";
-            gridViewTextBoxColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
-            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn1.Width = 150;
-            gridViewTextBoxColumn2.EnableExpressionEditor = false;
-            gridViewTextBoxColumn2.FieldName = "DeviceDesc";
-            gridViewTextBoxColumn2.HeaderText = "عنوان دستگاه";
-            gridViewTextBoxColumn2.Name = "DeviceDesc";
-            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn2.Width = 300;
-            gridViewTextBoxColumn3.EnableExpressionEditor = false;
-            gridViewTextBoxColumn3.FieldName = "ComputerName";
-            gridViewTextBoxColumn3.HeaderText = "عنوان کامپیوتر";
-            gridViewTextBoxColumn3.Name = "ComputerName";
-            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn3.Width = 200;
-            gridViewTextBoxColumn4.EnableExpressionEditor = false;
-            gridViewTextBoxColumn4.FieldName = "PortName";
-            gridViewTextBoxColumn4.HeaderText = "درگاه متصل";
-            gridViewTextBoxColumn4.Name = "PortName";
-            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn4.Width = 200;
-            gridViewTextBoxColumn5.EnableExpressionEditor = false;
-            gridViewTextBoxColumn5.FieldName = "active";
-            gridViewTextBoxColumn5.HeaderText = "وضعیت دستگاه";
-            gridViewTextBoxColumn5.Name = "active";
-            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn5.Width = 200;
+            gridViewTextBoxColumn26.EnableExpressionEditor = false;
+            gridViewTextBoxColumn26.FieldName = "DeviceId";
+            gridViewTextBoxColumn26.HeaderText = "کد سخت افزار";
+            gridViewTextBoxColumn26.Name = "DeviceId";
+            gridViewTextBoxColumn26.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
+            gridViewTextBoxColumn26.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn26.Width = 150;
+            gridViewTextBoxColumn27.EnableExpressionEditor = false;
+            gridViewTextBoxColumn27.FieldName = "DeviceDesc";
+            gridViewTextBoxColumn27.HeaderText = "عنوان دستگاه";
+            gridViewTextBoxColumn27.Name = "DeviceDesc";
+            gridViewTextBoxColumn27.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn27.Width = 300;
+            gridViewTextBoxColumn28.EnableExpressionEditor = false;
+            gridViewTextBoxColumn28.FieldName = "ComputerName";
+            gridViewTextBoxColumn28.HeaderText = "عنوان کامپیوتر";
+            gridViewTextBoxColumn28.Name = "ComputerName";
+            gridViewTextBoxColumn28.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn28.Width = 200;
+            gridViewTextBoxColumn29.EnableExpressionEditor = false;
+            gridViewTextBoxColumn29.FieldName = "PortName";
+            gridViewTextBoxColumn29.HeaderText = "درگاه متصل";
+            gridViewTextBoxColumn29.Name = "PortName";
+            gridViewTextBoxColumn29.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn29.Width = 200;
+            gridViewTextBoxColumn30.EnableExpressionEditor = false;
+            gridViewTextBoxColumn30.FieldName = "active";
+            gridViewTextBoxColumn30.HeaderText = "وضعیت دستگاه";
+            gridViewTextBoxColumn30.Name = "active";
+            gridViewTextBoxColumn30.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn30.Width = 200;
             this.Grd_ListOfDevice.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5});
+            gridViewTextBoxColumn26,
+            gridViewTextBoxColumn27,
+            gridViewTextBoxColumn28,
+            gridViewTextBoxColumn29,
+            gridViewTextBoxColumn30});
             this.Grd_ListOfDevice.MasterTemplate.EnableCustomSorting = true;
             this.Grd_ListOfDevice.MasterTemplate.EnableFiltering = true;
             this.Grd_ListOfDevice.MasterTemplate.EnableGrouping = false;
             this.Grd_ListOfDevice.MasterTemplate.ShowChildViewCaptions = true;
             this.Grd_ListOfDevice.MasterTemplate.ShowFilteringRow = false;
             this.Grd_ListOfDevice.MasterTemplate.ShowHeaderCellButtons = true;
-            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
-            sortDescriptor1.PropertyName = "DeviceId";
+            sortDescriptor6.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor6.PropertyName = "DeviceId";
             this.Grd_ListOfDevice.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
-            sortDescriptor1});
-            this.Grd_ListOfDevice.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            sortDescriptor6});
+            this.Grd_ListOfDevice.MasterTemplate.ViewDefinition = tableViewDefinition6;
             this.Grd_ListOfDevice.Name = "Grd_ListOfDevice";
             this.Grd_ListOfDevice.ReadOnly = true;
             this.Grd_ListOfDevice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -280,7 +280,7 @@
             this.Mnu_Refresh});
             this.MNU_Grd.Name = "MNU_Grd";
             this.MNU_Grd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MNU_Grd.Size = new System.Drawing.Size(183, 136);
+            this.MNU_Grd.Size = new System.Drawing.Size(183, 114);
             this.MNU_Grd.Opening += new System.ComponentModel.CancelEventHandler(this.MNU_Grd_Opening);
             // 
             // Mnu_Active
@@ -506,55 +506,55 @@
             // Cmb_InputId
             // 
             this.Cmb_InputId.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem1.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            radListDataItem1.Text = "1";
-            radListDataItem2.Text = "2";
-            radListDataItem3.Text = "3";
-            radListDataItem4.Text = "4";
-            radListDataItem5.Text = "5";
-            radListDataItem6.Text = "6";
-            radListDataItem7.Text = "7";
-            radListDataItem8.Text = "8";
-            radListDataItem9.Text = "9";
-            radListDataItem10.Text = "10";
-            radListDataItem11.Text = "11";
-            radListDataItem12.Text = "12";
-            radListDataItem13.Text = "13";
-            radListDataItem14.Text = "14";
-            radListDataItem15.Text = "15";
-            radListDataItem16.Text = "16";
-            radListDataItem17.Text = "17";
-            radListDataItem18.Text = "18";
-            radListDataItem19.Text = "19";
-            radListDataItem20.Text = "20";
-            radListDataItem21.Text = "21";
-            radListDataItem22.Text = "22";
-            radListDataItem23.Text = "23";
-            radListDataItem24.Text = "24";
-            this.Cmb_InputId.Items.Add(radListDataItem1);
-            this.Cmb_InputId.Items.Add(radListDataItem2);
-            this.Cmb_InputId.Items.Add(radListDataItem3);
-            this.Cmb_InputId.Items.Add(radListDataItem4);
-            this.Cmb_InputId.Items.Add(radListDataItem5);
-            this.Cmb_InputId.Items.Add(radListDataItem6);
-            this.Cmb_InputId.Items.Add(radListDataItem7);
-            this.Cmb_InputId.Items.Add(radListDataItem8);
-            this.Cmb_InputId.Items.Add(radListDataItem9);
-            this.Cmb_InputId.Items.Add(radListDataItem10);
-            this.Cmb_InputId.Items.Add(radListDataItem11);
-            this.Cmb_InputId.Items.Add(radListDataItem12);
-            this.Cmb_InputId.Items.Add(radListDataItem13);
-            this.Cmb_InputId.Items.Add(radListDataItem14);
-            this.Cmb_InputId.Items.Add(radListDataItem15);
-            this.Cmb_InputId.Items.Add(radListDataItem16);
-            this.Cmb_InputId.Items.Add(radListDataItem17);
-            this.Cmb_InputId.Items.Add(radListDataItem18);
-            this.Cmb_InputId.Items.Add(radListDataItem19);
-            this.Cmb_InputId.Items.Add(radListDataItem20);
-            this.Cmb_InputId.Items.Add(radListDataItem21);
-            this.Cmb_InputId.Items.Add(radListDataItem22);
-            this.Cmb_InputId.Items.Add(radListDataItem23);
-            this.Cmb_InputId.Items.Add(radListDataItem24);
+            radListDataItem25.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            radListDataItem25.Text = "1";
+            radListDataItem26.Text = "2";
+            radListDataItem27.Text = "3";
+            radListDataItem28.Text = "4";
+            radListDataItem29.Text = "5";
+            radListDataItem30.Text = "6";
+            radListDataItem31.Text = "7";
+            radListDataItem32.Text = "8";
+            radListDataItem33.Text = "9";
+            radListDataItem34.Text = "10";
+            radListDataItem35.Text = "11";
+            radListDataItem36.Text = "12";
+            radListDataItem37.Text = "13";
+            radListDataItem38.Text = "14";
+            radListDataItem39.Text = "15";
+            radListDataItem40.Text = "16";
+            radListDataItem41.Text = "17";
+            radListDataItem42.Text = "18";
+            radListDataItem43.Text = "19";
+            radListDataItem44.Text = "20";
+            radListDataItem45.Text = "21";
+            radListDataItem46.Text = "22";
+            radListDataItem47.Text = "23";
+            radListDataItem48.Text = "24";
+            this.Cmb_InputId.Items.Add(radListDataItem25);
+            this.Cmb_InputId.Items.Add(radListDataItem26);
+            this.Cmb_InputId.Items.Add(radListDataItem27);
+            this.Cmb_InputId.Items.Add(radListDataItem28);
+            this.Cmb_InputId.Items.Add(radListDataItem29);
+            this.Cmb_InputId.Items.Add(radListDataItem30);
+            this.Cmb_InputId.Items.Add(radListDataItem31);
+            this.Cmb_InputId.Items.Add(radListDataItem32);
+            this.Cmb_InputId.Items.Add(radListDataItem33);
+            this.Cmb_InputId.Items.Add(radListDataItem34);
+            this.Cmb_InputId.Items.Add(radListDataItem35);
+            this.Cmb_InputId.Items.Add(radListDataItem36);
+            this.Cmb_InputId.Items.Add(radListDataItem37);
+            this.Cmb_InputId.Items.Add(radListDataItem38);
+            this.Cmb_InputId.Items.Add(radListDataItem39);
+            this.Cmb_InputId.Items.Add(radListDataItem40);
+            this.Cmb_InputId.Items.Add(radListDataItem41);
+            this.Cmb_InputId.Items.Add(radListDataItem42);
+            this.Cmb_InputId.Items.Add(radListDataItem43);
+            this.Cmb_InputId.Items.Add(radListDataItem44);
+            this.Cmb_InputId.Items.Add(radListDataItem45);
+            this.Cmb_InputId.Items.Add(radListDataItem46);
+            this.Cmb_InputId.Items.Add(radListDataItem47);
+            this.Cmb_InputId.Items.Add(radListDataItem48);
             this.Cmb_InputId.Location = new System.Drawing.Point(10, 10);
             this.Cmb_InputId.Name = "Cmb_InputId";
             this.Cmb_InputId.NullText = "انتخاب شماره درگاه ورودی";
@@ -588,9 +588,6 @@
             this.CPE_SelectDeActiveLineColor.EditValue = System.Drawing.Color.Empty;
             this.CPE_SelectDeActiveLineColor.Location = new System.Drawing.Point(12, 254);
             this.CPE_SelectDeActiveLineColor.Name = "CPE_SelectDeActiveLineColor";
-            // 
-            // 
-            // 
             this.CPE_SelectDeActiveLineColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CPE_SelectDeActiveLineColor.Size = new System.Drawing.Size(158, 20);
@@ -612,9 +609,6 @@
             this.CPE_SelectActiveLineColor.EditValue = System.Drawing.Color.Empty;
             this.CPE_SelectActiveLineColor.Location = new System.Drawing.Point(11, 220);
             this.CPE_SelectActiveLineColor.Name = "CPE_SelectActiveLineColor";
-            // 
-            // 
-            // 
             this.CPE_SelectActiveLineColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CPE_SelectActiveLineColor.Size = new System.Drawing.Size(159, 20);
@@ -828,13 +822,13 @@
             this.TreeViewDevice1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(8)))), ((int)(((byte)(134)))));
             this.TreeViewDevice1.Location = new System.Drawing.Point(160, 15);
             this.TreeViewDevice1.Name = "TreeViewDevice1";
-            radTreeNode1.Expanded = true;
-            radTreeNode1.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radTreeNode1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
-            radTreeNode1.Name = "Device";
-            radTreeNode1.Text = "دستگاه";
+            radTreeNode2.Expanded = true;
+            radTreeNode2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            radTreeNode2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
+            radTreeNode2.Name = "Device";
+            radTreeNode2.Text = "دستگاه";
             this.TreeViewDevice1.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode1});
+            radTreeNode2});
             this.TreeViewDevice1.RadContextMenu = this.Mnu_NewDeviceLineManager;
             this.TreeViewDevice1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TreeViewDevice1.ShowLines = true;
@@ -865,13 +859,13 @@
             this.TreeViewDevice2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(8)))), ((int)(((byte)(134)))));
             this.TreeViewDevice2.Location = new System.Drawing.Point(430, 15);
             this.TreeViewDevice2.Name = "TreeViewDevice2";
-            radTreeNode2.Expanded = true;
-            radTreeNode2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radTreeNode2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
-            radTreeNode2.Name = "Device";
-            radTreeNode2.Text = "دستگاه";
+            radTreeNode3.Expanded = true;
+            radTreeNode3.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            radTreeNode3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
+            radTreeNode3.Name = "Device";
+            radTreeNode3.Text = "دستگاه";
             this.TreeViewDevice2.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode2});
+            radTreeNode3});
             this.TreeViewDevice2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TreeViewDevice2.ShowLines = true;
             this.TreeViewDevice2.Size = new System.Drawing.Size(251, 340);

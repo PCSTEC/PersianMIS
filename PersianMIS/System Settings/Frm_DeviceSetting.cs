@@ -199,6 +199,17 @@ namespace PersianMIS.System_Settings
 
                 BLL_DeviceLine.Update("SP_UpdateDevicesLine", Convert.ToInt32(Cmb_InputId.Text), Txt_InputCaption.Text, Deviceid, Convert.ToInt32(Cmb_PulsType.SelectedValue), Convert.ToInt32(Cmb_ZaribType.SelectedValue), Convert.ToInt32(Cmb_ProductionLine.SelectedValue), CPE_SelectActiveLineColor.Color.ToArgb().ToString(), CPE_SelectDeActiveLineColor.Color.ToArgb().ToString(), false,Txt_ActiveStateDesc.Text,Txt_DeActiveDesc.Text );
                 MessageBox.Show("اطلاعات مورد نظر با موفقیت بروز رسانی گردید", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Convert.ToInt32(Cmb_InputId.Text) <= 12)
+                {
+                    TreeViewDevice1.SelectedNode.Text = "ورودی شماره" + Convert.ToInt32(Cmb_InputId.Text) + ":  " + Txt_InputCaption.Text;
+                }
+                else
+                {
+
+                    TreeViewDevice2.SelectedNode.Text = "ورودی شماره" + Convert.ToInt32(Cmb_InputId.Text) + ":  " + Txt_InputCaption.Text;
+
+
+                }
 
             }
         }

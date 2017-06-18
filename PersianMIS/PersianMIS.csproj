@@ -68,7 +68,6 @@
       <HintPath>..\..\Debug\FarsiLibrary.Win.dll</HintPath>
     </Reference>
     <Reference Include="IKIDUtility, Version=1.0.3605.15239, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\IraniDate\IraniDate\bin\IKIDUtility.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v4, Version=4.0.24.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
