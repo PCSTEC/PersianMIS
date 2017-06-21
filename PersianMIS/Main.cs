@@ -276,5 +276,13 @@ namespace PersianMIS
               
             }
         }
+
+        private void Btn_LineState_Click(object sender, EventArgs e)
+        {
+            var x = new ProductionControl.ShowProductionStatusUserControl();
+            Pnl_Main.Controls.Clear();
+            Pnl_Main.Controls.Add(x);
+
+        }
     }
 }

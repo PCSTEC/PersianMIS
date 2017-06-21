@@ -113,7 +113,7 @@
             this.MainStatusBar.Location = new System.Drawing.Point(0, 871);
             this.MainStatusBar.Name = "MainStatusBar";
             this.MainStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainStatusBar.Size = new System.Drawing.Size(1452, 24);
+            this.MainStatusBar.Size = new System.Drawing.Size(1468, 24);
             this.MainStatusBar.TabIndex = 1;
             this.MainStatusBar.Text = "radStatusStrip1";
             // 
@@ -160,7 +160,7 @@
             this.MainRibbonBar.QuickAccessToolBarItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.radButtonElement1});
             this.MainRibbonBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainRibbonBar.Size = new System.Drawing.Size(1452, 162);
+            this.MainRibbonBar.Size = new System.Drawing.Size(1468, 162);
             this.MainRibbonBar.StartButtonImage = global::PersianMIS.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
@@ -178,7 +178,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
@@ -390,7 +390,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,
@@ -414,6 +414,7 @@
             this.Btn_LineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_LineState.Name = "Btn_LineState";
             this.Btn_LineState.Text = "                            ";
+            this.Btn_LineState.Click += new System.EventHandler(this.Btn_LineState_Click);
             // 
             // Btn_AllLineStateBorder
             // 
@@ -647,14 +648,14 @@
             this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pnl_Main.Location = new System.Drawing.Point(0, 162);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(1452, 709);
+            this.Pnl_Main.Size = new System.Drawing.Size(1468, 709);
             this.Pnl_Main.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 895);
+            this.ClientSize = new System.Drawing.Size(1468, 895);
             this.ControlBox = false;
             this.Controls.Add(this.Pnl_Main);
             this.Controls.Add(this.MainStatusBar);

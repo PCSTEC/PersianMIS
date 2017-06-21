@@ -24,7 +24,7 @@ namespace PCSTECSDK
         //{
         //    if (TryFormat("{####/##/##}", out FromShamsiDate))
         //    {
-                 
+
         //    }
 
         //}
