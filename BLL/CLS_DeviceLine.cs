@@ -52,5 +52,11 @@ namespace BLL
 
         }
 
+
+        public DataTable GetAllStationData()
+        {
+            return DAL_DeviceLine.GetAllStationData();
+        }
+
     }
     }

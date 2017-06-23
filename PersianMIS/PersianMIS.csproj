@@ -95,13 +95,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R3 2016\Bin40\Telerik.WinControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R3 2016\Bin40\Telerik.WinControls.GridView.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.WinControls.RadDiagram, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.3.913.40\Telerik.WinControls.RadDiagram.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Scheduler, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R3 2016\Bin40\Telerik.WinControls.Scheduler.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -135,7 +141,10 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.UI, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2016.3.1024.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R3 2016\Bin40\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
     <Reference Include="TelerikCommon, Version=2016.3.913.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2016.3.913.40\TelerikCommon.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -363,6 +372,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\GantPrevious1.png" />
+    <None Include="Resources\hard_drive.png" />
+    <None Include="Resources\gridview.png" />
+    <None Include="Resources\green.png" />
+    <None Include="Resources\go1.png" />
+    <None Include="Resources\go.png" />
+    <None Include="Resources\Globe.png" />
+    <None Include="Resources\GanttYear.png" />
+    <None Include="Resources\GanttWeek.png" />
+    <None Include="Resources\GanttNext.png" />
+    <None Include="Resources\GanttMonth.png" />
+    <None Include="Resources\GanttDelete.png" />
+    <None Include="Resources\GanttAddMilestone.png" />
+    <None Include="Resources\GanttAdd.png" />
+    <None Include="Resources\Gantt100.png" />
+    <None Include="Resources\Gantt50.png" />
+    <None Include="Resources\Gantt25.png" />
+    <None Include="Resources\GantPrevious.png" />
     <None Include="Resources\Update.png" />
     <None Include="Resources\save1.png" />
     <None Include="Resources\Add Btn.png" />

@@ -281,7 +281,11 @@ namespace PersianMIS
         {
             var x = new ProductionControl.ShowProductionStatusUserControl();
             Pnl_Main.Controls.Clear();
+            x.Width = Pnl_Main.Width-30;
+            x.Height = Pnl_Main.Height-30;
             Pnl_Main.Controls.Add(x);
+
+             
 
         }
     }

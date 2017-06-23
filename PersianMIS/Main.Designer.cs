@@ -35,6 +35,8 @@
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Lbl_CurrentTime = new Telerik.WinControls.UI.RadLabelElement();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
+            this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
+            this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
             this.Tab_Control = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_AllStationBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -94,8 +96,6 @@
             this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             this.Mnu_Exit = new Telerik.WinControls.UI.RadMenuItem();
             this.radRibbonFormBehavior1 = new Telerik.WinControls.UI.RadRibbonFormBehavior();
-            this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
-            this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -113,7 +113,7 @@
             this.MainStatusBar.Location = new System.Drawing.Point(0, 871);
             this.MainStatusBar.Name = "MainStatusBar";
             this.MainStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainStatusBar.Size = new System.Drawing.Size(1468, 24);
+            this.MainStatusBar.Size = new System.Drawing.Size(1508, 24);
             this.MainStatusBar.TabIndex = 1;
             this.MainStatusBar.Text = "radStatusStrip1";
             // 
@@ -130,6 +130,15 @@
             this.MainTimer.Enabled = true;
             this.MainTimer.Interval = 1000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
+            // 
+            // Pnl_Main
+            // 
+            this.Pnl_Main.AutoScroll = true;
+            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Main.Location = new System.Drawing.Point(0, 162);
+            this.Pnl_Main.Name = "Pnl_Main";
+            this.Pnl_Main.Size = new System.Drawing.Size(1508, 709);
+            this.Pnl_Main.TabIndex = 2;
             // 
             // MainRibbonBar
             // 
@@ -160,7 +169,7 @@
             this.MainRibbonBar.QuickAccessToolBarItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.radButtonElement1});
             this.MainRibbonBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainRibbonBar.Size = new System.Drawing.Size(1468, 162);
+            this.MainRibbonBar.Size = new System.Drawing.Size(1508, 162);
             this.MainRibbonBar.StartButtonImage = global::PersianMIS.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
@@ -178,7 +187,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = false;
+            this.Tab_Control.IsSelected = true;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
@@ -390,7 +399,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,
@@ -642,20 +651,11 @@
             // 
             this.radRibbonFormBehavior1.Form = this;
             // 
-            // Pnl_Main
-            // 
-            this.Pnl_Main.AutoScroll = true;
-            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnl_Main.Location = new System.Drawing.Point(0, 162);
-            this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(1468, 709);
-            this.Pnl_Main.TabIndex = 2;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1468, 895);
+            this.ClientSize = new System.Drawing.Size(1508, 895);
             this.ControlBox = false;
             this.Controls.Add(this.Pnl_Main);
             this.Controls.Add(this.MainStatusBar);
