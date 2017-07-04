@@ -35,39 +35,97 @@ namespace PersianMIS.ProductionControl
 
 
 
-            DataTable Dt = BllStation.GetAllStationData();
-            this.radGanttView1.GanttViewElement.Columns.Add(new GanttViewTextViewColumn("LineDesc"));
-            GanttViewTextViewColumn startColumn = new GanttViewTextViewColumn("MiladiStartDateTime");
-            startColumn.DataType = typeof(DateTime);
-            //      startColumn.FormatString = "{yyyy-mm-dd HH:mm:ss:t}";
-            this.radGanttView1.GanttViewElement.Columns.Add(startColumn);
-            GanttViewTextViewColumn endColumn = new GanttViewTextViewColumn("MiladiFinishDateTime");
-            endColumn.DataType = typeof(DateTime);
-            //   endColumn.FormatString = "{0:HH:mm dd.MM.yyyy}";
-            this.radGanttView1.GanttViewElement.Columns.Add(endColumn);
+          
+            //this.radGanttView1.GanttViewElement.TaskDataMember = "Tasks";
+            //this.radGanttView1.GanttViewElement.ChildMember = "Id";
+            //this.radGanttView1.GanttViewElement.ParentMember = "ParentId";
+            //this.radGanttView1.GanttViewElement.TitleMember = "Title";
+            //this.radGanttView1.GanttViewElement.StartMember = "Start";
+            //this.radGanttView1.GanttViewElement.EndMember = "End";
+            //this.radGanttView1.GanttViewElement.ProgressMember = "Progress";
+            //this.radGanttView1.GanttViewElement.LinkDataMember = "Links";
+            //this.radGanttView1.GanttViewElement.LinkStartMember = "StartId";
+            //this.radGanttView1.GanttViewElement.LinkEndMember = "EndId";
+            //this.radGanttView1.GanttViewElement.LinkTypeMember = "LinkType";
+            //this.radGanttView1.GanttViewElement.DataSource = Dt;
+            //this.radGanttView1.Columns.Add("Start");
+            //this.radGanttView1.Columns.Add("End");
 
-            this.radGanttView1.GanttViewElement.Columns[0].Width = 300;
-            this.radGanttView1.GanttViewElement.Columns[1].Width = 100;
-            this.radGanttView1.GanttViewElement.Columns[2].Width = 100;
 
-            this.radGanttView1.GanttViewElement.TaskDataMember = "DeviceID";
-            this.radGanttView1.GanttViewElement.ChildMember = "DeviceLineId";
-            this.radGanttView1.GanttViewElement.ParentMember = "DeviceStateID";
-            this.radGanttView1.GanttViewElement.TitleMember = "LineDesc";
-            this.radGanttView1.GanttViewElement.StartMember = "MiladiStartDateTime";
-            this.radGanttView1.GanttViewElement.EndMember = "MiladiFinishDateTime";
+            DataTable tasks = new DataTable("Tasks");
+            tasks.Columns.Add("Id", typeof(int));
+            tasks.Columns.Add("ParentId", typeof(int));
+            tasks.Columns.Add("Title", typeof(string));
+            tasks.Columns.Add("Start", typeof(DateTime));
+            tasks.Columns.Add("End", typeof(DateTime));
+            tasks.Columns.Add("Progress", typeof(decimal));
+            DataTable links = new DataTable("Links");
+            links.Columns.Add("StartId", typeof(int));
+            links.Columns.Add("EndId", typeof(int));
+            links.Columns.Add("LinkType", typeof(int));
+            DataSet data = new DataSet();
+            data.Tables.Add(tasks);
+            data.Tables.Add(links);
 
-            this.radGanttView1.GanttViewElement.ProgressMember = "Count";
-            this.radGanttView1.GanttViewElement.LinkDataMember = "DeviceStateID";
-            this.radGanttView1.GanttViewElement.LinkStartMember = "DeviceID";
-            this.radGanttView1.GanttViewElement.LinkEndMember = "DeviceID";
-            this.radGanttView1.GanttViewElement.LinkTypeMember = "DeviceLineId";
-            this.radGanttView1.GanttViewElement.DataSource = Dt;
 
-            this.radGanttView1.GanttViewElement.GraphicalViewElement.TimelineStart = Convert.ToDateTime(Dt.DefaultView[0]["MiladiStartDateTime"]);
-            this.radGanttView1.GanttViewElement.GraphicalViewElement.TimelineEnd = Convert.ToDateTime(Dt.DefaultView[Dt.Rows.Count - 1]["MiladiFinishDateTime"]);
-            this.radDateTimePickerElementStart.Value = Convert.ToDateTime(Dt.DefaultView[0]["MiladiStartDateTime"]);
-            this.radDateTimePickerElementEnd.Value = Convert.ToDateTime(Dt.DefaultView[Dt.Rows.Count - 1]["MiladiFinishDateTime"]);
+            tasks.Rows.Add(1, 0, "Summary task title", new DateTime(2010, 10, 10), new DateTime(2010, 10, 15), 30m);
+            tasks.Rows.Add(2, 1, "First child task title", new DateTime(2010, 10, 10), new DateTime(2010, 10, 12), 10);
+            tasks.Rows.Add(3, 1, "Second child task title", new DateTime(2010, 10, 12), new DateTime(2010, 10, 15), 20m);
+            tasks.Rows.Add(4, 1, "Milestone", new DateTime(2010, 10, 15), new DateTime(2010, 10, 15), 0m);
+            links.Rows.Add(2, 3, 1);
+            links.Rows.Add(3, 4, 1);
+
+            this.radGanttView1.GanttViewElement.TaskDataMember = "Tasks";
+            this.radGanttView1.GanttViewElement.ChildMember = "Id";
+            this.radGanttView1.GanttViewElement.ParentMember = "ParentId";
+            this.radGanttView1.GanttViewElement.TitleMember = "Title";
+            this.radGanttView1.GanttViewElement.StartMember = "Start";
+            this.radGanttView1.GanttViewElement.EndMember = "End";
+            this.radGanttView1.GanttViewElement.ProgressMember = "Progress";
+            this.radGanttView1.GanttViewElement.LinkDataMember = "Links";
+            this.radGanttView1.GanttViewElement.LinkStartMember = "StartId";
+            this.radGanttView1.GanttViewElement.LinkEndMember = "EndId";
+            this.radGanttView1.GanttViewElement.LinkTypeMember = "LinkType";
+            this.radGanttView1.GanttViewElement.DataSource = data;
+            this.radGanttView1.Columns.Add("Start");
+            this.radGanttView1.Columns.Add("End");
+
+            //this.radGanttView1.GanttViewElement.Columns.Add(new GanttViewTextViewColumn("LineDesc"));
+            //GanttViewTextViewColumn startColumn = new GanttViewTextViewColumn("MiladiStartDateTime");
+            //startColumn.DataType = typeof(DateTime);
+            ////      startColumn.FormatString = "{yyyy-mm-dd HH:mm:ss:t}";
+            //this.radGanttView1.GanttViewElement.Columns.Add(startColumn);
+            //GanttViewTextViewColumn endColumn = new GanttViewTextViewColumn("MiladiFinishDateTime");
+            //endColumn.DataType = typeof(DateTime);
+            ////   endColumn.FormatString = "{0:HH:mm dd.MM.yyyy}";
+            //this.radGanttView1.GanttViewElement.Columns.Add(endColumn);
+
+            //this.radGanttView1.GanttViewElement.Columns[0].Width = 300;
+            //this.radGanttView1.GanttViewElement.Columns[1].Width = 100;
+            //this.radGanttView1.GanttViewElement.Columns[2].Width = 100;
+
+            //this.radGanttView1.GanttViewElement.TaskDataMember = "DeviceID";
+            //this.radGanttView1.GanttViewElement.ChildMember = "DeviceLineId";
+            //this.radGanttView1.GanttViewElement.ParentMember = "DeviceStateID";
+            //this.radGanttView1.GanttViewElement.TitleMember = "LineDesc";
+            //this.radGanttView1.GanttViewElement.StartMember = "MiladiStartDateTime";
+            //this.radGanttView1.GanttViewElement.EndMember = "MiladiFinishDateTime";
+
+            //this.radGanttView1.GanttViewElement.ProgressMember = "Count";
+            //this.radGanttView1.GanttViewElement.LinkDataMember = "DeviceStateID";
+            //this.radGanttView1.GanttViewElement.LinkStartMember = "DeviceID";
+            //this.radGanttView1.GanttViewElement.LinkEndMember = "DeviceID";
+            //this.radGanttView1.GanttViewElement.LinkTypeMember = "DeviceLineId";
+
+
+  //DataTable Dt = BllStation.GetAllStationData();
+
+           // this.radGanttView1.GanttViewElement.DataSource = Dt;
+         //   this.radGanttView1.DataSource = Dt;
+          //  this.radGanttView1.GanttViewElement.GraphicalViewElement.TimelineStart = Convert.ToDateTime(Dt.DefaultView[0]["MiladiStartDateTime"]);
+        //    this.radGanttView1.GanttViewElement.GraphicalViewElement.TimelineEnd = Convert.ToDateTime(Dt.DefaultView[Dt.Rows.Count - 1]["MiladiFinishDateTime"]);
+          //  this.radDateTimePickerElementStart.Value = Convert.ToDateTime(Dt.DefaultView[0]["MiladiStartDateTime"]);
+          //  this.radDateTimePickerElementEnd.Value = Convert.ToDateTime(Dt.DefaultView[Dt.Rows.Count - 1]["MiladiFinishDateTime"]);
         }
 
         private void ShowProductionStatusUserControl_Load(object sender, EventArgs e)

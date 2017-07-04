@@ -279,11 +279,11 @@ namespace PersianMIS
 
         private void Btn_LineState_Click(object sender, EventArgs e)
         {
-            var x = new ProductionControl.ShowProductionStatusUserControl();
+            var Pnl = new CurrentState.UCShowCurrentState ();
             Pnl_Main.Controls.Clear();
-            x.Width = Pnl_Main.Width-30;
-            x.Height = Pnl_Main.Height-30;
-            Pnl_Main.Controls.Add(x);
+            Pnl.Width = Pnl_Main.Width-18;
+            Pnl.Height = Pnl_Main.Height-14;
+            Pnl_Main.Controls.Add(Pnl);
 
              
 
