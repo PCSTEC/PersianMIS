@@ -72,7 +72,7 @@ namespace PersianMIS.CurrentState
             this.radScheduler1.GetTimelineView().GroupSeparatorWidth = 0;
             this.radScheduler1.GetTimelineView().ResourcesPerView = 4;
             this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Hours);
-            RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
+            RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider(); 
         }
 
         private void UCShowCurrentState_Load(object sender, EventArgs e)
