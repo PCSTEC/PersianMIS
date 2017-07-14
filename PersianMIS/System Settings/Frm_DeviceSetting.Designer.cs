@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.Data.SortDescriptor sortDescriptor6 = new Telerik.WinControls.Data.SortDescriptor();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_DeviceSetting));
-            Telerik.WinControls.UI.RadListDataItem radListDataItem25 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem26 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem27 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem28 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem29 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem30 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem31 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem32 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem33 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem34 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem35 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem36 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem37 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem38 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem39 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem40 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem41 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem42 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem43 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem44 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem45 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem46 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem47 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem48 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem6 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem7 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem8 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem9 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem10 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem11 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem12 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem13 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem14 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem15 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem16 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem17 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem18 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem19 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem20 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem21 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem22 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem23 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadTreeNode radTreeNode1 = new Telerik.WinControls.UI.RadTreeNode();
             Telerik.WinControls.UI.RadTreeNode radTreeNode2 = new Telerik.WinControls.UI.RadTreeNode();
-            Telerik.WinControls.UI.RadTreeNode radTreeNode3 = new Telerik.WinControls.UI.RadTreeNode();
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Main_Page = new Telerik.WinControls.UI.RadPageView();
             this.Tab_ListOfDevices = new Telerik.WinControls.UI.RadPageViewPage();
@@ -113,6 +113,9 @@
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.TreeViewDevice2 = new Telerik.WinControls.UI.RadTreeView();
             this.Img_Device = new System.Windows.Forms.PictureBox();
+            this.radLabel13 = new Telerik.WinControls.UI.RadLabel();
+            this.TxtGapTime = new System.Windows.Forms.NumericUpDown();
+            this.radLabel14 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Main_Page)).BeginInit();
             this.Main_Page.SuspendLayout();
@@ -156,6 +159,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Device)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,54 +219,54 @@
             this.Grd_ListOfDevice.MasterTemplate.ClipboardCopyMode = Telerik.WinControls.UI.GridViewClipboardCopyMode.Disable;
             this.Grd_ListOfDevice.MasterTemplate.ClipboardCutMode = Telerik.WinControls.UI.GridViewClipboardCutMode.Disable;
             this.Grd_ListOfDevice.MasterTemplate.ClipboardPasteMode = Telerik.WinControls.UI.GridViewClipboardPasteMode.Disable;
-            gridViewTextBoxColumn26.EnableExpressionEditor = false;
-            gridViewTextBoxColumn26.FieldName = "DeviceId";
-            gridViewTextBoxColumn26.HeaderText = "کد سخت افزار";
-            gridViewTextBoxColumn26.Name = "DeviceId";
-            gridViewTextBoxColumn26.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
-            gridViewTextBoxColumn26.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn26.Width = 150;
-            gridViewTextBoxColumn27.EnableExpressionEditor = false;
-            gridViewTextBoxColumn27.FieldName = "DeviceDesc";
-            gridViewTextBoxColumn27.HeaderText = "عنوان دستگاه";
-            gridViewTextBoxColumn27.Name = "DeviceDesc";
-            gridViewTextBoxColumn27.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn27.Width = 300;
-            gridViewTextBoxColumn28.EnableExpressionEditor = false;
-            gridViewTextBoxColumn28.FieldName = "ComputerName";
-            gridViewTextBoxColumn28.HeaderText = "عنوان کامپیوتر";
-            gridViewTextBoxColumn28.Name = "ComputerName";
-            gridViewTextBoxColumn28.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn28.Width = 200;
-            gridViewTextBoxColumn29.EnableExpressionEditor = false;
-            gridViewTextBoxColumn29.FieldName = "PortName";
-            gridViewTextBoxColumn29.HeaderText = "درگاه متصل";
-            gridViewTextBoxColumn29.Name = "PortName";
-            gridViewTextBoxColumn29.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn29.Width = 200;
-            gridViewTextBoxColumn30.EnableExpressionEditor = false;
-            gridViewTextBoxColumn30.FieldName = "active";
-            gridViewTextBoxColumn30.HeaderText = "وضعیت دستگاه";
-            gridViewTextBoxColumn30.Name = "active";
-            gridViewTextBoxColumn30.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn30.Width = 200;
+            gridViewTextBoxColumn1.EnableExpressionEditor = false;
+            gridViewTextBoxColumn1.FieldName = "DeviceId";
+            gridViewTextBoxColumn1.HeaderText = "کد سخت افزار";
+            gridViewTextBoxColumn1.Name = "DeviceId";
+            gridViewTextBoxColumn1.SortOrder = Telerik.WinControls.UI.RadSortOrder.Descending;
+            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn1.Width = 150;
+            gridViewTextBoxColumn2.EnableExpressionEditor = false;
+            gridViewTextBoxColumn2.FieldName = "DeviceDesc";
+            gridViewTextBoxColumn2.HeaderText = "عنوان دستگاه";
+            gridViewTextBoxColumn2.Name = "DeviceDesc";
+            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn2.Width = 300;
+            gridViewTextBoxColumn3.EnableExpressionEditor = false;
+            gridViewTextBoxColumn3.FieldName = "ComputerName";
+            gridViewTextBoxColumn3.HeaderText = "عنوان کامپیوتر";
+            gridViewTextBoxColumn3.Name = "ComputerName";
+            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn3.Width = 200;
+            gridViewTextBoxColumn4.EnableExpressionEditor = false;
+            gridViewTextBoxColumn4.FieldName = "PortName";
+            gridViewTextBoxColumn4.HeaderText = "درگاه متصل";
+            gridViewTextBoxColumn4.Name = "PortName";
+            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn4.Width = 200;
+            gridViewTextBoxColumn5.EnableExpressionEditor = false;
+            gridViewTextBoxColumn5.FieldName = "active";
+            gridViewTextBoxColumn5.HeaderText = "وضعیت دستگاه";
+            gridViewTextBoxColumn5.Name = "active";
+            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn5.Width = 200;
             this.Grd_ListOfDevice.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn26,
-            gridViewTextBoxColumn27,
-            gridViewTextBoxColumn28,
-            gridViewTextBoxColumn29,
-            gridViewTextBoxColumn30});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5});
             this.Grd_ListOfDevice.MasterTemplate.EnableCustomSorting = true;
             this.Grd_ListOfDevice.MasterTemplate.EnableFiltering = true;
             this.Grd_ListOfDevice.MasterTemplate.EnableGrouping = false;
             this.Grd_ListOfDevice.MasterTemplate.ShowChildViewCaptions = true;
             this.Grd_ListOfDevice.MasterTemplate.ShowFilteringRow = false;
             this.Grd_ListOfDevice.MasterTemplate.ShowHeaderCellButtons = true;
-            sortDescriptor6.Direction = System.ComponentModel.ListSortDirection.Descending;
-            sortDescriptor6.PropertyName = "DeviceId";
+            sortDescriptor1.Direction = System.ComponentModel.ListSortDirection.Descending;
+            sortDescriptor1.PropertyName = "DeviceId";
             this.Grd_ListOfDevice.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
-            sortDescriptor6});
-            this.Grd_ListOfDevice.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            sortDescriptor1});
+            this.Grd_ListOfDevice.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.Grd_ListOfDevice.Name = "Grd_ListOfDevice";
             this.Grd_ListOfDevice.ReadOnly = true;
             this.Grd_ListOfDevice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -353,6 +359,9 @@
             // 
             this.Gp_CreateDeviceLine.CanvasColor = System.Drawing.SystemColors.Control;
             this.Gp_CreateDeviceLine.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.Gp_CreateDeviceLine.Controls.Add(this.radLabel14);
+            this.Gp_CreateDeviceLine.Controls.Add(this.TxtGapTime);
+            this.Gp_CreateDeviceLine.Controls.Add(this.radLabel13);
             this.Gp_CreateDeviceLine.Controls.Add(this.Txt_DeActiveDesc);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel12);
             this.Gp_CreateDeviceLine.Controls.Add(this.Txt_ActiveStateDesc);
@@ -405,7 +414,7 @@
             // Txt_DeActiveDesc
             // 
             this.Txt_DeActiveDesc.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_DeActiveDesc.Location = new System.Drawing.Point(12, 310);
+            this.Txt_DeActiveDesc.Location = new System.Drawing.Point(12, 280);
             this.Txt_DeActiveDesc.Name = "Txt_DeActiveDesc";
             this.Txt_DeActiveDesc.NullText = "عنوان وضعیت غیر فعال";
             this.Txt_DeActiveDesc.Size = new System.Drawing.Size(158, 26);
@@ -415,7 +424,7 @@
             // 
             this.radLabel12.BackColor = System.Drawing.Color.Transparent;
             this.radLabel12.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel12.Location = new System.Drawing.Point(170, 311);
+            this.radLabel12.Location = new System.Drawing.Point(170, 281);
             this.radLabel12.Name = "radLabel12";
             this.radLabel12.Size = new System.Drawing.Size(117, 24);
             this.radLabel12.TabIndex = 49;
@@ -425,7 +434,7 @@
             // Txt_ActiveStateDesc
             // 
             this.Txt_ActiveStateDesc.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_ActiveStateDesc.Location = new System.Drawing.Point(12, 278);
+            this.Txt_ActiveStateDesc.Location = new System.Drawing.Point(12, 248);
             this.Txt_ActiveStateDesc.Name = "Txt_ActiveStateDesc";
             this.Txt_ActiveStateDesc.NullText = "عنوان وضعیت فعال";
             this.Txt_ActiveStateDesc.Size = new System.Drawing.Size(166, 26);
@@ -435,7 +444,7 @@
             // 
             this.radLabel11.BackColor = System.Drawing.Color.Transparent;
             this.radLabel11.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel11.Location = new System.Drawing.Point(184, 283);
+            this.radLabel11.Location = new System.Drawing.Point(184, 253);
             this.radLabel11.Name = "radLabel11";
             this.radLabel11.Size = new System.Drawing.Size(98, 24);
             this.radLabel11.TabIndex = 47;
@@ -486,7 +495,7 @@
             this.radButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radButton3.Image = ((System.Drawing.Image)(resources.GetObject("radButton3.Image")));
             this.radButton3.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButton3.Location = new System.Drawing.Point(10, 182);
+            this.radButton3.Location = new System.Drawing.Point(10, 152);
             this.radButton3.Name = "radButton3";
             this.radButton3.Size = new System.Drawing.Size(28, 25);
             this.radButton3.TabIndex = 43;
@@ -497,7 +506,7 @@
             this.Btn_InsertPuls.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_InsertPuls.Image = ((System.Drawing.Image)(resources.GetObject("Btn_InsertPuls.Image")));
             this.Btn_InsertPuls.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_InsertPuls.Location = new System.Drawing.Point(10, 85);
+            this.Btn_InsertPuls.Location = new System.Drawing.Point(10, 83);
             this.Btn_InsertPuls.Name = "Btn_InsertPuls";
             this.Btn_InsertPuls.Size = new System.Drawing.Size(28, 25);
             this.Btn_InsertPuls.TabIndex = 41;
@@ -506,55 +515,55 @@
             // Cmb_InputId
             // 
             this.Cmb_InputId.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem25.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            radListDataItem25.Text = "1";
-            radListDataItem26.Text = "2";
-            radListDataItem27.Text = "3";
-            radListDataItem28.Text = "4";
-            radListDataItem29.Text = "5";
-            radListDataItem30.Text = "6";
-            radListDataItem31.Text = "7";
-            radListDataItem32.Text = "8";
-            radListDataItem33.Text = "9";
-            radListDataItem34.Text = "10";
-            radListDataItem35.Text = "11";
-            radListDataItem36.Text = "12";
-            radListDataItem37.Text = "13";
-            radListDataItem38.Text = "14";
-            radListDataItem39.Text = "15";
-            radListDataItem40.Text = "16";
-            radListDataItem41.Text = "17";
-            radListDataItem42.Text = "18";
-            radListDataItem43.Text = "19";
-            radListDataItem44.Text = "20";
-            radListDataItem45.Text = "21";
-            radListDataItem46.Text = "22";
-            radListDataItem47.Text = "23";
-            radListDataItem48.Text = "24";
-            this.Cmb_InputId.Items.Add(radListDataItem25);
-            this.Cmb_InputId.Items.Add(radListDataItem26);
-            this.Cmb_InputId.Items.Add(radListDataItem27);
-            this.Cmb_InputId.Items.Add(radListDataItem28);
-            this.Cmb_InputId.Items.Add(radListDataItem29);
-            this.Cmb_InputId.Items.Add(radListDataItem30);
-            this.Cmb_InputId.Items.Add(radListDataItem31);
-            this.Cmb_InputId.Items.Add(radListDataItem32);
-            this.Cmb_InputId.Items.Add(radListDataItem33);
-            this.Cmb_InputId.Items.Add(radListDataItem34);
-            this.Cmb_InputId.Items.Add(radListDataItem35);
-            this.Cmb_InputId.Items.Add(radListDataItem36);
-            this.Cmb_InputId.Items.Add(radListDataItem37);
-            this.Cmb_InputId.Items.Add(radListDataItem38);
-            this.Cmb_InputId.Items.Add(radListDataItem39);
-            this.Cmb_InputId.Items.Add(radListDataItem40);
-            this.Cmb_InputId.Items.Add(radListDataItem41);
-            this.Cmb_InputId.Items.Add(radListDataItem42);
-            this.Cmb_InputId.Items.Add(radListDataItem43);
-            this.Cmb_InputId.Items.Add(radListDataItem44);
-            this.Cmb_InputId.Items.Add(radListDataItem45);
-            this.Cmb_InputId.Items.Add(radListDataItem46);
-            this.Cmb_InputId.Items.Add(radListDataItem47);
-            this.Cmb_InputId.Items.Add(radListDataItem48);
+            radListDataItem1.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            radListDataItem1.Text = "1";
+            radListDataItem2.Text = "2";
+            radListDataItem3.Text = "3";
+            radListDataItem4.Text = "4";
+            radListDataItem5.Text = "5";
+            radListDataItem6.Text = "6";
+            radListDataItem7.Text = "7";
+            radListDataItem8.Text = "8";
+            radListDataItem9.Text = "9";
+            radListDataItem10.Text = "10";
+            radListDataItem11.Text = "11";
+            radListDataItem12.Text = "12";
+            radListDataItem13.Text = "13";
+            radListDataItem14.Text = "14";
+            radListDataItem15.Text = "15";
+            radListDataItem16.Text = "16";
+            radListDataItem17.Text = "17";
+            radListDataItem18.Text = "18";
+            radListDataItem19.Text = "19";
+            radListDataItem20.Text = "20";
+            radListDataItem21.Text = "21";
+            radListDataItem22.Text = "22";
+            radListDataItem23.Text = "23";
+            radListDataItem24.Text = "24";
+            this.Cmb_InputId.Items.Add(radListDataItem1);
+            this.Cmb_InputId.Items.Add(radListDataItem2);
+            this.Cmb_InputId.Items.Add(radListDataItem3);
+            this.Cmb_InputId.Items.Add(radListDataItem4);
+            this.Cmb_InputId.Items.Add(radListDataItem5);
+            this.Cmb_InputId.Items.Add(radListDataItem6);
+            this.Cmb_InputId.Items.Add(radListDataItem7);
+            this.Cmb_InputId.Items.Add(radListDataItem8);
+            this.Cmb_InputId.Items.Add(radListDataItem9);
+            this.Cmb_InputId.Items.Add(radListDataItem10);
+            this.Cmb_InputId.Items.Add(radListDataItem11);
+            this.Cmb_InputId.Items.Add(radListDataItem12);
+            this.Cmb_InputId.Items.Add(radListDataItem13);
+            this.Cmb_InputId.Items.Add(radListDataItem14);
+            this.Cmb_InputId.Items.Add(radListDataItem15);
+            this.Cmb_InputId.Items.Add(radListDataItem16);
+            this.Cmb_InputId.Items.Add(radListDataItem17);
+            this.Cmb_InputId.Items.Add(radListDataItem18);
+            this.Cmb_InputId.Items.Add(radListDataItem19);
+            this.Cmb_InputId.Items.Add(radListDataItem20);
+            this.Cmb_InputId.Items.Add(radListDataItem21);
+            this.Cmb_InputId.Items.Add(radListDataItem22);
+            this.Cmb_InputId.Items.Add(radListDataItem23);
+            this.Cmb_InputId.Items.Add(radListDataItem24);
             this.Cmb_InputId.Location = new System.Drawing.Point(10, 10);
             this.Cmb_InputId.Name = "Cmb_InputId";
             this.Cmb_InputId.NullText = "انتخاب شماره درگاه ورودی";
@@ -586,8 +595,11 @@
             // CPE_SelectDeActiveLineColor
             // 
             this.CPE_SelectDeActiveLineColor.EditValue = System.Drawing.Color.Empty;
-            this.CPE_SelectDeActiveLineColor.Location = new System.Drawing.Point(12, 254);
+            this.CPE_SelectDeActiveLineColor.Location = new System.Drawing.Point(12, 224);
             this.CPE_SelectDeActiveLineColor.Name = "CPE_SelectDeActiveLineColor";
+            // 
+            // 
+            // 
             this.CPE_SelectDeActiveLineColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CPE_SelectDeActiveLineColor.Size = new System.Drawing.Size(158, 20);
@@ -597,7 +609,7 @@
             // 
             this.radLabel7.BackColor = System.Drawing.Color.Transparent;
             this.radLabel7.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel7.Location = new System.Drawing.Point(175, 253);
+            this.radLabel7.Location = new System.Drawing.Point(175, 223);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(114, 24);
             this.radLabel7.TabIndex = 37;
@@ -607,8 +619,11 @@
             // CPE_SelectActiveLineColor
             // 
             this.CPE_SelectActiveLineColor.EditValue = System.Drawing.Color.Empty;
-            this.CPE_SelectActiveLineColor.Location = new System.Drawing.Point(11, 220);
+            this.CPE_SelectActiveLineColor.Location = new System.Drawing.Point(11, 190);
             this.CPE_SelectActiveLineColor.Name = "CPE_SelectActiveLineColor";
+            // 
+            // 
+            // 
             this.CPE_SelectActiveLineColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.CPE_SelectActiveLineColor.Size = new System.Drawing.Size(159, 20);
@@ -618,7 +633,7 @@
             // 
             this.radLabel6.BackColor = System.Drawing.Color.Transparent;
             this.radLabel6.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel6.Location = new System.Drawing.Point(196, 221);
+            this.radLabel6.Location = new System.Drawing.Point(196, 191);
             this.radLabel6.Name = "radLabel6";
             this.radLabel6.Size = new System.Drawing.Size(88, 24);
             this.radLabel6.TabIndex = 35;
@@ -628,7 +643,7 @@
             // Cmb_ProductionLine
             // 
             this.Cmb_ProductionLine.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_ProductionLine.Location = new System.Drawing.Point(50, 181);
+            this.Cmb_ProductionLine.Location = new System.Drawing.Point(50, 151);
             this.Cmb_ProductionLine.Name = "Cmb_ProductionLine";
             this.Cmb_ProductionLine.NullText = "خط تولیدی";
             this.Cmb_ProductionLine.Size = new System.Drawing.Size(158, 26);
@@ -638,7 +653,7 @@
             // 
             this.radLabel5.BackColor = System.Drawing.Color.Transparent;
             this.radLabel5.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel5.Location = new System.Drawing.Point(218, 180);
+            this.radLabel5.Location = new System.Drawing.Point(218, 150);
             this.radLabel5.Name = "radLabel5";
             this.radLabel5.Size = new System.Drawing.Size(62, 24);
             this.radLabel5.TabIndex = 33;
@@ -648,7 +663,7 @@
             // Cmb_ZaribType
             // 
             this.Cmb_ZaribType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_ZaribType.Location = new System.Drawing.Point(46, 133);
+            this.Cmb_ZaribType.Location = new System.Drawing.Point(46, 116);
             this.Cmb_ZaribType.Name = "Cmb_ZaribType";
             this.Cmb_ZaribType.NullText = "ضریب ورودی";
             this.Cmb_ZaribType.Size = new System.Drawing.Size(162, 26);
@@ -658,7 +673,7 @@
             // 
             this.radLabel4.BackColor = System.Drawing.Color.Transparent;
             this.radLabel4.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel4.Location = new System.Drawing.Point(214, 87);
+            this.radLabel4.Location = new System.Drawing.Point(214, 85);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(66, 24);
             this.radLabel4.TabIndex = 28;
@@ -669,7 +684,7 @@
             // 
             this.radLabel3.BackColor = System.Drawing.Color.Transparent;
             this.radLabel3.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel3.Location = new System.Drawing.Point(216, 132);
+            this.radLabel3.Location = new System.Drawing.Point(216, 115);
             this.radLabel3.Name = "radLabel3";
             this.radLabel3.Size = new System.Drawing.Size(71, 24);
             this.radLabel3.TabIndex = 27;
@@ -679,7 +694,7 @@
             // Cmb_PulsType
             // 
             this.Cmb_PulsType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_PulsType.Location = new System.Drawing.Point(50, 85);
+            this.Cmb_PulsType.Location = new System.Drawing.Point(50, 83);
             this.Cmb_PulsType.Name = "Cmb_PulsType";
             this.Cmb_PulsType.NullText = "ماهیت پالس";
             this.Cmb_PulsType.Size = new System.Drawing.Size(158, 26);
@@ -822,13 +837,13 @@
             this.TreeViewDevice1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(8)))), ((int)(((byte)(134)))));
             this.TreeViewDevice1.Location = new System.Drawing.Point(160, 15);
             this.TreeViewDevice1.Name = "TreeViewDevice1";
-            radTreeNode2.Expanded = true;
-            radTreeNode2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radTreeNode2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
-            radTreeNode2.Name = "Device";
-            radTreeNode2.Text = "دستگاه";
+            radTreeNode1.Expanded = true;
+            radTreeNode1.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            radTreeNode1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
+            radTreeNode1.Name = "Device";
+            radTreeNode1.Text = "دستگاه";
             this.TreeViewDevice1.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode2});
+            radTreeNode1});
             this.TreeViewDevice1.RadContextMenu = this.Mnu_NewDeviceLineManager;
             this.TreeViewDevice1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TreeViewDevice1.ShowLines = true;
@@ -859,13 +874,13 @@
             this.TreeViewDevice2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(8)))), ((int)(((byte)(134)))));
             this.TreeViewDevice2.Location = new System.Drawing.Point(430, 15);
             this.TreeViewDevice2.Name = "TreeViewDevice2";
-            radTreeNode3.Expanded = true;
-            radTreeNode3.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radTreeNode3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
-            radTreeNode3.Name = "Device";
-            radTreeNode3.Text = "دستگاه";
+            radTreeNode2.Expanded = true;
+            radTreeNode2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            radTreeNode2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(8)))), ((int)(((byte)(199)))));
+            radTreeNode2.Name = "Device";
+            radTreeNode2.Text = "دستگاه";
             this.TreeViewDevice2.Nodes.AddRange(new Telerik.WinControls.UI.RadTreeNode[] {
-            radTreeNode3});
+            radTreeNode2});
             this.TreeViewDevice2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TreeViewDevice2.ShowLines = true;
             this.TreeViewDevice2.Size = new System.Drawing.Size(251, 340);
@@ -885,6 +900,40 @@
             this.Img_Device.TabIndex = 18;
             this.Img_Device.TabStop = false;
             this.Img_Device.Visible = false;
+            // 
+            // radLabel13
+            // 
+            this.radLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel13.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radLabel13.Location = new System.Drawing.Point(163, 315);
+            this.radLabel13.Name = "radLabel13";
+            this.radLabel13.Size = new System.Drawing.Size(125, 24);
+            this.radLabel13.TabIndex = 51;
+            this.radLabel13.Text = "مدت زمان قابل صرفه نظر:";
+            this.radLabel13.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // TxtGapTime
+            // 
+            this.TxtGapTime.Location = new System.Drawing.Point(46, 312);
+            this.TxtGapTime.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
+            this.TxtGapTime.Name = "TxtGapTime";
+            this.TxtGapTime.Size = new System.Drawing.Size(120, 28);
+            this.TxtGapTime.TabIndex = 52;
+            // 
+            // radLabel14
+            // 
+            this.radLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel14.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radLabel14.Location = new System.Drawing.Point(14, 314);
+            this.radLabel14.Name = "radLabel14";
+            this.radLabel14.Size = new System.Drawing.Size(28, 24);
+            this.radLabel14.TabIndex = 52;
+            this.radLabel14.Text = "ثانیه";
+            this.radLabel14.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // Frm_DeviceSetting
             // 
@@ -950,6 +999,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Device)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1008,5 +1060,8 @@
         private Telerik.WinControls.UI.RadLabel radLabel12;
         private Telerik.WinControls.UI.RadTextBox Txt_ActiveStateDesc;
         private Telerik.WinControls.UI.RadLabel radLabel11;
+        private Telerik.WinControls.UI.RadLabel radLabel14;
+        private System.Windows.Forms.NumericUpDown TxtGapTime;
+        private Telerik.WinControls.UI.RadLabel radLabel13;
     }
 }

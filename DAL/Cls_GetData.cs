@@ -36,5 +36,9 @@ namespace DAL
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
             return Cls_Public.PublicDT;
         }
+
+
+      
+        
     }
 }

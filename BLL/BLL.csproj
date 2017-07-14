@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Persistent, Version=1.0.4163.19430, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS_Client.cs" />
     <Compile Include="CLS_Device.cs" />
     <Compile Include="CLS_DeviceLine.cs" />
     <Compile Include="Cls_GetData.cs" />

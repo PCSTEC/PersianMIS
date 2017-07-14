@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS_Client.cs" />
     <Compile Include="Cls_Device.cs" />
     <Compile Include="Cls_DevicesLine.cs" />
     <Compile Include="Cls_GetData.cs" />

@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCShowCurrentState));
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCShowCurrentState));
+            this.radButtonElementDeleteTask = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElementAddMilestone = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElementProgress100 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElementProgress50 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radTrackBarElementZoom = new Telerik.WinControls.UI.RadTrackBarElement();
+            this.radRibbonBarGroup5 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.printablePanel = new PersianMIS.CurrentState.PrintablePanel();
+            this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElementAddTask = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementDeleteTask = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementAddMilestone = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementProgress50 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementProgress100 = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup3 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElementWeek = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementMonth = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementYear = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Week = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Month = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Year = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup6 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.radLabelElement1 = new Telerik.WinControls.UI.RadLabelElement();
@@ -52,14 +55,134 @@
             this.radLabelElement2 = new Telerik.WinControls.UI.RadLabelElement();
             this.radDateTimePickerElementEnd = new Telerik.WinControls.UI.RadDateTimePickerElement();
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElementNext = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElementPrevious = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup5 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radTrackBarElementZoom = new Telerik.WinControls.UI.RadTrackBarElement();
-            this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
-            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
+            this.BtnPrint = new Telerik.WinControls.UI.RadButtonElement();
+            ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
+            this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScheduler1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // radButtonElementDeleteTask
+            // 
+            this.radButtonElementDeleteTask.Image = global::PersianMIS.Properties.Resources.GanttDelete;
+            this.radButtonElementDeleteTask.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElementDeleteTask.MaxSize = new System.Drawing.Size(80, 0);
+            this.radButtonElementDeleteTask.Name = "radButtonElementDeleteTask";
+            this.radButtonElementDeleteTask.Text = "Delete selected task";
+            this.radButtonElementDeleteTask.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.radButtonElementDeleteTask.TextWrap = true;
+            this.radButtonElementDeleteTask.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElementAddMilestone
+            // 
+            this.radButtonElementAddMilestone.Image = global::PersianMIS.Properties.Resources.GanttAddMilestone;
+            this.radButtonElementAddMilestone.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElementAddMilestone.MaxSize = new System.Drawing.Size(80, 0);
+            this.radButtonElementAddMilestone.Name = "radButtonElementAddMilestone";
+            this.radButtonElementAddMilestone.Text = "Add milestone";
+            this.radButtonElementAddMilestone.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.radButtonElementAddMilestone.TextWrap = true;
+            this.radButtonElementAddMilestone.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElementProgress100
+            // 
+            this.radButtonElementProgress100.Image = global::PersianMIS.Properties.Resources.Gantt100;
+            this.radButtonElementProgress100.Name = "radButtonElementProgress100";
+            this.radButtonElementProgress100.Text = "100%";
+            this.radButtonElementProgress100.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButtonElementProgress100.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElementProgress50
+            // 
+            this.radButtonElementProgress50.Image = global::PersianMIS.Properties.Resources.Gantt50;
+            this.radButtonElementProgress50.Name = "radButtonElementProgress50";
+            this.radButtonElementProgress50.Text = "50%";
+            this.radButtonElementProgress50.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButtonElementProgress50.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElementProgress25
+            // 
+            this.radButtonElementProgress25.Image = global::PersianMIS.Properties.Resources.Gantt25;
+            this.radButtonElementProgress25.Name = "radButtonElementProgress25";
+            this.radButtonElementProgress25.Text = "25%";
+            this.radButtonElementProgress25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.radButtonElementProgress25.UseCompatibleTextRendering = false;
+            // 
+            // radRibbonBarGroup2
+            // 
+            this.radRibbonBarGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElementProgress25,
+            this.radButtonElementProgress50,
+            this.radButtonElementProgress100});
+            this.radRibbonBarGroup2.Margin = new System.Windows.Forms.Padding(0);
+            this.radRibbonBarGroup2.MaxSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup2.MinSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup2.Name = "radRibbonBarGroup2";
+            this.radRibbonBarGroup2.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.radRibbonBarGroup2.Text = "میزان بزرگنمایی";
+            this.radRibbonBarGroup2.UseCompatibleTextRendering = false;
+            // 
+            // radTrackBarElementZoom
+            // 
+            this.radTrackBarElementZoom.AutoSize = false;
+            this.radTrackBarElementZoom.Bounds = new System.Drawing.Rectangle(0, 0, 483, 42);
+            this.radTrackBarElementZoom.Comparer = null;
+            this.radTrackBarElementZoom.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radTrackBarElementZoom.FitInAvailableSize = true;
+            this.radTrackBarElementZoom.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.radTrackBarElementZoom.Maximum = 50F;
+            this.radTrackBarElementZoom.MinSize = new System.Drawing.Size(100, 0);
+            this.radTrackBarElementZoom.Name = "radTrackBarElementZoom";
+            this.radTrackBarElementZoom.Text = "radButtonElement9";
+            this.radTrackBarElementZoom.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radTrackBarElementZoom.UseCompatibleTextRendering = false;
+            // 
+            // radRibbonBarGroup5
+            // 
+            this.radRibbonBarGroup5.AutoSize = true;
+            this.radRibbonBarGroup5.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radTrackBarElementZoom});
+            this.radRibbonBarGroup5.Margin = new System.Windows.Forms.Padding(0);
+            this.radRibbonBarGroup5.MaxSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup5.MinSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup5.Name = "radRibbonBarGroup5";
+            this.radRibbonBarGroup5.Text = "بزرگنمایی";
+            this.radRibbonBarGroup5.UseCompatibleTextRendering = false;
+            // 
+            // printablePanel
+            // 
+            this.printablePanel.Controls.Add(this.radScheduler1);
+            this.printablePanel.Controls.Add(this.radRibbonBar1);
+            this.printablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.printablePanel.Location = new System.Drawing.Point(0, 0);
+            this.printablePanel.Name = "printablePanel";
+            this.printablePanel.Size = new System.Drawing.Size(1236, 652);
+            this.printablePanel.TabIndex = 0;
+            this.printablePanel.Text = "printablePanel1";
+            // 
+            // radScheduler1
+            // 
+            this.radScheduler1.AllowDrop = true;
+            this.radScheduler1.AllowViewNavigationOnDrag = true;
+            this.radScheduler1.AutoScroll = true;
+            this.radScheduler1.AutoSizeAppointments = true;
+            this.radScheduler1.Culture = new System.Globalization.CultureInfo("fa-IR");
+            this.radScheduler1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radScheduler1.EnableExactTimeRendering = true;
+            this.radScheduler1.EnableKeyMap = true;
+            this.radScheduler1.HeaderFormat = "dd MM yyyy";
+            this.radScheduler1.Location = new System.Drawing.Point(0, 134);
+            this.radScheduler1.Name = "radScheduler1";
+            schedulerDailyPrintStyle1.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            schedulerDailyPrintStyle1.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
+            schedulerDailyPrintStyle1.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            schedulerDailyPrintStyle1.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
+            schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
+            this.radScheduler1.ShowAllDayAppointmentStatus = true;
+            this.radScheduler1.Size = new System.Drawing.Size(1236, 518);
+            this.radScheduler1.TabIndex = 10;
+            this.radScheduler1.Text = "radScheduler1";
             // 
             // radRibbonBar1
             // 
@@ -76,9 +199,9 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(1236, 115);
+            this.radRibbonBar1.Size = new System.Drawing.Size(1236, 134);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
-            this.radRibbonBar1.TabIndex = 6;
+            this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
             this.radRibbonBar1.ThemeName = "TelerikMetroBlue";
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.radRibbonBar1.GetChildAt(0))).Text = "RadGanttViewExample";
@@ -98,133 +221,71 @@
             this.ribbonTab1.IsSelected = true;
             this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radRibbonBarGroup1,
-            this.radRibbonBarGroup2,
             this.radRibbonBarGroup3,
             this.radRibbonBarGroup6,
-            this.radRibbonBarGroup4,
-            this.radRibbonBarGroup5});
+            this.radRibbonBarGroup4});
             this.ribbonTab1.Name = "ribbonTab1";
             this.ribbonTab1.Text = "s";
             this.ribbonTab1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.ribbonTab1.UseCompatibleTextRendering = false;
             // 
             // radRibbonBarGroup1
             // 
             this.radRibbonBarGroup1.AutoSize = false;
             this.radRibbonBarGroup1.Bounds = new System.Drawing.Rectangle(0, 0, 5, 101);
-            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElementAddTask,
-            this.radButtonElementDeleteTask,
-            this.radButtonElementAddMilestone});
             this.radRibbonBarGroup1.Margin = new System.Windows.Forms.Padding(0);
             this.radRibbonBarGroup1.MaxSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup1.MinSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
             this.radRibbonBarGroup1.Text = "ITEMS";
+            this.radRibbonBarGroup1.UseCompatibleTextRendering = false;
             this.radRibbonBarGroup1.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
-            // 
-            // radButtonElementAddTask
-            // 
-            this.radButtonElementAddTask.Image = global::PersianMIS.Properties.Resources.GanttAdd;
-            this.radButtonElementAddTask.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElementAddTask.MaxSize = new System.Drawing.Size(80, 0);
-            this.radButtonElementAddTask.Name = "radButtonElementAddTask";
-            this.radButtonElementAddTask.StretchHorizontally = true;
-            this.radButtonElementAddTask.Text = "Add child to selected item";
-            this.radButtonElementAddTask.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.radButtonElementAddTask.TextWrap = true;
-            // 
-            // radButtonElementDeleteTask
-            // 
-            this.radButtonElementDeleteTask.Image = global::PersianMIS.Properties.Resources.GanttDelete;
-            this.radButtonElementDeleteTask.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElementDeleteTask.MaxSize = new System.Drawing.Size(80, 0);
-            this.radButtonElementDeleteTask.Name = "radButtonElementDeleteTask";
-            this.radButtonElementDeleteTask.Text = "Delete selected task";
-            this.radButtonElementDeleteTask.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.radButtonElementDeleteTask.TextWrap = true;
-            // 
-            // radButtonElementAddMilestone
-            // 
-            this.radButtonElementAddMilestone.Image = global::PersianMIS.Properties.Resources.GanttAddMilestone;
-            this.radButtonElementAddMilestone.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElementAddMilestone.MaxSize = new System.Drawing.Size(80, 0);
-            this.radButtonElementAddMilestone.Name = "radButtonElementAddMilestone";
-            this.radButtonElementAddMilestone.Text = "Add milestone";
-            this.radButtonElementAddMilestone.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.radButtonElementAddMilestone.TextWrap = true;
-            // 
-            // radRibbonBarGroup2
-            // 
-            this.radRibbonBarGroup2.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElementProgress25,
-            this.radButtonElementProgress50,
-            this.radButtonElementProgress100});
-            this.radRibbonBarGroup2.Margin = new System.Windows.Forms.Padding(0);
-            this.radRibbonBarGroup2.MaxSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup2.MinSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup2.Name = "radRibbonBarGroup2";
-            this.radRibbonBarGroup2.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.radRibbonBarGroup2.Text = "میزان بزرگنمایی";
-            // 
-            // radButtonElementProgress25
-            // 
-            this.radButtonElementProgress25.Image = global::PersianMIS.Properties.Resources.Gantt25;
-            this.radButtonElementProgress25.Name = "radButtonElementProgress25";
-            this.radButtonElementProgress25.Text = "25%";
-            this.radButtonElementProgress25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            // 
-            // radButtonElementProgress50
-            // 
-            this.radButtonElementProgress50.Image = global::PersianMIS.Properties.Resources.Gantt50;
-            this.radButtonElementProgress50.Name = "radButtonElementProgress50";
-            this.radButtonElementProgress50.Text = "50%";
-            this.radButtonElementProgress50.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            // 
-            // radButtonElementProgress100
-            // 
-            this.radButtonElementProgress100.Image = global::PersianMIS.Properties.Resources.Gantt100;
-            this.radButtonElementProgress100.Name = "radButtonElementProgress100";
-            this.radButtonElementProgress100.Text = "100%";
-            this.radButtonElementProgress100.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
             // radRibbonBarGroup3
             // 
             this.radRibbonBarGroup3.AccessibleDescription = "NAVIGATE";
             this.radRibbonBarGroup3.AccessibleName = "NAVIGATE";
             this.radRibbonBarGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElementWeek,
-            this.radButtonElementMonth,
-            this.radButtonElementYear});
+            this.Btn_Week,
+            this.Btn_Month,
+            this.Btn_Year});
             this.radRibbonBarGroup3.Margin = new System.Windows.Forms.Padding(0);
             this.radRibbonBarGroup3.MaxSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup3.MinSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup3.Name = "radRibbonBarGroup3";
             this.radRibbonBarGroup3.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.radRibbonBarGroup3.Text = "سبک نمایش";
+            this.radRibbonBarGroup3.UseCompatibleTextRendering = false;
             // 
-            // radButtonElementWeek
+            // Btn_Week
             // 
-            this.radButtonElementWeek.Image = global::PersianMIS.Properties.Resources.GanttWeek;
-            this.radButtonElementWeek.Name = "radButtonElementWeek";
-            this.radButtonElementWeek.Text = "هفتگی";
-            this.radButtonElementWeek.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.radButtonElementWeek.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Week.Image = global::PersianMIS.Properties.Resources.GanttWeek;
+            this.Btn_Week.Name = "Btn_Week";
+            this.Btn_Week.Text = "هفتگی";
+            this.Btn_Week.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.Btn_Week.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Week.UseCompatibleTextRendering = false;
+            this.Btn_Week.Click += new System.EventHandler(this.radButtonElementWeek_Click);
             // 
-            // radButtonElementMonth
+            // Btn_Month
             // 
-            this.radButtonElementMonth.Image = global::PersianMIS.Properties.Resources.GanttMonth;
-            this.radButtonElementMonth.Name = "radButtonElementMonth";
-            this.radButtonElementMonth.Text = "ماهیانه";
-            this.radButtonElementMonth.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.radButtonElementMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Month.Image = global::PersianMIS.Properties.Resources.GanttMonth;
+            this.Btn_Month.Name = "Btn_Month";
+            this.Btn_Month.Text = "ماهیانه";
+            this.Btn_Month.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.Btn_Month.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Month.UseCompatibleTextRendering = false;
+            this.Btn_Month.Click += new System.EventHandler(this.Btn_Month_Click);
             // 
-            // radButtonElementYear
+            // Btn_Year
             // 
-            this.radButtonElementYear.Image = global::PersianMIS.Properties.Resources.GanttYear;
-            this.radButtonElementYear.Name = "radButtonElementYear";
-            this.radButtonElementYear.Text = "سالیانه";
-            this.radButtonElementYear.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.radButtonElementYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Year.Image = global::PersianMIS.Properties.Resources.GanttYear;
+            this.Btn_Year.Name = "Btn_Year";
+            this.Btn_Year.Text = "سالیانه";
+            this.Btn_Year.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.Btn_Year.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Year.UseCompatibleTextRendering = false;
+            this.Btn_Year.Click += new System.EventHandler(this.Btn_Year_Click);
             // 
             // radRibbonBarGroup6
             // 
@@ -239,6 +300,7 @@
             this.radRibbonBarGroup6.Name = "radRibbonBarGroup6";
             this.radRibbonBarGroup6.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.radRibbonBarGroup6.Text = "نرخ نمایش";
+            this.radRibbonBarGroup6.UseCompatibleTextRendering = false;
             // 
             // radRibbonBarButtonGroup1
             // 
@@ -250,6 +312,7 @@
             this.radRibbonBarButtonGroup1.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup1.ShowBackColor = false;
             this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
+            this.radRibbonBarButtonGroup1.UseCompatibleTextRendering = false;
             // 
             // radLabelElement1
             // 
@@ -257,17 +320,21 @@
             this.radLabelElement1.Text = "شروع";
             this.radLabelElement1.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.radLabelElement1.TextWrap = true;
+            this.radLabelElement1.UseCompatibleTextRendering = false;
             // 
             // radDateTimePickerElementStart
             // 
+            this.radDateTimePickerElementStart.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radDateTimePickerElementStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.radDateTimePickerElementStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.radDateTimePickerElementStart.MinDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementStart.MinSize = new System.Drawing.Size(130, 0);
             this.radDateTimePickerElementStart.Name = "radDateTimePickerElementStart";
             this.radDateTimePickerElementStart.NullDate = new System.DateTime(((long)(0)));
+            this.radDateTimePickerElementStart.RightToLeft = true;
             this.radDateTimePickerElementStart.StretchVertically = false;
             this.radDateTimePickerElementStart.Text = "radButtonElement9";
+            this.radDateTimePickerElementStart.UseCompatibleTextRendering = false;
             // 
             // radRibbonBarButtonGroup2
             // 
@@ -279,6 +346,7 @@
             this.radRibbonBarButtonGroup2.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup2.ShowBackColor = false;
             this.radRibbonBarButtonGroup2.Text = "radRibbonBarButtonGroup2";
+            this.radRibbonBarButtonGroup2.UseCompatibleTextRendering = false;
             // 
             // radLabelElement2
             // 
@@ -287,6 +355,7 @@
             this.radLabelElement2.Text = "پایان";
             this.radLabelElement2.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             this.radLabelElement2.TextWrap = true;
+            this.radLabelElement2.UseCompatibleTextRendering = false;
             // 
             // radDateTimePickerElementEnd
             // 
@@ -298,125 +367,67 @@
             this.radDateTimePickerElementEnd.NullDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementEnd.StretchVertically = false;
             this.radDateTimePickerElementEnd.Text = "radButtonElement10";
+            this.radDateTimePickerElementEnd.UseCompatibleTextRendering = false;
             // 
             // radRibbonBarGroup4
             // 
-            this.radRibbonBarGroup4.AccessibleDescription = "ZOOM";
-            this.radRibbonBarGroup4.AccessibleName = "ZOOM";
+            this.radRibbonBarGroup4.AccessibleDescription = "Print";
+            this.radRibbonBarGroup4.AccessibleName = "Print";
             this.radRibbonBarGroup4.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElementPrevious,
-            this.radButtonElementNext});
+            this.BtnPrint});
             this.radRibbonBarGroup4.Margin = new System.Windows.Forms.Padding(0);
             this.radRibbonBarGroup4.MaxSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup4.MinSize = new System.Drawing.Size(0, 0);
             this.radRibbonBarGroup4.Name = "radRibbonBarGroup4";
-            this.radRibbonBarGroup4.Text = "پیمایش";
+            this.radRibbonBarGroup4.Text = "چاپ اطلاعات";
+            this.radRibbonBarGroup4.UseCompatibleTextRendering = false;
             // 
-            // radButtonElementNext
+            // BtnPrint
             // 
-            this.radButtonElementNext.Image = global::PersianMIS.Properties.Resources.GantPrevious;
-            this.radButtonElementNext.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElementNext.MinSize = new System.Drawing.Size(60, 0);
-            this.radButtonElementNext.Name = "radButtonElementNext";
-            this.radButtonElementNext.Text = "بعدی";
-            this.radButtonElementNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // radButtonElementPrevious
-            // 
-            this.radButtonElementPrevious.Image = global::PersianMIS.Properties.Resources.GanttNext;
-            this.radButtonElementPrevious.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElementPrevious.MinSize = new System.Drawing.Size(60, 0);
-            this.radButtonElementPrevious.Name = "radButtonElementPrevious";
-            this.radButtonElementPrevious.Text = "قبلی";
-            this.radButtonElementPrevious.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.radButtonElementPrevious.Click += new System.EventHandler(this.radButtonElementPrevious_Click);
-            // 
-            // radRibbonBarGroup5
-            // 
-            this.radRibbonBarGroup5.AutoSize = true;
-            this.radRibbonBarGroup5.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radTrackBarElementZoom});
-            this.radRibbonBarGroup5.Margin = new System.Windows.Forms.Padding(0);
-            this.radRibbonBarGroup5.MaxSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup5.MinSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup5.Name = "radRibbonBarGroup5";
-            this.radRibbonBarGroup5.Text = "بزرگنمایی";
-            // 
-            // radTrackBarElementZoom
-            // 
-            this.radTrackBarElementZoom.AutoSize = false;
-            this.radTrackBarElementZoom.Bounds = new System.Drawing.Rectangle(0, 0, 483, 42);
-            this.radTrackBarElementZoom.Comparer = null;
-            this.radTrackBarElementZoom.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radTrackBarElementZoom.FitInAvailableSize = true;
-            this.radTrackBarElementZoom.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.radTrackBarElementZoom.Maximum = 50F;
-            this.radTrackBarElementZoom.MinSize = new System.Drawing.Size(100, 0);
-            this.radTrackBarElementZoom.Name = "radTrackBarElementZoom";
-            this.radTrackBarElementZoom.Text = "radButtonElement9";
-            this.radTrackBarElementZoom.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radTrackBarElementZoom.ValueChanged += new System.EventHandler(this.radTrackBarElementZoom_ValueChanged);
-            // 
-            // radScheduler1
-            // 
-            this.radScheduler1.AllowDrop = true;
-            this.radScheduler1.AllowViewNavigationOnDrag = true;
-            this.radScheduler1.AutoScroll = true;
-            this.radScheduler1.AutoSizeAppointments = true;
-            this.radScheduler1.Culture = new System.Globalization.CultureInfo("fa-IR");
-            this.radScheduler1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radScheduler1.EnableExactTimeRendering = true;
-            this.radScheduler1.EnableKeyMap = true;
-            this.radScheduler1.HeaderFormat = "dd MM yyyy";
-            this.radScheduler1.Location = new System.Drawing.Point(0, 115);
-            this.radScheduler1.Name = "radScheduler1";
-            schedulerDailyPrintStyle1.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            schedulerDailyPrintStyle1.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
-            schedulerDailyPrintStyle1.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            schedulerDailyPrintStyle1.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
-            schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
-            this.radScheduler1.ShowAllDayAppointmentStatus = true;
-            this.radScheduler1.Size = new System.Drawing.Size(1236, 537);
-            this.radScheduler1.TabIndex = 8;
-            this.radScheduler1.Text = "radScheduler1";
-            this.radScheduler1.CellFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerCellEventArgs>(this.radScheduler1_CellFormatting);
+            this.BtnPrint.AccessibleDescription = "چاپ";
+            this.BtnPrint.AccessibleName = "چاپ";
+            this.BtnPrint.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            this.BtnPrint.Image = global::PersianMIS.Properties.Resources.printer1;
+            this.BtnPrint.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnPrint.MinSize = new System.Drawing.Size(60, 0);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+            this.BtnPrint.Text = "چاپ پیمایش زمانی";
+            this.BtnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnPrint.UseCompatibleTextRendering = false;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // UCShowCurrentState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.radScheduler1);
-            this.Controls.Add(this.radRibbonBar1);
+            this.Controls.Add(this.printablePanel);
             this.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "UCShowCurrentState";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(1236, 652);
             this.Load += new System.EventHandler(this.UCShowCurrentState_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).EndInit();
+            this.printablePanel.ResumeLayout(false);
+            this.printablePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScheduler1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private PrintablePanel printablePanel;
+        private Telerik.WinControls.UI.RadScheduler radScheduler1;
         private Telerik.WinControls.UI.RadRibbonBar radRibbonBar1;
         private Telerik.WinControls.UI.RibbonTab ribbonTab1;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementAddTask;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementDeleteTask;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementAddMilestone;
-        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup2;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress25;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress50;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress100;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup3;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementWeek;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementMonth;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementYear;
+        private Telerik.WinControls.UI.RadButtonElement Btn_Week;
+        private Telerik.WinControls.UI.RadButtonElement Btn_Month;
+        private Telerik.WinControls.UI.RadButtonElement Btn_Year;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup6;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup1;
         private Telerik.WinControls.UI.RadLabelElement radLabelElement1;
@@ -425,10 +436,14 @@
         private Telerik.WinControls.UI.RadLabelElement radLabelElement2;
         private Telerik.WinControls.UI.RadDateTimePickerElement radDateTimePickerElementEnd;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup4;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementNext;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElementPrevious;
-        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup5;
+        private Telerik.WinControls.UI.RadButtonElement BtnPrint;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElementDeleteTask;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElementAddMilestone;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress100;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress50;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElementProgress25;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup2;
         private Telerik.WinControls.UI.RadTrackBarElement radTrackBarElementZoom;
-        private Telerik.WinControls.UI.RadScheduler radScheduler1;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup5;
     }
 }

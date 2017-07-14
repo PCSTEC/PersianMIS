@@ -50,6 +50,14 @@ public     class Cls_Station
         }
 
 
+        public DataTable GetAllStationData(string StartDate, String EndDate)
+        {
+            Cls_Public.SqlStr = "select * from GetAllStationData (CONVERT(DATETIME, '" + StartDate + "', 102),CONVERT(DATETIME, '" + EndDate + "', 102)  ) as x    ";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
+
+
         public DataTable GetStations(int ProductLineId)
         {
             if (ProductLineId!= 0)

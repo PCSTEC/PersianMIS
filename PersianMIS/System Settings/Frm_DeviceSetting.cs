@@ -100,7 +100,7 @@ namespace PersianMIS.System_Settings
         {
 
 
-            BLL_DeviceLine.Insert("SP_insertDevicesLine", Convert.ToInt32(Cmb_InputId.Text), Txt_InputCaption.Text, Deviceid, Convert.ToInt32(Cmb_PulsType.SelectedValue), Convert.ToInt32(Cmb_ZaribType.SelectedValue), Convert.ToInt32(Cmb_ProductionLine.SelectedValue), CPE_SelectActiveLineColor.Color.ToArgb().ToString(), CPE_SelectDeActiveLineColor.Color.ToArgb().ToString(), false,Txt_ActiveStateDesc.Text , Txt_DeActiveDesc.Text );
+            BLL_DeviceLine.Insert("SP_insertDevicesLine", Convert.ToInt32(Cmb_InputId.Text), Txt_InputCaption.Text, Deviceid, Convert.ToInt32(Cmb_PulsType.SelectedValue), Convert.ToInt32(Cmb_ZaribType.SelectedValue), Convert.ToInt32(Cmb_ProductionLine.SelectedValue), CPE_SelectActiveLineColor.Color.ToArgb().ToString(), CPE_SelectDeActiveLineColor.Color.ToArgb().ToString(), false,Txt_ActiveStateDesc.Text , Txt_DeActiveDesc.Text ,Convert.ToInt32( TxtGapTime.Value) );
             CrateNewLine(Txt_InputCaption.Text, Convert.ToInt32(Cmb_InputId.Text));
 
         }
@@ -190,6 +190,7 @@ namespace PersianMIS.System_Settings
             CPE_SelectDeActiveLineColor.Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[0]["DeActiveColor"].ToString()));
             Txt_ActiveStateDesc.Text = Dt.DefaultView[0]["ActiveStateDesc"].ToString();
             Txt_DeActiveDesc.Text= Dt.DefaultView[0]["DeActiveStateDesc"].ToString();
+            TxtGapTime.Value=Convert.ToInt32( Dt.DefaultView[0]["gaptime"].ToString());
         }
 
         private void Btn_UpdateInputLine_Click(object sender, EventArgs e)
@@ -197,7 +198,7 @@ namespace PersianMIS.System_Settings
             if (MessageBox.Show("آیا مطمن هستید از ویرایش اطلاعات خط ورودی", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) ;
             {
 
-                BLL_DeviceLine.Update("SP_UpdateDevicesLine", Convert.ToInt32(Cmb_InputId.Text), Txt_InputCaption.Text, Deviceid, Convert.ToInt32(Cmb_PulsType.SelectedValue), Convert.ToInt32(Cmb_ZaribType.SelectedValue), Convert.ToInt32(Cmb_ProductionLine.SelectedValue), CPE_SelectActiveLineColor.Color.ToArgb().ToString(), CPE_SelectDeActiveLineColor.Color.ToArgb().ToString(), false,Txt_ActiveStateDesc.Text,Txt_DeActiveDesc.Text );
+                BLL_DeviceLine.Update("SP_UpdateDevicesLine", Convert.ToInt32(Cmb_InputId.Text), Txt_InputCaption.Text, Deviceid, Convert.ToInt32(Cmb_PulsType.SelectedValue), Convert.ToInt32(Cmb_ZaribType.SelectedValue), Convert.ToInt32(Cmb_ProductionLine.SelectedValue), CPE_SelectActiveLineColor.Color.ToArgb().ToString(), CPE_SelectDeActiveLineColor.Color.ToArgb().ToString(), false,Txt_ActiveStateDesc.Text,Txt_DeActiveDesc.Text ,Convert.ToInt32(TxtGapTime.Value));
                 MessageBox.Show("اطلاعات مورد نظر با موفقیت بروز رسانی گردید", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (Convert.ToInt32(Cmb_InputId.Text) <= 12)
                 {
@@ -396,6 +397,7 @@ namespace PersianMIS.System_Settings
 
             Txt_DeviceCaption.Text = "";
             Txt_InputCaption.Text = "";
+            TxtGapTime.Value = 0;
             Txt_PCName.Text = System.Net.Dns.GetHostName();
             Gp_Device.Enabled = true;
             Gp_CreateDeviceLine.Visible = false;

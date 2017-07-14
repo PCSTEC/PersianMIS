@@ -131,9 +131,8 @@ namespace PersianMIS.ProductionControl
         private void ShowProductionStatusUserControl_Load(object sender, EventArgs e)
         {
             this.radGanttView1.ItemChildIdNeeded += radGanttView1_ItemChildIdNeeded;
-            this.radButtonElementAddTask.Click += radButtonElementAddTask_Click;
-            this.radButtonElementDeleteTask.Click += radButtonElementDeleteTask_Click;
-            this.radButtonElementAddMilestone.Click += radButtonElementAddMilestone_Click;
+            //this.radButtonElementAddTask.Click += radButtonElementAddTask_Click;
+
             this.radButtonElementProgress25.Click += radButtonElementProgress25_Click;
             this.radButtonElementProgress50.Click += radButtonElementProgress50_Click;
             this.radButtonElementProgress100.Click += radButtonElementProgress100_Click;
@@ -145,7 +144,7 @@ namespace PersianMIS.ProductionControl
             this.radButtonElementPrevious.Click += radButtonElementPrevious_Click;
             this.radButtonElementNext.Click += radButtonElementNext_Click;
             this.radTrackBarElementZoom.ValueChanged += radTrackBarElementZoom_ValueChanged;
-
+            radRibbonBarGroup3.Click += radButtonElementWeek_Click;
         }
     
         private void radGanttView1_ItemChildIdNeeded(object sender, GanttViewItemChildIdNeededEventArgs e)
@@ -266,9 +265,29 @@ namespace PersianMIS.ProductionControl
             this.radGanttView1.GanttViewElement.GraphicalViewElement.OnePixelTime = new TimeSpan(0, (int)this.radTrackBarElementZoom.Value, 0);
         }
 
+        private void radButtonElementAddMilestone_Click_1(object sender, EventArgs e)
+        {
 
+        }
 
+        private void radButtonElementAddMilestone_ChildrenChanged(object sender, ChildrenChangedEventArgs e)
+        {
 
+        }
 
+        private void radButtonElementAddMilestone_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void radButtonElementWeek_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radButtonElement5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

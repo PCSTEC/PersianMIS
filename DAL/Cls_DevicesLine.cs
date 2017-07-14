@@ -9,7 +9,7 @@ namespace DAL
 {
     public class Cls_DevicesLine
     {
-        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc)
+        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
@@ -25,13 +25,14 @@ namespace DAL
             
             Cls_Public.Pers.Sp_AddParam("@ActiveStateDesc", System.Data.SqlDbType.NVarChar, ActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeActiveStateDesc", System.Data.SqlDbType.NVarChar, DeActiveStateDesc, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@GapTime", System.Data.SqlDbType.Int, GapTime , System.Data.ParameterDirection.Input);
 
             Cls_Public.Pers.Sp_Exe(SPname, Cls_Public.CnnStr, true);
             Cls_Public.Pers.ClearParameter();
         }
 
 
-        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc)
+        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
@@ -46,6 +47,7 @@ namespace DAL
             Cls_Public.Pers.Sp_AddParam("@LineActive", System.Data.SqlDbType.Bit, LineActive, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ActiveStateDesc", System.Data.SqlDbType.NVarChar, ActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeActiveStateDesc", System.Data.SqlDbType.NVarChar, DeActiveStateDesc, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@GapTime", System.Data.SqlDbType.Int, GapTime, System.Data.ParameterDirection.Input);
 
             Cls_Public.Pers.Sp_Exe(SPname, Cls_Public.CnnStr, true);
             Cls_Public.Pers.ClearParameter();
@@ -101,12 +103,15 @@ namespace DAL
 
         }
 
-        public DataTable GetAllStationData()
+      
+
+        public DataTable GetAllResource()
         {
-            Cls_Public.SqlStr = "select * from GetAllStationData() ";
+            Cls_Public.SqlStr = "select * from Vw_Resources  ";
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
             return Cls_Public.PublicDT;
         }
+        
         public DataTable GetLastStateFromSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime)
         {
             Cls_Public.SqlStr = "select * from GetLastStateFromSpecialLineStateByDate('" + DeviceId + "','" + LineId + "','" + StartDate + "','" + StartTime + "')";

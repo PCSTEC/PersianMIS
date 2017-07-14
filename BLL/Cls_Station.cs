@@ -29,5 +29,11 @@ namespace BLL
         {
             Dal_Station.Delete(StationId);
         }
+
+        public DataTable GetAllStationData(string StartDate , string EndDate)
+        {
+            return Dal_Station.GetAllStationData(StartDate,EndDate );
+        }
+
     }
 }

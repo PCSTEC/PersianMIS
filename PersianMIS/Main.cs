@@ -19,6 +19,8 @@ namespace PersianMIS
 
         IraniDate.IraniDate.IraniDate CurrentDate = new IraniDate.IraniDate.IraniDate();
         BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
+        BLL.Cls_GetData Bll_GetData = new BLL.Cls_GetData();
+        BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         int CurrentStationId;
         # endregion
 
@@ -182,33 +184,33 @@ namespace PersianMIS
                 return;
             }
             Pnl_Main.Controls.Clear();
-            DataTable Dt = new DataTable();
-            Dt = Bll_Station.GetStations(Convert.ToInt32(ProductLineId));
+       
+            BLL.Cls_PublicOperations.Dt = Bll_Station.GetStations(Convert.ToInt32(ProductLineId));
 
             Dictionary<string, StationControl.StationUserControl> Station = new Dictionary<string, StationControl.StationUserControl>();
 
-            for (int i = 0; i < Dt.Rows.Count; i++)
+            for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
             {
-                Station.Add(Dt.DefaultView[i]["StationId"].ToString(), new StationControl.StationUserControl());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].TitleBar.Text = Dt.DefaultView[i]["StationDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Tag = Dt.DefaultView[i]["StationId"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Click += new DevComponents.DotNetBar.ClickEventHandler(this.CloseStation);
-                Station[Dt.DefaultView[i]["StationId"].ToString()].Tag = Dt.DefaultView[i]["StationId"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].DeviceId = Convert.ToInt32(Dt.DefaultView[i]["DeviceId"].ToString());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].LineID = Convert.ToInt32(Dt.DefaultView[i]["LineId"].ToString());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].DeviceTypeCode = Convert.ToInt32(Dt.DefaultView[i]["PulsTypeId"].ToString());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].ActiveStateDesc = Dt.DefaultView[i]["ActiveStateDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].DeActiveStateDesc = Dt.DefaultView[i]["DeActiveStateDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].ProductLineDesc = Dt.DefaultView[i]["ProductLineDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].deviceDesc = Dt.DefaultView[i]["DeviceDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].Linedesc = Dt.DefaultView[i]["LineDesc"].ToString();
-                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiStartDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date)).ToString());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiStartTime = BeginTime;
-                Station[Dt.DefaultView[i]["StationId"].ToString()].ShamsiStartDate = Date;
-                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiiEndDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.GetPlussToIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date), NumberOfDay)).ToString());
-                Station[Dt.DefaultView[i]["StationId"].ToString()].MiladiEndTime = EndTime;
-                Station[Dt.DefaultView[i]["StationId"].ToString()].CreateObjects();
-                Pnl_Main.Controls.Add(Station[Dt.DefaultView[i]["StationId"].ToString()]);
+                Station.Add(BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString(), new StationControl.StationUserControl());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].TitleBar.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Click += new DevComponents.DotNetBar.ClickEventHandler(this.CloseStation);
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeviceId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceId"].ToString());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].LineID = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineId"].ToString());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeviceTypeCode = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["PulsTypeId"].ToString());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ActiveStateDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ActiveStateDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeActiveStateDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ProductLineDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].deviceDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].Linedesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiStartDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date)).ToString());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiStartTime = BeginTime;
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ShamsiStartDate = Date;
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiiEndDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.GetPlussToIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date), NumberOfDay)).ToString());
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiEndTime = EndTime;
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].CreateObjects();
+                Pnl_Main.Controls.Add(Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()]);
             }
 
             int x;
@@ -280,12 +282,31 @@ namespace PersianMIS
         private void Btn_LineState_Click(object sender, EventArgs e)
         {
             var Pnl = new CurrentState.UCShowCurrentState ();
-            Pnl_Main.Controls.Clear();
+             Pnl_Main.Controls.Clear();
             Pnl.Width = Pnl_Main.Width-18;
             Pnl.Height = Pnl_Main.Height-14;
             Pnl_Main.Controls.Add(Pnl);
 
              
+
+        }
+
+        private void Btn_CalcDurations_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            double totalHours;
+            BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
+           for (int i=0; i<= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            {
+                DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+
+
+                totalHours = (EndDate - FirstDate).TotalSeconds;
+                Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            }
+            this.Cursor = Cursors.Default  ;
+            MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
         }
     }
