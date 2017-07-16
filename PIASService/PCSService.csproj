@@ -83,6 +83,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{d54988e7-f74a-4962-9813-ace9a3f92a2f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{b274f6b5-1179-4c7c-8e91-028779542b05}</Project>
       <Name>DAL</Name>

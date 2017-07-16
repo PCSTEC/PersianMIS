@@ -281,13 +281,42 @@ namespace PersianMIS
 
         private void Btn_LineState_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+            double totalHours;
+            BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
+            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            {
+                DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+
+
+                totalHours = (EndDate - FirstDate).TotalSeconds;
+                Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            }
+
+
+            BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
+            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            {
+                DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+                totalHours = (EndDate - FirstDate).TotalSeconds;
+
+
+
+                Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            }
+
+
+
+
             var Pnl = new CurrentState.UCShowCurrentState ();
              Pnl_Main.Controls.Clear();
             Pnl.Width = Pnl_Main.Width-18;
             Pnl.Height = Pnl_Main.Height-14;
             Pnl_Main.Controls.Add(Pnl);
 
-             
+              this.Cursor = Cursors.Default;
 
         }
 
@@ -305,6 +334,24 @@ namespace PersianMIS
                 totalHours = (EndDate - FirstDate).TotalSeconds;
                 Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
             }
+
+
+            BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
+            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            {
+                DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+                totalHours = (EndDate - FirstDate).TotalSeconds;
+
+
+             
+                Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            }
+
+
+
+
+
             this.Cursor = Cursors.Default  ;
             MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
 

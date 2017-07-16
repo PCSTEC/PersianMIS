@@ -16,7 +16,10 @@ namespace BLL
             DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime );
 
         }
-
+        public DataTable GetLastResourceState()
+        {
+            return DAL_DeviceLine.GetLastResourceState();
+        }
         public void Delete(string SPName, string DeviceId, string LineId)
         {
             DAL_DeviceLine.Delete(SPName, DeviceId, LineId);

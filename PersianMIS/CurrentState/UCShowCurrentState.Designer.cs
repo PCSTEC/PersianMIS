@@ -40,6 +40,7 @@
             this.radRibbonBarGroup5 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.printablePanel = new PersianMIS.CurrentState.PrintablePanel();
             this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
+            this.button1 = new System.Windows.Forms.Button();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -56,9 +57,15 @@
             this.radDateTimePickerElementEnd = new Telerik.WinControls.UI.RadDateTimePickerElement();
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.BtnPrint = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup8 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.UpdateTimeBar = new Telerik.WinControls.UI.RadTrackBarElement();
+            this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
+            this.radRibbonBarGroup7 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
             this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScheduler1)).BeginInit();
+            this.radScheduler1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,12 +173,13 @@
             this.radScheduler1.AllowViewNavigationOnDrag = true;
             this.radScheduler1.AutoScroll = true;
             this.radScheduler1.AutoSizeAppointments = true;
+            this.radScheduler1.Controls.Add(this.button1);
             this.radScheduler1.Culture = new System.Globalization.CultureInfo("fa-IR");
             this.radScheduler1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radScheduler1.EnableExactTimeRendering = true;
             this.radScheduler1.EnableKeyMap = true;
             this.radScheduler1.HeaderFormat = "dd MM yyyy";
-            this.radScheduler1.Location = new System.Drawing.Point(0, 134);
+            this.radScheduler1.Location = new System.Drawing.Point(0, 138);
             this.radScheduler1.Name = "radScheduler1";
             schedulerDailyPrintStyle1.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             schedulerDailyPrintStyle1.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
@@ -180,14 +188,27 @@
             schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
             this.radScheduler1.ShowAllDayAppointmentStatus = true;
-            this.radScheduler1.Size = new System.Drawing.Size(1236, 518);
+            this.radScheduler1.Size = new System.Drawing.Size(1236, 514);
             this.radScheduler1.TabIndex = 10;
             this.radScheduler1.Text = "radScheduler1";
+            this.radScheduler1.CellFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerCellEventArgs>(this.radScheduler1_CellFormatting);
+            this.radScheduler1.AppointmentFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerAppointmentEventArgs>(this.radScheduler1_AppointmentFormatting);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(456, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // radRibbonBar1
             // 
             this.radRibbonBar1.CommandTabs.AddRange(new Telerik.WinControls.RadItem[] {
-            this.ribbonTab1});
+            this.ribbonTab1,
+            this.ribbonTab2});
             // 
             // 
             // 
@@ -199,7 +220,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(1236, 134);
+            this.radRibbonBar1.Size = new System.Drawing.Size(1236, 138);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -223,7 +244,8 @@
             this.radRibbonBarGroup1,
             this.radRibbonBarGroup3,
             this.radRibbonBarGroup6,
-            this.radRibbonBarGroup4});
+            this.radRibbonBarGroup4,
+            this.radRibbonBarGroup8});
             this.ribbonTab1.Name = "ribbonTab1";
             this.ribbonTab1.Text = "s";
             this.ribbonTab1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -335,6 +357,7 @@
             this.radDateTimePickerElementStart.StretchVertically = false;
             this.radDateTimePickerElementStart.Text = "radButtonElement9";
             this.radDateTimePickerElementStart.UseCompatibleTextRendering = false;
+            this.radDateTimePickerElementStart.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementStart_ValueChanged);
             // 
             // radRibbonBarButtonGroup2
             // 
@@ -368,6 +391,7 @@
             this.radDateTimePickerElementEnd.StretchVertically = false;
             this.radDateTimePickerElementEnd.Text = "radButtonElement10";
             this.radDateTimePickerElementEnd.UseCompatibleTextRendering = false;
+            this.radDateTimePickerElementEnd.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementEnd_ValueChanged);
             // 
             // radRibbonBarGroup4
             // 
@@ -397,6 +421,58 @@
             this.BtnPrint.UseCompatibleTextRendering = false;
             this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
+            // radRibbonBarGroup8
+            // 
+            this.radRibbonBarGroup8.AutoSize = false;
+            this.radRibbonBarGroup8.Bounds = new System.Drawing.Rectangle(0, 0, 108, 124);
+            this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.UpdateTimeBar});
+            this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
+            this.radRibbonBarGroup8.Text = "بروز رسانی نمودار";
+            // 
+            // UpdateTimeBar
+            // 
+            this.UpdateTimeBar.Comparer = null;
+            this.UpdateTimeBar.FitInAvailableSize = true;
+            this.UpdateTimeBar.Maximum = 30F;
+            this.UpdateTimeBar.Minimum = 1F;
+            this.UpdateTimeBar.Name = "UpdateTimeBar";
+            this.UpdateTimeBar.Text = "radTrackBarElement1";
+            this.UpdateTimeBar.ToolTipText = "مدت زمان بروز رسانی اتوماتیک نمودار بر حسب دقیقه";
+            this.UpdateTimeBar.Value = 1F;
+            // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Name = "ribbonTab2";
+            this.ribbonTab2.Text = "ribbonTab2";
+            // 
+            // radRibbonBarGroup7
+            // 
+            this.radRibbonBarGroup7.AccessibleDescription = "Print";
+            this.radRibbonBarGroup7.AccessibleName = "Print";
+            this.radRibbonBarGroup7.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement1});
+            this.radRibbonBarGroup7.Margin = new System.Windows.Forms.Padding(0);
+            this.radRibbonBarGroup7.MaxSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup7.MinSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup7.Name = "radRibbonBarGroup7";
+            this.radRibbonBarGroup7.Text = "چاپ اطلاعات";
+            this.radRibbonBarGroup7.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElement1
+            // 
+            this.radButtonElement1.AccessibleDescription = "چاپ";
+            this.radButtonElement1.AccessibleName = "چاپ";
+            this.radButtonElement1.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            this.radButtonElement1.Image = global::PersianMIS.Properties.Resources.printer1;
+            this.radButtonElement1.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement1.MinSize = new System.Drawing.Size(60, 0);
+            this.radButtonElement1.Name = "radButtonElement1";
+            this.radButtonElement1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
+            this.radButtonElement1.Text = "چاپ پیمایش زمانی";
+            this.radButtonElement1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.radButtonElement1.UseCompatibleTextRendering = false;
+            // 
             // UCShowCurrentState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -412,6 +488,7 @@
             this.printablePanel.ResumeLayout(false);
             this.printablePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScheduler1)).EndInit();
+            this.radScheduler1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
             this.ResumeLayout(false);
 
@@ -445,5 +522,11 @@
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup2;
         private Telerik.WinControls.UI.RadTrackBarElement radTrackBarElementZoom;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup5;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup7;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement1;
+        private Telerik.WinControls.UI.RibbonTab ribbonTab2;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup8;
+        private Telerik.WinControls.UI.RadTrackBarElement UpdateTimeBar;
+        private System.Windows.Forms.Button button1;
     }
 }

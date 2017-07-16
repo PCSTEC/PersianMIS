@@ -40,16 +40,22 @@ Namespace DataAccess
         End Function
 
         Public Function FillDataReader(ByRef dr1 As SqlClient.SqlDataReader, ByVal wstr As String, ByVal ConStr As String) As SqlClient.SqlDataReader
-            Dim cmd As SqlClient.SqlCommand
-            Dim cnn1 As New SqlClient.SqlConnection
-            cnn1.Close()
-            cnn1.ConnectionString = ConStr
-            cnn1.Open()
             Try
-                'GetCnn(ConStr)
-                cmd = New SqlClient.SqlCommand(wstr, cnn1)
-                dr1 = cmd.ExecuteReader
 
+
+                Dim cmd As SqlClient.SqlCommand
+                Dim cnn1 As New SqlClient.SqlConnection
+                cnn1.Close()
+                cnn1.ConnectionString = ConStr
+                cnn1.Open()
+                Try
+                    'GetCnn(ConStr)
+                    cmd = New SqlClient.SqlCommand(wstr, cnn1)
+                    dr1 = cmd.ExecuteReader
+
+                Catch ex As Exception
+
+                End Try
             Catch ex As Exception
 
             End Try

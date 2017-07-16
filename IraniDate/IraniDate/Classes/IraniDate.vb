@@ -811,138 +811,144 @@ Namespace IraniDate
         End Function
 
         Private Function IraniDate(ByVal cas As Long) As Long
-            Static E(12) As Long
-            Static d(4, 12) As Long
-            Static p(4, 12) As Long
-            Static n(2, 12) As Long
-            Dim YY, MM, DD, u, rag, h, ym, X, rp, w, s, kkb, i As Long
-            Dim z, sd, mn, ls, ye As Long
-            Dim ny, r As String
-            Dim StrMonth, StrDay As String
+            Try
 
-            E(1) = 31 : E(2) = 28 : E(3) = 31 : E(4) = 30 : E(5) = 31 : E(6) = 30 : E(7) = 31 : E(8) = 13 : E(9) = 30
-            E(10) = 31 : E(11) = 30 : E(12) = 31
-            '---------------------------d(1,3)=19
-            d(1, 1) = 20 : d(1, 2) = 19 : d(1, 3) = 19 : d(1, 4) = 19 : d(1, 5) = 20 : d(1, 6) = 20 : d(1, 7) = 21 : d(1, 8) = 21 : d(1, 9) = 21 : d(1, 10) = 21 : d(1, 11) = 20 : d(1, 12) = 20
-            d(2, 1) = 19 : d(2, 2) = 18 : d(2, 3) = 20 : d(2, 4) = 20 : d(2, 5) = 21 : d(2, 6) = 21 : d(2, 7) = 22 : d(2, 8) = 22 : d(2, 9) = 22 : d(2, 10) = 22 : d(2, 11) = 21 : d(2, 12) = 21
-            d(3, 1) = 20 : d(3, 2) = 19 : d(3, 3) = 20 : d(3, 4) = 20 : d(3, 5) = 21 : d(3, 6) = 21 : d(3, 7) = 22 : d(3, 8) = 22 : d(3, 9) = 22 : d(3, 10) = 22 : d(3, 11) = 21 : d(3, 12) = 21
-            d(4, 1) = 20 : d(4, 2) = 19 : d(4, 3) = 20 : d(4, 4) = 20 : d(4, 5) = 21 : d(4, 6) = 21 : d(4, 7) = 22 : d(4, 8) = 22 : d(4, 9) = 22 : d(4, 10) = 22 : d(4, 11) = 21 : d(4, 12) = 21
-            p(1, 1) = 11 : p(1, 2) = 12 : p(1, 3) = 11 : p(1, 4) = 13 : p(1, 5) = 12 : p(1, 6) = 12 : p(1, 7) = 11 : p(1, 8) = 11 : p(1, 9) = 11 : p(1, 10) = 10 : p(1, 11) = 11 : p(1, 12) = 11
-            p(2, 1) = 12 : p(2, 2) = 13 : p(2, 3) = 11 : p(2, 4) = 12 : p(2, 5) = 11 : p(2, 6) = 11 : p(2, 7) = 10 : p(2, 8) = 10 : p(2, 9) = 10 : p(2, 10) = 9 : p(2, 11) = 10 : p(2, 12) = 10
-            p(3, 1) = 11 : p(3, 2) = 12 : p(3, 3) = 10 : p(3, 4) = 12 : p(3, 5) = 11 : p(3, 6) = 11 : p(3, 7) = 10 : p(3, 8) = 10 : p(3, 9) = 10 : p(3, 10) = 9 : p(3, 11) = 10 : p(3, 12) = 10
-            p(4, 1) = 11 : p(4, 2) = 12 : p(4, 3) = 11 : p(4, 4) = 12 : p(4, 5) = 11 : p(4, 6) = 11 : p(4, 7) = 10 : p(4, 8) = 10 : p(4, 9) = 10 : p(4, 10) = 9 : p(4, 11) = 10 : p(4, 12) = 10
-            n(1, 1) = 10 : n(1, 2) = 11 : n(1, 3) = 12 : n(1, 4) = 1 : n(1, 5) = 2 : n(1, 6) = 3 : n(1, 7) = 4 : n(1, 8) = 5 : n(1, 9) = 6 : n(1, 10) = 7 : n(1, 11) = 8 : n(1, 12) = 9
-            n(2, 1) = 11 : n(2, 2) = 12 : n(2, 3) = 1 : n(2, 4) = 2 : n(2, 5) = 3 : n(2, 6) = 4 : n(2, 7) = 5 : n(2, 8) = 6 : n(2, 9) = 7 : n(2, 10) = 8 : n(2, 11) = 9 : n(2, 12) = 10
 
-            Dim DR1 As SqlClient.SqlDataReader
-            Dim orst1 As New Persistent.DataAccess.DataAccess
-            Dim wstr1 = "SELECT YEAR(GETDATE()) AS SvrCurYear, MONTH(GETDATE()) AS SvrCurMonth, DAY(GETDATE()) AS SvrCurDay"
-            orst1.FillDataReader(DR1, wstr1, strConnection)
-            DR1.Read()
+                Static E(12) As Long
+                Static d(4, 12) As Long
+                Static p(4, 12) As Long
+                Static n(2, 12) As Long
+                Dim YY, MM, DD, u, rag, h, ym, X, rp, w, s, kkb, i As Long
+                Dim z, sd, mn, ls, ye As Long
+                Dim ny, r As String
+                Dim StrMonth, StrDay As String
 
-            YY = DR1("SvrCurYear") 'Year(Now)
-            MM = DR1("SvrCurMonth") 'Month(Now)
-            DD = DR1("SvrCurDay") 'Microsoft.VisualBasic.DateAndTime.Day(Now)
+                E(1) = 31 : E(2) = 28 : E(3) = 31 : E(4) = 30 : E(5) = 31 : E(6) = 30 : E(7) = 31 : E(8) = 13 : E(9) = 30
+                E(10) = 31 : E(11) = 30 : E(12) = 31
+                '---------------------------d(1,3)=19
+                d(1, 1) = 20 : d(1, 2) = 19 : d(1, 3) = 19 : d(1, 4) = 19 : d(1, 5) = 20 : d(1, 6) = 20 : d(1, 7) = 21 : d(1, 8) = 21 : d(1, 9) = 21 : d(1, 10) = 21 : d(1, 11) = 20 : d(1, 12) = 20
+                d(2, 1) = 19 : d(2, 2) = 18 : d(2, 3) = 20 : d(2, 4) = 20 : d(2, 5) = 21 : d(2, 6) = 21 : d(2, 7) = 22 : d(2, 8) = 22 : d(2, 9) = 22 : d(2, 10) = 22 : d(2, 11) = 21 : d(2, 12) = 21
+                d(3, 1) = 20 : d(3, 2) = 19 : d(3, 3) = 20 : d(3, 4) = 20 : d(3, 5) = 21 : d(3, 6) = 21 : d(3, 7) = 22 : d(3, 8) = 22 : d(3, 9) = 22 : d(3, 10) = 22 : d(3, 11) = 21 : d(3, 12) = 21
+                d(4, 1) = 20 : d(4, 2) = 19 : d(4, 3) = 20 : d(4, 4) = 20 : d(4, 5) = 21 : d(4, 6) = 21 : d(4, 7) = 22 : d(4, 8) = 22 : d(4, 9) = 22 : d(4, 10) = 22 : d(4, 11) = 21 : d(4, 12) = 21
+                p(1, 1) = 11 : p(1, 2) = 12 : p(1, 3) = 11 : p(1, 4) = 13 : p(1, 5) = 12 : p(1, 6) = 12 : p(1, 7) = 11 : p(1, 8) = 11 : p(1, 9) = 11 : p(1, 10) = 10 : p(1, 11) = 11 : p(1, 12) = 11
+                p(2, 1) = 12 : p(2, 2) = 13 : p(2, 3) = 11 : p(2, 4) = 12 : p(2, 5) = 11 : p(2, 6) = 11 : p(2, 7) = 10 : p(2, 8) = 10 : p(2, 9) = 10 : p(2, 10) = 9 : p(2, 11) = 10 : p(2, 12) = 10
+                p(3, 1) = 11 : p(3, 2) = 12 : p(3, 3) = 10 : p(3, 4) = 12 : p(3, 5) = 11 : p(3, 6) = 11 : p(3, 7) = 10 : p(3, 8) = 10 : p(3, 9) = 10 : p(3, 10) = 9 : p(3, 11) = 10 : p(3, 12) = 10
+                p(4, 1) = 11 : p(4, 2) = 12 : p(4, 3) = 11 : p(4, 4) = 12 : p(4, 5) = 11 : p(4, 6) = 11 : p(4, 7) = 10 : p(4, 8) = 10 : p(4, 9) = 10 : p(4, 10) = 9 : p(4, 11) = 10 : p(4, 12) = 10
+                n(1, 1) = 10 : n(1, 2) = 11 : n(1, 3) = 12 : n(1, 4) = 1 : n(1, 5) = 2 : n(1, 6) = 3 : n(1, 7) = 4 : n(1, 8) = 5 : n(1, 9) = 6 : n(1, 10) = 7 : n(1, 11) = 8 : n(1, 12) = 9
+                n(2, 1) = 11 : n(2, 2) = 12 : n(2, 3) = 1 : n(2, 4) = 2 : n(2, 5) = 3 : n(2, 6) = 4 : n(2, 7) = 5 : n(2, 8) = 6 : n(2, 9) = 7 : n(2, 10) = 8 : n(2, 11) = 9 : n(2, 12) = 10
 
-            u = 0
+                Dim DR1 As SqlClient.SqlDataReader
+                Dim orst1 As New Persistent.DataAccess.DataAccess
+                Dim wstr1 = "SELECT YEAR(GETDATE()) AS SvrCurYear, MONTH(GETDATE()) AS SvrCurMonth, DAY(GETDATE()) AS SvrCurDay"
+                orst1.FillDataReader(DR1, wstr1, strConnection)
+                DR1.Read()
 
-            If YY Mod 4 = 0 Then
-                u = 1
-            End If
+                YY = DR1("SvrCurYear") 'Year(Now)
+                MM = DR1("SvrCurMonth") 'Month(Now)
+                DD = DR1("SvrCurDay") 'Microsoft.VisualBasic.DateAndTime.Day(Now)
 
-            ny = Str(YY)
-            r = Right(ny, 2)
-            rag = Val(r)
-
-            If rag = 0 And YY Mod 400 <> 0 Then
                 u = 0
-            End If
 
-            h = 0
+                If YY Mod 4 = 0 Then
+                    u = 1
+                End If
 
-            If MM = 2 And u = 1 Then
-                h = 1
-            End If
+                ny = Str(YY)
+                r = Right(ny, 2)
+                rag = Val(r)
 
-            ym = YY - 622
-            X = Int((ym + 16) / 33)
-            w = ym - X - 17
+                If rag = 0 And YY Mod 400 <> 0 Then
+                    u = 0
+                End If
 
-            rp = 0
-            If w Mod 4 = 0 Then
-                rp = 1
-            End If
+                h = 0
 
-            s = Int((ym + 16) / 33)
-            kkb = s * 33 - 16
-            If kkb + 1 = ym Then
+                If MM = 2 And u = 1 Then
+                    h = 1
+                End If
+
+                ym = YY - 622
+                X = Int((ym + 16) / 33)
+                w = ym - X - 17
+
                 rp = 0
-            End If
-            If u = 1 And rp = 0 Then
-                i = 1
-            End If
-            If u = 0 And rp = 1 Then
-                i = 2
-            End If
-            If u = 0 And rp = 0 Then
-                i = 3
-            End If
-            If u = 1 And rp = 1 Then
-                i = 4
-            End If
-            z = 0
-            If i = 4 And MM = 3 Then
-                z = 1
-            End If
-            If i = 4 Then
-                i = 3
-            End If
+                If w Mod 4 = 0 Then
+                    rp = 1
+                End If
 
-            If 1 <= DD And DD <= d(i, MM) Then
-                sd = p(i, MM) + DD + z - 1
-                mn = n(1, MM)
-                ls = 1
-            Else
-                sd = DD - d(i, MM)
-                mn = n(2, MM)
-                ls = 2
-            End If
-            If MM <= 3 Then
-                ye = YY - 622
-            End If
-            If MM = 3 And ls = 2 Then
-                ye = YY - 621
-            End If
-            If MM > 3 Then
-                ye = YY - 621
-            End If
-            Select Case cas
-                Case 1
-                    IraniDate = ye
-                Case 2
-                    IraniDate = mn
-                Case 3
-                    IraniDate = sd
-                Case Else
-                    If mn <= 9 Then
-                        StrMonth = "0" + Str(mn)
-                    Else
-                        StrMonth = Str(mn)
-                    End If
-                    If sd <= 9 Then
-                        StrDay = "0" + Str(sd)
-                    Else
-                        StrDay = Str(sd)
-                    End If
-                    Select Case cas
-                        Case 4
-                            IraniDate = Val(StrMonth + StrDay)
-                        Case 6
-                            IraniDate = Val(Right(Str(ye), 2) + StrMonth + StrDay)
-                        Case 8
-                            IraniDate = Val(Str(ye) + StrMonth + StrDay)
-                    End Select
-            End Select
+                s = Int((ym + 16) / 33)
+                kkb = s * 33 - 16
+                If kkb + 1 = ym Then
+                    rp = 0
+                End If
+                If u = 1 And rp = 0 Then
+                    i = 1
+                End If
+                If u = 0 And rp = 1 Then
+                    i = 2
+                End If
+                If u = 0 And rp = 0 Then
+                    i = 3
+                End If
+                If u = 1 And rp = 1 Then
+                    i = 4
+                End If
+                z = 0
+                If i = 4 And MM = 3 Then
+                    z = 1
+                End If
+                If i = 4 Then
+                    i = 3
+                End If
+
+                If 1 <= DD And DD <= d(i, MM) Then
+                    sd = p(i, MM) + DD + z - 1
+                    mn = n(1, MM)
+                    ls = 1
+                Else
+                    sd = DD - d(i, MM)
+                    mn = n(2, MM)
+                    ls = 2
+                End If
+                If MM <= 3 Then
+                    ye = YY - 622
+                End If
+                If MM = 3 And ls = 2 Then
+                    ye = YY - 621
+                End If
+                If MM > 3 Then
+                    ye = YY - 621
+                End If
+                Select Case cas
+                    Case 1
+                        IraniDate = ye
+                    Case 2
+                        IraniDate = mn
+                    Case 3
+                        IraniDate = sd
+                    Case Else
+                        If mn <= 9 Then
+                            StrMonth = "0" + Str(mn)
+                        Else
+                            StrMonth = Str(mn)
+                        End If
+                        If sd <= 9 Then
+                            StrDay = "0" + Str(sd)
+                        Else
+                            StrDay = Str(sd)
+                        End If
+                        Select Case cas
+                            Case 4
+                                IraniDate = Val(StrMonth + StrDay)
+                            Case 6
+                                IraniDate = Val(Right(Str(ye), 2) + StrMonth + StrDay)
+                            Case 8
+                                IraniDate = Val(Str(ye) + StrMonth + StrDay)
+                        End Select
+                End Select
+            Catch ex As Exception
+
+            End Try
         End Function
 
         Private Function DatefI(ByVal DateMe As Long) As Long

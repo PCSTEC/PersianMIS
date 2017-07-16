@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace PersianMIS
@@ -22,7 +22,7 @@ namespace PersianMIS
             Application.Run(new Main());
         }
 
-        private static void ChangeCulture()
+        public  static void ChangeCulture()
         {
             CultureInfo c = new CultureInfo("fa-Ir");
             var info = c.DateTimeFormat;

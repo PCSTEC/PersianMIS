@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+ 
 using DAL;
 using System.Data;
 namespace BLL
@@ -16,6 +16,10 @@ namespace BLL
             return Dal_Client.GetAllCientWithOutDiuratiion();
         }
 
+        public DataTable Get1000RecordOfCientData()
+        {
+            return Dal_Client.Get1000RecordOfCientData();
+        }
 
 
         public void UpdateClientDuratuin(string DeviceStateID, string Duration)

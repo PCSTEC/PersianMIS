@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+ 
 
 namespace DAL
 {
@@ -111,7 +111,17 @@ namespace DAL
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
             return Cls_Public.PublicDT;
         }
-        
+
+
+
+        public DataTable GetLastResourceState()
+        {
+            Cls_Public.SqlStr = "select * from VW_LastResourceState  ";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
+         
+
         public DataTable GetLastStateFromSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime)
         {
             Cls_Public.SqlStr = "select * from GetLastStateFromSpecialLineStateByDate('" + DeviceId + "','" + LineId + "','" + StartDate + "','" + StartTime + "')";

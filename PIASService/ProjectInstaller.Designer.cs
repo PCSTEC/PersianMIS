@@ -42,6 +42,7 @@
             this.serviceInstaller1.Description = "سرویس تبادیل اطلاعات با دستگاه های صنعتی پارسیان";
             this.serviceInstaller1.DisplayName = "PIAS_Service";
             this.serviceInstaller1.ServiceName = "PIASService";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 

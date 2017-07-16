@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+ 
 
 namespace DAL
 {
@@ -20,6 +20,12 @@ namespace DAL
             return Cls_Public.PublicDT;
         }
 
+        public DataTable Get1000RecordOfCientData()
+        {
+            Cls_Public.SqlStr = "select * from Get1000RecordOfCientData() ";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
 
 
         public void UpdateClientDuratuin(string DeviceStateID , string Duration)
