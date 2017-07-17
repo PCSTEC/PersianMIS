@@ -173,7 +173,7 @@ namespace PIASService
 
         protected override void OnStop()
         {
-            EventLog.WriteEntry("Start Mohsen Stop", EventLogEntryType.Information);
+            EventLog.WriteEntry("STOP PCS TEC Service ", EventLogEntryType.Information);
 
             //BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
             //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
@@ -186,6 +186,12 @@ namespace PIASService
 
             //}
 
+
+        }
+
+        protected override void OnShutdown()
+        {
+            EventLog.WriteEntry("ShutDown PCS TEC Service ", EventLogEntryType.Information);
 
         }
 
@@ -326,12 +332,13 @@ namespace PIASService
 
                 if (!ISStartInt1)
                 {
-
+                    try { 
                     sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls1 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
                     LstState1 = Convert.ToBoolean(StateID);
                     ISStartInt1 = true;
                     Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
-
+                    }
+                    catch { }
 
 
                     sqlstr = " SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC ";
@@ -342,7 +349,7 @@ namespace PIASService
                         DeviceStateID1 = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[0]["DeviceStateID"].ToString());
                     }
                     return;
- 
+
 
                 }
                 else
@@ -373,16 +380,18 @@ namespace PIASService
                 }
 
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
-               
+
 
 
 
             }
             catch (Exception e)
             {
-                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr , EventLogEntryType.Information);
-                sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+                ISStartInt1 = false;
+                sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID= '"+ DeviceStateID1+"'";
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+               
             }
         }
         private void InsertData2(int DeviceId, int DeviceLineId, int StateID)
@@ -432,7 +441,10 @@ namespace PIASService
             }
             catch (Exception e)
             {
-                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message, EventLogEntryType.Information);
+                 EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+                ISStartInt2 = false;
+                sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID= '" + DeviceStateID2 + "'";
+                Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
             }
         }
         private void InsertData3(int DeviceId, int DeviceLineId, int StateID)

@@ -315,7 +315,7 @@ namespace PersianMIS
             Pnl.Width = Pnl_Main.Width-18;
             Pnl.Height = Pnl_Main.Height-14;
             Pnl_Main.Controls.Add(Pnl);
-
+            Pnl.IsFirstLoad = true;
               this.Cursor = Cursors.Default;
 
         }
