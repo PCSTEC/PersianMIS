@@ -390,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Refreshend.png" />
     <None Include="Resources\printer1.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\GantPrevious1.png" />

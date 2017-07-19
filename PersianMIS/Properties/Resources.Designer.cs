@@ -603,6 +603,16 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Refreshend {
+            get {
+                object obj = ResourceManager.GetObject("Refreshend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Report_OK {
             get {
                 object obj = ResourceManager.GetObject("Report OK", resourceCulture);

@@ -19,7 +19,7 @@ namespace PersianMIS.CurrentState
 
     public partial class UCShowCurrentState : UserControl
     {
-        public     Boolean IsFirstLoad = true ;
+        public     Boolean IsFirstLoad = false ;
         IraniDate.IraniDate.IraniDate IrDate = new IraniDate.IraniDate.IraniDate();
         Persistent.DataAccess.DataAccess pers = new Persistent.DataAccess.DataAccess();
         Random rand = new Random();
@@ -28,6 +28,7 @@ namespace PersianMIS.CurrentState
         DateTime CurDate = DateTime.Now ;
         string startdate, enddate;
         PersianCulture persianCulture = new PersianCulture();
+      
 
         public UCShowCurrentState()
         {
@@ -143,6 +144,10 @@ namespace PersianMIS.CurrentState
 
         private void FillData(string StartDate, string EndDate)
         {
+            try
+            {
+
+        
             this.radScheduler1.Appointments.Clear();
 
             radScheduler1.Resources.Clear();
@@ -185,13 +190,14 @@ namespace PersianMIS.CurrentState
                 totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
 
                 DateTime Start = new DateTime();
+                DateTime end = new DateTime();
                      Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
 
 
 
 
-              
-                Appointment app = new Appointment(Start, TimeSpan.FromSeconds(totalHours), (Math.Round((double)totalHours / 60)).ToString());
+                Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
                
                 app.StatusId  =Convert.ToInt32( BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
@@ -216,14 +222,14 @@ namespace PersianMIS.CurrentState
                 app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
                 
                 this.radScheduler1.Appointments.Add(app);
+           
 
-               
 
 
             }
 
 
-            this.radScheduler1.ActiveView.ResourcesPerView = 100;
+            this.radScheduler1.ActiveView.ResourcesPerView = 50;
             this.radScheduler1.GroupType = GroupType.Resource;
 
             this.radScheduler1.ActiveViewType = SchedulerViewType.Timeline;
@@ -231,19 +237,24 @@ namespace PersianMIS.CurrentState
             this.radScheduler1.GetTimelineView().ResourcesPerView = 4;
             this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Minutes);
             RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
-            this.radScheduler1.AllowAppointmentResize = true;
-            this.radScheduler1.AutoSizeAppointments = true;
-            this.radScheduler1.EnableExactTimeRendering = true;
+            //this.radScheduler1.AllowAppointmentResize = true;
+            //this.radScheduler1.AutoSizeAppointments = true;
+            //this.radScheduler1.EnableExactTimeRendering = true;
 
             if (IsFirstLoad==true )
             {
                 IsFirstLoad = false;
             }
+            SchedulerUIHelper.BringAppointmentIntoView(this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 1], this.radScheduler1);
+            }
+            catch
+            {
 
+            }
         }
 
 
-       
+
         private int GetResourceIndex(SchedulerViewGroupedByResourceElementBase viewGroupedByResource)
         {
             IResource cellResource = radScheduler1.SelectionBehavior.CurrentCellElement.View.GetResource();
@@ -294,9 +305,11 @@ namespace PersianMIS.CurrentState
                 {
                     DateTime x = (DateTime)e.NewValue;
                     enddate = x.Year + "/" + x.Month + "/" + x.Day;
+              
                     if (startdate == null)
                     {
-                        startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
+                        DateTime StDate = (DateTime)radDateTimePickerElementStart.Value;
+                        startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
                     }
                     FillData(startdate, enddate);
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
@@ -328,16 +341,15 @@ namespace PersianMIS.CurrentState
 
         private void radScheduler1_CellFormatting(object sender, SchedulerCellEventArgs e)
         {
-            e.CellElement.BorderBoxStyle = Telerik.WinControls.BorderBoxStyle.SingleBorder;
-            e.CellElement.BorderColor = Color.Yellow;
             
+
         }
 
         private void radScheduler1_AppointmentFormatting(object sender, SchedulerAppointmentEventArgs e)
         {
       
 
-            Font font = new Font("b nazanin", 10f, FontStyle.Bold);
+            Font font = new Font("b nazanin", 9f, FontStyle.Bold);
             Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
 
             e.AppointmentElement.ResetValue(VisualElement.FontProperty, ValueResetFlags.Local);
@@ -358,10 +370,10 @@ namespace PersianMIS.CurrentState
             e.AppointmentElement.ForeColor = Color.Black;
             e.AppointmentElement.TextAlignment = ContentAlignment.MiddleCenter;
             e.AppointmentElement.TextOrientation = Orientation.Horizontal;
-            e.AppointmentElement.TitleFormat = "{2}'";
+            e.AppointmentElement.TitleFormat = "{2}";
 
             RadOffice2007ScreenTipElement screenTip = new RadOffice2007ScreenTipElement();
-            screenTip.CaptionLabel.Text = "مدت زمان فعاليت";
+            screenTip.CaptionLabel.Text = "مدت زمان";
             screenTip.CaptionLabel.Font = HeaderFont;
             screenTip.CaptionLabel.TextOrientation = Orientation.Horizontal;
             screenTip.CaptionLabel.Alignment = ContentAlignment.MiddleRight;
@@ -410,7 +422,17 @@ namespace PersianMIS.CurrentState
 
         private void button1_Click(object sender, EventArgs e)
         {
-           var t= this.radScheduler1.Appointments.Last();
+            
+
+
+
+
+
+            //SchedulerUIHelper.BringAppointmentIntoView(this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count-1 ], this.radScheduler1);
+            //    radScheduler1.Appointments.RemoveAt()
+            //SchedulerUIHelper.DeleteAppointment()
+            // var t = this.radScheduler1.Appointments.Last();
+
             //BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetAllResource();
             //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
             //{
@@ -418,6 +440,100 @@ namespace PersianMIS.CurrentState
             //    this.radScheduler1.Appointments.Select(a => a.ResourceId = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()));
             //    //if(radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()))
             //}
+
+
+
+
+
+
+
+
+        }
+
+        private void Btn_RefreshTimeLine_Click(object sender, EventArgs e)
+        {
+            FillLastData();
+        }
+
+        private void FillLastData()
+        {
+            for (int i = 0; i <= 99; i++)
+            {
+                radScheduler1.Appointments.Remove(radScheduler1.Appointments[radScheduler1.Appointments.Count - 1]);
+                radScheduler1.Refresh();
+                radScheduler1.Update();
+
+            }
+
+
+
+            BLL.Cls_PublicOperations.Dt = BllStation.Get100OfAllStationData();
+            int totalHours;
+
+            for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
+            {
+                this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
+
+                totalHours = 0;
+
+                totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
+
+                DateTime Start = new DateTime();
+                DateTime end = new DateTime();
+                Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+
+
+
+
+                Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
+
+                app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
+
+
+
+                //try
+                //{
+
+                //    if (this.radScheduler1.Appointments.Count > 2 && (this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 2].End - app.Start).TotalSeconds == 0) //&& (this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 2].End - app.End).TotalSeconds<5)
+                //    {
+                //        //  app.Start  = this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 2].End  ;
+                //        app.Start = app.Start.AddSeconds(61);
+
+                //      //  app.End = app.End.AddSeconds(-61);
+
+                //        //app.End = app.End.AddSeconds(((this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 1].End - app.Start).TotalSeconds) - 60);
+                //    }
+                //}
+                //catch { }
+
+                app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
+                app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
+
+                this.radScheduler1.Appointments.Add(app);
+
+
+
+
+            }
+
+            SchedulerUIHelper.BringAppointmentIntoView(this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 1], this.radScheduler1);
+
+        }
+
+        private void RefreshTimer_Tick(object sender, EventArgs e)
+        {
+            FillLastData();
+        }
+
+        private void radDateTimePickerElementEnd_Click(object sender, EventArgs e)
+        {
+            IsFirstLoad = false;
+        }
+
+        private void radDateTimePickerElementStart_Click(object sender, EventArgs e)
+        {
+            IsFirstLoad = false;
         }
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)

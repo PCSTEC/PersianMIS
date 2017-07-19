@@ -22,7 +22,7 @@ namespace PCSTECWindowsService
         Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
         string stresive1;
         IraniDate.IraniDate.IraniDate IRdate = new IraniDate.IraniDate.IraniDate();
-
+        Boolean isNextDay = false;
         PersianCalendar pc = new PersianCalendar();
         string sqlstr = "";
 
@@ -1647,39 +1647,70 @@ namespace PCSTECWindowsService
 
 
 
+            if (DateTime.Now.Hour == 00 && isNextDay == false)
+            {
+                InsertData1(1048, 17, Convert.ToInt32(!LstState1));
+                InsertData2(1048, 17, Convert.ToInt32(!LstState2));
+                InsertData3(1048, 17, Convert.ToInt32(!LstState3));
+                InsertData4(1048, 17, Convert.ToInt32(!LstState4));
+                InsertData5(1048, 17, Convert.ToInt32(!LstState5));
+                InsertData6(1048, 17, Convert.ToInt32(!LstState6));
+                InsertData7(1048, 17, Convert.ToInt32(!LstState7));
+                InsertData8(1048, 17, Convert.ToInt32(!LstState8));
+                InsertData9(1048, 17, Convert.ToInt32(!LstState9));
+                InsertData10(1048, 17, Convert.ToInt32(!LstState10));
+                InsertData11(1048, 17, Convert.ToInt32(!LstState11));
+                InsertData12(1048, 17, Convert.ToInt32(!LstState12));
+                InsertData13(1048, 17, Convert.ToInt32(!LstState13));
+                InsertData14(1048, 17, Convert.ToInt32(!LstState14));
+                InsertData15(1048, 17, Convert.ToInt32(!LstState15));
+                InsertData16(1048, 17, Convert.ToInt32(!LstState16));
+                InsertData17(1048, 17, Convert.ToInt32(!LstState17));
+                InsertData18(1048, 17, Convert.ToInt32(!LstState18));
+                InsertData19(1048, 17, Convert.ToInt32(!LstState19));
+                InsertData20(1048, 17, Convert.ToInt32(!LstState20));
+                InsertData21(1048, 17, Convert.ToInt32(!LstState21));
+                InsertData22(1048, 17, Convert.ToInt32(!LstState22));
+                InsertData23(1048, 17, Convert.ToInt32(!LstState23));
+                InsertData24(1048, 17, Convert.ToInt32(!LstState24));
+                isNextDay = true;
+            }
+            else
+            {
 
-            if (INPUT17.BackColor == Color.LawnGreen) { InsertData17(1048, 17, 1); } else { InsertData17(1048, 17, 0); }
-            if (INPUT18.BackColor == Color.LawnGreen) { InsertData18(1048, 18, 1); } else { InsertData18(1048, 18, 0); }
-            if (INPUT19.BackColor == Color.LawnGreen) { InsertData19(1048, 19, 1); } else { InsertData19(1048, 19, 0); }
-            if (INPUT20.BackColor == Color.LawnGreen) { InsertData20(1048, 20, 1); } else { InsertData20(1048, 20, 0); }
-            if (INPUT21.BackColor == Color.LawnGreen) { InsertData21(1048, 21, 1); } else { InsertData21(1048, 21, 0); }
-            if (INPUT22.BackColor == Color.LawnGreen) { InsertData22(1048, 22, 1); } else { InsertData22(1048, 22, 0); }
-            if (INPUT23.BackColor == Color.LawnGreen) { InsertData23(1048, 23, 1); } else { InsertData23(1048, 23, 0); }
-            if (INPUT24.BackColor == Color.LawnGreen) { InsertData24(1048, 24, 1); } else { InsertData24(1048, 24, 0); }
+
+                if (INPUT17.BackColor == Color.LawnGreen) { InsertData17(1048, 17, 1); } else { InsertData17(1048, 17, 0); }
+                if (INPUT18.BackColor == Color.LawnGreen) { InsertData18(1048, 18, 1); } else { InsertData18(1048, 18, 0); }
+                if (INPUT19.BackColor == Color.LawnGreen) { InsertData19(1048, 19, 1); } else { InsertData19(1048, 19, 0); }
+                if (INPUT20.BackColor == Color.LawnGreen) { InsertData20(1048, 20, 1); } else { InsertData20(1048, 20, 0); }
+                if (INPUT21.BackColor == Color.LawnGreen) { InsertData21(1048, 21, 1); } else { InsertData21(1048, 21, 0); }
+                if (INPUT22.BackColor == Color.LawnGreen) { InsertData22(1048, 22, 1); } else { InsertData22(1048, 22, 0); }
+                if (INPUT23.BackColor == Color.LawnGreen) { InsertData23(1048, 23, 1); } else { InsertData23(1048, 23, 0); }
+                if (INPUT24.BackColor == Color.LawnGreen) { InsertData24(1048, 24, 1); } else { InsertData24(1048, 24, 0); }
 
 
 
 
-            if (INPUT9.BackColor == Color.LawnGreen) { InsertData9(1048, 9, 1); } else { InsertData9(1048, 9, 0); }
-            if (INPUT10.BackColor == Color.LawnGreen) { InsertData10(1048, 10, 1); } else { InsertData10(1048, 10, 0); }
-            if (INPUT11.BackColor == Color.LawnGreen) { InsertData11(1048, 11, 1); } else { InsertData11(1048, 11, 0); }
-            if (INPUT12.BackColor == Color.LawnGreen) { InsertData12(1048, 12, 1); } else { InsertData12(1048, 12, 0); }
-            if (INPUT13.BackColor == Color.LawnGreen) { InsertData13(1048, 13, 1); } else { InsertData13(1048, 13, 0); }
-            if (INPUT14.BackColor == Color.LawnGreen) { InsertData14(1048, 14, 1); } else { InsertData14(1048, 14, 0); }
-            if (INPUT15.BackColor == Color.LawnGreen) { InsertData15(1048, 15, 1); } else { InsertData15(1048, 15, 0); }
-            if (INPUT16.BackColor == Color.LawnGreen) { InsertData16(1048, 16, 1); } else { InsertData16(1048, 16, 0); }
+                if (INPUT9.BackColor == Color.LawnGreen) { InsertData9(1048, 9, 1); } else { InsertData9(1048, 9, 0); }
+                if (INPUT10.BackColor == Color.LawnGreen) { InsertData10(1048, 10, 1); } else { InsertData10(1048, 10, 0); }
+                if (INPUT11.BackColor == Color.LawnGreen) { InsertData11(1048, 11, 1); } else { InsertData11(1048, 11, 0); }
+                if (INPUT12.BackColor == Color.LawnGreen) { InsertData12(1048, 12, 1); } else { InsertData12(1048, 12, 0); }
+                if (INPUT13.BackColor == Color.LawnGreen) { InsertData13(1048, 13, 1); } else { InsertData13(1048, 13, 0); }
+                if (INPUT14.BackColor == Color.LawnGreen) { InsertData14(1048, 14, 1); } else { InsertData14(1048, 14, 0); }
+                if (INPUT15.BackColor == Color.LawnGreen) { InsertData15(1048, 15, 1); } else { InsertData15(1048, 15, 0); }
+                if (INPUT16.BackColor == Color.LawnGreen) { InsertData16(1048, 16, 1); } else { InsertData16(1048, 16, 0); }
 
 
-            if (INPUT1.BackColor == Color.LawnGreen) { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
-            if (INPUT2.BackColor == Color.LawnGreen) { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
-            if (INPUT3.BackColor == Color.LawnGreen) { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
-            if (INPUT4.BackColor == Color.LawnGreen) { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
-            if (INPUT5.BackColor == Color.LawnGreen) { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
-            if (INPUT6.BackColor == Color.LawnGreen) { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
-            if (INPUT7.BackColor == Color.LawnGreen) { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
-            if (INPUT8.BackColor == Color.LawnGreen) { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
-
-
+                if (INPUT1.BackColor == Color.LawnGreen) { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
+                if (INPUT2.BackColor == Color.LawnGreen) { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
+                if (INPUT3.BackColor == Color.LawnGreen) { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
+                if (INPUT4.BackColor == Color.LawnGreen) { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
+                if (INPUT5.BackColor == Color.LawnGreen) { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
+                if (INPUT6.BackColor == Color.LawnGreen) { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
+                if (INPUT7.BackColor == Color.LawnGreen) { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
+                if (INPUT8.BackColor == Color.LawnGreen) { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
+                if (DateTime.Now.Hour == 01) { isNextDay = false; }
+            }
         }
     }
 }

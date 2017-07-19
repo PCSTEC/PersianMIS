@@ -34,6 +34,10 @@ namespace BLL
         {
             return Dal_Station.GetAllStationData(StartDate,EndDate );
         }
-
+        public DataTable Get100OfAllStationData( )
+        {
+            return Dal_Station.Get100OfAllStationData( );
+        }
+        
     }
 }
