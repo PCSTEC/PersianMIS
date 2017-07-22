@@ -259,6 +259,33 @@ namespace PIASService
 
                 if (DateTime.Now.Hour == 00 && isNextDay == false)
                 {
+                
+                    InsertData1(1048, 1, Convert.ToInt32(!LstState1));
+                    InsertData2(1048, 2, Convert.ToInt32(!LstState2));
+                    InsertData3(1048, 3, Convert.ToInt32(!LstState3));
+                    InsertData4(1048, 4, Convert.ToInt32(!LstState4));
+                    InsertData5(1048, 5, Convert.ToInt32(!LstState5));
+                    InsertData6(1048, 6, Convert.ToInt32(!LstState6));
+                    InsertData7(1048, 7, Convert.ToInt32(!LstState7));
+                    InsertData8(1048, 8, Convert.ToInt32(!LstState8));
+                    InsertData9(1048, 9, Convert.ToInt32(!LstState9));
+                    InsertData10(1048, 10, Convert.ToInt32(!LstState10));
+                    InsertData11(1048, 11, Convert.ToInt32(!LstState11));
+                    InsertData12(1048, 12, Convert.ToInt32(!LstState12));
+                    InsertData13(1048, 13, Convert.ToInt32(!LstState13));
+                    InsertData14(1048, 14, Convert.ToInt32(!LstState14));
+                    InsertData15(1048, 15, Convert.ToInt32(!LstState15));
+                    InsertData16(1048, 16, Convert.ToInt32(!LstState16));
+                    InsertData17(1048, 17, Convert.ToInt32(!LstState17));
+                    InsertData18(1048, 18, Convert.ToInt32(!LstState18));
+                    InsertData19(1048, 19, Convert.ToInt32(!LstState19));
+                    InsertData20(1048, 20, Convert.ToInt32(!LstState20));
+                    InsertData21(1048, 21, Convert.ToInt32(!LstState21));
+                    InsertData22(1048, 22, Convert.ToInt32(!LstState22));
+                    InsertData23(1048, 23, Convert.ToInt32(!LstState23));
+                    InsertData24(1048, 24, Convert.ToInt32(!LstState24));
+
+
                     InsertData1(1048, 1, Convert.ToInt32(!LstState1));
                     InsertData2(1048, 2, Convert.ToInt32(!LstState2));
                     InsertData3(1048, 3, Convert.ToInt32(!LstState3));

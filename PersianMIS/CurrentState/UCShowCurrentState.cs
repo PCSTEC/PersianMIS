@@ -19,7 +19,9 @@ namespace PersianMIS.CurrentState
 
     public partial class UCShowCurrentState : UserControl
     {
-        public     Boolean IsFirstLoad = false ;
+        Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
+
+        public Boolean IsFirstLoad = false ;
         IraniDate.IraniDate.IraniDate IrDate = new IraniDate.IraniDate.IraniDate();
         Persistent.DataAccess.DataAccess pers = new Persistent.DataAccess.DataAccess();
         Random rand = new Random();
@@ -161,6 +163,7 @@ namespace PersianMIS.CurrentState
             {
                 Color.LightBlue, Color.LightGreen, Color.LightYellow,
                 Color.Red, Color.Orange, Color.Pink, Color.Purple, Color.Peru, Color.PowderBlue
+
             };
 
 
@@ -174,6 +177,7 @@ namespace PersianMIS.CurrentState
                 resource.Color = colors[rand.Next(0, 8)];
 
                 this.radScheduler1.Resources.Add(resource);
+                     
             }
 
 
@@ -222,11 +226,24 @@ namespace PersianMIS.CurrentState
                 app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
                 
                 this.radScheduler1.Appointments.Add(app);
-           
+
+                    //     SchedulerDayViewGroupedByResourceElement headerElement = this.radScheduler1.SchedulerElement.ViewElement as SchedulerDayViewGroupedByResourceElement;
+                    //    headerElement.ResourceHeaderHeight = 135;
+                    //   headerElement.ResourcesHeader.TextOrientation = Orientation.Horizontal;
+
+                    //this.radScheduler1.SchedulerElement.SetResourceHeaderAngleTransform(SchedulerViewType.Timeline, 0);
 
 
+                    //TimelineGroupingByResourcesElement timelineElement = this.radScheduler1.SchedulerElement.ViewElement as TimelineGroupingByResourcesElement;
+                    //timelineElement.ResourceHeaderWidth = 400;
+                    //timelineElement.ResourcesHeader.TextOrientation = Orientation.Horizontal;
 
-            }
+
+                   //   TimelineGroupingByResourcesElement element = this.radScheduler1.SchedulerElement.ViewElement as TimelineGroupingByResourcesElement;
+                    //element.ResourcesHeader.MinSize = new System.Drawing.Size(150, 50);
+                    
+
+                }
 
 
             this.radScheduler1.ActiveView.ResourcesPerView = 50;
@@ -237,11 +254,21 @@ namespace PersianMIS.CurrentState
             this.radScheduler1.GetTimelineView().ResourcesPerView = 4;
             this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Minutes);
             RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
-            //this.radScheduler1.AllowAppointmentResize = true;
-            //this.radScheduler1.AutoSizeAppointments = true;
-            //this.radScheduler1.EnableExactTimeRendering = true;
 
-            if (IsFirstLoad==true )
+
+
+                //this.radScheduler1.AllowAppointmentResize = true;
+                //this.radScheduler1.AutoSizeAppointments = true;
+                //this.radScheduler1.EnableExactTimeRendering = true;
+
+               // SchedulerDayViewGroupedByResourceElement headerElement = this.radScheduler1.SchedulerElement.ViewElement as SchedulerDayViewGroupedByResourceElement;
+               
+
+                //(this.radScheduler1.SchedulerElement.ViewElement as SchedulerMonthViewElement).VerticalHeader.HeaderWidth = 150;
+                //(this.radScheduler1.SchedulerElement.ViewElement as SchedulerMonthViewElement).VerticalHeader.TextOrientation = Orientation.Vertical ;
+
+
+                if (IsFirstLoad==true )
             {
                 IsFirstLoad = false;
             }
@@ -251,6 +278,16 @@ namespace PersianMIS.CurrentState
             {
 
             }
+
+
+            SchedulerDayViewGroupedByResourceElement headerElement = this.radScheduler1.SchedulerElement.ViewElement as SchedulerDayViewGroupedByResourceElement;
+            
+            this.radScheduler1.SchedulerElement.SetResourceHeaderAngleTransform(SchedulerViewType.Timeline, 0);
+            TimelineGroupingByResourcesElement timelineElement = this.radScheduler1.SchedulerElement.ViewElement as TimelineGroupingByResourcesElement;
+            timelineElement.ResourceHeaderWidth = 135;
+            timelineElement.ResourcesHeader.TextOrientation = Orientation.Vertical;
+            timelineElement.ResourcesHeader.Font = HeaderFont;
+           
         }
 
 

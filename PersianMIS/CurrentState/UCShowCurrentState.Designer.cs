@@ -168,6 +168,7 @@
             schedulerDailyPrintStyle1.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
             schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
+            this.radScheduler1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radScheduler1.ShowAllDayAppointmentStatus = true;
             this.radScheduler1.Size = new System.Drawing.Size(1236, 514);
             this.radScheduler1.TabIndex = 10;
