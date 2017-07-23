@@ -192,7 +192,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = false;
+            this.Tab_Control.IsSelected = true;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
@@ -404,7 +404,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,

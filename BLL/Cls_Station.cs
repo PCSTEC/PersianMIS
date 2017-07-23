@@ -30,9 +30,9 @@ namespace BLL
             Dal_Station.Delete(StationId);
         }
 
-        public DataTable GetAllStationData(string StartDate , string EndDate)
+        public DataTable GetAllStationData(string StartDate , string EndDate , string ListOfProductionLines)
         {
-            return Dal_Station.GetAllStationData(StartDate,EndDate );
+            return Dal_Station.GetAllStationData(StartDate,EndDate,   ListOfProductionLines);
         }
         public DataTable Get100OfAllStationData( )
         {

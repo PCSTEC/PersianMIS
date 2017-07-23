@@ -50,9 +50,9 @@ public     class Cls_Station
         }
 
 
-        public DataTable GetAllStationData(string StartDate, String EndDate)
+        public DataTable GetAllStationData(string StartDate, String EndDate , string ListOfProductionLines)
         {
-            Cls_Public.SqlStr = "select * from GetAllStationData (CONVERT(DATETIME, '" + StartDate + "', 102),CONVERT(DATETIME, '" + EndDate + "', 102)  ) as x  where duration>60  ";
+            Cls_Public.SqlStr = "select * from GetAllStationData (CONVERT(DATETIME, '" + StartDate + "', 102),CONVERT(DATETIME, '" + EndDate + "', 102),"  + ListOfProductionLines + "  ) as x  where duration>60  ";
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
             return Cls_Public.PublicDT;
         }
