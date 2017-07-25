@@ -39,6 +39,8 @@
             this.Lbl_SumDisconnectTime = new System.Windows.Forms.Label();
             this.Lbl_SumConnectTime = new System.Windows.Forms.Label();
             this.Pnl_State = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.Lbl_DeActiveName = new System.Windows.Forms.Label();
             this.Lbl_ActiveName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.Lbl_DeviceDesc = new System.Windows.Forms.Label();
             this.Lbl_ProductLineDesc = new System.Windows.Forms.Label();
             this.TimerState = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.TopPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).BeginInit();
             this.Pnl_State.SuspendLayout();
@@ -63,7 +63,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
-            this.TopPnl.Size = new System.Drawing.Size(423, 44);
+            this.TopPnl.Size = new System.Drawing.Size(398, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.TopPnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -97,7 +97,7 @@
             this.BBManage.ForeColor = System.Drawing.Color.Transparent;
             this.BBManage.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.BBManage.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.BBManage.Location = new System.Drawing.Point(317, -9);
+            this.BBManage.Location = new System.Drawing.Point(292, -9);
             this.BBManage.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.BBManage.Name = "BBManage";
             this.BBManage.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -142,7 +142,7 @@
             // Lbl_SumDisconnectTime
             // 
             this.Lbl_SumDisconnectTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_SumDisconnectTime.Location = new System.Drawing.Point(176, 141);
+            this.Lbl_SumDisconnectTime.Location = new System.Drawing.Point(109, 146);
             this.Lbl_SumDisconnectTime.Name = "Lbl_SumDisconnectTime";
             this.Lbl_SumDisconnectTime.Size = new System.Drawing.Size(119, 24);
             this.Lbl_SumDisconnectTime.TabIndex = 2;
@@ -152,7 +152,7 @@
             // Lbl_SumConnectTime
             // 
             this.Lbl_SumConnectTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_SumConnectTime.Location = new System.Drawing.Point(176, 111);
+            this.Lbl_SumConnectTime.Location = new System.Drawing.Point(109, 116);
             this.Lbl_SumConnectTime.Name = "Lbl_SumConnectTime";
             this.Lbl_SumConnectTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Lbl_SumConnectTime.Size = new System.Drawing.Size(119, 24);
@@ -178,15 +178,37 @@
             this.Pnl_State.Location = new System.Drawing.Point(0, 44);
             this.Pnl_State.Name = "Pnl_State";
             this.Pnl_State.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Pnl_State.Size = new System.Drawing.Size(423, 178);
+            this.Pnl_State.Size = new System.Drawing.Size(398, 178);
             this.Pnl_State.TabIndex = 5;
             this.Pnl_State.Paint += new System.Windows.Forms.PaintEventHandler(this.Pnl_State_Paint);
+            // 
+            // label5
+            // 
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label5.Location = new System.Drawing.Point(3, 143);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(119, 24);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "دقیقه";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label4.Location = new System.Drawing.Point(3, 116);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(119, 24);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "دقیقه";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Lbl_DeActiveName
             // 
             this.Lbl_DeActiveName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_DeActiveName.ForeColor = System.Drawing.Color.White;
-            this.Lbl_DeActiveName.Location = new System.Drawing.Point(310, 137);
+            this.Lbl_DeActiveName.Location = new System.Drawing.Point(218, 142);
             this.Lbl_DeActiveName.Name = "Lbl_DeActiveName";
             this.Lbl_DeActiveName.Size = new System.Drawing.Size(106, 26);
             this.Lbl_DeActiveName.TabIndex = 13;
@@ -196,7 +218,7 @@
             // 
             this.Lbl_ActiveName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ActiveName.ForeColor = System.Drawing.Color.White;
-            this.Lbl_ActiveName.Location = new System.Drawing.Point(310, 111);
+            this.Lbl_ActiveName.Location = new System.Drawing.Point(218, 116);
             this.Lbl_ActiveName.Name = "Lbl_ActiveName";
             this.Lbl_ActiveName.Size = new System.Drawing.Size(106, 26);
             this.Lbl_ActiveName.TabIndex = 12;
@@ -206,7 +228,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(303, 74);
+            this.label3.Location = new System.Drawing.Point(278, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 26);
             this.label3.TabIndex = 11;
@@ -217,7 +239,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(322, 39);
+            this.label1.Location = new System.Drawing.Point(297, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 26);
             this.label1.TabIndex = 10;
@@ -228,7 +250,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(310, 4);
+            this.label2.Location = new System.Drawing.Point(285, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 26);
             this.label2.TabIndex = 9;
@@ -239,7 +261,7 @@
             // 
             this.Lbl_LineDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_LineDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_LineDesc.Location = new System.Drawing.Point(72, 74);
+            this.Lbl_LineDesc.Location = new System.Drawing.Point(47, 74);
             this.Lbl_LineDesc.Name = "Lbl_LineDesc";
             this.Lbl_LineDesc.Size = new System.Drawing.Size(225, 26);
             this.Lbl_LineDesc.TabIndex = 8;
@@ -250,7 +272,7 @@
             // 
             this.Lbl_DeviceDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_DeviceDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_DeviceDesc.Location = new System.Drawing.Point(115, 39);
+            this.Lbl_DeviceDesc.Location = new System.Drawing.Point(90, 39);
             this.Lbl_DeviceDesc.Name = "Lbl_DeviceDesc";
             this.Lbl_DeviceDesc.Size = new System.Drawing.Size(182, 26);
             this.Lbl_DeviceDesc.TabIndex = 7;
@@ -261,7 +283,7 @@
             // 
             this.Lbl_ProductLineDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ProductLineDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_ProductLineDesc.Location = new System.Drawing.Point(117, 4);
+            this.Lbl_ProductLineDesc.Location = new System.Drawing.Point(92, 4);
             this.Lbl_ProductLineDesc.Name = "Lbl_ProductLineDesc";
             this.Lbl_ProductLineDesc.Size = new System.Drawing.Size(182, 26);
             this.Lbl_ProductLineDesc.TabIndex = 6;
@@ -273,28 +295,6 @@
             this.TimerState.Interval = 1000;
             this.TimerState.Tick += new System.EventHandler(this.TimerState_Tick);
             // 
-            // label4
-            // 
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(70, 111);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(119, 24);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "دقیقه";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(70, 138);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(119, 24);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "دقیقه";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // StationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -305,7 +305,7 @@
             this.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "StationUserControl";
-            this.Size = new System.Drawing.Size(423, 222);
+            this.Size = new System.Drawing.Size(398, 222);
             this.Load += new System.EventHandler(this.StationUserControl_Load);
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).EndInit();

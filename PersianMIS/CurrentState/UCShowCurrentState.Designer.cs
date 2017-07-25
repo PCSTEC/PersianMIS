@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.ListViewDataItemGroup listViewDataItemGroup1 = new Telerik.WinControls.UI.ListViewDataItemGroup("ListViewGroup 1");
-            Telerik.WinControls.UI.ListViewDataItem listViewDataItem1 = new Telerik.WinControls.UI.ListViewDataItem("ProductLineId");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCShowCurrentState));
             this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
@@ -50,7 +48,6 @@
             this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
             this.radCollapsiblePanel2 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.LSTProrudtionLines = new Telerik.WinControls.UI.RadCheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
@@ -80,7 +77,6 @@
             this.radCollapsiblePanel2.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).BeginInit();
-            this.LSTProrudtionLines.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).BeginInit();
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
@@ -266,7 +262,6 @@
             this.radScheduler1.Size = new System.Drawing.Size(1040, 463);
             this.radScheduler1.TabIndex = 10;
             this.radScheduler1.Text = "radScheduler1";
-            this.radScheduler1.CellFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerCellEventArgs>(this.radScheduler1_CellFormatting_1);
             this.radScheduler1.AppointmentFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerAppointmentEventArgs>(this.radScheduler1_AppointmentFormatting);
             // 
             // radCollapsiblePanel2
@@ -288,42 +283,14 @@
             // 
             // LSTProrudtionLines
             // 
-            this.LSTProrudtionLines.Controls.Add(this.button1);
             this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTProrudtionLines.GroupIndent = 2;
-            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(17, 1);
-            listViewDataItemGroup1.Tag = "";
-            listViewDataItemGroup1.Text = "ListViewGroup 1";
-            this.LSTProrudtionLines.Groups.AddRange(new Telerik.WinControls.UI.ListViewDataItemGroup[] {
-            listViewDataItemGroup1});
-            this.LSTProrudtionLines.HeaderHeight = 2.1875F;
-            listViewDataItem1.Key = "ProductLineId";
-            listViewDataItem1.Tag = "ProductLineId";
-            listViewDataItem1.Text = "ProductLineId";
-            this.LSTProrudtionLines.Items.AddRange(new Telerik.WinControls.UI.ListViewDataItem[] {
-            listViewDataItem1});
-            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(17, 1);
             this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
-            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.LSTProrudtionLines.MultiSelect = true;
             this.LSTProrudtionLines.Name = "LSTProrudtionLines";
             this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LSTProrudtionLines.ShowGridLines = true;
-            this.LSTProrudtionLines.ShowGroups = true;
             this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 461);
-            this.LSTProrudtionLines.TabIndex = 11;
-            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(11, 44);
-            this.button1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LSTProrudtionLines.TabIndex = 0;
+            this.LSTProrudtionLines.Text = "radCheckedListBox1";
+            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged_1);
             // 
             // radCollapsiblePanel1
             // 
@@ -460,7 +427,7 @@
             this.radRibbonBarButtonGroup2});
             this.radRibbonBarGroup6.Margin = new System.Windows.Forms.Padding(0);
             this.radRibbonBarGroup6.MaxSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup6.MinSize = new System.Drawing.Size(8, 3);
+            this.radRibbonBarGroup6.MinSize = new System.Drawing.Size(1, 1);
             this.radRibbonBarGroup6.Name = "radRibbonBarGroup6";
             this.radRibbonBarGroup6.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.radRibbonBarGroup6.Text = "نرخ نمایش";
@@ -495,7 +462,7 @@
             this.radDateTimePickerElementStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.radDateTimePickerElementStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.radDateTimePickerElementStart.MinDate = new System.DateTime(((long)(0)));
-            this.radDateTimePickerElementStart.MinSize = new System.Drawing.Size(11, 0);
+            this.radDateTimePickerElementStart.MinSize = new System.Drawing.Size(1, 0);
             this.radDateTimePickerElementStart.Name = "radDateTimePickerElementStart";
             this.radDateTimePickerElementStart.NullDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementStart.RightToLeft = true;
@@ -520,7 +487,7 @@
             // 
             // radLabelElement2
             // 
-            this.radLabelElement2.MinSize = new System.Drawing.Size(3, 0);
+            this.radLabelElement2.MinSize = new System.Drawing.Size(1, 0);
             this.radLabelElement2.Name = "radLabelElement2";
             this.radLabelElement2.Text = "پایان";
             this.radLabelElement2.TextAlignment = System.Drawing.ContentAlignment.TopRight;
@@ -534,7 +501,7 @@
             this.radDateTimePickerElementEnd.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.radDateTimePickerElementEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.radDateTimePickerElementEnd.MinDate = new System.DateTime(((long)(0)));
-            this.radDateTimePickerElementEnd.MinSize = new System.Drawing.Size(6, 0);
+            this.radDateTimePickerElementEnd.MinSize = new System.Drawing.Size(1, 0);
             this.radDateTimePickerElementEnd.Name = "radDateTimePickerElementEnd";
             this.radDateTimePickerElementEnd.NullDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementEnd.StretchVertically = false;
@@ -563,7 +530,7 @@
             this.BtnPrint.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
             this.BtnPrint.Image = global::PersianMIS.Properties.Resources.printer1;
             this.BtnPrint.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnPrint.MinSize = new System.Drawing.Size(5, 0);
+            this.BtnPrint.MinSize = new System.Drawing.Size(1, 0);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
             this.BtnPrint.Text = "چاپ پیمایش زمانی";
@@ -574,12 +541,12 @@
             // radRibbonBarGroup8
             // 
             this.radRibbonBarGroup8.AutoSize = false;
-            this.radRibbonBarGroup8.Bounds = new System.Drawing.Rectangle(0, 0, 108, 124);
+            this.radRibbonBarGroup8.Bounds = new System.Drawing.Rectangle(0, 0, 102, 130);
             this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_RefreshTimeLine});
             this.radRibbonBarGroup8.Margin = new System.Windows.Forms.Padding(1);
-            this.radRibbonBarGroup8.MaxSize = new System.Drawing.Size(0, 7);
-            this.radRibbonBarGroup8.MinSize = new System.Drawing.Size(2, 6);
+            this.radRibbonBarGroup8.MaxSize = new System.Drawing.Size(0, 1);
+            this.radRibbonBarGroup8.MinSize = new System.Drawing.Size(1, 1);
             this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
             this.radRibbonBarGroup8.Text = "بروز رسانی نمودار";
             // 
@@ -591,7 +558,7 @@
             this.Btn_RefreshTimeLine.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
             this.Btn_RefreshTimeLine.Image = global::PersianMIS.Properties.Resources.Refreshend;
             this.Btn_RefreshTimeLine.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_RefreshTimeLine.MinSize = new System.Drawing.Size(0, 4);
+            this.Btn_RefreshTimeLine.MinSize = new System.Drawing.Size(0, 1);
             this.Btn_RefreshTimeLine.Name = "Btn_RefreshTimeLine";
             this.Btn_RefreshTimeLine.ScaleTransform = new System.Drawing.SizeF(1F, 1F);
             this.Btn_RefreshTimeLine.Text = "";
@@ -623,7 +590,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).EndInit();
             this.radCollapsiblePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).EndInit();
-            this.LSTProrudtionLines.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
@@ -672,6 +638,5 @@
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadCollapsiblePanel radCollapsiblePanel2;
         private Telerik.WinControls.UI.RadCheckedListBox LSTProrudtionLines;
-        private System.Windows.Forms.Button button1;
     }
 }

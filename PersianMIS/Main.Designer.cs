@@ -37,6 +37,9 @@
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
+            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
             this.Tab_Control = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_AllStationBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -98,9 +101,6 @@
             this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             this.Mnu_Exit = new Telerik.WinControls.UI.RadMenuItem();
             this.radRibbonFormBehavior1 = new Telerik.WinControls.UI.RadRibbonFormBehavior();
-            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -144,6 +144,31 @@
             this.Pnl_Main.Name = "Pnl_Main";
             this.Pnl_Main.Size = new System.Drawing.Size(1268, 679);
             this.Pnl_Main.TabIndex = 2;
+            // 
+            // radRibbonBarGroup1
+            // 
+            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement2});
+            this.radRibbonBarGroup1.Margin = new System.Windows.Forms.Padding(0);
+            this.radRibbonBarGroup1.MaxSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup1.MinSize = new System.Drawing.Size(0, 0);
+            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
+            this.radRibbonBarGroup1.Text = "تعریف دستگاه های ورودی";
+            this.radRibbonBarGroup1.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElement2
+            // 
+            this.radButtonElement2.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement2.Image = global::PersianMIS.Properties.Resources.Create_Parameter_OK;
+            this.radButtonElement2.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement2.Name = "radButtonElement2";
+            this.radButtonElement2.Text = "                                           ";
+            this.radButtonElement2.UseCompatibleTextRendering = false;
+            // 
+            // radRibbonBarButtonGroup1
+            // 
+            this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
+            this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
             // 
             // MainRibbonBar
             // 
@@ -192,7 +217,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
@@ -404,7 +429,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,
@@ -499,7 +524,7 @@
             // Btn_DefineShift
             // 
             this.Btn_DefineShift.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_DefineShift.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
+            this.Btn_DefineShift.Image = global::PersianMIS.Properties.Resources.Shift21;
             this.Btn_DefineShift.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_DefineShift.Name = "Btn_DefineShift";
             this.Btn_DefineShift.Text = "                            ";
@@ -680,31 +705,6 @@
             // radRibbonFormBehavior1
             // 
             this.radRibbonFormBehavior1.Form = this;
-            // 
-            // radRibbonBarGroup1
-            // 
-            this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement2});
-            this.radRibbonBarGroup1.Margin = new System.Windows.Forms.Padding(0);
-            this.radRibbonBarGroup1.MaxSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup1.MinSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
-            this.radRibbonBarGroup1.Text = "تعریف دستگاه های ورودی";
-            this.radRibbonBarGroup1.UseCompatibleTextRendering = false;
-            // 
-            // radButtonElement2
-            // 
-            this.radButtonElement2.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElement2.Image = global::PersianMIS.Properties.Resources.Create_Parameter_OK;
-            this.radButtonElement2.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElement2.Name = "radButtonElement2";
-            this.radButtonElement2.Text = "                                           ";
-            this.radButtonElement2.UseCompatibleTextRendering = false;
-            // 
-            // radRibbonBarButtonGroup1
-            // 
-            this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
-            this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
             // 
             // Main
             // 

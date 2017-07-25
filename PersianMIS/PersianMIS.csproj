@@ -390,6 +390,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Shift21.png" />
+    <None Include="Resources\Shift2.png" />
+    <None Include="Resources\Shift.png" />
     <None Include="Resources\Refreshend.png" />
     <None Include="Resources\printer1.png" />
     <None Include="Resources\printer.png" />

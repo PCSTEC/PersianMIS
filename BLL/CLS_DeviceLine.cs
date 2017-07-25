@@ -37,6 +37,12 @@ namespace BLL
 
         }
 
+        public DataTable GetDeviceLineByProductLineId(  string ProductLineId)
+        {
+
+            return DAL_DeviceLine.GetDeviceLineByProductLineId( ProductLineId);
+
+        }
 
         public DataTable GetSpecialLineStateByDate (string DeviceId, string LineId , string StartDate , string StartTime,string EndMiladiDate,string EndMiladiTime)
         {
