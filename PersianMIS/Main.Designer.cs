@@ -144,6 +144,7 @@
             this.Pnl_Main.Name = "Pnl_Main";
             this.Pnl_Main.Size = new System.Drawing.Size(1268, 679);
             this.Pnl_Main.TabIndex = 2;
+            this.Pnl_Main.Resize += new System.EventHandler(this.Pnl_Main_Resize);
             // 
             // radRibbonBarGroup1
             // 

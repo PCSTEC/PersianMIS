@@ -283,14 +283,19 @@
             // 
             // LSTProrudtionLines
             // 
-            this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
+            this.LSTProrudtionLines.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LSTProrudtionLines.GroupIndent = 8;
+            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(59, 5);
+            this.LSTProrudtionLines.HeaderHeight = 8.75F;
+            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(59, 5);
+            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 30);
+            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1);
             this.LSTProrudtionLines.Name = "LSTProrudtionLines";
             this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 461);
+            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 431);
             this.LSTProrudtionLines.TabIndex = 0;
             this.LSTProrudtionLines.Text = "radCheckedListBox1";
-            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged_1);
+            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
             // 
             // radCollapsiblePanel1
             // 

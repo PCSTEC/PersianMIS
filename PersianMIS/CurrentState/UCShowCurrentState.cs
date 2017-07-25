@@ -87,8 +87,8 @@ namespace PersianMIS.CurrentState
 
                 Color[] colors = new Color[]
                 {
-                Color.LightBlue, Color.LightGreen, Color.LightYellow,
-                Color.Red, Color.Orange, Color.Purple, Color.Purple, Color.Purple, Color.PowderBlue
+                Color.LightBlue, Color.LightBlue, Color.LightBlue,
+                Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue
                 };
 
 
@@ -170,7 +170,7 @@ namespace PersianMIS.CurrentState
                 this.radScheduler1.ActiveViewType = SchedulerViewType.Timeline;
                 this.radScheduler1.GetTimelineView().GroupSeparatorWidth = 0;
 
-                this.radScheduler1.GetTimelineView().ResourcesPerView = 4;
+                this.radScheduler1.GetTimelineView().ResourcesPerView = this.radScheduler1.Resources.Count ;
                 this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Minutes);
                 RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
          
@@ -399,19 +399,12 @@ namespace PersianMIS.CurrentState
         {
             IsFirstLoad = false;
         }
- 
- 
- 
+
         private void LSTProrudtionLines_ItemCheckedChanged(object sender, ListViewItemEventArgs e)
         {
-  
-        }
-
-        private void LSTProrudtionLines_ItemCheckedChanged_1(object sender, ListViewItemEventArgs e)
-        {
             this.Cursor = Cursors.WaitCursor;
- SelectedProductionLines = "0";
-      
+            SelectedProductionLines = "0";
+
             foreach (var CheckedItem in LSTProrudtionLines.CheckedItems)
             {
                 SelectedProductionLines = SelectedProductionLines + "," + CheckedItem.Value.ToString() + "";

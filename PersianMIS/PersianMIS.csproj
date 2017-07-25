@@ -164,6 +164,12 @@
     <Compile Include="CurrentState\UCShowCurrentState.Designer.cs">
       <DependentUpon>UCShowCurrentState.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentState\UCShowCurrentStateWithChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrentState\UCShowCurrentStateWithChart.Designer.cs">
+      <DependentUpon>UCShowCurrentStateWithChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </Compile>
     <EmbeddedResource Include="CurrentState\UCShowCurrentState.resx">
       <DependentUpon>UCShowCurrentState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurrentState\UCShowCurrentStateWithChart.resx">
+      <DependentUpon>UCShowCurrentStateWithChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

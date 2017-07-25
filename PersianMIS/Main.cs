@@ -312,8 +312,9 @@ namespace PersianMIS
 
             var Pnl = new CurrentState.UCShowCurrentState ();
              Pnl_Main.Controls.Clear();
-            Pnl.Width = Pnl_Main.Width-18;
+             Pnl.Width = Pnl_Main.Width-18;
             Pnl.Height = Pnl_Main.Height-14;
+          
             Pnl.IsFirstLoad = true;
             Pnl_Main.Controls.Add(Pnl);
           
@@ -356,6 +357,17 @@ namespace PersianMIS
             this.Cursor = Cursors.Default  ;
             MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
+        }
+
+        private void Pnl_Main_Resize(object sender, EventArgs e)
+        {
+            if (Pnl_Main.Controls.Count == 1)
+            {
+                Pnl_Main.Controls[0].Width = Pnl_Main.Width-18;
+                Pnl_Main.Controls[0].Height  = Pnl_Main.Height-14 ;
+
+
+            }
         }
     }
 }
