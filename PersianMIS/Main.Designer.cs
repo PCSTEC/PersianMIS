@@ -98,6 +98,7 @@
             this.Btn_CalcDurations = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_SettingsBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_Settings = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Minimized = new Telerik.WinControls.UI.RadToggleButtonElement();
             this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             this.Mnu_Exit = new Telerik.WinControls.UI.RadMenuItem();
             this.radRibbonFormBehavior1 = new Telerik.WinControls.UI.RadRibbonFormBehavior();
@@ -140,9 +141,9 @@
             // 
             this.Pnl_Main.AutoScroll = true;
             this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnl_Main.Location = new System.Drawing.Point(0, 162);
+            this.Pnl_Main.Location = new System.Drawing.Point(0, 164);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(1268, 679);
+            this.Pnl_Main.Size = new System.Drawing.Size(1268, 677);
             this.Pnl_Main.TabIndex = 2;
             this.Pnl_Main.Resize += new System.EventHandler(this.Pnl_Main_Resize);
             // 
@@ -198,9 +199,10 @@
             this.MainRibbonBar.OptionsButton.ButtonElement.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             this.MainRibbonBar.OptionsButton.Text = "Options";
             this.MainRibbonBar.QuickAccessToolBarItems.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_Minimized,
             this.radButtonElement1});
             this.MainRibbonBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainRibbonBar.Size = new System.Drawing.Size(1268, 162);
+            this.MainRibbonBar.Size = new System.Drawing.Size(1268, 164);
             this.MainRibbonBar.StartButtonImage = global::PersianMIS.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
@@ -218,7 +220,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = false;
+            this.Tab_Control.IsSelected = true;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
@@ -430,7 +432,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,
@@ -688,6 +690,16 @@
             this.Btn_Settings.Name = "Btn_Settings";
             this.Btn_Settings.Text = "                               ";
             // 
+            // Btn_Minimized
+            // 
+            this.Btn_Minimized.Image = global::PersianMIS.Properties.Resources.Gantt100;
+            this.Btn_Minimized.Name = "Btn_Minimized";
+            this.Btn_Minimized.ReadOnly = false;
+            this.Btn_Minimized.StretchHorizontally = false;
+            this.Btn_Minimized.StretchVertically = false;
+            this.Btn_Minimized.Text = "-";
+            this.Btn_Minimized.Click += new System.EventHandler(this.Btn_Minimized_Click);
+            // 
             // radButtonElement1
             // 
             this.radButtonElement1.Name = "radButtonElement1";
@@ -813,5 +825,6 @@
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement2;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup1;
+        private Telerik.WinControls.UI.RadToggleButtonElement Btn_Minimized;
     }
 }

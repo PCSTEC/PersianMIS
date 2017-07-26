@@ -310,12 +310,12 @@ namespace PersianMIS
 
 
 
-            var Pnl = new CurrentState.UCShowCurrentState ();
+            var Pnl = new CurrentState.UCShowCurrentStateWithChart();
              Pnl_Main.Controls.Clear();
              Pnl.Width = Pnl_Main.Width-18;
             Pnl.Height = Pnl_Main.Height-14;
           
-            Pnl.IsFirstLoad = true;
+         //   Pnl.IsFirstLoad = true;
             Pnl_Main.Controls.Add(Pnl);
           
               this.Cursor = Cursors.Default;
@@ -368,6 +368,12 @@ namespace PersianMIS
 
 
             }
+        }
+
+        private void Btn_Minimized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
         }
     }
 }

@@ -126,6 +126,7 @@ namespace PersianMIS.CurrentState
 
 
                 BLL.Cls_PublicOperations.Dt = BllStation.GetAllStationData(StartDate, EndDate, ListOfProductionLines);
+
                 int totalHours;
 
                 for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
