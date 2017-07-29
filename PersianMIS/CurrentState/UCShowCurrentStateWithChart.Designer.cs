@@ -28,65 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.CartesianArea cartesianArea1 = new Telerik.WinControls.UI.CartesianArea();
-            Telerik.WinControls.UI.CategoricalAxis categoricalAxis1 = new Telerik.WinControls.UI.CategoricalAxis();
-            Telerik.WinControls.UI.LinearAxis linearAxis1 = new Telerik.WinControls.UI.LinearAxis();
-            this.MainChart = new Telerik.WinControls.UI.RadChartView();
-            this.radCheckBox1 = new Telerik.WinControls.UI.RadCheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).BeginInit();
-            this.MainChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).BeginInit();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // MainChart
+            // chart1
             // 
-            this.MainChart.AreaDesign = cartesianArea1;
-            categoricalAxis1.IsPrimary = true;
-            linearAxis1.AxisType = Telerik.Charting.AxisType.Second;
-            linearAxis1.IsPrimary = true;
-            linearAxis1.TickOrigin = null;
-            this.MainChart.Axes.AddRange(new Telerik.WinControls.UI.Axis[] {
-            categoricalAxis1,
-            linearAxis1});
-            this.MainChart.Controls.Add(this.radCheckBox1);
-            this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainChart.Location = new System.Drawing.Point(0, 0);
-            this.MainChart.Name = "MainChart";
-            this.MainChart.ShowGrid = false;
-            this.MainChart.ShowPanZoom = true;
-            this.MainChart.ShowToolTip = true;
-            this.MainChart.ShowTrackBall = true;
-            this.MainChart.Size = new System.Drawing.Size(792, 700);
-            this.MainChart.TabIndex = 0;
-            this.MainChart.Text = "radChartView1";
-            // 
-            // radCheckBox1
-            // 
-            this.radCheckBox1.Location = new System.Drawing.Point(124, 87);
-            this.radCheckBox1.Name = "radCheckBox1";
-            this.radCheckBox1.Size = new System.Drawing.Size(91, 18);
-            this.radCheckBox1.TabIndex = 0;
-            this.radCheckBox1.Text = "radCheckBox1";
-            this.radCheckBox1.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.radCheckBox1_ToggleStateChanged);
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.chart1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.chart1.BorderlineWidth = 2;
+            this.chart1.BorderSkin.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal;
+            this.chart1.BorderSkin.BackImage = "D:\\PCS11\\PCS\\graphic\\01.jpg";
+            this.chart1.BorderSkin.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
+            this.chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.Area3DStyle.Inclination = 40;
+            chartArea1.Area3DStyle.IsClustered = true;
+            chartArea1.Area3DStyle.IsRightAngleAxes = false;
+            chartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic;
+            chartArea1.Area3DStyle.Perspective = 9;
+            chartArea1.Area3DStyle.Rotation = 25;
+            chartArea1.Area3DStyle.WallWidth = 3;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.BackColor = System.Drawing.Color.OldLace;
+            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.White;
+            chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDotDot;
+            chartArea1.BorderWidth = 2;
+            chartArea1.Name = "Default";
+            chartArea1.ShadowColor = System.Drawing.Color.Black;
+            chartArea1.ShadowOffset = 10;
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            legend1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            legend1.BorderColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new System.Drawing.Font("B Traffic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "defalut";
+            legend1.TitleFont = new System.Drawing.Font("B Traffic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            legend1.TitleSeparator = System.Windows.Forms.DataVisualization.Charting.LegendSeparatorStyle.GradientLine;
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            series1.ChartArea = "Default";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar100;
+            series1.Legend = "defalut";
+            series1.Name = "Group";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1146, 718);
+            this.chart1.TabIndex = 6;
+            title1.Font = new System.Drawing.Font("B Titr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            title1.Name = "Title1";
+            title2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            title2.Name = "Title2";
+            this.chart1.Titles.Add(title1);
+            this.chart1.Titles.Add(title2);
             // 
             // UCShowCurrentStateWithChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.MainChart);
+            this.Controls.Add(this.chart1);
             this.Name = "UCShowCurrentStateWithChart";
-            this.Size = new System.Drawing.Size(792, 700);
-            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).EndInit();
-            this.MainChart.ResumeLayout(false);
-            this.MainChart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).EndInit();
+            this.Size = new System.Drawing.Size(1146, 718);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Telerik.WinControls.UI.RadChartView MainChart;
-        private Telerik.WinControls.UI.RadCheckBox radCheckBox1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

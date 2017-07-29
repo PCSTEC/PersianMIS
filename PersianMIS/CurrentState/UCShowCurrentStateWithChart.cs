@@ -21,31 +21,31 @@ namespace PersianMIS.CurrentState
 
             InitializeComponent();
          
-            Theme theme = Theme.ReadCSSText(@"
-                                            theme
-                                            {
-                                               name: ControlDefault;
-                                               elementType: Telerik.WinControls.UI.RadChartElement; 
-                                               controlType: Telerik.WinControls.UI.RadChartView; 
-                                            }
+            //Theme theme = Theme.ReadCSSText(@"
+            //                                theme
+            //                                {
+            //                                   name: ControlDefault;
+            //                                   elementType: Telerik.WinControls.UI.RadChartElement; 
+            //                                   controlType: Telerik.WinControls.UI.RadChartView; 
+            //                                }
 
-                                            Bar
-                                            {    
-                                                HeightAspectRatio
-                                                {
-                                                    Value: 0.9;
-                                                    EndValue: 1;
-                                                    MaxValue: 1;
-                                                    Frames: 30;
-                                                    Interval: 20;
-                                                    EasingType: InOutCubic;
-                                                    RandomDelay: 200;
-                                                    RemoveAfterApply: true; 
-                                                }
-                                            }
-                                            ");
+            //                                Bar
+            //                                {    
+            //                                    HeightAspectRatio
+            //                                    {
+            //                                        Value: 0.9;
+            //                                        EndValue: 1;
+            //                                        MaxValue: 1;
+            //                                        Frames: 30;
+            //                                        Interval: 20;
+            //                                        EasingType: InOutCubic;
+            //                                        RandomDelay: 200;
+            //                                        RemoveAfterApply: true; 
+            //                                    }
+            //                                }
+            //                                ");
 
-            ThemeRepository.Add(theme, false);
+            //ThemeRepository.Add(theme, false);
             FillChartData();
 
         }
@@ -56,37 +56,86 @@ namespace PersianMIS.CurrentState
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            BLL.Cls_PublicOperations.Dt = BllStation.GetAllStationData("2017/07/19", "2017/07/26", "1");
-
-            CartesianArea area = this.MainChart.GetArea<CartesianArea>();
-            area.ShowGrid = true;
+           BLL.Cls_PublicOperations.Dt = BllStation.GetAllStationData("2017/07/19", "2017/07/19", "1");
 
 
-            CartesianGrid grid = this.MainChart.GetArea<CartesianArea>().GetGrid<CartesianGrid>();
-            this.MainChart.GetArea<CartesianArea>().Orientation = Orientation.Horizontal;
-            grid.DrawVerticalStripes = true;
-            grid.DrawHorizontalStripes = false;
 
-            BarSeries bar = new BarSeries();
-
-            bar.CategoryMember = "LineDesc";
-            bar.ValueMember = "Duration";
-            bar.DataSource = BLL.Cls_PublicOperations.Dt;
-            this.MainChart.Series.Add(bar);
-
-            MyFormatProvider myFormatter = new MyFormatProvider();
-            myFormatter.Start = new DateTime(2013, 6, 5, 8, 0, 0);
-            bar.VerticalAxis.LabelFormatProvider = myFormatter;
+            //CartesianArea area = this.MainChart.GetArea<CartesianArea>();
+            //area.ShowGrid = true;
 
 
-           
+            //CartesianGrid grid = this.MainChart.GetArea<CartesianArea>().GetGrid<CartesianGrid>();
+            //this.MainChart.GetArea<CartesianArea>().Orientation = Orientation.Horizontal;
+            //grid.DrawVerticalStripes = true;
+            //grid.DrawHorizontalStripes = false;
+
+            //BarSeries bar = new BarSeries();
+
+            //bar.CategoryMember = "LineDesc";
+            //bar.ValueMember = "Duration";
+            //bar.DataSource = BLL.Cls_PublicOperations.Dt;
+            //this.MainChart.Series.Add(bar);
+
+            //MyFormatProvider myFormatter = new MyFormatProvider();
+            //myFormatter.Start = new DateTime(2013, 6, 5, 8, 0, 0);
+            //bar.VerticalAxis.LabelFormatProvider = myFormatter;
+
+            //   MainChart.DataSource = BLL.Cls_PublicOperations.Dt;
+
+            chart1.DataSource = BLL.Cls_PublicOperations.Dt;
+            chart1.DataBind();
+
+            chart1.Series["Group"].XValueMember = "StationDesc";
+            chart1.Series["Group"].YValueMembers = "MiladiStartDateTime";
+
+            //chart1.Series["Group"].XValueMember = "MiladiStartDateTime";
+            //chart1.Series["Group"].YValueMembers = "Duration";
+
+            chart1.Titles(0).Text = Cmb_IndicatorList.Text
+
+            chart1.Series(3).Points.Remove(chart1.Series(3).Points.FindByValue(0))
+            chart1.Series(0).Points.Remove(chart1.Series(0).Points.FindByValue(0))
+
+            chart1.Series(2).Points.Remove(chart1.Series(2).Points.FindByValue(0))
+
 
         }
         private void FillChartData()
         {
-           
-        }
+            //this.MainChart.Series.Clear(); 
+            //this.MainChart.Series.Add(new   ChartSeries  { Type = BarSeries });
+            //this.MainChart.Series.Add(new Telerik.Charting.ChartSeries() { Type = Telerik.Charting.ChartSeriesType.Spline });
+            //this.MainChart.Series.Add(new Telerik.Charting.ChartSeries() { Type = Telerik.Charting.ChartSeriesType.Point });
 
+            //this.MainChart.Series[0].DataXColumn = "ProductId";
+            //this.MainChart.Series[1].DataXColumn = "ProductId";
+            //this.MainChart.Series[2].DataXColumn = "ProductId";
+
+            //this.MainChart.Series[0].DataYColumn = "Value1";
+            //this.MainChart.Series[1].DataYColumn = "Value2";
+            //this.MainChart.Series[2].DataYColumn = "Value3";
+
+            //this.MainChart.PlotArea.XAxis.DataLabelsColumn = "Name";
+            //this.MainChart.PlotArea.XAxis.Appearance.TextAppearance.TextProperties.Font = new System.Drawing.Font("Ariel", 8);
+
+            //this.MainChart.DataSource = new List<Product>()
+            //{
+            //    new Product{ ProductId = 1, Name = "silverlight", Value1 = 1, Value2 = 6, Value3 = 11, },
+            //    new Product{ ProductId = 2, Name = "wpf", Value1 = 2, Value2 = 8, Value3 = 15, },
+            //    new Product{ ProductId = 3, Name = "mvc", Value1 = 3, Value2 = 10, Value3 = 14, },
+            //    new Product{ ProductId = 4, Name = "asp", Value1 = 4, Value2 = 9, Value3 = 13, },
+            //    new Product{ ProductId = 5, Name = "win forms", Value1 = 4, Value2 = 8, Value3 = 12, },
+            //};
+            //this.MainChart.DataBind();
+        }
+        public class Product
+        {
+            public int ProductId { get; set; }
+            public string Name { get; set; }
+            public double Value1 { get; set; }
+            public double Value2 { get; set; }
+            public double Value3 { get; set; }
+        }
         private void radCheckBox1_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
             
