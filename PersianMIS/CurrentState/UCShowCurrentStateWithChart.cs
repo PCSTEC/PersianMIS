@@ -34,7 +34,7 @@ namespace PersianMIS.CurrentState
             //chart.Series[0].ValueDataMembers[0] = "MiladiStartDateTime";
             chart.DataSource = BLL.Cls_PublicOperations.Dt;
 
-
+            int x;
 
             chart.SeriesDataMember = "ProductLineDesc";
             chart.SeriesTemplate.ArgumentDataMember = "MiladiStartDateTime";
