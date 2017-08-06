@@ -126,7 +126,9 @@
       <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.UI.v4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -213,11 +215,22 @@
     <Compile Include="CurrentState\UCShowCurrentState.Designer.cs">
       <DependentUpon>UCShowCurrentState.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentState\UCShowCurrentStateChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrentState\UCShowCurrentStateChart.Designer.cs">
+      <DependentUpon>UCShowCurrentStateChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCSTECDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PCSTECDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ProductionControl\ShowProductionStatusUserControl.cs">
       <SubType>UserControl</SubType>
@@ -269,6 +282,9 @@
     <EmbeddedResource Include="CurrentState\UCShowCurrentState.resx">
       <DependentUpon>UCShowCurrentState.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CurrentState\UCShowCurrentStateChart.resx">
+      <DependentUpon>UCShowCurrentStateChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +320,17 @@
     <EmbeddedResource Include="System Settings\Frm_ProductLine.resx">
       <DependentUpon>Frm_ProductLine.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PCSTECDataSet.xsc">
+      <DependentUpon>PCSTECDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PCSTECDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PCSTECDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PCSTECDataSet.xss">
+      <DependentUpon>PCSTECDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

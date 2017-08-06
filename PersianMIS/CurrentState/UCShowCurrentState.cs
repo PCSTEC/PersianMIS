@@ -20,6 +20,7 @@ namespace PersianMIS.CurrentState
     public partial class UCShowCurrentState : UserControl
     {
         string SelectedProductionLines = "0";
+        string[,] LastApprochmentInfo=new string[10000,2] ;
 
         Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
         public Boolean IsFirstLoad = false;
@@ -35,8 +36,7 @@ namespace PersianMIS.CurrentState
         public UCShowCurrentState()
         {
 
-            InitializeComponent();
-
+            InitializeComponent(); 
 
         }
 
@@ -74,6 +74,7 @@ namespace PersianMIS.CurrentState
         {
             try
             {
+                Array.Clear(LastApprochmentInfo, 0, LastApprochmentInfo.Length);   
                 this.Cursor = Cursors.WaitCursor;
 
                 this.radScheduler1.Appointments.Clear();
@@ -119,6 +120,9 @@ namespace PersianMIS.CurrentState
                         resource.Color = colors[rand.Next(0, 8)];
 
                         this.radScheduler1.Resources.Add(resource);
+                       
+                        LastApprochmentInfo[i,0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
+
                     }
 
                 }
@@ -160,7 +164,13 @@ namespace PersianMIS.CurrentState
                         app.Visible = false;
                     }
                     this.radScheduler1.Appointments.Add(app);
-                 
+                    string[] array = new string[6];
+                    int index1 = Array.IndexOf(array, "carrot", 2, 3);
+
+                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+
+                    LastApprochmentInfo[coordinates.Item1, 1]=  BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString() ;
+
 
                 }
 
@@ -508,5 +518,24 @@ namespace PersianMIS.CurrentState
             doc.AssociatedObject = this;
             return doc;
         }
+    }
+}
+public static class ExtensionMethods
+{
+    public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
+    {
+        int w = matrix.GetLength(0); // width
+        int h = matrix.GetLength(1); // height
+
+        for (int x = 0; x < w; ++x)
+        {
+            for (int y = 0; y < h; ++y)
+            {
+                if (matrix[x, y].Equals(value))
+                    return Tuple.Create(x, y);
+            }
+        }
+
+        return Tuple.Create(-1, -1);
     }
 }

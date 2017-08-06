@@ -436,110 +436,263 @@ namespace PIASService
                
             }
         }
+
+
         private void InsertData2(int DeviceId, int DeviceLineId, int StateID)
         {
+
+
             try
             {
 
                 if (!ISStartInt2)
                 {
+                    try
+                    {
+                        sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls2 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
+                        LstState2 = Convert.ToBoolean(StateID);
+                        ISStartInt2= true;
+                        Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                    }
+                    catch { }
 
-                    sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls2 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
-                    LstState2 = Convert.ToBoolean(StateID);
-                    ISStartInt2 = true;
+
+                    sqlstr = " SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC ";
+                    Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+
+                    if (Cls_Public.PublicDT.Rows.Count > 0)
+                    {
+                        DeviceStateID2 = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[0]["DeviceStateID"].ToString());
+                    }
+                    return;
+
 
                 }
                 else
                 {
                     if (LstState2 == Convert.ToBoolean(StateID))
                     {
-
-                        sqlstr = "update    Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        // sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID='" + DeviceStateID2 + "'";
 
                     }
                     else
                     {
+                        //  sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "select * from  Tb_Client where DeviceStateID='" + DeviceStateID2 + "'";
 
-                        sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
                         Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
                         DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
                         DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
-
-
                         totalHours = (EndDate - FirstDate).TotalSeconds;
-                        sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where DevicestateID='" + DeviceStateID2 + "'";
+
                         Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
-
-
                         LstState2 = Convert.ToBoolean(StateID);
                         ISStartInt2 = false;
                         CountOfPuls2 = 0;
                     }
-
                 }
 
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
 
+
+
+
             }
             catch (Exception e)
             {
-                 EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
                 ISStartInt2 = false;
                 sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID= '" + DeviceStateID2 + "'";
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
             }
         }
+
+        //private void InsertData2(int DeviceId, int DeviceLineId, int StateID)
+        //{
+        //    try
+        //    {
+
+        //        if (!ISStartInt2)
+        //        {
+
+        //            sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls2 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
+        //            LstState2 = Convert.ToBoolean(StateID);
+        //            ISStartInt2 = true;
+
+        //        }
+        //        else
+        //        {
+        //            if (LstState2 == Convert.ToBoolean(StateID))
+        //            {
+
+        //                sqlstr = "update    Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+
+        //            }
+        //            else
+        //            {
+
+        //                sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+        //                Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+        //                DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
+        //                DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
+
+
+        //                totalHours = (EndDate - FirstDate).TotalSeconds;
+        //                sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+        //                Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
+
+        //                LstState2 = Convert.ToBoolean(StateID);
+        //                ISStartInt2 = false;
+        //                CountOfPuls2 = 0;
+        //            }
+
+        //        }
+
+        //        Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //         EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+        //        ISStartInt2 = false;
+        //        sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls2 + " where  DevicestateID= '" + DeviceStateID2 + "'";
+        //        Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+        //    }
+        //}
+
+
+
+
         private void InsertData3(int DeviceId, int DeviceLineId, int StateID)
         {
+
+
             try
             {
 
                 if (!ISStartInt3)
                 {
+                    try
+                    {
+                        sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls3 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
+                        LstState3 = Convert.ToBoolean(StateID);
+                        ISStartInt3 = true;
+                        Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                    }
+                    catch { }
 
-                    sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls3 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
-                    LstState3 = Convert.ToBoolean(StateID);
-                    ISStartInt3 = true;
+
+                    sqlstr = " SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC ";
+                    Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+
+                    if (Cls_Public.PublicDT.Rows.Count > 0)
+                    {
+                        DeviceStateID3 = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[0]["DeviceStateID"].ToString());
+                    }
+                    return;
+
 
                 }
                 else
                 {
                     if (LstState3 == Convert.ToBoolean(StateID))
                     {
-
-                        sqlstr = "update    Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        // sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where  DevicestateID='" + DeviceStateID3 + "'";
 
                     }
                     else
                     {
+                        //  sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "select * from  Tb_Client where DeviceStateID='" + DeviceStateID3 + "'";
 
-                        sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
                         Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
                         DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
                         DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
-
-
                         totalHours = (EndDate - FirstDate).TotalSeconds;
-                        sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where DevicestateID='" + DeviceStateID3 + "'";
+
                         Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
-
-
                         LstState3 = Convert.ToBoolean(StateID);
                         ISStartInt3 = false;
                         CountOfPuls3 = 0;
                     }
-
                 }
 
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
 
 
+
+
             }
             catch (Exception e)
             {
-                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message, EventLogEntryType.Information);
+                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+                ISStartInt3 = false;
+                sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where  DevicestateID= '" + DeviceStateID3 + "'";
+                Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
             }
         }
+
+
+        //private void InsertData3(int DeviceId, int DeviceLineId, int StateID)
+        //{
+        //    try
+        //    {
+
+        //        if (!ISStartInt3)
+        //        {
+
+        //            sqlstr = "insert into Tb_Client (DeviceID,DeviceLineId,StartDate,StartTime,StateId,[Count],MiladiStartDateTime) values(" + DeviceId + "," + DeviceLineId + ",'" + CurShamsiDate + "','" + DateTime.Now.ToString("HH:mm:ss:ff") + "'," + StateID + "," + ++CountOfPuls3 + ",convert(datetime,'" + DateTime.Now.ToString() + "'))";
+        //            LstState3 = Convert.ToBoolean(StateID);
+        //            ISStartInt3 = true;
+
+        //        }
+        //        else
+        //        {
+        //            if (LstState3 == Convert.ToBoolean(StateID))
+        //            {
+
+        //                sqlstr = "update    Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+
+        //            }
+        //            else
+        //            {
+
+        //                sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+        //                Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+        //                DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
+        //                DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
+
+
+        //                totalHours = (EndDate - FirstDate).TotalSeconds;
+        //                sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+        //                Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
+
+        //                LstState3 = Convert.ToBoolean(StateID);
+        //                ISStartInt3 = false;
+        //                CountOfPuls3 = 0;
+        //            }
+
+        //        }
+
+        //        Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message, EventLogEntryType.Information);
+        //    }
+        //}
 
         private void InsertData4(int DeviceId, int DeviceLineId, int StateID)
         {

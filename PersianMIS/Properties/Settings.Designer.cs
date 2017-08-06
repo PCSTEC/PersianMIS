@@ -34,5 +34,15 @@ namespace PersianMIS.Properties {
                 this["AppName"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sqlsrv;Initial Catalog=PCSTEC;Integrated Security=True")]
+        public string PCSTECConnectionString {
+            get {
+                return ((string)(this["PCSTECConnectionString"]));
+            }
+        }
     }
 }
