@@ -20,8 +20,12 @@ namespace BLL
             return DAL_ProductLines.GetProductLines();
         }
 
+        public DataTable GetProductLinesWithSetForDeviceLine()
+        {
+            return DAL_ProductLines.GetProductLinesWithSetForDeviceLine();
+        }
 
-
+        
         public void Insert (string ProductLineId , string ProductLineDesc  , string Description  , string MizaneTolid  , string SalonDesc ) 
         {
             DAL_ProductLines.Insert(ProductLineId, ProductLineDesc, Description, MizaneTolid, SalonDesc);

@@ -128,8 +128,13 @@ namespace DAL
             return Cls_Public.PublicDT;
         }
 
-
-
+        public DataTable GetLastStateOfDeviceLineData()
+        {
+            Cls_Public.SqlStr = "select * from GetLastStateOfDeviceLineData()  ";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
+        
         public DataTable GetLastResourceState()
         {
             Cls_Public.SqlStr = "select * from VW_LastResourceState  ";

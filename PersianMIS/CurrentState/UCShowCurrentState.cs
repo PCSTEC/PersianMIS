@@ -20,7 +20,7 @@ namespace PersianMIS.CurrentState
     public partial class UCShowCurrentState : UserControl
     {
         string SelectedProductionLines = "0";
-        string[,] LastApprochmentInfo=new string[10000,2] ;
+        string[,] LastApprochmentInfo = new string[10000, 2];
 
         Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
         public Boolean IsFirstLoad = false;
@@ -36,7 +36,7 @@ namespace PersianMIS.CurrentState
         public UCShowCurrentState()
         {
 
-            InitializeComponent(); 
+            InitializeComponent();
 
         }
 
@@ -51,9 +51,9 @@ namespace PersianMIS.CurrentState
             radDateTimePickerElementEnd.Value = CurDate;
 
             String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            startdate= CurDate.AddDays(-7).ToString("yyyy/MM/dd", new CultureInfo("en-US"));
+            startdate = CurDate.AddDays(-7).ToString("yyyy/MM/dd", new CultureInfo("en-US"));
             enddate = CurrentDate;
-           // FillData(startdate, CurrentDate, SelectedProductionLines);
+            // FillData(startdate, CurrentDate, SelectedProductionLines);
 
             FillLstProductLines();
         }
@@ -61,20 +61,20 @@ namespace PersianMIS.CurrentState
 
         private void FillLstProductLines()
         {
-            LSTProrudtionLines.DataSource = Bll_ProductLines.GetProductLines();
+            LSTProrudtionLines.DataSource = Bll_ProductLines.GetProductLinesWithSetForDeviceLine();
             LSTProrudtionLines.DisplayMember = "ProductLineDesc";
             LSTProrudtionLines.ValueMember = "id";
-       
+
 
 
         }
-      
 
-        private void FillData(string StartDate, string EndDate , string ListOfProductionLines)
+
+        private void FillData(string StartDate, string EndDate, string ListOfProductionLines)
         {
             try
             {
-                Array.Clear(LastApprochmentInfo, 0, LastApprochmentInfo.Length);   
+                Array.Clear(LastApprochmentInfo, 0, LastApprochmentInfo.Length);
                 this.Cursor = Cursors.WaitCursor;
 
                 this.radScheduler1.Appointments.Clear();
@@ -103,14 +103,12 @@ namespace PersianMIS.CurrentState
                         resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
                         resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineDesc"].ToString();
                         resource.Color = colors[rand.Next(0, 8)];
-
                         this.radScheduler1.Resources.Add(resource);
                     }
-
                 }
                 else
                 {
-                    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString()) ;
+                    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString());
 
                     for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
                     {
@@ -120,8 +118,8 @@ namespace PersianMIS.CurrentState
                         resource.Color = colors[rand.Next(0, 8)];
 
                         this.radScheduler1.Resources.Add(resource);
-                       
-                        LastApprochmentInfo[i,0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
+
+                        LastApprochmentInfo[i, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
 
                     }
 
@@ -154,22 +152,20 @@ namespace PersianMIS.CurrentState
                     app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
 
-                    
-                        app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
-                  
+
+                    app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
+
                     app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
 
-                    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")  
+                    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")
                     {
                         app.Visible = false;
                     }
                     this.radScheduler1.Appointments.Add(app);
-                    string[] array = new string[6];
-                    int index1 = Array.IndexOf(array, "carrot", 2, 3);
 
                     var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
 
-                    LastApprochmentInfo[coordinates.Item1, 1]=  BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString() ;
+                    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
 
                 }
@@ -181,10 +177,10 @@ namespace PersianMIS.CurrentState
                 this.radScheduler1.ActiveViewType = SchedulerViewType.Timeline;
                 this.radScheduler1.GetTimelineView().GroupSeparatorWidth = 0;
 
-                this.radScheduler1.GetTimelineView().ResourcesPerView = this.radScheduler1.Resources.Count ;
+                this.radScheduler1.GetTimelineView().ResourcesPerView = this.radScheduler1.Resources.Count;
                 this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Minutes);
                 RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
-         
+
 
                 if (IsFirstLoad == true)
                 {
@@ -243,7 +239,7 @@ namespace PersianMIS.CurrentState
             radDateTimePickerElementStart.Value = CurDate.AddDays(-365);
             radDateTimePickerElementEnd.Value = CurDate;
             String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-365).ToString("yyyy/MM/dd", new CultureInfo("en-US")), CurrentDate,"");
+            FillData(CurDate.AddDays(-365).ToString("yyyy/MM/dd", new CultureInfo("en-US")), CurrentDate, "");
             this.Cursor = Cursors.Default;
         }
 
@@ -335,70 +331,45 @@ namespace PersianMIS.CurrentState
 
 
             e.AppointmentElement.ShowAppointmentDescription = true;
-    
+
         }
 
-      
-        private void Btn_RefreshTimeLine_Click(object sender, EventArgs e)
-        {
-            FillLastData();
-        }
+
+
 
         private void FillLastData()
         {
-            for (int i = 0; i <= 99; i++)
+            BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetLastStateOfDeviceLineData();
+            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
             {
-                radScheduler1.Appointments.Remove(radScheduler1.Appointments[radScheduler1.Appointments.Count - 1]);
-                radScheduler1.Refresh();
-                radScheduler1.Update();
+                try {
+
+                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
+
+
+                    var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
+                    radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+
+                    radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
+                    radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+                }
+                catch
+                {
+
+                }
 
             }
 
-
-
-            BLL.Cls_PublicOperations.Dt = BllStation.Get100OfAllStationData();
-            int totalHours;
-
-            for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
-            {
-                this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
-
-                totalHours = 0;
-
-                totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
-
-                DateTime Start = new DateTime();
-                DateTime end = new DateTime();
-                Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-                end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-
-
-
-
-                Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
-
-                app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
-
-
-
-
-                app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
-                app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
-
-                this.radScheduler1.Appointments.Add(app);
-
-
-
-
-            }
-
-            SchedulerUIHelper.BringAppointmentIntoView(this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 1], this.radScheduler1);
 
         }
 
         private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-            FillLastData();
+            if (radScheduler1.Appointments.Count > 0)
+            {
+                FillLastData();
+            }
+
         }
 
         private void radDateTimePickerElementEnd_Click(object sender, EventArgs e)
@@ -524,18 +495,27 @@ public static class ExtensionMethods
 {
     public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
     {
-        int w = matrix.GetLength(0); // width
-        int h = matrix.GetLength(1); // height
-
-        for (int x = 0; x < w; ++x)
+        try
         {
-            for (int y = 0; y < h; ++y)
+            int w = matrix.GetLength(0); // width
+            int h = matrix.GetLength(1); // height
+
+            for (int x = 0; x < w; ++x)
             {
-                if (matrix[x, y].Equals(value))
-                    return Tuple.Create(x, y);
+                for (int y = 0; y < h; ++y)
+                {
+                    if (matrix[x, y].Equals(value))
+                        return Tuple.Create(x, y);
+                }
             }
+
+            return Tuple.Create(-1, -1);
+        }
+        catch
+        {
+            return Tuple.Create(-1, -1);
+
         }
 
-        return Tuple.Create(-1, -1);
     }
 }

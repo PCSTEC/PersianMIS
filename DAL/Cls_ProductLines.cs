@@ -21,6 +21,14 @@ namespace DAL
             return Cls_Public.PublicDT;
         }
 
+        public DataTable GetProductLinesWithSetForDeviceLine()
+        {
+            Cls_Public.SqlStr = "select * from GetProductLinesWithSetForDeviceLine() ";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
+
+
         public void Insert(string ProductLineId, string ProductLineDesc, string Description, string MizaneTolid, string SalonDesc)
         {
            
