@@ -46,41 +46,10 @@
             // 
             // serialPort2
             // 
-            this.serialPort2.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort2_DataReceived);
             // 
             // serialPort3
             // 
-            this.serialPort3.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort3_DataReceived);
-            // 
-            // serialPort4
-            // 
-            this.serialPort4.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort4_DataReceived);
-            // 
-            // serialPort5
-            // 
-            this.serialPort5.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort5_DataReceived);
-            // 
-            // serialPort6
-            // 
-            this.serialPort6.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort6_DataReceived);
-            // 
-            // serialPort7
-            // 
-            this.serialPort7.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort7_DataReceived);
-            // 
-            // serialPort8
-            // 
-            this.serialPort8.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort8_DataReceived);
-            // 
-            // serialPort9
-            // 
-            this.serialPort9.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort9_DataReceived);
-            // 
-            // serialPort10
-            // 
-            this.serialPort10.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort10_DataReceived);
-            // 
-            // PIASService
+               // PIASService
             // 
             this.ServiceName = "PIASService";
 
