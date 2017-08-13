@@ -47,6 +47,7 @@
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
             this.radCollapsiblePanel2 = new Telerik.WinControls.UI.RadCollapsiblePanel();
+            this.LSTProrudtionLines = new Telerik.WinControls.UI.RadCheckedListBox();
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
@@ -65,7 +66,6 @@
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.BtnPrint = new Telerik.WinControls.UI.RadButtonElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
-            this.LSTProrudtionLines = new Telerik.WinControls.UI.RadCheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
             this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
@@ -74,11 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).BeginInit();
             this.radCollapsiblePanel2.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).BeginInit();
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).BeginInit();
             this.SuspendLayout();
             // 
             // radRibbonBarGroup2
@@ -279,6 +279,22 @@
             this.radCollapsiblePanel2.Size = new System.Drawing.Size(196, 631);
             this.radCollapsiblePanel2.TabIndex = 13;
             this.radCollapsiblePanel2.Text = "radCollapsiblePanel2";
+            // 
+            // LSTProrudtionLines
+            // 
+            this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LSTProrudtionLines.GroupIndent = 14;
+            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(109, 10);
+            this.LSTProrudtionLines.HeaderHeight = 17.5F;
+            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(109, 10);
+            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
+            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LSTProrudtionLines.Name = "LSTProrudtionLines";
+            this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 629);
+            this.LSTProrudtionLines.TabIndex = 0;
+            this.LSTProrudtionLines.Text = "radCheckedListBox1";
+            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
             // 
             // radCollapsiblePanel1
             // 
@@ -532,17 +548,6 @@
             this.ribbonTab2.Name = "ribbonTab2";
             this.ribbonTab2.Text = "ribbonTab2";
             // 
-            // LSTProrudtionLines
-            // 
-            this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
-            this.LSTProrudtionLines.Name = "LSTProrudtionLines";
-            this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 629);
-            this.LSTProrudtionLines.TabIndex = 0;
-            this.LSTProrudtionLines.Text = "radCheckedListBox1";
-            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
-            // 
             // UCShowCurrentState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -562,12 +567,12 @@
             this.radCollapsiblePanel2.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).EndInit();
             this.radCollapsiblePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).EndInit();
             this.radCollapsiblePanel1.PanelContainer.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
             this.radCollapsiblePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).EndInit();
             this.ResumeLayout(false);
 
         }

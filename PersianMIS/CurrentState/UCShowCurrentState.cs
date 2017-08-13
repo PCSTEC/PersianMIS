@@ -495,8 +495,8 @@ public static class ExtensionMethods
 {
     public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
     {
-        try
-        {
+        //try
+        //{
             int w = matrix.GetLength(0); // width
             int h = matrix.GetLength(1); // height
 
@@ -510,12 +510,12 @@ public static class ExtensionMethods
             }
 
             return Tuple.Create(-1, -1);
-        }
-        catch
-        {
-            return Tuple.Create(-1, -1);
+      //  }
+        //catch
+        //{
+           // return Tuple.Create(-1, -1);
 
-        }
+       // }
 
     }
 }
