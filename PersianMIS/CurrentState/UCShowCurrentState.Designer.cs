@@ -211,7 +211,6 @@
             // 
             // RefreshTimer
             // 
-            this.RefreshTimer.Enabled = true;
             this.RefreshTimer.Interval = 1000;
             this.RefreshTimer.Tick += new System.EventHandler(this.RefreshTimer_Tick);
             // 
@@ -283,12 +282,12 @@
             // LSTProrudtionLines
             // 
             this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTProrudtionLines.GroupIndent = 8;
-            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(59, 5);
-            this.LSTProrudtionLines.HeaderHeight = 8.75F;
-            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(59, 5);
+            this.LSTProrudtionLines.GroupIndent = 4;
+            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(32, 2);
+            this.LSTProrudtionLines.HeaderHeight = 4.375F;
+            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(32, 2);
             this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
-            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.LSTProrudtionLines.Name = "LSTProrudtionLines";
             this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 629);

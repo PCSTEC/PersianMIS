@@ -11,7 +11,7 @@ namespace DAL
     {
         public static Persistent.DataAccess.DataAccess Pers = new DataAccess();
           // public static  string CnnStr= "Data Source=.;Initial Catalog=pcstec;Integrated Security=True";
-       public static string CnnStr = "packet size=4096;user id=sa;Password=afarinesh;data source=SQLSRV;persist security info=False;initial catalog=PCSTEC";
+       public static string CnnStr = "packet size=4096;user id=sa;Password=afarinesh;data source=SQLSRV;persist security info=False;initial catalog=PCSTEC23";
 
         public static string SqlStr = "";
         public static DataTable PublicDT = new DataTable();

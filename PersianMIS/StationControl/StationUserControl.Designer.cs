@@ -142,23 +142,23 @@
             // Lbl_SumDisconnectTime
             // 
             this.Lbl_SumDisconnectTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_SumDisconnectTime.Location = new System.Drawing.Point(109, 146);
+            this.Lbl_SumDisconnectTime.Location = new System.Drawing.Point(119, 146);
             this.Lbl_SumDisconnectTime.Name = "Lbl_SumDisconnectTime";
-            this.Lbl_SumDisconnectTime.Size = new System.Drawing.Size(119, 24);
+            this.Lbl_SumDisconnectTime.Size = new System.Drawing.Size(109, 24);
             this.Lbl_SumDisconnectTime.TabIndex = 2;
             this.Lbl_SumDisconnectTime.Text = "0";
-            this.Lbl_SumDisconnectTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Lbl_SumDisconnectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Lbl_SumConnectTime
             // 
             this.Lbl_SumConnectTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_SumConnectTime.Location = new System.Drawing.Point(109, 116);
+            this.Lbl_SumConnectTime.Location = new System.Drawing.Point(119, 116);
             this.Lbl_SumConnectTime.Name = "Lbl_SumConnectTime";
             this.Lbl_SumConnectTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Lbl_SumConnectTime.Size = new System.Drawing.Size(119, 24);
+            this.Lbl_SumConnectTime.Size = new System.Drawing.Size(109, 24);
             this.Lbl_SumConnectTime.TabIndex = 1;
             this.Lbl_SumConnectTime.Text = "0";
-            this.Lbl_SumConnectTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Lbl_SumConnectTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Pnl_State
             // 
@@ -210,7 +210,7 @@
             this.Lbl_DeActiveName.ForeColor = System.Drawing.Color.White;
             this.Lbl_DeActiveName.Location = new System.Drawing.Point(218, 142);
             this.Lbl_DeActiveName.Name = "Lbl_DeActiveName";
-            this.Lbl_DeActiveName.Size = new System.Drawing.Size(106, 26);
+            this.Lbl_DeActiveName.Size = new System.Drawing.Size(163, 26);
             this.Lbl_DeActiveName.TabIndex = 13;
             this.Lbl_DeActiveName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -220,7 +220,7 @@
             this.Lbl_ActiveName.ForeColor = System.Drawing.Color.White;
             this.Lbl_ActiveName.Location = new System.Drawing.Point(218, 116);
             this.Lbl_ActiveName.Name = "Lbl_ActiveName";
-            this.Lbl_ActiveName.Size = new System.Drawing.Size(106, 26);
+            this.Lbl_ActiveName.Size = new System.Drawing.Size(168, 26);
             this.Lbl_ActiveName.TabIndex = 12;
             this.Lbl_ActiveName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

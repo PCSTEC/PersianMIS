@@ -110,7 +110,7 @@ namespace PersianMIS.CurrentState
                 {
                     BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString());
 
-                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
+                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count ; i++)
                     {
                         Resource resource = new Resource();
                         resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
@@ -131,7 +131,7 @@ namespace PersianMIS.CurrentState
 
                 int totalHours;
 
-                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
+                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count ; i++)
                 {
                     this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
 
@@ -163,9 +163,9 @@ namespace PersianMIS.CurrentState
                     }
                     this.radScheduler1.Appointments.Add(app);
 
-                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                   // var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
 
-                    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
+                //    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
 
                 }
@@ -194,9 +194,9 @@ namespace PersianMIS.CurrentState
                 timelineElement.ResourcesHeader.Font = HeaderFont;
                 this.Cursor = Cursors.Default;
             }
-            catch
+            catch (Exception E)
             {
-                this.Cursor = Cursors.Default;
+               this.Cursor = Cursors.Default;
             }
         }
 
