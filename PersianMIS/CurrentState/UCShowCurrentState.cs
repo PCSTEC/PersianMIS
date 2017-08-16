@@ -16,12 +16,13 @@ using Telerik.WinControls;
 
 namespace PersianMIS.CurrentState
 {
-
+  
     public partial class UCShowCurrentState : UserControl
     {
-        string SelectedProductionLines = "0";
-        string[,] LastApprochmentInfo = new string[10000, 2];
+        public  string[,] LastApprochmentInfo = new string[100, 2];
 
+        string SelectedProductionLines = "0";
+   
         Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
         public Boolean IsFirstLoad = false;
         IraniDate.IraniDate.IraniDate IrDate = new IraniDate.IraniDate.IraniDate();
@@ -110,7 +111,7 @@ namespace PersianMIS.CurrentState
                 {
                     BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString());
 
-                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count ; i++)
+                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
                     {
                         Resource resource = new Resource();
                         resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
@@ -131,7 +132,7 @@ namespace PersianMIS.CurrentState
 
                 int totalHours;
 
-                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count ; i++)
+                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
                 {
                     this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
 
@@ -163,9 +164,9 @@ namespace PersianMIS.CurrentState
                     }
                     this.radScheduler1.Appointments.Add(app);
 
-                   // var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
 
-                //    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
+                    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
 
                 }
@@ -196,7 +197,7 @@ namespace PersianMIS.CurrentState
             }
             catch (Exception E)
             {
-               this.Cursor = Cursors.Default;
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -334,7 +335,32 @@ namespace PersianMIS.CurrentState
 
         }
 
+        //private void FillLastData()
+        //{
+        //    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetLastStateOfDeviceLineData();
+        //    for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+        //    {
+        //        try
+        //        {
 
+        //            var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
+
+
+        //            var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
+        //            radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+
+        //            radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
+        //            radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+        //        }
+        //        catch
+        //        {
+
+        //        }
+
+        //    }
+
+
+        //}
 
 
         private void FillLastData()
@@ -342,20 +368,66 @@ namespace PersianMIS.CurrentState
             BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetLastStateOfDeviceLineData();
             for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
             {
-                try {
+                try
+                {
+
 
                     var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
+                    if (coordinates.Item1 == -1) //New Event In Device Line Id 
+                    {
+                        LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
+                        LastApprochmentInfo[ExtensionMethods.NewIndex, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
-                    var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
-                    radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+                        int totalHours;
 
-                    radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
-                    radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+
+                        this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
+
+                        totalHours = 0;
+
+                        totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
+
+                        DateTime Start = new DateTime();
+                        DateTime end = new DateTime();
+                        Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                        end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+
+
+
+
+                        Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
+
+                        app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
+
+
+
+                        app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
+
+                        app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
+
+                        if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")
+                        {
+                            app.Visible = false;
+                        }
+                        this.radScheduler1.Appointments.Add(app);
+
+
+
+                    }
+                    else
+                    {
+                        var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
+                        radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+
+                        radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
+                        radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+
+                    }
                 }
-                catch
+                catch(Exception E)
                 {
-
+                    MessageBox.Show(E.ToString());
                 }
 
             }
@@ -413,7 +485,7 @@ namespace PersianMIS.CurrentState
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
+                  
                 }
                 catch
                 {
@@ -427,7 +499,7 @@ namespace PersianMIS.CurrentState
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
+                  
                 }
             }
 
@@ -491,31 +563,69 @@ namespace PersianMIS.CurrentState
         }
     }
 }
+
+
 public static class ExtensionMethods
 {
-    public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
+    public static int NewIndex;
+    public static Tuple<int, int > CoordinatesOf<T>(this T[,] matrix, T value)
     {
+       
+
         //try
         //{
-            int w = matrix.GetLength(0); // width
-            int h = matrix.GetLength(1); // height
-
-            for (int x = 0; x < w; ++x)
+        int w = matrix.GetLength(0); // width
+        int h = matrix.GetLength(1); // height
+    
+        for (int x = 0; x < w; ++x)
+        {
+            for (int y = 0; y < h; ++y)
             {
-                for (int y = 0; y < h; ++y)
-                {
-                    if (matrix[x, y].Equals(value))
-                        return Tuple.Create(x, y);
-                }
+                NewIndex = x;
+                if (matrix[x, y].Equals(value))
+                    return Tuple.Create(x, y);
             }
+        }
 
-            return Tuple.Create(-1, -1);
-      //  }
+        return Tuple.Create(-1, -1);
+        //  }
         //catch
         //{
-           // return Tuple.Create(-1, -1);
+        // return Tuple.Create(-1, -1);
 
-       // }
+        // }
 
     }
 }
+
+
+//public static class ExtensionMethods
+//{
+//    public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
+//    {
+//        //try
+//        //{
+//        int w = matrix.GetLength(0); // width
+//        int h = matrix.GetLength(1); // height
+//        int NewIndex = -1;
+//        for (int x = 0; x < w; ++x)
+//        {
+//            for (int y = 0; y < h; ++y)
+//            {
+//                if (matrix[x, y].Equals(value))
+//                    NewIndex = x;
+//                    return Tuple.Create(x, y);
+
+//            }
+//        }
+
+//      return Tuple.Create(-1, -1);
+//        //  }
+//        //catch
+//        //{
+//        // return Tuple.Create(-1, -1);
+
+//        // }
+
+//    }
+//}
