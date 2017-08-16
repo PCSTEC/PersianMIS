@@ -570,11 +570,11 @@ public static class ExtensionMethods
     public static int NewIndex;
     public static Tuple<int, int > CoordinatesOf<T>(this T[,] matrix, T value)
     {
-       
 
-        //try
-        //{
-        int w = matrix.GetLength(0); // width
+
+        try
+        {
+            int w = matrix.GetLength(0); // width
         int h = matrix.GetLength(1); // height
     
         for (int x = 0; x < w; ++x)
@@ -588,12 +588,13 @@ public static class ExtensionMethods
         }
 
         return Tuple.Create(-1, -1);
-        //  }
-        //catch
-        //{
-        // return Tuple.Create(-1, -1);
+        }
+        catch
+        {
+            NewIndex = NewIndex;
+            return Tuple.Create(-1, -1);
 
-        // }
+        }
 
     }
 }
