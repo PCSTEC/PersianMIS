@@ -374,5 +374,17 @@ namespace PersianMIS
             this.WindowState = FormWindowState.Minimized;
 
         }
+
+        private void Btn_AllLineState_Click(object sender, EventArgs e)
+        {
+            var Pnl = new StationControl.ShowStationUserControl();
+            Pnl_Main.Controls.Clear();
+            Pnl.Width = Pnl_Main.Width - 18;
+            Pnl.Height = Pnl_Main.Height - 14;
+
+          
+            Pnl_Main.Controls.Add(Pnl);
+
+        }
     }
 }

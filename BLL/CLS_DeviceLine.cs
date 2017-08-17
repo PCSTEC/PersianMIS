@@ -11,9 +11,13 @@ namespace BLL
    public  class CLS_DeviceLine
     {
         DAL.Cls_DevicesLine DAL_DeviceLine = new Cls_DevicesLine();
+
         public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID,  int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string  ActiveStateDesc, string DeActiveStateDesc , int GapTime)
         {
+
+
             DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime );
+
 
         }
 

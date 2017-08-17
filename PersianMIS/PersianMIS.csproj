@@ -261,6 +261,12 @@
     <Compile Include="StationControl\Frm_FillterStation.Designer.cs">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\ShowStationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\ShowStationUserControl.Designer.cs">
+      <DependentUpon>ShowStationUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="StationControl\StationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_FillterStation.resx">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\ShowStationUserControl.resx">
+      <DependentUpon>ShowStationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\StationUserControl.resx">
       <DependentUpon>StationUserControl.cs</DependentUpon>
@@ -466,6 +475,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\End.jpg" />
     <None Include="Resources\Shift21.png" />
     <None Include="Resources\Shift2.png" />
     <None Include="Resources\Shift.png" />

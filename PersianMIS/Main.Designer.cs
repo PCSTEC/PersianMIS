@@ -35,11 +35,11 @@
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Lbl_CurrentTime = new Telerik.WinControls.UI.RadLabelElement();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
-            this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
             this.Tab_Control = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_AllStationBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -137,16 +137,6 @@
             this.MainTimer.Interval = 1000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
             // 
-            // Pnl_Main
-            // 
-            this.Pnl_Main.AutoScroll = true;
-            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnl_Main.Location = new System.Drawing.Point(0, 164);
-            this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(1268, 677);
-            this.Pnl_Main.TabIndex = 2;
-            this.Pnl_Main.Resize += new System.EventHandler(this.Pnl_Main_Resize);
-            // 
             // radRibbonBarGroup1
             // 
             this.radRibbonBarGroup1.Items.AddRange(new Telerik.WinControls.RadItem[] {
@@ -171,6 +161,17 @@
             // 
             this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
             this.radRibbonBarButtonGroup1.Text = "radRibbonBarButtonGroup1";
+            // 
+            // Pnl_Main
+            // 
+            this.Pnl_Main.AutoScroll = true;
+            this.Pnl_Main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Main.Location = new System.Drawing.Point(0, 164);
+            this.Pnl_Main.Name = "Pnl_Main";
+            this.Pnl_Main.Size = new System.Drawing.Size(1268, 677);
+            this.Pnl_Main.TabIndex = 2;
+            this.Pnl_Main.Resize += new System.EventHandler(this.Pnl_Main_Resize);
             // 
             // MainRibbonBar
             // 
@@ -472,6 +473,7 @@
             this.Btn_AllLineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_AllLineState.Name = "Btn_AllLineState";
             this.Btn_AllLineState.Text = "";
+            this.Btn_AllLineState.Click += new System.EventHandler(this.Btn_AllLineState_Click);
             // 
             // Btn_ProductCountBorder
             // 
@@ -609,7 +611,7 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = false;
+            this.Tab_Setting.IsSelected = true;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
