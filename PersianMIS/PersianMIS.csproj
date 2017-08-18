@@ -60,24 +60,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\IkidSystems\DevExpress.Data.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Office.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.Office.v15.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Pdf.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.Pdf.v15.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Pdf.v15.2.Drawing">
-      <HintPath>C:\IkidSystems\DevExpress.Pdf.v15.2.Drawing.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Printing.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.Printing.v15.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.RichEdit.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.RichEdit.v15.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Sparkline.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\IkidSystems\DevExpress.Utils.v15.2.dll</HintPath>
@@ -89,21 +71,6 @@
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\IkidSystems\DevExpress.XtraEditors.v15.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraGauges.v15.2.Core">
-      <HintPath>C:\IkidSystems\DevExpress.XtraGauges.v15.2.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraGauges.v15.2.Win">
-      <HintPath>C:\IkidSystems\DevExpress.XtraGauges.v15.2.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraLayout.v15.2">
-      <HintPath>C:\IkidSystems\DevExpress.XtraLayout.v15.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v15.2">
-      <HintPath>C:\IkidSystems\DevExpress.XtraPrinting.v15.2.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.XtraTreeList.v15.2">
-      <HintPath>C:\IkidSystems\DevExpress.XtraTreeList.v15.2.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Resources">
       <HintPath>..\..\Debug\FarsiLibrary.Resources.dll</HintPath>
@@ -138,7 +105,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.WinControls, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
@@ -255,6 +221,12 @@
     <Compile Include="StationControl\Frm_CreateStation.Designer.cs">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\Frm_CreateStationWithFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StationControl\Frm_CreateStationWithFormula.Designer.cs">
+      <DependentUpon>Frm_CreateStationWithFormula.cs</DependentUpon>
+    </Compile>
     <Compile Include="StationControl\Frm_FillterStation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_CreateStation.resx">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\Frm_CreateStationWithFormula.resx">
+      <DependentUpon>Frm_CreateStationWithFormula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_FillterStation.resx">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
@@ -475,6 +450,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\StartProgressStep2.png" />
+    <None Include="Resources\StartProgressStep.png" />
+    <None Include="Resources\Backgroundprogress.jpg" />
     <None Include="Resources\End.jpg" />
     <None Include="Resources\Shift21.png" />
     <None Include="Resources\Shift2.png" />

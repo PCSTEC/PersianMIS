@@ -143,6 +143,16 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Backgroundprogress {
+            get {
+                object obj = ResourceManager.GetObject("Backgroundprogress", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chart_OK {
             get {
                 object obj = ResourceManager.GetObject("Chart OK", resourceCulture);
@@ -786,6 +796,36 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap Shift21 {
             get {
                 object obj = ResourceManager.GetObject("Shift21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StartProgressStep {
+            get {
+                object obj = ResourceManager.GetObject("StartProgressStep", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StartProgressStep2 {
+            get {
+                object obj = ResourceManager.GetObject("StartProgressStep2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StartProgressStep3 {
+            get {
+                object obj = ResourceManager.GetObject("StartProgressStep3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

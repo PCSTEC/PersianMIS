@@ -130,6 +130,9 @@
   <data name="GanttWeek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GanttWeek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="End" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\End.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -168,6 +171,9 @@
   </data>
   <data name="Refresh1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartProgressStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartProgressStep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Create Shift. Okpng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create Shift. Okpng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,6 +271,9 @@
   <data name="GantPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GantPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="StartProgressStep2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartProgressStep2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="create Production Line1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\create Production Line1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -313,6 +322,9 @@
   <data name="All Station" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\All Station.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Backgroundprogress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Backgroundprogress.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Gantt50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gantt50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -340,7 +352,7 @@
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="End" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\End.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="StartProgressStep3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartProgressStep3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -611,7 +611,7 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = true;
+            this.Tab_Setting.IsSelected = false;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
