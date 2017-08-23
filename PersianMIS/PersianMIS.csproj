@@ -286,9 +286,6 @@
     <EmbeddedResource Include="StationControl\Frm_CreateStation.resx">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StationControl\Frm_CreateStationWithFormula.resx">
-      <DependentUpon>Frm_CreateStationWithFormula.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_FillterStation.resx">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
     </EmbeddedResource>

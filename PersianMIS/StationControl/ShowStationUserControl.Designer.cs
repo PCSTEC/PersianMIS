@@ -253,9 +253,9 @@
             // 
             this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LSTProrudtionLines.GroupIndent = 1;
-            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(9, 0);
-            this.LSTProrudtionLines.HeaderHeight = 1.09375F;
-            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(9, 0);
+            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(3, 0);
+            this.LSTProrudtionLines.HeaderHeight = 0.2734375F;
+            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(3, 0);
             this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
             this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.LSTProrudtionLines.Name = "LSTProrudtionLines";
