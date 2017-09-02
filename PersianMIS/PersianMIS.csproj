@@ -215,23 +215,29 @@
     <Compile Include="State\SampleState.Designer.cs">
       <DependentUpon>SampleState.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\CreatePulsStationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\CreatePulsStationUserControl.Designer.cs">
+      <DependentUpon>CreatePulsStationUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="StationControl\Frm_CreateStation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StationControl\Frm_CreateStation.Designer.cs">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
     </Compile>
-    <Compile Include="StationControl\Frm_CreateStationWithFormula.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StationControl\Frm_CreateStationWithFormula.Designer.cs">
-      <DependentUpon>Frm_CreateStationWithFormula.cs</DependentUpon>
-    </Compile>
     <Compile Include="StationControl\Frm_FillterStation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StationControl\Frm_FillterStation.Designer.cs">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StationControl\Frm_HomeStationCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StationControl\Frm_HomeStationCreate.Designer.cs">
+      <DependentUpon>Frm_HomeStationCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="StationControl\ShowStationUserControl.cs">
       <SubType>UserControl</SubType>
@@ -283,11 +289,17 @@
     <EmbeddedResource Include="State\SampleState.resx">
       <DependentUpon>SampleState.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\CreatePulsStationUserControl.resx">
+      <DependentUpon>CreatePulsStationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_CreateStation.resx">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_FillterStation.resx">
       <DependentUpon>Frm_FillterStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\Frm_HomeStationCreate.resx">
+      <DependentUpon>Frm_HomeStationCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\ShowStationUserControl.resx">
       <DependentUpon>ShowStationUserControl.cs</DependentUpon>
