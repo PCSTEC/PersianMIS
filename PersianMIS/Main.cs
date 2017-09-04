@@ -377,8 +377,8 @@ namespace PersianMIS
 
         private void Btn_AllLineState_Click(object sender, EventArgs e)
         {
-            Form frm = new StationControl.Frm_CreateStationWithFormula();
-            frm.ShowDialog();
+            //Form frm = new StationControl.Frm_CreateStationWithFormula();
+            //frm.ShowDialog();
         }
     }
 }

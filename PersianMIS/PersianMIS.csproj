@@ -215,6 +215,12 @@
     <Compile Include="State\SampleState.Designer.cs">
       <DependentUpon>SampleState.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\CreatePulsParameterUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\CreatePulsParameterUserControl.Designer.cs">
+      <DependentUpon>CreatePulsParameterUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="StationControl\CreatePulsStationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -288,6 +294,9 @@
     </Compile>
     <EmbeddedResource Include="State\SampleState.resx">
       <DependentUpon>SampleState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\CreatePulsParameterUserControl.resx">
+      <DependentUpon>CreatePulsParameterUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\CreatePulsStationUserControl.resx">
       <DependentUpon>CreatePulsStationUserControl.cs</DependentUpon>
@@ -459,6 +468,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Step.png" />
     <None Include="Resources\StartProgressStep2.png" />
     <None Include="Resources\StartProgressStep.png" />
     <None Include="Resources\Backgroundprogress.jpg" />
