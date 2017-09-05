@@ -235,8 +235,9 @@ namespace PersianMIS
 
         private void Btn_AddStation_Click(object sender, EventArgs e)
         {
-            RadForm Frm = new StationControl.Frm_CreateStation(false );
-             
+            // RadForm Frm = new StationControl.Frm_CreateStation(false );
+            //    Form  Frm = new StationControl.CreatePulsStationUserControl();
+            RadForm Frm = new StationControl.Frm_CreateNewStation();
             Frm.ShowDialog();
         }
 

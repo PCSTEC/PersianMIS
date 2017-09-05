@@ -84,11 +84,47 @@
     <Reference Include="IKIDUtility, Version=1.0.3605.15239, Culture=neutral">
       <HintPath>..\IraniDate\IraniDate\bin\IKIDUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.Common.v4, Version=4.0.24.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Data.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Data.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.ButtonBar.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.CalendarCombo.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Common.v4.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.UI.v4, Version=4.0.24.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.ExplorerBar.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.ExplorerBar.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.FilterEditor.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.FilterEditor.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.GridEX.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Ribbon.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Ribbon.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Schedule.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Schedule.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.TimeLine.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.TimeLine.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.UI.v4.dll</HintPath>
     </Reference>
@@ -221,11 +257,11 @@
     <Compile Include="StationControl\CreatePulsParameterUserControl.Designer.cs">
       <DependentUpon>CreatePulsParameterUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="StationControl\CreatePulsStationUserControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="StationControl\Frm_CreateNewStation.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StationControl\CreatePulsStationUserControl.Designer.cs">
-      <DependentUpon>CreatePulsStationUserControl.cs</DependentUpon>
+    <Compile Include="StationControl\Frm_CreateNewStation.Designer.cs">
+      <DependentUpon>Frm_CreateNewStation.cs</DependentUpon>
     </Compile>
     <Compile Include="StationControl\Frm_CreateStation.cs">
       <SubType>Form</SubType>
@@ -298,8 +334,8 @@
     <EmbeddedResource Include="StationControl\CreatePulsParameterUserControl.resx">
       <DependentUpon>CreatePulsParameterUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StationControl\CreatePulsStationUserControl.resx">
-      <DependentUpon>CreatePulsStationUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="StationControl\Frm_CreateNewStation.resx">
+      <DependentUpon>Frm_CreateNewStation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\Frm_CreateStation.resx">
       <DependentUpon>Frm_CreateStation.cs</DependentUpon>
@@ -468,6 +504,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Step4NotOk.png" />
+    <None Include="Resources\Step4Ok.png" />
+    <None Include="Resources\Step3NotOk.png" />
+    <None Include="Resources\Step3Ok.png" />
+    <None Include="Resources\Step2Ok.png" />
+    <None Include="Resources\Step2NotOk.png" />
+    <None Include="Resources\Step11.png" />
+    <None Include="Resources\Step1.png" />
+    <None Include="Resources\Step0.png" />
     <None Include="Resources\Step.png" />
     <None Include="Resources\StartProgressStep2.png" />
     <None Include="Resources\StartProgressStep.png" />
