@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.TxtNextDayNumber = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.Cmb_Shift = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.MskEndTime = new System.Windows.Forms.MaskedTextBox();
             this.Cmb_ProductLine = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.Lbl_ProductLine = new System.Windows.Forms.Label();
-            this.Btn_OK = new Janus.Windows.EditControls.UIButton();
+            this.Btn_OK = new Telerik.WinControls.UI.RadButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MskBeginTime = new System.Windows.Forms.MaskedTextBox();
             this.MskDate = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtNextDayNumber = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNextDayNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_OK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,23 @@
             this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 0;
+            // 
+            // TxtNextDayNumber
+            // 
+            this.TxtNextDayNumber.Location = new System.Drawing.Point(355, 56);
+            this.TxtNextDayNumber.Name = "TxtNextDayNumber";
+            this.TxtNextDayNumber.Size = new System.Drawing.Size(43, 20);
+            this.TxtNextDayNumber.TabIndex = 56;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(399, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 26);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "محاسبه تا ";
             // 
             // Cmb_Shift
             // 
@@ -162,14 +180,12 @@
             // 
             this.Btn_OK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Btn_OK.Image = global::PersianMIS.Properties.Resources.RUN_OK;
-            this.Btn_OK.ImageSize = new System.Drawing.Size(25, 25);
+            this.Btn_OK.Image = global::PersianMIS.Properties.Resources.RUN_OK_Button;
             this.Btn_OK.Location = new System.Drawing.Point(157, 139);
             this.Btn_OK.Name = "Btn_OK";
             this.Btn_OK.Size = new System.Drawing.Size(128, 33);
             this.Btn_OK.TabIndex = 47;
             this.Btn_OK.Text = "تایید";
-            this.Btn_OK.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_OK.Click += new System.EventHandler(this.Btn_OK_Click);
             // 
             // label2
@@ -212,23 +228,6 @@
             this.MskDate.TabIndex = 0;
             this.MskDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MskDate_KeyPress);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(399, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 26);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "محاسبه تا ";
-            // 
-            // TxtNextDayNumber
-            // 
-            this.TxtNextDayNumber.Location = new System.Drawing.Point(355, 56);
-            this.TxtNextDayNumber.Name = "TxtNextDayNumber";
-            this.TxtNextDayNumber.Size = new System.Drawing.Size(43, 20);
-            this.TxtNextDayNumber.TabIndex = 56;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -258,6 +257,7 @@
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtNextDayNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_OK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -270,7 +270,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox MskBeginTime;
         private System.Windows.Forms.MaskedTextBox MskDate;
-        private Janus.Windows.EditControls.UIButton Btn_OK;
+        private Telerik.WinControls.UI.RadButton Btn_OK;
         private DevComponents.DotNetBar.Controls.ComboBoxEx Cmb_ProductLine;
         private System.Windows.Forms.Label Lbl_ProductLine;
         private DevComponents.DotNetBar.Controls.ComboBoxEx Cmb_Shift;

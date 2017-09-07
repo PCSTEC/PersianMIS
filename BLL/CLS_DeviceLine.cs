@@ -20,9 +20,16 @@ namespace BLL
 
 
         }
+        public DataTable GetDeviceLineById(string ID)
+        {
 
-        
- public DataTable GetLastStateOfDeviceLineData()
+            return DAL_DeviceLine.GetDeviceLineById(ID );
+
+                       
+
+        }
+
+        public DataTable GetLastStateOfDeviceLineData()
         {
             return DAL_DeviceLine.GetLastStateOfDeviceLineData();
         }
@@ -58,6 +65,13 @@ namespace BLL
 
         }
 
+
+        public DataTable GetDeviceLineByDeviceId(string DeviceId)
+        {
+
+            return DAL_DeviceLine.GetDeviceLineByDeviceId(DeviceId);
+
+        }
         public DataTable GetSpecialLineStateByDate (string DeviceId, string LineId , string StartDate , string StartTime,string EndMiladiDate,string EndMiladiTime)
         {
             return DAL_DeviceLine.GetSpecialLineStateByDate(DeviceId, LineId, StartDate, StartTime,EndMiladiDate,EndMiladiTime );

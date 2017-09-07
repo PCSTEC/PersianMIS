@@ -44,9 +44,9 @@
             this.Txt_LineCode = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.Btn_Delete = new Janus.Windows.EditControls.UIButton();
-            this.Btn_Update = new Janus.Windows.EditControls.UIButton();
-            this.Btn_Save = new Janus.Windows.EditControls.UIButton();
+            this.Btn_Delete = new Telerik.WinControls.UI.RadButton();
+            this.Btn_Update = new Telerik.WinControls.UI.RadButton();
+            this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.Txt_Salon = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.Txt_MizaneTolid = new Telerik.WinControls.UI.RadTextBox();
@@ -258,39 +258,39 @@
             // 
             this.Btn_Delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Delete.Image = global::PersianMIS.Properties.Resources.Delete_OK;
-            this.Btn_Delete.ImageSize = new System.Drawing.Size(25, 25);
+          //  this.Btn_Delete.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Delete.Location = new System.Drawing.Point(3, 3);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(128, 33);
             this.Btn_Delete.TabIndex = 47;
             this.Btn_Delete.Text = "حذف اطلاعات";
-            this.Btn_Delete.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
+           // this.Btn_Delete.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
             // 
             // Btn_Update
             // 
             this.Btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Update.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-            this.Btn_Update.ImageSize = new System.Drawing.Size(25, 25);
+          //  this.Btn_Update.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Update.Location = new System.Drawing.Point(137, 3);
             this.Btn_Update.Name = "Btn_Update";
             this.Btn_Update.Size = new System.Drawing.Size(128, 33);
             this.Btn_Update.TabIndex = 46;
             this.Btn_Update.Text = "ویرایش اطلاعات";
-            this.Btn_Update.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
+          //  this.Btn_Update.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
             // 
             // Btn_Save
             // 
             this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Save.Image = global::PersianMIS.Properties.Resources.save;
-            this.Btn_Save.ImageSize = new System.Drawing.Size(25, 25);
+            //this.Btn_Save.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Save.Location = new System.Drawing.Point(271, 3);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(128, 33);
             this.Btn_Save.TabIndex = 45;
             this.Btn_Save.Text = "ذخیره";
-            this.Btn_Save.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
+           // this.Btn_Save.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
             // 
             // Txt_Salon
@@ -402,9 +402,9 @@
         private Telerik.WinControls.UI.RadLabel radLabel10;
         private Telerik.WinControls.UI.RadTextBox Txt_ProductionLine;
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Janus.Windows.EditControls.UIButton Btn_Save;
-        private Janus.Windows.EditControls.UIButton Btn_Delete;
-        private Janus.Windows.EditControls.UIButton Btn_Update;
+        private Telerik.WinControls.UI.RadButton Btn_Save;
+        private Telerik.WinControls.UI.RadButton Btn_Delete;
+        private Telerik.WinControls.UI.RadButton Btn_Update;
         private Telerik.WinControls.UI.RadTextBox Txt_Description;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadTextBox Txt_LineCode;

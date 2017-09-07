@@ -38,24 +38,7 @@ namespace PersianMIS.StationControl
 
         }
 
-        private void Btn_Save_Click(object sender, EventArgs e)
-        {
-            MainPnl.Controls.Clear();
-
-            for (int i = 1; i <= Txt_StationPulsCount.Value; i++)
-            {
-                CreatePulsParameterUserControl NewPulsParameterUC = new CreatePulsParameterUserControl();
-
-                NewPulsParameterUC.Tag = i;
-                NewPulsParameterUC.Name = i.ToString();
-                NewPulsParameterUC.Visible = false;
-                NewPulsParameterUC.ParameterID.Text = "پالس شماره :"+  i.ToString();
-                MainPnl.Controls.Add(NewPulsParameterUC);
-
-            }
-            // MainPnl.ResumeLayout();
-
-        }
+     
 
         private void Cmb_SelectStation_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -66,6 +49,39 @@ namespace PersianMIS.StationControl
 
                 MainPnl.Controls[(int)Cmb_SelectStation.SelectedItem-1 ].Visible = true;
             
+        }
+
+        private void Btn_CreateStep1_Click(object sender, EventArgs e)
+        {
+            MainPnl.Controls.Clear();
+
+            for (int i = 1; i <= Txt_StationPulsCount.Value; i++)
+            {
+                CreatePulsParameterUserControl NewPulsParameterUC = new CreatePulsParameterUserControl();
+
+                NewPulsParameterUC.Tag = i;
+                NewPulsParameterUC.Name = i.ToString();
+                NewPulsParameterUC.Visible = false;
+                NewPulsParameterUC.ParameterID.Text = "پالس شماره :" + i.ToString();
+                MainPnl.Controls.Add(NewPulsParameterUC);
+
+            }
+            Btn_Step2.Image = global::PersianMIS.Properties.Resources.Step2Ok;
+            Pnl_Step2.Visible = true;
+            PnlStep1.Visible = false;
+        }
+
+        private void Btn_Step1_Click(object sender, EventArgs e)
+        {
+            Pnl_Step2.Visible = false;
+            PnlStep1.Visible = true;
+
+        }
+
+        private void Btn_Step2_Click(object sender, EventArgs e)
+        {
+            Pnl_Step2.Visible = true ;
+            PnlStep1.Visible = false;
         }
     }
 }

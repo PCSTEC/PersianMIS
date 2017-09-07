@@ -37,5 +37,11 @@ namespace BLL
             DAL_ClsPublicOperations.InsertRecord (SPName, ParamName, ParamValue);
 
         }
+
+
+        public DataTable GetDataTableFromTSQL(string Tsql)
+        {
+            return DAL_ClsPublicOperations.GetDataTableFromTSQL(Tsql);
+        }
     }
 }

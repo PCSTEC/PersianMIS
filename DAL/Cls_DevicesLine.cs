@@ -97,7 +97,18 @@ namespace DAL
         }
 
 
-      
+        public DataTable GetDeviceLineById(string ID)
+        {
+
+
+
+            Cls_Public.SqlStr = string.Format("select * from Vw_LineInfo where id={0}  ", ID );
+
+
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+
+        }
 
 
         public DataTable GetSpecialLineStateByDate(string DeviceId, string LineId, string StartDate, string StartTime, string EndMiladiDate, string EndMiladiTime)
@@ -153,7 +164,15 @@ namespace DAL
 
         }
 
+        public DataTable GetDeviceLineByDeviceId(string DeviceId)
+        {
 
+            Cls_Public.SqlStr = string.Format("select * from Vw_LineInfo where DeviceId={0}  ", DeviceId);
+
+
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
 
     }
 }

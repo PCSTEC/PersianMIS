@@ -54,23 +54,31 @@
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=7.4.0.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\IkidSystems\DevComponents.DotNetBar2.dll</HintPath>
+      <HintPath>C:\dev\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\IkidSystems\DevExpress.Data.v15.2.dll</HintPath>
+      <HintPath>C:\dev\DevExpress.Data.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\dev\DevExpress.Printing.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\dev\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\IkidSystems\DevExpress.Utils.v15.2.dll</HintPath>
+      <HintPath>C:\dev\DevExpress.Utils.v15.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\IkidSystems\DevExpress.XtraBars.v15.2.dll</HintPath>
+      <HintPath>C:\dev\DevExpress.XtraBars.v15.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\IkidSystems\DevExpress.XtraEditors.v15.2.dll</HintPath>
+      <HintPath>C:\dev\DevExpress.XtraEditors.v15.2.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Resources">
       <HintPath>..\..\Debug\FarsiLibrary.Resources.dll</HintPath>
@@ -83,50 +91,6 @@
     </Reference>
     <Reference Include="IKIDUtility, Version=1.0.3605.15239, Culture=neutral">
       <HintPath>..\IraniDate\IraniDate\bin\IKIDUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Data.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Data.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.ButtonBar.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.ButtonBar.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.CalendarCombo.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.CalendarCombo.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.Common.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Common.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.ExplorerBar.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.ExplorerBar.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.FilterEditor.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.FilterEditor.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.GridEX.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.GridEX.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.Ribbon.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Ribbon.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.Schedule.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.Schedule.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.TimeLine.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.TimeLine.v4.dll</HintPath>
-    </Reference>
-    <Reference Include="Janus.Windows.UI.v4, Version=4.0.18.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Janus Systems\Controls for Microsoft .NET\Windows Forms Controls v4\BIN\Janus.Windows.UI.v4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -251,6 +215,18 @@
     <Compile Include="State\SampleState.Designer.cs">
       <DependentUpon>SampleState.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\CreateNewParameterFromulaWithReturnTSQLUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\CreateNewParameterFromulaWithReturnTSQLUserControl.Designer.cs">
+      <DependentUpon>CreateNewParameterFromulaWithReturnTSQLUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StationControl\CreateParameterFormulaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\CreateParameterFormulaUserControl.Designer.cs">
+      <DependentUpon>CreateParameterFormulaUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="StationControl\CreatePulsParameterUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -330,6 +306,12 @@
     </Compile>
     <EmbeddedResource Include="State\SampleState.resx">
       <DependentUpon>SampleState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\CreateNewParameterFromulaWithReturnTSQLUserControl.resx">
+      <DependentUpon>CreateNewParameterFromulaWithReturnTSQLUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\CreateParameterFormulaUserControl.resx">
+      <DependentUpon>CreateParameterFormulaUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\CreatePulsParameterUserControl.resx">
       <DependentUpon>CreatePulsParameterUserControl.cs</DependentUpon>
@@ -504,6 +486,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\RUN OK Button.png" />
+    <None Include="Resources\editButton.png" />
+    <None Include="Resources\Line.png" />
     <None Include="Resources\Step4NotOk.png" />
     <None Include="Resources\Step4Ok.png" />
     <None Include="Resources\Step3NotOk.png" />
