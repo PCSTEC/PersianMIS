@@ -12,6 +12,7 @@ namespace PersianMIS.StationControl
     public partial class CreatePulsParameterUserControl : UserControl
     {
         private CreateNewParameterFromulaWithReturnTSQLUserControl Uc = new CreateNewParameterFromulaWithReturnTSQLUserControl();
+        BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
 
         public CreatePulsParameterUserControl()
         {
@@ -46,8 +47,8 @@ namespace PersianMIS.StationControl
             Btn_Steps.Image = global::PersianMIS.Properties.Resources.Step0;
             Btn_Steps.Cursor = Cursors.Hand;
             Btn_Steps.Location = new System.Drawing.Point(4, 3);
-            Btn_Steps.Name = ID ;
-          
+            Btn_Steps.Name = ID;
+
             Btn_Steps.Size = new System.Drawing.Size(431, 80);
             Btn_Steps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 
@@ -94,6 +95,7 @@ namespace PersianMIS.StationControl
                 // 
                 comboItem4.Text = "-";
                 // 
+                newPnl.Controls.Add(Cmb_SelectOperations);
 
             }
 
@@ -109,7 +111,6 @@ namespace PersianMIS.StationControl
             Lbl_ParameterNumbers.TabIndex = 3;
             Lbl_ParameterNumbers.Text = ID;
 
-            newPnl.Controls.Add(Cmb_SelectOperations);
 
             newPnl.Controls.Add(Lbl_ParameterNumbers);
             newPnl.Controls.Add(Btn_Steps);
@@ -136,15 +137,15 @@ namespace PersianMIS.StationControl
             PictureBox SelectedValue = (PictureBox)sender;
 
 
-            if (SelectedValue.Name  != null)
+            if (SelectedValue.Name != null)
             {
                 Telerik.WinControls.UI.RadForm frm = new Telerik.WinControls.UI.RadForm();
                 frm.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
                 frm.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                frm.ClientSize = new System.Drawing.Size(317, 306);
-                
+                frm.ClientSize = new System.Drawing.Size(306, 217);
+
                 frm.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-                 frm.MaximizeBox = false;
+                frm.MaximizeBox = false;
                 frm.Name = "Frm_CreateStation";
                 frm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 
@@ -155,23 +156,23 @@ namespace PersianMIS.StationControl
 
                 Uc.Location = new System.Drawing.Point(4, 3);
                 Uc.Name = "UC_CreateParameterFormula";
-                
+
                 Uc.Size = new System.Drawing.Size(431, 80);
 
                 Uc.Dock = DockStyle.Fill;
 
-                 
+
                 frm.StartPosition = FormStartPosition.CenterScreen;
-            
+
                 frm.Controls.Add(Uc);
-
-                if (frm.ShowDialog() == DialogResult.OK)
+                frm.ShowDialog();
+                if (frm.Tag != null)
                 {
-                
 
-               
+
+
                     SelectedValue.Image = global::PersianMIS.Properties.Resources.Step;
-                    SelectedValue.Tag =frm.Tag   ;
+                    SelectedValue.Tag = frm.Tag;
                 }
             }
 
@@ -206,6 +207,74 @@ namespace PersianMIS.StationControl
 
         private void Pnl_Step_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+
+
+        private string GenerateTSQL()
+        {
+
+            string EndTSQL = "(select  ";
+
+
+            foreach (Control x in MainPnl.Controls.OfType<Panel>())
+            {
+                foreach (Control y in x.Controls.OfType<PictureBox>())
+                {
+                    if (y.Tag != null)
+                    {
+                        EndTSQL += y.Tag;
+                    }
+                    else
+                    {
+                        EndTSQL += " as Value)  ";
+                        return EndTSQL;
+                    }
+                }
+
+                foreach (Control z in x.Controls.OfType<ComboBox>())
+                {
+                    if (z.Text.Length <= 1)
+                    {
+                        EndTSQL += z.Text;
+                    }
+                }
+            }
+            EndTSQL += " as Value)  ";
+            return EndTSQL;
+        }
+
+        private void Btn_CreateTSQL_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Txt_ParamteterCaption.Text == "")
+                {
+                    MessageBox.Show("لطفاعنوان پارامتر را وارد نمایید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string TSQL = GenerateTSQL();
+                Bll_Public.GetDataTableFromTSQL(TSQL);
+                ParameterID.Tag = TSQL;
+                MessageBox.Show("عملیات با موفقیت انجام گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+            catch (Exception E)
+            {
+                var dialogTypeName = "System.Windows.Forms.PropertyGridInternal.GridErrorDlg";
+                var dialogType = typeof(Form).Assembly.GetType(dialogTypeName);
+
+
+                var dialog = (Form)Activator.CreateInstance(dialogType, new PropertyGrid());
+
+                dialog.Text = Properties.Settings.Default.AppName;
+                dialogType.GetProperty("Details").SetValue(dialog, E.Message, null);
+                dialogType.GetProperty("Message").SetValue(dialog, "رشته دستوری ایجاد شده دارای خطا می باشد", null);
+
+                var result = dialog.ShowDialog();
+            }
 
         }
     }

@@ -213,6 +213,16 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap complete {
+            get {
+                object obj = ResourceManager.GetObject("complete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Create_Device_ {
             get {
                 object obj = ResourceManager.GetObject("Create Device ", resourceCulture);
@@ -356,6 +366,16 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap EndLogo1 {
             get {
                 object obj = ResourceManager.GetObject("EndLogo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Finish {
+            get {
+                object obj = ResourceManager.GetObject("Finish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -576,6 +596,16 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap Line {
             get {
                 object obj = ResourceManager.GetObject("Line", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextButton {
+            get {
+                object obj = ResourceManager.GetObject("nextButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

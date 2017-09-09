@@ -14,10 +14,11 @@ namespace PersianMIS.StationControl
 
     public partial class CreateNewParameterFromulaWithReturnTSQLUserControl : UserControl
     {
-       
 
 
-        public    string TSQL = "";
+        BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
+
+        public string TSQL = "";
         DataTable Dt = new DataTable();
         BLL.CLS_Device BllDevice = new CLS_Device();
         BLL.CLS_DeviceLine BllDeviceLine = new CLS_DeviceLine();
@@ -87,14 +88,19 @@ namespace PersianMIS.StationControl
         {
             try
             {
-               
- BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
-                TSQL  = @"SELECT        " + Cmb_SelectOperation.Text + @"(dbo.Tb_Client.Duration) AS Duration
+                if (RdBtn_Parameter.Checked)
+                {
+                    TSQL = @"  (SELECT        " + Cmb_SelectOperation.Text + @"(dbo.Tb_Client.Duration) AS Duration
                             FROM            dbo.Tb_Client INNER JOIN
                                                      dbo.Tb_DevicesLine ON dbo.Tb_Client.DeviceLineId = dbo.Tb_DevicesLine.LineId AND dbo.Tb_Client.DeviceID = dbo.Tb_DevicesLine.DeviceId
                             GROUP BY dbo.Tb_Client.DeviceID, dbo.Tb_Client.StateId, dbo.Tb_DevicesLine.ID
-                            HAVING        (dbo.Tb_Client.DeviceID = " + Cmb_SelectDevice.SelectedValue + @") AND (dbo.Tb_Client.StateId = " + Cmb_SelectStatus.SelectedValue + @") AND (dbo.Tb_DevicesLine.ID = " + Cmb_SelectPuls.SelectedValue + @")";
-            Bll_Public.GetDataTableFromTSQL(TSQL);
+                            HAVING        (dbo.Tb_Client.DeviceID = " + Cmb_SelectDevice.SelectedValue + @") AND (dbo.Tb_Client.StateId = " + Cmb_SelectStatus.SelectedValue + @") AND (dbo.Tb_DevicesLine.ID = " + Cmb_SelectPuls.SelectedValue + @"))";
+                }
+                else
+                {
+                    TSQL = "(SELECT        " + Txt_Number.Value + " AS x)";
+                }
+                    Bll_Public.GetDataTableFromTSQL(TSQL);
 
 
                 Btn_Save.DialogResult = DialogResult.OK;
@@ -119,9 +125,16 @@ namespace PersianMIS.StationControl
             }
         }
 
+        private void RdBtn_Number_CheckedChanged(object sender, EventArgs e)
+        {
 
-        
+            Txt_Number.Visible = RdBtn_Number.Checked;
+        }
 
+        private void RdBtn_Parameter_CheckedChanged(object sender, EventArgs e)
+        {
+            Pnl_Database.Visible = RdBtn_Parameter.Checked;
+        }
     }
   
 }

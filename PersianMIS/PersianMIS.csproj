@@ -486,6 +486,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\complete.png" />
+    <None Include="Resources\Finish.png" />
+    <None Include="Resources\nextButton.png" />
     <None Include="Resources\RUN OK Button.png" />
     <None Include="Resources\editButton.png" />
     <None Include="Resources\Line.png" />

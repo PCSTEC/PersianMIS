@@ -166,8 +166,8 @@
   <data name="SendMailOk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SendMailOk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Create Device 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Create Device 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GantPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GantPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GantPrevious1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GantPrevious1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,6 +177,9 @@
   </data>
   <data name="Refresh1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartProgressStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartProgressStep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Create Shift. Okpng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create Shift. Okpng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,17 +253,20 @@
   <data name="GanttAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GanttAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hard_drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hard_drive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="EndLogo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EndLogo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Finish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="help Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help Ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="All Station1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\All Station1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RUN OK Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RUN OK Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,14 +280,17 @@
   <data name="Step" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Step.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Step1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Step1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Shift2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shift2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="go" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\go.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StartProgressStep" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StartProgressStep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hard_drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hard_drive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Step11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Step11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -291,9 +300,6 @@
   </data>
   <data name="Create Parameter OK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create Parameter OK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GantPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GantPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StartProgressStep2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartProgressStep2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -330,6 +336,9 @@
   </data>
   <data name="Gantt100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gantt100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nextButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nextButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Step3Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Step3Ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,8 +391,8 @@
   <data name="Step0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Step0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Step1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Step1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Create Device 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Create Device 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Create Device 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create Device 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -391,7 +400,7 @@
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RUN OK Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RUN OK Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\complete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
