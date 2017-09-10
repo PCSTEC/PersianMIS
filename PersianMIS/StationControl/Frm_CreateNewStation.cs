@@ -101,7 +101,7 @@ namespace PersianMIS.StationControl
 
         private void Btn_GotoStpe4_Click(object sender, EventArgs e)
         {
-            Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
+          int LastNewStationId=  Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
 
 
 

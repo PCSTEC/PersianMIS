@@ -10,9 +10,9 @@ namespace BLL
     public class Cls_Station
     {
         DAL.Cls_Station Dal_Station = new DAL.Cls_Station();
-        public void Insert(string StationName, int CountOfParameters)
+        public int  Insert(string StationName, int CountOfParameters)
         {
-            Dal_Station.Insert( StationName,  CountOfParameters);
+          return   Dal_Station.Insert( StationName,  CountOfParameters);
         }
 
         public void Update(string StationName, int CountOfParameters, int StationId)

@@ -10,18 +10,19 @@ namespace DAL
     public class Cls_Station
     {
 
-        public void Insert(string StationName, int CountOfParameters)
+        public int  Insert(string StationName, int CountOfParameters)
         {
-            int NewStationId = -1;
+            int  NewStationId = -1;
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@StationName", System.Data.SqlDbType.NVarChar, StationName, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@CountOfParameters", System.Data.SqlDbType.Int, CountOfParameters, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@NewStationId", System.Data.SqlDbType.Int, NewStationId, System.Data.ParameterDirection.Output);
 
             Cls_Public.Pers.Sp_Exe("Sp_InsertStation", Cls_Public.CnnStr, false );
-            NewStationId = (int)Cls_Public.Pers.ParameterCmd1[0].ParamValue;
+            NewStationId =(int) Cls_Public.Pers.ParameterCmd1[3].ParamValue;
 
             Cls_Public.Pers.ClearParameter();
+            return NewStationId;
         }
 
 
