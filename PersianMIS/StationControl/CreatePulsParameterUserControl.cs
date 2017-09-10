@@ -142,7 +142,7 @@ namespace PersianMIS.StationControl
                 Telerik.WinControls.UI.RadForm frm = new Telerik.WinControls.UI.RadForm();
                 frm.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
                 frm.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                frm.ClientSize = new System.Drawing.Size(306, 217);
+                frm.ClientSize = new System.Drawing.Size(302, 270);
 
                 frm.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
                 frm.MaximizeBox = false;

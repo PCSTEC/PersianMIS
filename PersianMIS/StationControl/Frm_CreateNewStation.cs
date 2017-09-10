@@ -103,9 +103,19 @@ namespace PersianMIS.StationControl
         {
           int LastNewStationId=  Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
 
+            foreach (Control x in MainPnl.Controls)
+            {
+
+                if (x.Controls[1].Text != "" && x.Controls[6].Tag != null)
+                {
+                    Bll_Station.InsertStationParameters(x.Controls[1].Text, x.Controls[6].Tag.ToString(), LastNewStationId);
+
+                }
+
+            }
 
 
-            PnlStep1.Visible = false;
+                PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;
             Pnl_Step3.Visible = false;
             Pnl_Step4.Visible = true;

@@ -15,9 +15,9 @@ namespace BLL
           return   Dal_Station.Insert( StationName,  CountOfParameters);
         }
 
-        public void Update(string StationName, int CountOfParameters, int StationId)
+        public void Update(string StationName, int StationId)
         {
-            Dal_Station.Update (StationName,  CountOfParameters,  StationId);
+            Dal_Station.Update (StationName,  StationId);
         }
 
         public DataTable GetStations(int ProductLineId )
@@ -30,8 +30,12 @@ namespace BLL
             Dal_Station.Delete(StationId);
         }
 
+        public void  InsertStationParameters(string  ParameterName  ,string  ParamaterTSQL  ,   int StationId    )
+        {
+              Dal_Station.InsertStationParameters(ParameterName,    ParamaterTSQL,   StationId);
+        }
 
-       
+        
 
     }
 }

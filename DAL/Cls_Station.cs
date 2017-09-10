@@ -25,6 +25,18 @@ namespace DAL
             return NewStationId;
         }
 
+        public void  InsertStationParameters(string ParameterName, string ParamaterTSQL, int StationId)
+        {
+            Cls_Public.Pers.ClearParameter();
+            Cls_Public.Pers.Sp_AddParam("@ParameterName", System.Data.SqlDbType.NVarChar, ParameterName, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ParamaterTSQL", System.Data.SqlDbType.NVarChar , ParamaterTSQL, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@StationId", System.Data.SqlDbType.Int, StationId, System.Data.ParameterDirection.Input);
+
+            Cls_Public.Pers.Sp_Exe("Sp_InsertStationParameters", Cls_Public.CnnStr, false);
+     
+            Cls_Public.Pers.ClearParameter();
+
+        }
 
         public void Delete(int StationId)
         {
@@ -36,13 +48,12 @@ namespace DAL
 
         }
 
-        public void Update(string StationName, int CountOfParameters, int StationId)
+        public void Update(string StationName, int StationId)
         {
             Cls_Public.Pers.ClearParameter();
-            Cls_Public.Pers.Sp_AddParam("@CountOfParameters", System.Data.SqlDbType.Int, CountOfParameters, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@StationName", System.Data.SqlDbType.Int, StationName, System.Data.ParameterDirection.Input);
+             Cls_Public.Pers.Sp_AddParam("@StationName", System.Data.SqlDbType.NVarChar, StationName, System.Data.ParameterDirection.Input);
 
-            Cls_Public.Pers.Sp_AddParam("StationId", System.Data.SqlDbType.NVarChar, StationId, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("StationId", System.Data.SqlDbType.Int, StationId, System.Data.ParameterDirection.Input);
 
 
             Cls_Public.Pers.Sp_Exe("SpUpdate_Station", Cls_Public.CnnStr, true);
