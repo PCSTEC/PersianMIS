@@ -11,22 +11,13 @@ namespace BLL
     {
         DAL.CLS_Client Dal_Client= new DAL.CLS_Client();
 
-        public DataTable GetAllCientWithOutDiuratiion()
-        {
-            return Dal_Client.GetAllCientWithOutDiuratiion();
-        }
+      
 
-        public DataTable Get1000RecordOfCientData()
+        public DataTable GetAllClientData(string StartDate, string EndDate, string ListOfProductionLines)
         {
-            return Dal_Client.Get1000RecordOfCientData();
+            return Dal_Client.GetAllClientData(StartDate, EndDate, ListOfProductionLines);
         }
 
 
-        public void UpdateClientDuratuin(string DeviceStateID, string Duration)
-        {
-            Dal_Client.UpdateClientDuratuin(DeviceStateID, Duration);
-
-
-        }
     }
 }

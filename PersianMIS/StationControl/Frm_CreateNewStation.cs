@@ -11,6 +11,7 @@ namespace PersianMIS.StationControl
 {
     public partial class Frm_CreateNewStation : Telerik.WinControls.UI.RadForm
     {
+        BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
         public Frm_CreateNewStation()
         {
             InitializeComponent();
@@ -53,12 +54,12 @@ namespace PersianMIS.StationControl
 
         private void Btn_CreateStep1_Click(object sender, EventArgs e)
         {
-            if(Txt_StationCaption.Text=="" || Txt_StationPulsCount.Value < 1)
+            if (Txt_StationCaption.Text == "" || Txt_StationPulsCount.Value < 1)
             {
                 MessageBox.Show("لطفاً اطلاعات درخواستی را تکمیل نمایید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return ;
+                return;
             }
-            WaitingBar.Visible = true;
+
             this.Cursor = Cursors.WaitCursor;
             MainPnl.Controls.Clear();
 
@@ -78,15 +79,15 @@ namespace PersianMIS.StationControl
             Pnl_Step3.Visible = false;
             PnlStep1.Visible = false;
             Pnl_Step4.Visible = false;
-            WaitingBar.Visible = false ;
-            this.Cursor = Cursors.Default ;
+
+            this.Cursor = Cursors.Default;
         }
 
         private void Btn_Step1_Click(object sender, EventArgs e)
         {
-            PnlStep1.Visible = true ;
+            PnlStep1.Visible = true;
             Pnl_Step2.Visible = false;
-            Pnl_Step3.Visible = false ;
+            Pnl_Step3.Visible = false;
             Pnl_Step4.Visible = false;
         }
 
@@ -100,18 +101,20 @@ namespace PersianMIS.StationControl
 
         private void Btn_GotoStpe4_Click(object sender, EventArgs e)
         {
+            Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
+
+
 
             PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;
             Pnl_Step3.Visible = false;
             Pnl_Step4.Visible = true;
             Btn_Step4.Image = global::PersianMIS.Properties.Resources.Step4Ok;
+
         }
 
         private void Btn_GotoStep3_Click(object sender, EventArgs e)
         {
-
-
             Btn_Step3.Image = global::PersianMIS.Properties.Resources.Step3Ok;
             PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;
@@ -119,8 +122,9 @@ namespace PersianMIS.StationControl
             FlowPnl_Step3.Controls.Clear();
             foreach (Control x in MainPnl.Controls)
             {
+
                 int i = 0;
-                if (x.Controls[1].Text != "" && x.Controls[6].Tag  !=null )
+                if (x.Controls[1].Text != "" && x.Controls[6].Tag != null)
                 {
                     i = i + 1;
                     Pnl_Step3.Text = Txt_StationCaption.Text;
@@ -133,10 +137,9 @@ namespace PersianMIS.StationControl
 
                     Lbl_ParametersExecutaion.Text = i + "-" + x.Controls[1].Text;
                     FlowPnl_Step3.Controls.Add(Lbl_ParametersExecutaion);
-
-
                 }
- 
+
+
             }
             Telerik.WinControls.UI.RadButton Btn_ContinueStep3 = new Telerik.WinControls.UI.RadButton();
 
@@ -156,9 +159,9 @@ namespace PersianMIS.StationControl
         {
             PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;
-            Pnl_Step3.Visible = true ;
-            Pnl_Step4.Visible = false ;
-           
+            Pnl_Step3.Visible = true;
+            Pnl_Step4.Visible = false;
+
         }
 
         private void Btn_Finished_Click(object sender, EventArgs e)

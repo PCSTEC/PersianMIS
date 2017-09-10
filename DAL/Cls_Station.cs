@@ -7,19 +7,20 @@ using System.Text;
 
 namespace DAL
 {
-public     class Cls_Station
+    public class Cls_Station
     {
 
-        public void Insert(int ProductLineId, int DeviceId, int DeviceLineId, string StationDesc, string Description)
+        public void Insert(string StationName, int CountOfParameters)
         {
+            int NewStationId = -1;
             Cls_Public.Pers.ClearParameter();
-            Cls_Public.Pers.Sp_AddParam("@ProductLineId", System.Data.SqlDbType.Int, ProductLineId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@DeviceId", System.Data.SqlDbType.Int , DeviceId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@DeviceLineId", System.Data.SqlDbType.Int, DeviceLineId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@StationDesc", System.Data.SqlDbType.NVarChar , StationDesc, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@Description", System.Data.SqlDbType.NVarChar , Description, System.Data.ParameterDirection.Input);
-           
-            Cls_Public.Pers.Sp_Exe("Sp_InsertStation", Cls_Public.CnnStr, true);
+            Cls_Public.Pers.Sp_AddParam("@StationName", System.Data.SqlDbType.NVarChar, StationName, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@CountOfParameters", System.Data.SqlDbType.Int, CountOfParameters, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@NewStationId", System.Data.SqlDbType.Int, NewStationId, System.Data.ParameterDirection.Output);
+
+            Cls_Public.Pers.Sp_Exe("Sp_InsertStation", Cls_Public.CnnStr, false );
+            NewStationId = (int)Cls_Public.Pers.ParameterCmd1[0].ParamValue;
+
             Cls_Public.Pers.ClearParameter();
         }
 
@@ -34,14 +35,12 @@ public     class Cls_Station
 
         }
 
-        public void Update (int ProductLineId, int DeviceId, int DeviceLineId, string StationDesc, string Description , int StationId)
+        public void Update(string StationName, int CountOfParameters, int StationId)
         {
             Cls_Public.Pers.ClearParameter();
-            Cls_Public.Pers.Sp_AddParam("@ProductLineId", System.Data.SqlDbType.Int, ProductLineId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@DeviceId", System.Data.SqlDbType.Int, DeviceId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@DeviceLineId", System.Data.SqlDbType.Int, DeviceLineId, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@StationDesc", System.Data.SqlDbType.NVarChar, StationDesc, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@Description", System.Data.SqlDbType.NVarChar, Description, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@CountOfParameters", System.Data.SqlDbType.Int, CountOfParameters, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@StationName", System.Data.SqlDbType.Int, StationName, System.Data.ParameterDirection.Input);
+
             Cls_Public.Pers.Sp_AddParam("StationId", System.Data.SqlDbType.NVarChar, StationId, System.Data.ParameterDirection.Input);
 
 
@@ -50,26 +49,15 @@ public     class Cls_Station
         }
 
 
-        public DataTable GetAllStationData(string StartDate, String EndDate , string ListOfProductionLines)
-        {
-            Cls_Public.SqlStr = "select * from GetAllStationData (CONVERT(DATETIME, '" + StartDate + "', 102),CONVERT(DATETIME, '" + EndDate + "', 102),"  + ListOfProductionLines + "  ) as x  where duration>60  ";
-            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
-            return Cls_Public.PublicDT;
-        }
+   
 
-        public DataTable Get100OfAllStationData( )
-        {
-            Cls_Public.SqlStr = "select * from Get100OfAllStationData()  ORDER BY  DeviceStateID asc  ";
-            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
-            return Cls_Public.PublicDT;
-        }
 
 
         public DataTable GetStations(int ProductLineId)
         {
-            if (ProductLineId!= 0)
+            if (ProductLineId != 0)
             {
-  Cls_Public.SqlStr = "select * from GetListOfStations() where ProductLineId='" + ProductLineId + "'";
+                Cls_Public.SqlStr = "select * from GetListOfStations() where ProductLineId='" + ProductLineId + "'";
             }
             else
             {

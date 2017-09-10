@@ -87,7 +87,7 @@ namespace PersianMIS.StationControl
                 MessageBox.Show("لطفاً اطلاعات را تکمیل نمائید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Bll_Station.Insert(Convert.ToInt32(Cmb_ProductLine.SelectedValue.ToString()), Convert.ToInt32(Cmb_Device.SelectedValue.ToString()), Convert.ToInt32(Cmb_InputLine.SelectedValue.ToString()), Txt_LineCode.Text, Txt_Description.Text);
+           // Bll_Station.Insert(Convert.ToInt32(Cmb_ProductLine.SelectedValue.ToString()), Convert.ToInt32(Cmb_Device.SelectedValue.ToString()), Convert.ToInt32(Cmb_InputLine.SelectedValue.ToString()), Txt_LineCode.Text, Txt_Description.Text);
 
             MessageBox.Show("ایستگاه مورد نظر با موفقیت ایجاد گردید", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -107,7 +107,7 @@ namespace PersianMIS.StationControl
         {
             if (MessageBox.Show("آیا از بروز رسانی اطلاعات مطمن هستید ؟", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Bll_Station.Update(Convert.ToInt32(Cmb_ProductLine.SelectedValue.ToString()), Convert.ToInt32(Cmb_Device.SelectedValue.ToString()), Convert.ToInt32(Cmb_InputLine.SelectedValue.ToString()), Txt_LineCode.Text, Txt_Description.Text, Convert.ToInt32(Grd_ListOfStation.CurrentRow.Cells["StationId"].Value.ToString()));
+               // Bll_Station.Update(Convert.ToInt32(Cmb_ProductLine.SelectedValue.ToString()), Convert.ToInt32(Cmb_Device.SelectedValue.ToString()), Convert.ToInt32(Cmb_InputLine.SelectedValue.ToString()), Txt_LineCode.Text, Txt_Description.Text, Convert.ToInt32(Grd_ListOfStation.CurrentRow.Cells["StationId"].Value.ToString()));
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FillDg();
             }

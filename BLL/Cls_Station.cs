@@ -10,14 +10,14 @@ namespace BLL
     public class Cls_Station
     {
         DAL.Cls_Station Dal_Station = new DAL.Cls_Station();
-        public void Insert(int ProductLineId   , int DeviceId  ,int DeviceLineId   , string  StationDesc  , string   Description)
+        public void Insert(string StationName, int CountOfParameters)
         {
-            Dal_Station.Insert(ProductLineId, DeviceId, DeviceLineId, StationDesc, Description);
+            Dal_Station.Insert( StationName,  CountOfParameters);
         }
 
-        public void Update(int ProductLineId, int DeviceId, int DeviceLineId, string StationDesc, string Description, int StationId)
+        public void Update(string StationName, int CountOfParameters, int StationId)
         {
-            Dal_Station.Update (ProductLineId, DeviceId, DeviceLineId, StationDesc, Description,StationId );
+            Dal_Station.Update (StationName,  CountOfParameters,  StationId);
         }
 
         public DataTable GetStations(int ProductLineId )
@@ -30,14 +30,8 @@ namespace BLL
             Dal_Station.Delete(StationId);
         }
 
-        public DataTable GetAllStationData(string StartDate , string EndDate , string ListOfProductionLines)
-        {
-            return Dal_Station.GetAllStationData(StartDate,EndDate,   ListOfProductionLines);
-        }
-        public DataTable Get100OfAllStationData( )
-        {
-            return Dal_Station.Get100OfAllStationData( );
-        }
-        
+
+       
+
     }
 }

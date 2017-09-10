@@ -13,32 +13,16 @@ namespace DAL
         /// /Return List Of Client Data With Out Calc Duration Time
         /// </summary>
         /// <returns>Data Table </returns>
-        public DataTable GetAllCientWithOutDiuratiion()
+     
+
+      
+
+ 
+        public DataTable GetAllClientData(string StartDate, String EndDate, string ListOfProductionLines)
         {
-            Cls_Public.SqlStr = "select * from GetAllCientWithOutDiuratiion() ";
+            Cls_Public.SqlStr = "select * from GetAllClientData (CONVERT(DATETIME, '" + StartDate + "', 102),CONVERT(DATETIME, '" + EndDate + "', 102)," + ListOfProductionLines + "  ) as x  where duration>60  ";
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
             return Cls_Public.PublicDT;
         }
-
-        public DataTable Get1000RecordOfCientData()
-        {
-            Cls_Public.SqlStr = "select * from Get1000RecordOfCientData() ";
-            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
-            return Cls_Public.PublicDT;
-        }
-
-
-        public void UpdateClientDuratuin(string DeviceStateID , string Duration)
-        {
-            Cls_Public.Pers.ClearParameter();
-            Cls_Public.Pers.Sp_AddParam("@DeviceStateID", System.Data.SqlDbType.NVarChar , DeviceStateID, System.Data.ParameterDirection.Input);
-            Cls_Public.Pers.Sp_AddParam("@Duration", System.Data.SqlDbType.NVarChar, Duration, System.Data.ParameterDirection.Input);
-         
-
-            Cls_Public.Pers.Sp_Exe("SpUpdateClientDuration", Cls_Public.CnnStr, true);
-            Cls_Public.Pers.ClearParameter();
-        
-
     }
-}
 }

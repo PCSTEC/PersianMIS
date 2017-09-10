@@ -28,7 +28,8 @@ namespace PersianMIS.CurrentState
         IraniDate.IraniDate.IraniDate IrDate = new IraniDate.IraniDate.IraniDate();
         Persistent.DataAccess.DataAccess pers = new Persistent.DataAccess.DataAccess();
         Random rand = new Random();
-        BLL.Cls_Station BllStation = new BLL.Cls_Station();
+        BLL.CLS_Client BllClient= new BLL.CLS_Client();
+
         BLL.CLS_DeviceLine BllDeviceLine = new BLL.CLS_DeviceLine();
         DateTime CurDate = DateTime.Now;
         string startdate, enddate;
@@ -128,7 +129,7 @@ namespace PersianMIS.CurrentState
 
 
 
-                BLL.Cls_PublicOperations.Dt = BllStation.GetAllStationData(StartDate, EndDate, ListOfProductionLines);
+               BLL.Cls_PublicOperations.Dt = BllClient.GetAllClientData(StartDate, EndDate, ListOfProductionLines);
 
                 int totalHours;
 
