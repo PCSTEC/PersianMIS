@@ -27,7 +27,7 @@ namespace PersianMIS
         public Main()
         {
             InitializeComponent();
-         }
+        }
 
         private void Mnu_Exit_Click(object sender, EventArgs e)
         {
@@ -85,8 +85,8 @@ namespace PersianMIS
                 Dlg.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
 
                 if (Dlg.ShowDialog() == DialogResult.OK)
-                { 
-                    Pnl_Main.BackgroundImage= new Bitmap(Dlg.FileName);
+                {
+                    Pnl_Main.BackgroundImage = new Bitmap(Dlg.FileName);
                     Pnl_Main.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
@@ -127,19 +127,29 @@ namespace PersianMIS
 
         private void Main_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void Btn_AllStation_Click(object sender, EventArgs e)
         {
-            ShowStations(false);
+            //    ShowStations(false);
+
+
+            this.Cursor = Cursors.WaitCursor ;
+            var Pnl = new StationControl.ShowStationUserControl();
+            Pnl_Main.Controls.Clear();
+            Pnl.Width = Pnl_Main.Width - 18;
+            Pnl.Height = Pnl_Main.Height - 14;
+             Pnl_Main.Controls.Add(Pnl);
+
+            this.Cursor = Cursors.Default;
         }
 
         private void ShowStations(bool All)
         {
 
-            string Date = "", BeginTime = "", ProductLineId = "" ,EndTime="";
-            int   NumberOfDay = 0;
+            string Date = "", BeginTime = "", ProductLineId = "", EndTime = "";
+            int NumberOfDay = 0;
             if (All == false)
             {
                 using (var form = new StationControl.Frm_FillterStation(0))
@@ -147,7 +157,7 @@ namespace PersianMIS
                     if (form.ShowDialog() == DialogResult.OK)
                     {
                         // exit when user dont fill form data 
-                        if(form.BeginTime== "  :  :" || form.Date == "    /  /" ||  form.EndTime  == "  :  :")
+                        if (form.BeginTime == "  :  :" || form.Date == "    /  /" || form.EndTime == "  :  :")
                         {
                             MessageBox.Show("لطفاً اطلاعات درخواستی را تکمیل نمایید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             ShowStations(false);
@@ -158,11 +168,11 @@ namespace PersianMIS
                         BeginTime = form.BeginTime;
                         EndTime = form.EndTime;
                         ProductLineId = "0";
-                        NumberOfDay = Convert.ToInt32( form.NumberOfNextDay);
+                        NumberOfDay = Convert.ToInt32(form.NumberOfNextDay);
                     }
                 }
             }
-            if (All == true )
+            if (All == true)
             {
                 using (var form = new StationControl.Frm_FillterStation(1))
                 {
@@ -178,37 +188,66 @@ namespace PersianMIS
                 }
             }
 
-            if(string.IsNullOrEmpty(Date))
+            if (string.IsNullOrEmpty(Date))
             {
                 return;
             }
             Pnl_Main.Controls.Clear();
-       
+
             BLL.Cls_PublicOperations.Dt = Bll_Station.GetStations(Convert.ToInt32(ProductLineId));
 
             Dictionary<string, StationControl.StationUserControl> Station = new Dictionary<string, StationControl.StationUserControl>();
 
             for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
             {
+                Panel Pnl_State = new Panel();
+                Label Lbl_ParameterCaption = new Label();
+                Label Lbl_ParameterDesc = new Label();
+
+
+                Lbl_ParameterCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+                Lbl_ParameterCaption.ForeColor = System.Drawing.Color.White;
+                Lbl_ParameterCaption.Location = new System.Drawing.Point(237, 7);
+                Lbl_ParameterCaption.Name = "Lbl_ParameterCaption";
+                Lbl_ParameterCaption.Size = new System.Drawing.Size(106, 26);
+                Lbl_ParameterCaption.TabIndex = 9;
+                Lbl_ParameterCaption.Text = "عنوان خط تولید:";
+                Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+ 
+
+                Lbl_ParameterDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+                Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+                Lbl_ParameterDesc.Location = new System.Drawing.Point(5, 7);
+                Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
+                Lbl_ParameterDesc.Size = new System.Drawing.Size(236, 26);
+                Lbl_ParameterDesc.TabIndex = 6;
+                Lbl_ParameterDesc.Text = "label1";
+                Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+ 
+
+                Pnl_State.Controls.Add(Lbl_ParameterCaption);
+                Pnl_State.Controls.Add(Lbl_ParameterDesc);
+                Pnl_State.Location = new System.Drawing.Point(368, 101);
+                Pnl_State.Name = "Pnl_State";
+                Pnl_State.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+                Pnl_State.Size = new System.Drawing.Size(348, 42);
+                Pnl_State.TabIndex = 5;
+               
+
+
                 Station.Add(BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString(), new StationControl.StationUserControl());
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].TitleBar.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationDesc"].ToString();
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString();
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].BtnClosed.Click += new DevComponents.DotNetBar.ClickEventHandler(this.CloseStation);
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString();
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeviceId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceId"].ToString());
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].LineID = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineId"].ToString());
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeviceTypeCode = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["PulsTypeId"].ToString());
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ActiveStateDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ActiveStateDesc"].ToString();
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].DeActiveStateDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateDesc"].ToString();
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ProductLineDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineDesc"].ToString();
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].deviceDesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceDesc"].ToString();
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].Linedesc = BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineDesc"].ToString();
+                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString(); 
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiStartDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date)).ToString());
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiStartTime = BeginTime;
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].ShamsiStartDate = Date;
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiiEndDate = CurrentDate.GetDateIntToStr_GivenDate(CurrentDate.GetLatin_FromIraniDate(CurrentDate.GetPlussToIraniDate(CurrentDate.ConvDateStrToInt_GivenDate(Date), NumberOfDay)).ToString());
                 Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].MiladiEndTime = EndTime;
-                Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].CreateObjects();
+
+         //       Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()].CreateObjects();
                 Pnl_Main.Controls.Add(Station[BLL.Cls_PublicOperations.Dt.DefaultView[i]["StationId"].ToString()]);
             }
 
@@ -218,7 +257,7 @@ namespace PersianMIS
 
         }
 
-        private void CloseStation(object sender, EventArgs e   )
+        private void CloseStation(object sender, EventArgs e)
         {
             DevComponents.DotNetBar.BubbleButton SelectedValue = (DevComponents.DotNetBar.BubbleButton)sender;
             foreach (Control item in Pnl_Main.Controls)
@@ -230,7 +269,7 @@ namespace PersianMIS
                 }
             }
 
-           
+
         }
 
         private void Btn_AddStation_Click(object sender, EventArgs e)
@@ -243,7 +282,7 @@ namespace PersianMIS
 
         private void Btn_EditStationInfo_Click(object sender, EventArgs e)
         {
-            RadForm Frm = new StationControl.Frm_CreateStation(true );
+            RadForm Frm = new StationControl.Frm_CreateStation(true);
 
             Frm.ShowDialog();
         }
@@ -255,19 +294,19 @@ namespace PersianMIS
 
         private void Btn_FullScreen_Click(object sender, EventArgs e)
         {
-         
-            
-          
+
+
+
             MainRibbonBar.Visible = false;
-       
-     
+
+
         }
 
         private void Btn_OutOfFullScreen_Click(object sender, EventArgs e)
         {
-           
+
             MainRibbonBar.Visible = true;
-          
+
         }
 
         private void Main_KeyPress(object sender, KeyPressEventArgs e)
@@ -275,7 +314,7 @@ namespace PersianMIS
             if (e.KeyChar == 27)
             {
                 MainRibbonBar.Visible = true;
-              
+
             }
         }
 
@@ -310,7 +349,7 @@ namespace PersianMIS
 
 
 
-            var Pnl = new CurrentState.UCShowCurrentState ();
+            var Pnl = new CurrentState.UCShowCurrentState();
             Pnl_Main.Controls.Clear();
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
@@ -324,38 +363,38 @@ namespace PersianMIS
 
         private void Btn_CalcDurations_Click(object sender, EventArgs e)
         {
-           // this.Cursor = Cursors.WaitCursor;
-           // double totalHours;
-           // BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
-           //for (int i=0; i<= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-           // {
-           //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-           //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+            // this.Cursor = Cursors.WaitCursor;
+            // double totalHours;
+            // BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
+            //for (int i=0; i<= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            // {
+            //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+            //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
 
 
-           //     totalHours = (EndDate - FirstDate).TotalSeconds;
-           //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-           // }
+            //     totalHours = (EndDate - FirstDate).TotalSeconds;
+            //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            // }
 
 
-           // BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
-           // for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-           // {
-           //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-           //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-           //     totalHours = (EndDate - FirstDate).TotalSeconds;
-
-
-             
-           //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-           // }
+            // BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
+            // for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            // {
+            //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+            //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
+            //     totalHours = (EndDate - FirstDate).TotalSeconds;
 
 
 
+            //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            // }
 
 
-           // this.Cursor = Cursors.Default  ;
-           // MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
+
+
+
+            // this.Cursor = Cursors.Default  ;
+            // MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
 
         }
 
@@ -363,8 +402,8 @@ namespace PersianMIS
         {
             if (Pnl_Main.Controls.Count == 1)
             {
-                Pnl_Main.Controls[0].Width = Pnl_Main.Width-18;
-                Pnl_Main.Controls[0].Height  = Pnl_Main.Height-14 ;
+                Pnl_Main.Controls[0].Width = Pnl_Main.Width - 18;
+                Pnl_Main.Controls[0].Height = Pnl_Main.Height - 14;
 
 
             }

@@ -283,7 +283,12 @@
             // LSTProrudtionLines
             // 
             this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LSTProrudtionLines.GroupIndent = 4;
+            this.LSTProrudtionLines.GroupItemSize = new System.Drawing.Size(32, 2);
+            this.LSTProrudtionLines.HeaderHeight = 4.375F;
+            this.LSTProrudtionLines.ItemSize = new System.Drawing.Size(32, 2);
             this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
+            this.LSTProrudtionLines.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.LSTProrudtionLines.Name = "LSTProrudtionLines";
             this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 629);
@@ -302,7 +307,7 @@
             // radCollapsiblePanel1.PanelContainer
             // 
             this.radCollapsiblePanel1.PanelContainer.Controls.Add(this.radRibbonBar1);
-            this.radCollapsiblePanel1.PanelContainer.Location = new System.Drawing.Point(18, 1);
+            this.radCollapsiblePanel1.PanelContainer.Location = new System.Drawing.Point(10, 1);
             this.radCollapsiblePanel1.PanelContainer.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.radCollapsiblePanel1.PanelContainer.Size = new System.Drawing.Size(0, 0);
             this.radCollapsiblePanel1.Size = new System.Drawing.Size(1236, 21);
@@ -327,7 +332,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(0, 144);
+            this.radRibbonBar1.Size = new System.Drawing.Size(0, 126);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -439,7 +444,7 @@
             this.radLabelElement1,
             this.radDateTimePickerElementStart});
             this.radRibbonBarButtonGroup1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(22, 22);
+            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(12, 11);
             this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
             this.radRibbonBarButtonGroup1.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup1.ShowBackColor = false;
@@ -478,7 +483,7 @@
             this.radLabelElement2,
             this.radDateTimePickerElementEnd});
             this.radRibbonBarButtonGroup2.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(22, 22);
+            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(12, 11);
             this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
             this.radRibbonBarButtonGroup2.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup2.ShowBackColor = false;

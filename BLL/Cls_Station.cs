@@ -20,9 +20,9 @@ namespace BLL
             Dal_Station.Update (StationName,  StationId);
         }
 
-        public DataTable GetStations(int ProductLineId )
+        public DataTable GetStations(  )
         {
-            return Dal_Station.GetStations(ProductLineId);
+            return Dal_Station.GetStations();
         }
 
         public void Delete(int StationId)
