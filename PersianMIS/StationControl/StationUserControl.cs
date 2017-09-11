@@ -34,6 +34,7 @@ namespace PersianMIS.StationControl
         public DevComponents.DotNetBar.PanelEx TitleBar
         {
             get { return TopPnl; }
+            set { TopPnl = TitleBar; }
         }
         public DevComponents.DotNetBar.BubbleButton BtnColse
         {

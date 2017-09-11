@@ -35,7 +35,10 @@ namespace BLL
               Dal_Station.InsertStationParameters(ParameterName,    ParamaterTSQL,   StationId);
         }
 
-        
+        public DataTable GetClientData( string ListOfStationId)
+        {
+            return Dal_Station.GetClientData(  ListOfStationId);
+        }
 
     }
 }

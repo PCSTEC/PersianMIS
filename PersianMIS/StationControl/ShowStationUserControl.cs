@@ -37,26 +37,27 @@ namespace PersianMIS.StationControl
         private void FillLstStation()
         {
             LSTStations.DataSource = Bll_Stations.GetStations();
-            LSTStations.DisplayMember = "stationName";
-            LSTStations.ValueMember = "stationid";
+            LSTStations.DisplayMember = "StationName";
+            LSTStations.ValueMember = "StationId";
         }
 
 
         private void FillData(string StartDate, string EndDate, string ListOfStations)
         {
-            if (LSTStations.CheckedItems.Count > 1)
-            {
+            BLL.Cls_PublicOperations.Dt = Bll_Stations.GetClientData(ListOfStations);
 
+            if (BLL.Cls_PublicOperations.Dt.Rows.Count > 0)
+            {
+                MainPnl.Controls.Clear();
                 for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
                 {
-
-
+                    StationControl.StationUserControl UcShowStation = new StationUserControl();
+                    UcShowStation.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
+                    UcShowStation.TitleBar.Text= BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
+                    UcShowStation.MiladiStartDate = startdate;
+                    UcShowStation.MiladiiEndDate = enddate;
+                    MainPnl.Controls.Add(UcShowStation);
                 }
-            }
-            else
-            {
-            //    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTStations.CheckedItems[0].Value.ToString());
-
 
             }
 
@@ -98,7 +99,7 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.Default;
         }
 
-  
+
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
@@ -174,7 +175,7 @@ namespace PersianMIS.StationControl
             //        MessageBox.Show(E.ToString());
             //    }
 
-        //    }
+            //    }
         }
 
 
@@ -198,7 +199,7 @@ namespace PersianMIS.StationControl
             IsFirstLoad = false;
         }
 
-       
+
 
         private void ShowStationUserControl_Load(object sender, EventArgs e)
         {
@@ -255,7 +256,7 @@ namespace PersianMIS.StationControl
         {
             this.Cursor = Cursors.WaitCursor;
             SelectedStation = "0";
-           
+
             foreach (var CheckedItem in LSTStations.CheckedItems)
             {
                 SelectedStation = SelectedStation + "," + CheckedItem.Value.ToString() + "";
@@ -266,6 +267,7 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.Default;
 
         }
+
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {

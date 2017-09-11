@@ -32,7 +32,7 @@ namespace PersianMIS.StationControl
 
         private void FillDg()
         {
-            Grd_ListOfStation.DataSource = Bll_Station.GetStations(0);
+            Grd_ListOfStation.DataSource = Bll_Station.GetStations( );
           
         }
 
