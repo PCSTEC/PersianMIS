@@ -32,8 +32,6 @@ namespace PersianMIS.StationControl
         }
 
 
-
-
         private void FillLstStation()
         {
             LSTStations.DataSource = Bll_Stations.GetStations();
@@ -44,22 +42,37 @@ namespace PersianMIS.StationControl
 
         private void FillData(string StartDate, string EndDate, string ListOfStations)
         {
-            BLL.Cls_PublicOperations.Dt = Bll_Stations.GetClientData(ListOfStations);
+            MainPnl.Controls.Clear();
 
-            if (BLL.Cls_PublicOperations.Dt.Rows.Count > 0)
+
+            foreach (var x in LSTStations.CheckedItems)
             {
-                MainPnl.Controls.Clear();
-                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
-                {
-                    StationControl.StationUserControl UcShowStation = new StationUserControl();
-                    UcShowStation.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
-                    UcShowStation.TitleBar.Text= BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
-                    UcShowStation.MiladiStartDate = startdate;
-                    UcShowStation.MiladiiEndDate = enddate;
-                    MainPnl.Controls.Add(UcShowStation);
-                }
-
+                StationControl.StationUserControl UcShowStation = new StationUserControl();
+                UcShowStation.Tag = x.Value.ToString();
+                UcShowStation.TitleBar.Text = x.Text; 
+                UcShowStation.StartDate =(DateTime) MskStartDate.Value;
+                UcShowStation.EndDate = (DateTime)MskEndDate.Value ;
+                MainPnl.Controls.Add(UcShowStation);
             }
+
+
+            //BLL.Cls_PublicOperations.Dt = Bll_Stations.GetClientData(ListOfStations);
+
+            //if (BLL.Cls_PublicOperations.Dt.Rows.Count > 0)
+            //{
+            //    MainPnl.Controls.Clear();
+            //    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
+            //    {
+            //        StationControl.StationUserControl UcShowStation = new StationUserControl();
+            //        UcShowStation.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
+            //        UcShowStation.TitleBar.Text= BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationName"].ToString();
+            //        UcShowStation.MiladiStartDate = startdate;
+            //        UcShowStation.MiladiiEndDate = enddate;
+            //        MainPnl.Controls.Add(UcShowStation);
+
+            //    }
+
+            //}
 
 
 
@@ -72,30 +85,30 @@ namespace PersianMIS.StationControl
         {
 
             this.Cursor = Cursors.WaitCursor;
-            radDateTimePickerElementStart.Value = CurDate.AddDays(-7);
-            radDateTimePickerElementEnd.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-7).ToString("yyyy/MM/dd", new CultureInfo("en-US")), CurrentDate, SelectedStation);
+            MskStartDate.Value = CurDate.AddDays(-7);
+            MskEndDate.Value = CurDate;
+            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(CurDate.AddDays(-7).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, SelectedStation);
             this.Cursor = Cursors.Default;
         }
 
         private void Btn_Month_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            radDateTimePickerElementStart.Value = CurDate.AddDays(-30);
-            radDateTimePickerElementEnd.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-30).ToString("yyyy/MM/dd", new CultureInfo("en-US")), CurrentDate, SelectedStation);
+            MskStartDate.Value = CurDate.AddDays(-30);
+            MskEndDate.Value = CurDate;
+            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(CurDate.AddDays(-30).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, SelectedStation);
             this.Cursor = Cursors.Default;
         }
 
         private void Btn_Year_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            radDateTimePickerElementStart.Value = CurDate.AddDays(-365);
-            radDateTimePickerElementEnd.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-365).ToString("yyyy/MM/dd", new CultureInfo("en-US")), CurrentDate, "");
+            MskStartDate.Value = CurDate.AddDays(-365);
+            MskEndDate.Value = CurDate;
+            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(CurDate.AddDays(-365).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, "");
             this.Cursor = Cursors.Default;
         }
 
@@ -205,51 +218,23 @@ namespace PersianMIS.StationControl
         {
 
 
-            enddate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            radDateTimePickerElementStart.Value = CurDate.AddDays(-1);
-            radDateTimePickerElementEnd.Value = CurDate;
+            enddate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            MskStartDate.Value = CurDate.AddDays(-1);
+            MskEndDate.Value = CurDate;
 
-            String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
-            startdate = CurDate.AddDays(-1).ToString("yyyy/MM/dd", new CultureInfo("en-US"));
+            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            startdate = CurDate.AddDays(-1).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
             enddate = CurrentDate;
             FillLstStation();
+
+ 
         }
 
         private void radDateTimePickerElementEnd_ValueChanged(object sender, ValueChangingEventArgs e)
         {
-            if (IsFirstLoad == false)
-            {
+            System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
-                try
-                {
-                    DateTime x = (DateTime)e.NewValue;
-                    enddate = x.Year + "/" + x.Month + "/" + x.Day;
-
-                    if (startdate == null)
-                    {
-                        DateTime StDate = (DateTime)radDateTimePickerElementStart.Value;
-                        startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
-                    }
-                    FillData(startdate, enddate, SelectedStation);
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-
-                }
-                catch
-                {
-                    DateTime x = (DateTime)e.OldValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (startdate == null)
-                    {
-                        startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
-                    }
-                    FillData(startdate, enddate, SelectedStation);
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-                }
-            }
         }
 
         private void LSTStations_ItemCheckedChanged(object sender, ListViewItemEventArgs e)
@@ -271,37 +256,9 @@ namespace PersianMIS.StationControl
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
-            if (IsFirstLoad == false)
-            {
-                try
-                {
-                    DateTime x = (DateTime)e.NewValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (enddate == null)
-                    {
-                        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
-                    }
-                    FillData(startdate, enddate, SelectedStation);
+            System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-                }
-                catch
-                {
-                    DateTime x = (DateTime)e.OldValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (enddate == null)
-                    {
-                        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
-                    }
-                    FillData(startdate, enddate, SelectedStation);
-
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-                }
-            }
         }
 
 

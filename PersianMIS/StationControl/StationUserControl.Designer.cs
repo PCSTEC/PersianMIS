@@ -54,7 +54,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
-            this.TopPnl.Size = new System.Drawing.Size(895, 44);
+            this.TopPnl.Size = new System.Drawing.Size(401, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.TopPnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -88,7 +88,7 @@
             this.BBManage.ForeColor = System.Drawing.Color.Transparent;
             this.BBManage.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.BBManage.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.BBManage.Location = new System.Drawing.Point(789, -9);
+            this.BBManage.Location = new System.Drawing.Point(295, -9);
             this.BBManage.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.BBManage.Name = "BBManage";
             this.BBManage.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -134,34 +134,33 @@
             // 
             this.Pnl_State.Controls.Add(this.Lbl_ParameterCaption);
             this.Pnl_State.Controls.Add(this.Lbl_ParameterDesc);
-            this.Pnl_State.Location = new System.Drawing.Point(368, 101);
+            this.Pnl_State.Location = new System.Drawing.Point(477, 360);
             this.Pnl_State.Name = "Pnl_State";
             this.Pnl_State.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Pnl_State.Size = new System.Drawing.Size(348, 42);
+            this.Pnl_State.Size = new System.Drawing.Size(362, 37);
             this.Pnl_State.TabIndex = 5;
             this.Pnl_State.Paint += new System.Windows.Forms.PaintEventHandler(this.Pnl_State_Paint);
             // 
             // Lbl_ParameterCaption
             // 
-            this.Lbl_ParameterCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_ParameterCaption.AutoSize = true;
             this.Lbl_ParameterCaption.ForeColor = System.Drawing.Color.White;
-            this.Lbl_ParameterCaption.Location = new System.Drawing.Point(237, 7);
+            this.Lbl_ParameterCaption.Location = new System.Drawing.Point(162, 7);
             this.Lbl_ParameterCaption.Name = "Lbl_ParameterCaption";
-            this.Lbl_ParameterCaption.Size = new System.Drawing.Size(106, 26);
+            this.Lbl_ParameterCaption.Size = new System.Drawing.Size(156, 26);
             this.Lbl_ParameterCaption.TabIndex = 9;
-            this.Lbl_ParameterCaption.Text = "عنوان خط تولید:";
-            this.Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Lbl_ParameterCaption.Text = "emergency Stop:";
+            this.Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Lbl_ParameterDesc
             // 
-            this.Lbl_ParameterDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Lbl_ParameterDesc.Location = new System.Drawing.Point(5, 7);
+            this.Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
             this.Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
-            this.Lbl_ParameterDesc.Size = new System.Drawing.Size(236, 26);
+            this.Lbl_ParameterDesc.Size = new System.Drawing.Size(148, 26);
             this.Lbl_ParameterDesc.TabIndex = 6;
             this.Lbl_ParameterDesc.Text = "label1";
-            this.Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TimerState
             // 
@@ -170,9 +169,10 @@
             // 
             // Pnl_Main
             // 
-            this.Pnl_Main.Location = new System.Drawing.Point(17, 50);
+            this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnl_Main.Location = new System.Drawing.Point(0, 44);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(332, 444);
+            this.Pnl_Main.Size = new System.Drawing.Size(401, 427);
             this.Pnl_Main.TabIndex = 6;
             // 
             // StationUserControl
@@ -186,11 +186,12 @@
             this.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "StationUserControl";
-            this.Size = new System.Drawing.Size(895, 510);
+            this.Size = new System.Drawing.Size(401, 471);
             this.Load += new System.EventHandler(this.StationUserControl_Load);
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).EndInit();
             this.Pnl_State.ResumeLayout(false);
+            this.Pnl_State.PerformLayout();
             this.ResumeLayout(false);
 
         }
