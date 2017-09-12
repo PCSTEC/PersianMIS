@@ -33,7 +33,8 @@
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.Pnl_Step2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.Btn_Save = new Telerik.WinControls.UI.RadButton();
+            this.Pnl_Database = new System.Windows.Forms.Panel();
+            this.Cmb_SelectDevice = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.Cmb_SelectOperation = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
             this.comboItem2 = new DevComponents.Editors.ComboItem();
@@ -41,21 +42,20 @@
             this.comboItem4 = new DevComponents.Editors.ComboItem();
             this.comboItem5 = new DevComponents.Editors.ComboItem();
             this.comboItem6 = new DevComponents.Editors.ComboItem();
-            this.Cmb_SelectStatus = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.Cmb_SelectPuls = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.Cmb_SelectDevice = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.RdBtn_Number = new System.Windows.Forms.RadioButton();
-            this.RdBtn_Parameter = new System.Windows.Forms.RadioButton();
+            this.Cmb_SelectStatus = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.Txt_Number = new System.Windows.Forms.NumericUpDown();
-            this.Pnl_Database = new System.Windows.Forms.Panel();
+            this.RdBtn_Parameter = new System.Windows.Forms.RadioButton();
+            this.RdBtn_Number = new System.Windows.Forms.RadioButton();
+            this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.Lbl_SelectStation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             this.Pnl_Step2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_Number)).BeginInit();
             this.Pnl_Database.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Number)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_SelectStation
@@ -137,16 +137,36 @@
             this.Pnl_Step2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.Pnl_Step2.TabIndex = 56;
             // 
-            // Btn_Save
+            // Pnl_Database
             // 
-            this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_Save.Image = global::PersianMIS.Properties.Resources.RUN_OK_Button;
-            this.Btn_Save.Location = new System.Drawing.Point(65, 230);
-            this.Btn_Save.Name = "Btn_Save";
-            this.Btn_Save.Size = new System.Drawing.Size(134, 33);
-            this.Btn_Save.TabIndex = 57;
-            this.Btn_Save.Text = "اجرا / ذخیره";
-            this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
+            this.Pnl_Database.BackColor = System.Drawing.Color.Transparent;
+            this.Pnl_Database.Controls.Add(this.Cmb_SelectDevice);
+            this.Pnl_Database.Controls.Add(this.radLabel1);
+            this.Pnl_Database.Controls.Add(this.radLabel2);
+            this.Pnl_Database.Controls.Add(this.Lbl_SelectStation);
+            this.Pnl_Database.Controls.Add(this.radLabel3);
+            this.Pnl_Database.Controls.Add(this.Cmb_SelectOperation);
+            this.Pnl_Database.Controls.Add(this.Cmb_SelectPuls);
+            this.Pnl_Database.Controls.Add(this.Cmb_SelectStatus);
+            this.Pnl_Database.Location = new System.Drawing.Point(10, 71);
+            this.Pnl_Database.Name = "Pnl_Database";
+            this.Pnl_Database.Size = new System.Drawing.Size(279, 153);
+            this.Pnl_Database.TabIndex = 60;
+            this.Pnl_Database.Visible = false;
+            // 
+            // Cmb_SelectDevice
+            // 
+            this.Cmb_SelectDevice.DisplayMember = "Text";
+            this.Cmb_SelectDevice.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.Cmb_SelectDevice.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_SelectDevice.FormattingEnabled = true;
+            this.Cmb_SelectDevice.ItemHeight = 24;
+            this.Cmb_SelectDevice.Location = new System.Drawing.Point(3, 3);
+            this.Cmb_SelectDevice.Name = "Cmb_SelectDevice";
+            this.Cmb_SelectDevice.Size = new System.Drawing.Size(186, 30);
+            this.Cmb_SelectDevice.TabIndex = 46;
+            this.Cmb_SelectDevice.Text = "دستگاه را انتخاب کنید";
+            this.Cmb_SelectDevice.SelectedValueChanged += new System.EventHandler(this.Cmb_SelectDevice_SelectedValueChanged);
             // 
             // Cmb_SelectOperation
             // 
@@ -192,19 +212,6 @@
             // 
             this.comboItem6.Text = "Count_Big";
             // 
-            // Cmb_SelectStatus
-            // 
-            this.Cmb_SelectStatus.DisplayMember = "Text";
-            this.Cmb_SelectStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.Cmb_SelectStatus.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_SelectStatus.FormattingEnabled = true;
-            this.Cmb_SelectStatus.ItemHeight = 24;
-            this.Cmb_SelectStatus.Location = new System.Drawing.Point(3, 78);
-            this.Cmb_SelectStatus.Name = "Cmb_SelectStatus";
-            this.Cmb_SelectStatus.Size = new System.Drawing.Size(186, 30);
-            this.Cmb_SelectStatus.TabIndex = 53;
-            this.Cmb_SelectStatus.Text = "وضعیت را انتخاب کنید";
-            // 
             // Cmb_SelectPuls
             // 
             this.Cmb_SelectPuls.DisplayMember = "Text";
@@ -219,32 +226,41 @@
             this.Cmb_SelectPuls.Text = "پالس را انتخاب کنید";
             this.Cmb_SelectPuls.SelectedValueChanged += new System.EventHandler(this.Cmb_SelectPuls_SelectedValueChanged);
             // 
-            // Cmb_SelectDevice
+            // Cmb_SelectStatus
             // 
-            this.Cmb_SelectDevice.DisplayMember = "Text";
-            this.Cmb_SelectDevice.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.Cmb_SelectDevice.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_SelectDevice.FormattingEnabled = true;
-            this.Cmb_SelectDevice.ItemHeight = 24;
-            this.Cmb_SelectDevice.Location = new System.Drawing.Point(3, 3);
-            this.Cmb_SelectDevice.Name = "Cmb_SelectDevice";
-            this.Cmb_SelectDevice.Size = new System.Drawing.Size(186, 30);
-            this.Cmb_SelectDevice.TabIndex = 46;
-            this.Cmb_SelectDevice.Text = "دستگاه را انتخاب کنید";
-            this.Cmb_SelectDevice.SelectedValueChanged += new System.EventHandler(this.Cmb_SelectDevice_SelectedValueChanged);
+            this.Cmb_SelectStatus.DisplayMember = "Text";
+            this.Cmb_SelectStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.Cmb_SelectStatus.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_SelectStatus.FormattingEnabled = true;
+            this.Cmb_SelectStatus.ItemHeight = 24;
+            this.Cmb_SelectStatus.Location = new System.Drawing.Point(3, 78);
+            this.Cmb_SelectStatus.Name = "Cmb_SelectStatus";
+            this.Cmb_SelectStatus.Size = new System.Drawing.Size(186, 30);
+            this.Cmb_SelectStatus.TabIndex = 53;
+            this.Cmb_SelectStatus.Text = "وضعیت را انتخاب کنید";
             // 
-            // RdBtn_Number
+            // Txt_Number
             // 
-            this.RdBtn_Number.AutoSize = true;
-            this.RdBtn_Number.BackColor = System.Drawing.Color.Transparent;
-            this.RdBtn_Number.Location = new System.Drawing.Point(211, 3);
-            this.RdBtn_Number.Name = "RdBtn_Number";
-            this.RdBtn_Number.Size = new System.Drawing.Size(78, 24);
-            this.RdBtn_Number.TabIndex = 0;
-            this.RdBtn_Number.TabStop = true;
-            this.RdBtn_Number.Text = "داده عددی";
-            this.RdBtn_Number.UseVisualStyleBackColor = false;
-            this.RdBtn_Number.CheckedChanged += new System.EventHandler(this.RdBtn_Number_CheckedChanged);
+            this.Txt_Number.Location = new System.Drawing.Point(25, 1);
+            this.Txt_Number.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.Txt_Number.Minimum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            -2147483648});
+            this.Txt_Number.Name = "Txt_Number";
+            this.Txt_Number.Size = new System.Drawing.Size(186, 28);
+            this.Txt_Number.TabIndex = 59;
+            this.Txt_Number.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Txt_Number.Visible = false;
             // 
             // RdBtn_Parameter
             // 
@@ -259,40 +275,29 @@
             this.RdBtn_Parameter.UseVisualStyleBackColor = false;
             this.RdBtn_Parameter.CheckedChanged += new System.EventHandler(this.RdBtn_Parameter_CheckedChanged);
             // 
-            // Txt_Number
+            // RdBtn_Number
             // 
-            this.Txt_Number.Location = new System.Drawing.Point(25, 1);
-            this.Txt_Number.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.Txt_Number.Name = "Txt_Number";
-            this.Txt_Number.Size = new System.Drawing.Size(186, 28);
-            this.Txt_Number.TabIndex = 59;
-            this.Txt_Number.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.Txt_Number.Visible = false;
+            this.RdBtn_Number.AutoSize = true;
+            this.RdBtn_Number.BackColor = System.Drawing.Color.Transparent;
+            this.RdBtn_Number.Location = new System.Drawing.Point(211, 3);
+            this.RdBtn_Number.Name = "RdBtn_Number";
+            this.RdBtn_Number.Size = new System.Drawing.Size(78, 24);
+            this.RdBtn_Number.TabIndex = 0;
+            this.RdBtn_Number.TabStop = true;
+            this.RdBtn_Number.Text = "داده عددی";
+            this.RdBtn_Number.UseVisualStyleBackColor = false;
+            this.RdBtn_Number.CheckedChanged += new System.EventHandler(this.RdBtn_Number_CheckedChanged);
             // 
-            // Pnl_Database
+            // Btn_Save
             // 
-            this.Pnl_Database.BackColor = System.Drawing.Color.Transparent;
-            this.Pnl_Database.Controls.Add(this.Cmb_SelectDevice);
-            this.Pnl_Database.Controls.Add(this.radLabel1);
-            this.Pnl_Database.Controls.Add(this.radLabel2);
-            this.Pnl_Database.Controls.Add(this.Lbl_SelectStation);
-            this.Pnl_Database.Controls.Add(this.radLabel3);
-            this.Pnl_Database.Controls.Add(this.Cmb_SelectOperation);
-            this.Pnl_Database.Controls.Add(this.Cmb_SelectPuls);
-            this.Pnl_Database.Controls.Add(this.Cmb_SelectStatus);
-            this.Pnl_Database.Location = new System.Drawing.Point(10, 71);
-            this.Pnl_Database.Name = "Pnl_Database";
-            this.Pnl_Database.Size = new System.Drawing.Size(279, 153);
-            this.Pnl_Database.TabIndex = 60;
-            this.Pnl_Database.Visible = false;
+            this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Save.Image = global::PersianMIS.Properties.Resources.RUN_OK_Button;
+            this.Btn_Save.Location = new System.Drawing.Point(65, 230);
+            this.Btn_Save.Name = "Btn_Save";
+            this.Btn_Save.Size = new System.Drawing.Size(134, 33);
+            this.Btn_Save.TabIndex = 57;
+            this.Btn_Save.Text = "اجرا / ذخیره";
+            this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
             // 
             // CreateNewParameterFromulaWithReturnTSQLUserControl
             // 
@@ -310,10 +315,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             this.Pnl_Step2.ResumeLayout(false);
             this.Pnl_Step2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_Number)).EndInit();
             this.Pnl_Database.ResumeLayout(false);
             this.Pnl_Database.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_Number)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             this.ResumeLayout(false);
 
         }

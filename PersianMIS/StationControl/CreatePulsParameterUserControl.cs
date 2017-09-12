@@ -150,7 +150,7 @@ namespace PersianMIS.StationControl
                 frm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 
 
-                frm.Text = "ایجاد پاراتر همراه با فرمول";
+                frm.Text = "ایجاد پارامتر همراه با فرمول";
                 var panel = new DevComponents.DotNetBar.Controls.GroupPanel();
                 panel.Dock = DockStyle.Fill;
 
