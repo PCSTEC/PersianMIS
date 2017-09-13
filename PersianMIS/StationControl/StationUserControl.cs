@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using IKIDUtility;
+using System.Globalization;
+
 namespace PersianMIS.StationControl
 {
     public partial class StationUserControl : UserControl
@@ -194,28 +196,34 @@ namespace PersianMIS.StationControl
                 Label Lbl_ParameterDesc = new Label();
 
 
-                Lbl_ParameterCaption.AutoSize = true;
+               // Lbl_ParameterCaption.AutoSize = true;
                 Lbl_ParameterCaption.ForeColor = System.Drawing.Color.White;
-                Lbl_ParameterCaption.Location = new System.Drawing.Point(195, 7);
+                Lbl_ParameterCaption.Location = new System.Drawing.Point(97, 7);
                 Lbl_ParameterCaption.Name = "Lbl_ParameterCaption";
-                Lbl_ParameterCaption.Size = new System.Drawing.Size(120, 26);
+                Lbl_ParameterCaption.Size = new System.Drawing.Size(240, 26);
                 Lbl_ParameterCaption.TabIndex = 9;
-                Lbl_ParameterCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString() + ":";
-                Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+                 Lbl_ParameterCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString();
+                Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight ;
+                Lbl_ParameterCaption.RightToLeft = System.Windows.Forms.RightToLeft.No;
+                System.Threading.Thread.CurrentThread.CurrentCulture = new   CultureInfo("en-GB");
 
 
+                //  string TSql = "select top(1) " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString() + " as value from Tb_Client where   (MiladiStartDateTime >= cast( '" +   StartDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime )) AND (MiladiFinishDateTime <= cast('" + EndDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime ))";
 
-                Dt = Bll_Public.GetDataTableFromTSQL(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString());
+                string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString();
+                TSql= TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy HH:mm:ss"));
 
+                TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy HH:mm:ss"));
+                Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 
-
+                 
                 Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
                 Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
                 Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
-                Lbl_ParameterDesc.Size = new System.Drawing.Size(148, 26);
+                Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
                 Lbl_ParameterDesc.TabIndex = 6;
 
-                Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
 

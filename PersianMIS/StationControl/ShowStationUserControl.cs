@@ -40,7 +40,7 @@ namespace PersianMIS.StationControl
         }
 
 
-        private void FillData(string StartDate, string EndDate, string ListOfStations)
+        private void FillData( string ListOfStations)
         {
             MainPnl.Controls.Clear();
 
@@ -49,12 +49,22 @@ namespace PersianMIS.StationControl
             {
                 StationControl.StationUserControl UcShowStation = new StationUserControl();
                 UcShowStation.Tag = x.Value.ToString();
-                UcShowStation.TitleBar.Text = x.Text; 
+                UcShowStation.TitleBar.Text = x.Text;
+                MskStartDate.Culture=    new CultureInfo("en-GB");
                 UcShowStation.StartDate =(DateTime) MskStartDate.Value;
-                UcShowStation.EndDate = (DateTime)MskEndDate.Value ;
-                MainPnl.Controls.Add(UcShowStation);
-            }
+                MskStartDate.Culture = new CultureInfo("fa-IR");
 
+                MskEndDate.Culture = new CultureInfo("en-GB");
+                UcShowStation.EndDate = (DateTime)MskEndDate.Value;
+                MskEndDate.Culture = new CultureInfo("fa-IR");
+             
+                MainPnl.Controls.Add(UcShowStation);
+
+            }
+            MskEndDate.Culture = persianCulture;
+            MskStartDate.Culture = persianCulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
             //BLL.Cls_PublicOperations.Dt = Bll_Stations.GetClientData(ListOfStations);
 
@@ -87,8 +97,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-7);
             MskEndDate.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-7).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, SelectedStation);
+        //    String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(   SelectedStation);
             this.Cursor = Cursors.Default;
         }
 
@@ -97,8 +107,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-30);
             MskEndDate.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-30).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, SelectedStation);
+         //   String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(  SelectedStation);
             this.Cursor = Cursors.Default;
         }
 
@@ -107,8 +117,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-365);
             MskEndDate.Value = CurDate;
-            String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
-            FillData(CurDate.AddDays(-365).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US")), CurrentDate, "");
+      //      String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+            FillData(    "");
             this.Cursor = Cursors.Default;
         }
 
@@ -227,7 +237,13 @@ namespace PersianMIS.StationControl
             enddate = CurrentDate;
             FillLstStation();
 
- 
+
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+
+
+
         }
 
         private void radDateTimePickerElementEnd_ValueChanged(object sender, ValueChangingEventArgs e)
@@ -248,11 +264,22 @@ namespace PersianMIS.StationControl
 
             }
             SelectedStation = "'" + SelectedStation + "'";
-            FillData(startdate, enddate, SelectedStation);
+            FillData(  SelectedStation);
             this.Cursor = Cursors.Default;
 
         }
 
+        private void Btn_Week_Click(object sender, EventArgs e)
+        {
+        
+            this.Cursor = Cursors.WaitCursor;
+            MskStartDate.Value = CurDate.AddDays(-7);
+            MskEndDate.Value = CurDate;
+            //String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
+           FillData(  SelectedStation);
+            this.Cursor = Cursors.Default;
+      
+    }
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {

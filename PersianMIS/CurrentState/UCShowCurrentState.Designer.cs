@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle2 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
+            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCShowCurrentState));
             this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
@@ -47,6 +47,7 @@
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
             this.radCollapsiblePanel2 = new Telerik.WinControls.UI.RadCollapsiblePanel();
+            this.LSTProrudtionLines = new Telerik.WinControls.UI.RadCheckedListBox();
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
@@ -65,7 +66,6 @@
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.BtnPrint = new Telerik.WinControls.UI.RadButtonElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
-            this.LSTProrudtionLines = new Telerik.WinControls.UI.RadCheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
             this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
@@ -74,11 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).BeginInit();
             this.radCollapsiblePanel2.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).BeginInit();
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).BeginInit();
             this.SuspendLayout();
             // 
             // radRibbonBarGroup2
@@ -232,9 +232,9 @@
             // 
             this.radPanel1.Controls.Add(this.radScheduler1);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel1.Location = new System.Drawing.Point(196, 21);
+            this.radPanel1.Location = new System.Drawing.Point(196, 173);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(1040, 631);
+            this.radPanel1.Size = new System.Drawing.Size(1040, 479);
             this.radPanel1.TabIndex = 14;
             this.radPanel1.Text = "radPanel1";
             // 
@@ -250,15 +250,15 @@
             this.radScheduler1.HighlightToday = false;
             this.radScheduler1.Location = new System.Drawing.Point(0, 0);
             this.radScheduler1.Name = "radScheduler1";
-            schedulerDailyPrintStyle2.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            schedulerDailyPrintStyle2.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
-            schedulerDailyPrintStyle2.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            schedulerDailyPrintStyle2.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
-            schedulerDailyPrintStyle2.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle2;
+            schedulerDailyPrintStyle1.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            schedulerDailyPrintStyle1.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
+            schedulerDailyPrintStyle1.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            schedulerDailyPrintStyle1.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
+            schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
             this.radScheduler1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radScheduler1.ShowAllDayAppointmentStatus = true;
-            this.radScheduler1.Size = new System.Drawing.Size(1040, 631);
+            this.radScheduler1.Size = new System.Drawing.Size(1040, 479);
             this.radScheduler1.TabIndex = 10;
             this.radScheduler1.Text = "radScheduler1";
             this.radScheduler1.AppointmentFormatting += new System.EventHandler<Telerik.WinControls.UI.SchedulerAppointmentEventArgs>(this.radScheduler1_AppointmentFormatting);
@@ -267,7 +267,7 @@
             // 
             this.radCollapsiblePanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.radCollapsiblePanel2.ExpandDirection = Telerik.WinControls.UI.RadDirection.Left;
-            this.radCollapsiblePanel2.Location = new System.Drawing.Point(0, 21);
+            this.radCollapsiblePanel2.Location = new System.Drawing.Point(0, 173);
             this.radCollapsiblePanel2.Name = "radCollapsiblePanel2";
             this.radCollapsiblePanel2.OwnerBoundsCache = new System.Drawing.Rectangle(0, 21, 196, 631);
             // 
@@ -275,15 +275,25 @@
             // 
             this.radCollapsiblePanel2.PanelContainer.Controls.Add(this.LSTProrudtionLines);
             this.radCollapsiblePanel2.PanelContainer.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radCollapsiblePanel2.PanelContainer.Size = new System.Drawing.Size(168, 629);
-            this.radCollapsiblePanel2.Size = new System.Drawing.Size(196, 631);
+            this.radCollapsiblePanel2.PanelContainer.Size = new System.Drawing.Size(168, 477);
+            this.radCollapsiblePanel2.Size = new System.Drawing.Size(196, 479);
             this.radCollapsiblePanel2.TabIndex = 13;
             this.radCollapsiblePanel2.Text = "radCollapsiblePanel2";
+            // 
+            // LSTProrudtionLines
+            // 
+            this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
+            this.LSTProrudtionLines.Name = "LSTProrudtionLines";
+            this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 477);
+            this.LSTProrudtionLines.TabIndex = 0;
+            this.LSTProrudtionLines.Text = "radCheckedListBox1";
+            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
             // 
             // radCollapsiblePanel1
             // 
             this.radCollapsiblePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radCollapsiblePanel1.IsExpanded = false;
             this.radCollapsiblePanel1.Location = new System.Drawing.Point(0, 0);
             this.radCollapsiblePanel1.Name = "radCollapsiblePanel1";
             this.radCollapsiblePanel1.OwnerBoundsCache = new System.Drawing.Rectangle(0, 0, 1236, 189);
@@ -291,10 +301,9 @@
             // radCollapsiblePanel1.PanelContainer
             // 
             this.radCollapsiblePanel1.PanelContainer.Controls.Add(this.radRibbonBar1);
-            this.radCollapsiblePanel1.PanelContainer.Location = new System.Drawing.Point(10, 1);
             this.radCollapsiblePanel1.PanelContainer.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.radCollapsiblePanel1.PanelContainer.Size = new System.Drawing.Size(0, 0);
-            this.radCollapsiblePanel1.Size = new System.Drawing.Size(1236, 21);
+            this.radCollapsiblePanel1.PanelContainer.Size = new System.Drawing.Size(1234, 146);
+            this.radCollapsiblePanel1.Size = new System.Drawing.Size(1236, 173);
             this.radCollapsiblePanel1.TabIndex = 12;
             this.radCollapsiblePanel1.Text = "radCollapsiblePanel1";
             // 
@@ -316,7 +325,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(0, 126);
+            this.radRibbonBar1.Size = new System.Drawing.Size(1234, 144);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -428,7 +437,7 @@
             this.radLabelElement1,
             this.radDateTimePickerElementStart});
             this.radRibbonBarButtonGroup1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
             this.radRibbonBarButtonGroup1.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup1.ShowBackColor = false;
@@ -467,7 +476,7 @@
             this.radLabelElement2,
             this.radDateTimePickerElementEnd});
             this.radRibbonBarButtonGroup2.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
             this.radRibbonBarButtonGroup2.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup2.ShowBackColor = false;
@@ -532,17 +541,6 @@
             this.ribbonTab2.Name = "ribbonTab2";
             this.ribbonTab2.Text = "ribbonTab2";
             // 
-            // LSTProrudtionLines
-            // 
-            this.LSTProrudtionLines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTProrudtionLines.Location = new System.Drawing.Point(0, 0);
-            this.LSTProrudtionLines.Name = "LSTProrudtionLines";
-            this.LSTProrudtionLines.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LSTProrudtionLines.Size = new System.Drawing.Size(168, 629);
-            this.LSTProrudtionLines.TabIndex = 0;
-            this.LSTProrudtionLines.Text = "radCheckedListBox1";
-            this.LSTProrudtionLines.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged);
-            // 
             // UCShowCurrentState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -562,12 +560,12 @@
             this.radCollapsiblePanel2.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).EndInit();
             this.radCollapsiblePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).EndInit();
             this.radCollapsiblePanel1.PanelContainer.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
             this.radCollapsiblePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTProrudtionLines)).EndInit();
             this.ResumeLayout(false);
 
         }

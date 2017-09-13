@@ -289,7 +289,15 @@ namespace PersianMIS
 
         private void Btn_ShowALlStationOnSpecialLine_Click(object sender, EventArgs e)
         {
-            //ShowStations(true);
+
+            this.Cursor = Cursors.WaitCursor;
+            var Pnl = new StationControl.ShowStationUserControl();
+            Pnl_Main.Controls.Clear();
+            Pnl.Width = Pnl_Main.Width - 18;
+            Pnl.Height = Pnl_Main.Height - 14;
+            Pnl_Main.Controls.Add(Pnl);
+
+            this.Cursor = Cursors.Default;
         }
 
         private void Btn_FullScreen_Click(object sender, EventArgs e)

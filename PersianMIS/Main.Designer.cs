@@ -42,8 +42,6 @@
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
             this.Tab_Control = new Telerik.WinControls.UI.RibbonTab();
-            this.Btn_AllStationBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_AllStation = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_ShowALlStationOnSpecialLineBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_ShowALlStationOnSpecialLine = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_AddStationBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -223,7 +221,6 @@
             // 
             this.Tab_Control.IsSelected = true;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_AllStationBorder,
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,
             this.Btn_EditStationInfoBorder,
@@ -236,28 +233,12 @@
             this.Tab_Control.Text = "کنترل ایستگاه ها";
             this.Tab_Control.Click += new System.EventHandler(this.Tab_Control_Click);
             // 
-            // Btn_AllStationBorder
-            // 
-            this.Btn_AllStationBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_AllStation});
-            this.Btn_AllStationBorder.Name = "Btn_AllStationBorder";
-            this.Btn_AllStationBorder.Text = "تمامی ایستگاه ها";
-            // 
-            // Btn_AllStation
-            // 
-            this.Btn_AllStation.Image = global::PersianMIS.Properties.Resources.All_Station1;
-            this.Btn_AllStation.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_AllStation.Name = "Btn_AllStation";
-            this.Btn_AllStation.Tag = "            ";
-            this.Btn_AllStation.Text = "                           ";
-            this.Btn_AllStation.Click += new System.EventHandler(this.Btn_AllStation_Click);
-            // 
             // Btn_ShowALlStationOnSpecialLineBorder
             // 
             this.Btn_ShowALlStationOnSpecialLineBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLine});
             this.Btn_ShowALlStationOnSpecialLineBorder.Name = "Btn_ShowALlStationOnSpecialLineBorder";
-            this.Btn_ShowALlStationOnSpecialLineBorder.Text = "نمایش ایستگاه های یک خط خاص";
+            this.Btn_ShowALlStationOnSpecialLineBorder.Text = "تمامی ایستگاه ها";
             // 
             // Btn_ShowALlStationOnSpecialLine
             // 
@@ -764,7 +745,6 @@
         private Telerik.WinControls.UI.RibbonTab Tab_Jobs;
         private Telerik.WinControls.UI.RibbonTab Tab_Setting;
         private Telerik.WinControls.UI.RadMenuItem Mnu_Exit;
-        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_AllStationBorder;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_ShowALlStationOnSpecialLineBorder;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_AddStationBorder;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_EditStationInfoBorder;
@@ -773,7 +753,6 @@
         private Telerik.WinControls.Tests.DonutShape donutShape1;
         private Telerik.WinControls.EllipseShape ellipseShape1;
         private Telerik.WinControls.CustomShape customShape1;
-        private Telerik.WinControls.UI.RadButtonElement Btn_AllStation;
         private Telerik.WinControls.UI.RadButtonElement Btn_ShowALlStationOnSpecialLine;
         private Telerik.WinControls.UI.RadButtonElement Btn_AddStation;
         private Telerik.WinControls.UI.RadButtonElement Btn_EditStationInfo;

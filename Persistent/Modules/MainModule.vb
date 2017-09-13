@@ -2,9 +2,9 @@ Public Module MainModule
     Friend cnn As New SqlClient.SqlConnection
     Friend Flg_GridStyle As Boolean
 
-    ' Public CnnString As String = "Data Source=sqlsrv;Initial Catalog=PCSTEC;User ID=sa;password=afarinesh"
+    Public CnnString As String = "Data Source=sqlsrv;Initial Catalog=PCSTEC;User ID=sa;password=afarinesh"
 
-    Public CnnString As String = "Data Source=.;Initial Catalog=PIASDB;Integrated Security=True"
+    '  Public CnnString As String = "Data Source=.;Initial Catalog=PIASDB;Integrated Security=True"
 
     Public Structure ParameterCmd
         Public ParamName As String

@@ -93,8 +93,7 @@ namespace PersianMIS.StationControl
                     TSQL = @"  (SELECT        " + Cmb_SelectOperation.Text + @"(dbo.Tb_Client.Duration) AS Duration
                             FROM            dbo.Tb_Client INNER JOIN
                                                      dbo.Tb_DevicesLine ON dbo.Tb_Client.DeviceLineId = dbo.Tb_DevicesLine.LineId AND dbo.Tb_Client.DeviceID = dbo.Tb_DevicesLine.DeviceId
-                            GROUP BY dbo.Tb_Client.DeviceID, dbo.Tb_Client.StateId, dbo.Tb_DevicesLine.ID
-                            HAVING        (dbo.Tb_Client.DeviceID = " + Cmb_SelectDevice.SelectedValue + @") AND (dbo.Tb_Client.StateId = " + Cmb_SelectStatus.SelectedValue + @") AND (dbo.Tb_DevicesLine.ID = " + Cmb_SelectPuls.SelectedValue + @"))";
+                           where         (dbo.Tb_Client.DeviceID = " + Cmb_SelectDevice.SelectedValue + @") AND (dbo.Tb_Client.StateId = " + Cmb_SelectStatus.SelectedValue + @") AND (dbo.Tb_DevicesLine.ID = " + Cmb_SelectPuls.SelectedValue + @")  AND (dbo.Tb_Client.MiladiStartDateTime >= CAST('01/01/2015 00:00:00' AS datetime)) AND (dbo.Tb_Client.MiladiFinishDateTime <= CAST('01/01/2016 00:00:00' AS datetime)))";
                 }
                 else
                 {
