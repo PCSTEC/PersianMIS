@@ -127,7 +127,7 @@ namespace PersianMIS
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            MoveGroupButtons(Tab_RunTime);
         }
 
         private void Btn_AllStation_Click(object sender, EventArgs e)
@@ -425,8 +425,8 @@ namespace PersianMIS
 
         private void Btn_AllLineState_Click(object sender, EventArgs e)
         {
-            //Form frm = new StationControl.Frm_CreateStationWithFormula();
-            //frm.ShowDialog();
+         
+ 
         }
     }
 }

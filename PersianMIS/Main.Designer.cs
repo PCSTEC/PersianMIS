@@ -174,9 +174,9 @@
             // MainRibbonBar
             // 
             this.MainRibbonBar.CommandTabs.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Tab_RunTime,
             this.Tab_Control,
             this.Tab_Product,
-            this.Tab_RunTime,
             this.Tab_Jobs,
             this.Tab_Setting});
             this.MainRibbonBar.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -219,7 +219,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,
@@ -414,7 +414,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder,

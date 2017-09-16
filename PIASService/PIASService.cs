@@ -224,8 +224,12 @@ namespace PIASService
         {
             try
             {
+                IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate ();
+                
+              //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
+
                 DateTime thisDate = DateTime.Now;
-                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate), pc.GetDayOfMonth(thisDate));
+                CurShamsiDate = string.Format("{0}/{1}/{2}",   pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
                 stresive1 = serialPort1.ReadLine();
                 Thread thread1 = new Thread(new ThreadStart(display1));
                 thread1.Start();
@@ -258,7 +262,7 @@ namespace PIASService
                     EventLog.WriteEntry("false IS NEXT DAY VALUE IN " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
                 }
-                if (DateTime.Now.Hour == 00 && isNextDay == false)
+                if (DateTime.Now.Hour == 23 && DateTime.Now.Minute==59  && DateTime.Now.Second==59 && isNextDay == false)
                 {
                     EventLog.WriteEntry("Time 0:00 --  " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
