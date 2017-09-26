@@ -90,8 +90,7 @@ namespace PersianMIS.CurrentState
 
                 Color[] colors = new Color[]
                 {
-                Color.LightBlue, Color.LightBlue, Color.LightBlue,
-                Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue
+                Color.LightBlue
                 };
 
 
@@ -104,7 +103,7 @@ namespace PersianMIS.CurrentState
                         Resource resource = new Resource();
                         resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
                         resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineDesc"].ToString();
-                        resource.Color = colors[rand.Next(0, 8)];
+                        resource.Color = colors[0];
                         this.radScheduler1.Resources.Add(resource);
                     }
                 }
@@ -117,7 +116,7 @@ namespace PersianMIS.CurrentState
                         Resource resource = new Resource();
                         resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
                         resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineDesc"].ToString();
-                        resource.Color = colors[rand.Next(0, 8)];
+                        resource.Color = colors[0];
 
                         this.radScheduler1.Resources.Add(resource);
 
@@ -419,16 +418,24 @@ namespace PersianMIS.CurrentState
                     else
                     {
                         var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
-                        radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+                        try
+                        {
+    radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
 
+                       
                         radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
                         radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+                        }
+                        catch
+                        {
+                            //  radScheduler1.Appointments[z].Summary = "0";
 
+                        }
                     }
                 }
                 catch(Exception E)
                 {
-                    MessageBox.Show(E.ToString());
+                  //  MessageBox.Show(E.ToString());
                 }
 
             }

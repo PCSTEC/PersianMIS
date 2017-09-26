@@ -202,15 +202,7 @@ namespace PersianMIS.StationControl
         }
 
 
-
-        private void RefreshTimer_Tick(object sender, EventArgs e)
-        {
-            //if (radScheduler1.Appointments.Count > 0)
-            //{
-            //    FillLastData();
-            //}
-
-        }
+ 
 
         private void radDateTimePickerElementEnd_Click(object sender, EventArgs e)
         {
@@ -280,6 +272,7 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.Default;
       
     }
+ 
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {

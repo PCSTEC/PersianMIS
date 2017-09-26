@@ -190,7 +190,12 @@ namespace PIASService
             serialPort1.Parity = Parity.None;
             serialPort1.StopBits = StopBits.One;
             serialPort1.BaudRate = int.Parse("9600");
-            serialPort1.PortName = "COM3";
+
+            sqlstr = " SELECT   * FROM    Tb_Devices where DeviceId='1048'";
+            Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+
+
+            serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString() ;
             serialPort1.Open();
             serialPort1.DiscardInBuffer();
             EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);

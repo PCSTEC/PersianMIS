@@ -9,14 +9,16 @@ namespace DAL
 {
     public class Cls_DevicesLine
     {
-        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime)
+        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean ISGroup)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@LineDesc", System.Data.SqlDbType.NVarChar, LineDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeviceId", System.Data.SqlDbType.Int, DeviceId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@PulsID", System.Data.SqlDbType.Int, PulsID, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ISGroup", System.Data.SqlDbType.Bit, ISGroup, System.Data.ParameterDirection.Input);
 
+            
             Cls_Public.Pers.Sp_AddParam("@InputPortTypeId", System.Data.SqlDbType.Int, InputPortTypeId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ProductLineId", System.Data.SqlDbType.Int, ProductLineId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ActiveColor", System.Data.SqlDbType.NVarChar, ActiveColor, System.Data.ParameterDirection.Input);
@@ -32,14 +34,15 @@ namespace DAL
         }
 
 
-        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime)
+        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean isgroup)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@LineDesc", System.Data.SqlDbType.NVarChar, LineDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeviceId", System.Data.SqlDbType.Int, DeviceId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@PulsID", System.Data.SqlDbType.Int, PulsID, System.Data.ParameterDirection.Input);
-
+            Cls_Public.Pers.Sp_AddParam("@isgroup", System.Data.SqlDbType.Bit, isgroup, System.Data.ParameterDirection.Input);
+            
             Cls_Public.Pers.Sp_AddParam("@InputPortTypeId", System.Data.SqlDbType.Int, InputPortTypeId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ProductLineId", System.Data.SqlDbType.Int, ProductLineId, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ActiveColor", System.Data.SqlDbType.NVarChar, ActiveColor, System.Data.ParameterDirection.Input);

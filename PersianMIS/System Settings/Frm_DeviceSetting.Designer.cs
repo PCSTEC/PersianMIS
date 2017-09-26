@@ -36,6 +36,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_DeviceSetting));
             Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
@@ -62,7 +63,6 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadTreeNode radTreeNode1 = new Telerik.WinControls.UI.RadTreeNode();
             Telerik.WinControls.UI.RadTreeNode radTreeNode2 = new Telerik.WinControls.UI.RadTreeNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_DeviceSetting));
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Main_Page = new Telerik.WinControls.UI.RadPageView();
             this.Tab_ListOfDevices = new Telerik.WinControls.UI.RadPageViewPage();
@@ -76,6 +76,7 @@
             this.Tab_NewDevice = new Telerik.WinControls.UI.RadPageViewPage();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.Gp_CreateDeviceLine = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.Chk_ActiveLineForShowGroup = new Telerik.WinControls.UI.RadCheckBox();
             this.radLabel14 = new Telerik.WinControls.UI.RadLabel();
             this.TxtGapTime = new System.Windows.Forms.NumericUpDown();
             this.radLabel13 = new Telerik.WinControls.UI.RadLabel();
@@ -83,6 +84,11 @@
             this.radLabel12 = new Telerik.WinControls.UI.RadLabel();
             this.Txt_ActiveStateDesc = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel11 = new Telerik.WinControls.UI.RadLabel();
+            this.Btn_CommiteNewDevice = new Telerik.WinControls.UI.RadButton();
+            this.Btn_UpdateInputLine = new Telerik.WinControls.UI.RadButton();
+            this.Btn_CreateNewLine = new Telerik.WinControls.UI.RadButton();
+            this.radButton3 = new Telerik.WinControls.UI.RadButton();
+            this.Btn_InsertPuls = new Telerik.WinControls.UI.RadButton();
             this.Cmb_InputId = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
@@ -98,8 +104,10 @@
             this.Cmb_PulsType = new Telerik.WinControls.UI.RadDropDownList();
             this.Txt_InputCaption = new Telerik.WinControls.UI.RadTextBox();
             this.Gp_Device = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.Btn_CreateNewDevice = new Telerik.WinControls.UI.RadButton();
             this.Txt_PCName = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            this.Btn_RefreshPorts = new Telerik.WinControls.UI.RadButton();
             this.Cmb_Dargah = new Telerik.WinControls.UI.RadDropDownList();
             this.Txt_DeviceCaption = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
@@ -108,13 +116,6 @@
             this.Mnu_NewDeviceLineManager = new Telerik.WinControls.UI.RadContextMenu(this.components);
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.TreeViewDevice2 = new Telerik.WinControls.UI.RadTreeView();
-            this.Btn_CommiteNewDevice = new Telerik.WinControls.UI.RadButton();
-            this.Btn_UpdateInputLine = new Telerik.WinControls.UI.RadButton();
-            this.Btn_CreateNewLine = new Telerik.WinControls.UI.RadButton();
-            this.radButton3 = new Telerik.WinControls.UI.RadButton();
-            this.Btn_InsertPuls = new Telerik.WinControls.UI.RadButton();
-            this.Btn_CreateNewDevice = new Telerik.WinControls.UI.RadButton();
-            this.Btn_RefreshPorts = new Telerik.WinControls.UI.RadButton();
             this.Img_Device = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Main_Page)).BeginInit();
@@ -128,6 +129,7 @@
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
             this.radScrollablePanel1.SuspendLayout();
             this.Gp_CreateDeviceLine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chk_ActiveLineForShowGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).BeginInit();
@@ -135,6 +137,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ActiveStateDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CommiteNewDevice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_UpdateInputLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_InsertPuls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_InputId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
@@ -150,21 +157,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_PulsType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_InputCaption)).BeginInit();
             this.Gp_Device.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_PCName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_RefreshPorts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_Dargah)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_DeviceCaption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CommiteNewDevice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_UpdateInputLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_InsertPuls)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewDevice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_RefreshPorts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Device)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +189,7 @@
             this.Main_Page.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
-            this.Main_Page.SelectedPage = this.Tab_ListOfDevices;
+            this.Main_Page.SelectedPage = this.Tab_NewDevice;
             this.Main_Page.Size = new System.Drawing.Size(1106, 660);
             this.Main_Page.TabIndex = 4;
             this.Main_Page.SelectedPageChanged += new System.EventHandler(this.Main_Page_SelectedPageChanged);
@@ -195,10 +197,10 @@
             // Tab_ListOfDevices
             // 
             this.Tab_ListOfDevices.Controls.Add(this.Grd_ListOfDevice);
-            this.Tab_ListOfDevices.ItemSize = new System.Drawing.SizeF(154F, 30F);
-            this.Tab_ListOfDevices.Location = new System.Drawing.Point(10, 39);
+            this.Tab_ListOfDevices.ItemSize = new System.Drawing.SizeF(158F, 34F);
+            this.Tab_ListOfDevices.Location = new System.Drawing.Point(10, 43);
             this.Tab_ListOfDevices.Name = "Tab_ListOfDevices";
-            this.Tab_ListOfDevices.Size = new System.Drawing.Size(1085, 610);
+            this.Tab_ListOfDevices.Size = new System.Drawing.Size(1085, 606);
             this.Tab_ListOfDevices.Text = "لیست دستگاه های تعریف شده";
             // 
             // Grd_ListOfDevice
@@ -276,7 +278,7 @@
             this.Grd_ListOfDevice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grd_ListOfDevice.ShowChildViewCaptions = true;
             this.Grd_ListOfDevice.ShowHeaderCellButtons = true;
-            this.Grd_ListOfDevice.Size = new System.Drawing.Size(1085, 610);
+            this.Grd_ListOfDevice.Size = new System.Drawing.Size(1085, 606);
             this.Grd_ListOfDevice.TabIndex = 0;
             this.Grd_ListOfDevice.Click += new System.EventHandler(this.Grd_ListOfDevice_Click);
             // 
@@ -333,7 +335,7 @@
             // Tab_NewDevice
             // 
             this.Tab_NewDevice.Controls.Add(this.radScrollablePanel1);
-            this.Tab_NewDevice.ItemSize = new System.Drawing.SizeF(108F, 30F);
+            this.Tab_NewDevice.ItemSize = new System.Drawing.SizeF(112F, 34F);
             this.Tab_NewDevice.Location = new System.Drawing.Point(10, 43);
             this.Tab_NewDevice.Name = "Tab_NewDevice";
             this.Tab_NewDevice.Size = new System.Drawing.Size(1085, 606);
@@ -363,6 +365,7 @@
             // 
             this.Gp_CreateDeviceLine.CanvasColor = System.Drawing.SystemColors.Control;
             this.Gp_CreateDeviceLine.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.Gp_CreateDeviceLine.Controls.Add(this.Chk_ActiveLineForShowGroup);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel14);
             this.Gp_CreateDeviceLine.Controls.Add(this.TxtGapTime);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel13);
@@ -415,11 +418,21 @@
             this.Gp_CreateDeviceLine.TabIndex = 30;
             this.Gp_CreateDeviceLine.Visible = false;
             // 
+            // Chk_ActiveLineForShowGroup
+            // 
+            this.Chk_ActiveLineForShowGroup.BackColor = System.Drawing.Color.Transparent;
+            this.Chk_ActiveLineForShowGroup.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Chk_ActiveLineForShowGroup.Location = new System.Drawing.Point(150, 335);
+            this.Chk_ActiveLineForShowGroup.Name = "Chk_ActiveLineForShowGroup";
+            this.Chk_ActiveLineForShowGroup.Size = new System.Drawing.Size(135, 24);
+            this.Chk_ActiveLineForShowGroup.TabIndex = 53;
+            this.Chk_ActiveLineForShowGroup.Text = "نمایش در وضعیت گروهی";
+            // 
             // radLabel14
             // 
             this.radLabel14.BackColor = System.Drawing.Color.Transparent;
             this.radLabel14.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel14.Location = new System.Drawing.Point(14, 314);
+            this.radLabel14.Location = new System.Drawing.Point(87, 311);
             this.radLabel14.Name = "radLabel14";
             this.radLabel14.Size = new System.Drawing.Size(28, 24);
             this.radLabel14.TabIndex = 52;
@@ -428,21 +441,21 @@
             // 
             // TxtGapTime
             // 
-            this.TxtGapTime.Location = new System.Drawing.Point(46, 312);
+            this.TxtGapTime.Location = new System.Drawing.Point(115, 308);
             this.TxtGapTime.Maximum = new decimal(new int[] {
             1215752191,
             23,
             0,
             0});
             this.TxtGapTime.Name = "TxtGapTime";
-            this.TxtGapTime.Size = new System.Drawing.Size(120, 28);
+            this.TxtGapTime.Size = new System.Drawing.Size(51, 28);
             this.TxtGapTime.TabIndex = 52;
             // 
             // radLabel13
             // 
             this.radLabel13.BackColor = System.Drawing.Color.Transparent;
             this.radLabel13.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel13.Location = new System.Drawing.Point(163, 315);
+            this.radLabel13.Location = new System.Drawing.Point(163, 311);
             this.radLabel13.Name = "radLabel13";
             this.radLabel13.Size = new System.Drawing.Size(125, 24);
             this.radLabel13.TabIndex = 51;
@@ -452,7 +465,7 @@
             // Txt_DeActiveDesc
             // 
             this.Txt_DeActiveDesc.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_DeActiveDesc.Location = new System.Drawing.Point(12, 280);
+            this.Txt_DeActiveDesc.Location = new System.Drawing.Point(12, 278);
             this.Txt_DeActiveDesc.Name = "Txt_DeActiveDesc";
             this.Txt_DeActiveDesc.NullText = "عنوان وضعیت غیر فعال";
             this.Txt_DeActiveDesc.Size = new System.Drawing.Size(158, 26);
@@ -462,7 +475,7 @@
             // 
             this.radLabel12.BackColor = System.Drawing.Color.Transparent;
             this.radLabel12.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel12.Location = new System.Drawing.Point(170, 281);
+            this.radLabel12.Location = new System.Drawing.Point(170, 279);
             this.radLabel12.Name = "radLabel12";
             this.radLabel12.Size = new System.Drawing.Size(117, 24);
             this.radLabel12.TabIndex = 49;
@@ -488,6 +501,61 @@
             this.radLabel11.TabIndex = 47;
             this.radLabel11.Text = "عنوان وضعیت فعال:";
             this.radLabel11.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Btn_CommiteNewDevice
+            // 
+            this.Btn_CommiteNewDevice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_CommiteNewDevice.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
+            this.Btn_CommiteNewDevice.Location = new System.Drawing.Point(80, 397);
+            this.Btn_CommiteNewDevice.Name = "Btn_CommiteNewDevice";
+            this.Btn_CommiteNewDevice.Size = new System.Drawing.Size(133, 33);
+            this.Btn_CommiteNewDevice.TabIndex = 46;
+            this.Btn_CommiteNewDevice.Text = "اتمام فعالیت";
+            this.Btn_CommiteNewDevice.Click += new System.EventHandler(this.Btn_CommiteNewDevice_Click);
+            // 
+            // Btn_UpdateInputLine
+            // 
+            this.Btn_UpdateInputLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_UpdateInputLine.Image = global::PersianMIS.Properties.Resources.editButton;
+            this.Btn_UpdateInputLine.Location = new System.Drawing.Point(12, 360);
+            this.Btn_UpdateInputLine.Name = "Btn_UpdateInputLine";
+            this.Btn_UpdateInputLine.Size = new System.Drawing.Size(133, 33);
+            this.Btn_UpdateInputLine.TabIndex = 45;
+            this.Btn_UpdateInputLine.Text = "     بروز رسانی اطلاعات";
+            this.Btn_UpdateInputLine.Click += new System.EventHandler(this.Btn_UpdateInputLine_Click);
+            // 
+            // Btn_CreateNewLine
+            // 
+            this.Btn_CreateNewLine.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_CreateNewLine.Image = global::PersianMIS.Properties.Resources.Add_Btn;
+            this.Btn_CreateNewLine.Location = new System.Drawing.Point(151, 360);
+            this.Btn_CreateNewLine.Name = "Btn_CreateNewLine";
+            this.Btn_CreateNewLine.Size = new System.Drawing.Size(133, 33);
+            this.Btn_CreateNewLine.TabIndex = 44;
+            this.Btn_CreateNewLine.Text = "ذخیره ورودی جدید";
+            this.Btn_CreateNewLine.Click += new System.EventHandler(this.Btn_CreateNewLine_Click);
+            // 
+            // radButton3
+            // 
+            this.radButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radButton3.Image = ((System.Drawing.Image)(resources.GetObject("radButton3.Image")));
+            this.radButton3.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButton3.Location = new System.Drawing.Point(10, 152);
+            this.radButton3.Name = "radButton3";
+            this.radButton3.Size = new System.Drawing.Size(28, 25);
+            this.radButton3.TabIndex = 43;
+            this.radButton3.Click += new System.EventHandler(this.radButton3_Click);
+            // 
+            // Btn_InsertPuls
+            // 
+            this.Btn_InsertPuls.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_InsertPuls.Image = ((System.Drawing.Image)(resources.GetObject("Btn_InsertPuls.Image")));
+            this.Btn_InsertPuls.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_InsertPuls.Location = new System.Drawing.Point(10, 83);
+            this.Btn_InsertPuls.Name = "Btn_InsertPuls";
+            this.Btn_InsertPuls.Size = new System.Drawing.Size(28, 25);
+            this.Btn_InsertPuls.TabIndex = 41;
+            this.Btn_InsertPuls.Click += new System.EventHandler(this.Btn_InsertPuls_Click);
             // 
             // Cmb_InputId
             // 
@@ -723,6 +791,17 @@
             this.Gp_Device.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.Gp_Device.TabIndex = 29;
             // 
+            // Btn_CreateNewDevice
+            // 
+            this.Btn_CreateNewDevice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_CreateNewDevice.Image = global::PersianMIS.Properties.Resources.save;
+            this.Btn_CreateNewDevice.Location = new System.Drawing.Point(56, 117);
+            this.Btn_CreateNewDevice.Name = "Btn_CreateNewDevice";
+            this.Btn_CreateNewDevice.Size = new System.Drawing.Size(146, 33);
+            this.Btn_CreateNewDevice.TabIndex = 31;
+            this.Btn_CreateNewDevice.Text = "ایجاد دستگاه ";
+            this.Btn_CreateNewDevice.Click += new System.EventHandler(this.Btn_CreateNewDevice_Click);
+            // 
             // Txt_PCName
             // 
             this.Txt_PCName.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -742,6 +821,15 @@
             this.radLabel10.TabIndex = 29;
             this.radLabel10.Text = "عنوان کامپیوتر:";
             this.radLabel10.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Btn_RefreshPorts
+            // 
+            this.Btn_RefreshPorts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_RefreshPorts.Image = ((System.Drawing.Image)(resources.GetObject("Btn_RefreshPorts.Image")));
+            this.Btn_RefreshPorts.Location = new System.Drawing.Point(6, 81);
+            this.Btn_RefreshPorts.Name = "Btn_RefreshPorts";
+            this.Btn_RefreshPorts.Size = new System.Drawing.Size(28, 25);
+            this.Btn_RefreshPorts.TabIndex = 28;
             // 
             // Cmb_Dargah
             // 
@@ -845,81 +933,6 @@
             this.TreeViewDevice2.Visible = false;
             this.TreeViewDevice2.NodeMouseMove += new Telerik.WinControls.UI.RadTreeView.TreeViewMouseEventHandler(this.TreeViewDevice2_NodeMouseMove);
             // 
-            // Btn_CommiteNewDevice
-            // 
-            this.Btn_CommiteNewDevice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_CommiteNewDevice.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-            this.Btn_CommiteNewDevice.Location = new System.Drawing.Point(80, 392);
-            this.Btn_CommiteNewDevice.Name = "Btn_CommiteNewDevice";
-            this.Btn_CommiteNewDevice.Size = new System.Drawing.Size(133, 33);
-            this.Btn_CommiteNewDevice.TabIndex = 46;
-            this.Btn_CommiteNewDevice.Text = "اتمام فعالیت";
-            this.Btn_CommiteNewDevice.Click += new System.EventHandler(this.Btn_CommiteNewDevice_Click);
-            // 
-            // Btn_UpdateInputLine
-            // 
-            this.Btn_UpdateInputLine.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_UpdateInputLine.Image = global::PersianMIS.Properties.Resources.editButton;
-            this.Btn_UpdateInputLine.Location = new System.Drawing.Point(12, 350);
-            this.Btn_UpdateInputLine.Name = "Btn_UpdateInputLine";
-            this.Btn_UpdateInputLine.Size = new System.Drawing.Size(133, 33);
-            this.Btn_UpdateInputLine.TabIndex = 45;
-            this.Btn_UpdateInputLine.Text = "     بروز رسانی اطلاعات";
-            this.Btn_UpdateInputLine.Click += new System.EventHandler(this.Btn_UpdateInputLine_Click);
-            // 
-            // Btn_CreateNewLine
-            // 
-            this.Btn_CreateNewLine.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_CreateNewLine.Image = global::PersianMIS.Properties.Resources.Add_Btn;
-            this.Btn_CreateNewLine.Location = new System.Drawing.Point(151, 350);
-            this.Btn_CreateNewLine.Name = "Btn_CreateNewLine";
-            this.Btn_CreateNewLine.Size = new System.Drawing.Size(133, 33);
-            this.Btn_CreateNewLine.TabIndex = 44;
-            this.Btn_CreateNewLine.Text = "ذخیره ورودی جدید";
-            this.Btn_CreateNewLine.Click += new System.EventHandler(this.Btn_CreateNewLine_Click);
-            // 
-            // radButton3
-            // 
-            this.radButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radButton3.Image = ((System.Drawing.Image)(resources.GetObject("radButton3.Image")));
-            this.radButton3.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButton3.Location = new System.Drawing.Point(10, 152);
-            this.radButton3.Name = "radButton3";
-            this.radButton3.Size = new System.Drawing.Size(28, 25);
-            this.radButton3.TabIndex = 43;
-            this.radButton3.Click += new System.EventHandler(this.radButton3_Click);
-            // 
-            // Btn_InsertPuls
-            // 
-            this.Btn_InsertPuls.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_InsertPuls.Image = ((System.Drawing.Image)(resources.GetObject("Btn_InsertPuls.Image")));
-            this.Btn_InsertPuls.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_InsertPuls.Location = new System.Drawing.Point(10, 83);
-            this.Btn_InsertPuls.Name = "Btn_InsertPuls";
-            this.Btn_InsertPuls.Size = new System.Drawing.Size(28, 25);
-            this.Btn_InsertPuls.TabIndex = 41;
-            this.Btn_InsertPuls.Click += new System.EventHandler(this.Btn_InsertPuls_Click);
-            // 
-            // Btn_CreateNewDevice
-            // 
-            this.Btn_CreateNewDevice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_CreateNewDevice.Image = global::PersianMIS.Properties.Resources.save;
-            this.Btn_CreateNewDevice.Location = new System.Drawing.Point(56, 117);
-            this.Btn_CreateNewDevice.Name = "Btn_CreateNewDevice";
-            this.Btn_CreateNewDevice.Size = new System.Drawing.Size(146, 33);
-            this.Btn_CreateNewDevice.TabIndex = 31;
-            this.Btn_CreateNewDevice.Text = "ایجاد دستگاه ";
-            this.Btn_CreateNewDevice.Click += new System.EventHandler(this.Btn_CreateNewDevice_Click);
-            // 
-            // Btn_RefreshPorts
-            // 
-            this.Btn_RefreshPorts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btn_RefreshPorts.Image = ((System.Drawing.Image)(resources.GetObject("Btn_RefreshPorts.Image")));
-            this.Btn_RefreshPorts.Location = new System.Drawing.Point(6, 81);
-            this.Btn_RefreshPorts.Name = "Btn_RefreshPorts";
-            this.Btn_RefreshPorts.Size = new System.Drawing.Size(28, 25);
-            this.Btn_RefreshPorts.TabIndex = 28;
-            // 
             // Img_Device
             // 
             this.Img_Device.Image = ((System.Drawing.Image)(resources.GetObject("Img_Device.Image")));
@@ -963,6 +976,7 @@
             this.radScrollablePanel1.ResumeLayout(false);
             this.Gp_CreateDeviceLine.ResumeLayout(false);
             this.Gp_CreateDeviceLine.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chk_ActiveLineForShowGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel13)).EndInit();
@@ -970,6 +984,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ActiveStateDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CommiteNewDevice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_UpdateInputLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_InsertPuls)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_InputId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
@@ -986,21 +1005,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_InputCaption)).EndInit();
             this.Gp_Device.ResumeLayout(false);
             this.Gp_Device.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewDevice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_PCName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_RefreshPorts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_Dargah)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_DeviceCaption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TreeViewDevice2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CommiteNewDevice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_UpdateInputLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_InsertPuls)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateNewDevice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_RefreshPorts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Device)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -1063,5 +1077,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel14;
         private System.Windows.Forms.NumericUpDown TxtGapTime;
         private Telerik.WinControls.UI.RadLabel radLabel13;
+        private Telerik.WinControls.UI.RadCheckBox Chk_ActiveLineForShowGroup;
     }
 }

@@ -263,6 +263,12 @@
     <Compile Include="StationControl\StationUserControl.Designer.cs">
       <DependentUpon>StationUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="StationControl\UCShowCurrentStateWithChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StationControl\UCShowCurrentStateWithChart.Designer.cs">
+      <DependentUpon>UCShowCurrentStateWithChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="System Settings\Frm_DeviceSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StationControl\StationUserControl.resx">
       <DependentUpon>StationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StationControl\UCShowCurrentStateWithChart.resx">
+      <DependentUpon>UCShowCurrentStateWithChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System Settings\Frm_DeviceSetting.resx">
       <DependentUpon>Frm_DeviceSetting.cs</DependentUpon>

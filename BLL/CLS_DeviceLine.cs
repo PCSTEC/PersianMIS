@@ -12,12 +12,10 @@ namespace BLL
     {
         DAL.Cls_DevicesLine DAL_DeviceLine = new Cls_DevicesLine();
 
-        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID,  int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string  ActiveStateDesc, string DeActiveStateDesc , int GapTime)
+        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID,  int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string  ActiveStateDesc, string DeActiveStateDesc , int GapTime , Boolean ISGroup )
         {
 
-
-            DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime );
-
+            DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime , ISGroup);
 
         }
         public DataTable GetDeviceLineById(string ID)
@@ -46,9 +44,9 @@ namespace BLL
             DAL_DeviceLine.Delete(SPName, DeviceId, LineId);
 
         }
-        public void Update (string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int Gaptime)
+        public void Update (string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int Gaptime , Boolean isgroup)
         {
-            DAL_DeviceLine.Update (SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc, Gaptime );
+            DAL_DeviceLine.Update (SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc, Gaptime , isgroup);
 
         }
         public DataTable GetDeviceLineById(string DeviceId, string LineId)

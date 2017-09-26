@@ -41,6 +41,11 @@
             this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
+            this.Tab_RunTime = new Telerik.WinControls.UI.RibbonTab();
+            this.Btn_LineStateBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_LineState = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_AllLineStateBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_AllLineState = new Telerik.WinControls.UI.RadButtonElement();
             this.Tab_Control = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_ShowALlStationOnSpecialLineBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_ShowALlStationOnSpecialLine = new Telerik.WinControls.UI.RadButtonElement();
@@ -65,15 +70,6 @@
             this.Btn_ProductReport = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_ProductChartBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_ProductChart = new Telerik.WinControls.UI.RadButtonElement();
-            this.Tab_RunTime = new Telerik.WinControls.UI.RibbonTab();
-            this.Btn_LineStateBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_LineState = new Telerik.WinControls.UI.RadButtonElement();
-            this.Btn_AllLineStateBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_AllLineState = new Telerik.WinControls.UI.RadButtonElement();
-            this.Btn_ProductCountBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_ProductCount = new Telerik.WinControls.UI.RadButtonElement();
-            this.Btn_ComboinedBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_Comboined = new Telerik.WinControls.UI.RadButtonElement();
             this.Tab_Jobs = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_DefineShiftBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_DefineShift = new Telerik.WinControls.UI.RadButtonElement();
@@ -216,6 +212,48 @@
             ((Telerik.WinControls.UI.RadRibbonBarCaption)(this.MainRibbonBar.GetChildAt(0).GetChildAt(3))).Image = null;
             ((Telerik.WinControls.UI.RibbonTabStripElement)(this.MainRibbonBar.GetChildAt(0).GetChildAt(4))).Image = null;
             ((Telerik.WinControls.UI.RadApplicationMenuButtonElement)(this.MainRibbonBar.GetChildAt(0).GetChildAt(5))).Image = global::PersianMIS.Properties.Resources.EndLogo1;
+            // 
+            // Tab_RunTime
+            // 
+            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_LineStateBorder,
+            this.Btn_AllLineStateBorder});
+            this.Tab_RunTime.Name = "Tab_RunTime";
+            this.Tab_RunTime.Text = "وضعیت کنونی";
+            this.Tab_RunTime.Click += new System.EventHandler(this.Tab_RunTime_Click);
+            // 
+            // Btn_LineStateBorder
+            // 
+            this.Btn_LineStateBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_LineState});
+            this.Btn_LineStateBorder.Name = "Btn_LineStateBorder";
+            this.Btn_LineStateBorder.Text = "وضعیت خطوط";
+            // 
+            // Btn_LineState
+            // 
+            this.Btn_LineState.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_LineState.Image = global::PersianMIS.Properties.Resources.Chart_State_Ok;
+            this.Btn_LineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_LineState.Name = "Btn_LineState";
+            this.Btn_LineState.Text = "                            ";
+            this.Btn_LineState.Click += new System.EventHandler(this.Btn_LineState_Click);
+            // 
+            // Btn_AllLineStateBorder
+            // 
+            this.Btn_AllLineStateBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_AllLineState});
+            this.Btn_AllLineStateBorder.Name = "Btn_AllLineStateBorder";
+            this.Btn_AllLineStateBorder.Text = "وضعیت کلی ";
+            // 
+            // Btn_AllLineState
+            // 
+            this.Btn_AllLineState.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_AllLineState.Image = global::PersianMIS.Properties.Resources.All_State_OK;
+            this.Btn_AllLineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_AllLineState.Name = "Btn_AllLineState";
+            this.Btn_AllLineState.Text = "";
+            this.Btn_AllLineState.Click += new System.EventHandler(this.Btn_AllLineState_Click);
             // 
             // Tab_Control
             // 
@@ -411,80 +449,6 @@
             this.Btn_ProductChart.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_ProductChart.Name = "Btn_ProductChart";
             this.Btn_ProductChart.Text = "                         ";
-            // 
-            // Tab_RunTime
-            // 
-            this.Tab_RunTime.IsSelected = true;
-            this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_LineStateBorder,
-            this.Btn_AllLineStateBorder,
-            this.Btn_ProductCountBorder,
-            this.Btn_ComboinedBorder});
-            this.Tab_RunTime.Name = "Tab_RunTime";
-            this.Tab_RunTime.Text = "وضعیت کنونی";
-            this.Tab_RunTime.Click += new System.EventHandler(this.Tab_RunTime_Click);
-            // 
-            // Btn_LineStateBorder
-            // 
-            this.Btn_LineStateBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_LineState});
-            this.Btn_LineStateBorder.Name = "Btn_LineStateBorder";
-            this.Btn_LineStateBorder.Text = "وضعیت خطوط";
-            // 
-            // Btn_LineState
-            // 
-            this.Btn_LineState.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_LineState.Image = global::PersianMIS.Properties.Resources.Chart_State_Ok;
-            this.Btn_LineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_LineState.Name = "Btn_LineState";
-            this.Btn_LineState.Text = "                            ";
-            this.Btn_LineState.Click += new System.EventHandler(this.Btn_LineState_Click);
-            // 
-            // Btn_AllLineStateBorder
-            // 
-            this.Btn_AllLineStateBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_AllLineState});
-            this.Btn_AllLineStateBorder.Name = "Btn_AllLineStateBorder";
-            this.Btn_AllLineStateBorder.Text = "وضعیت کلی ";
-            // 
-            // Btn_AllLineState
-            // 
-            this.Btn_AllLineState.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_AllLineState.Image = global::PersianMIS.Properties.Resources.All_State_OK;
-            this.Btn_AllLineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_AllLineState.Name = "Btn_AllLineState";
-            this.Btn_AllLineState.Text = "";
-            this.Btn_AllLineState.Click += new System.EventHandler(this.Btn_AllLineState_Click);
-            // 
-            // Btn_ProductCountBorder
-            // 
-            this.Btn_ProductCountBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_ProductCount});
-            this.Btn_ProductCountBorder.Name = "Btn_ProductCountBorder";
-            this.Btn_ProductCountBorder.Text = "تعداد تولید";
-            // 
-            // Btn_ProductCount
-            // 
-            this.Btn_ProductCount.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_ProductCount.Image = global::PersianMIS.Properties.Resources.Product_Count_OK;
-            this.Btn_ProductCount.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_ProductCount.Name = "Btn_ProductCount";
-            this.Btn_ProductCount.Text = "";
-            // 
-            // Btn_ComboinedBorder
-            // 
-            this.Btn_ComboinedBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_Comboined});
-            this.Btn_ComboinedBorder.Name = "Btn_ComboinedBorder";
-            this.Btn_ComboinedBorder.Text = "ترکیبی";
-            // 
-            // Btn_Comboined
-            // 
-            this.Btn_Comboined.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_Comboined.Image = global::PersianMIS.Properties.Resources.Combined_OK4_;
-            this.Btn_Comboined.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_Comboined.Name = "Btn_Comboined";
-            this.Btn_Comboined.Text = "";
             // 
             // Tab_Jobs
             // 
@@ -775,12 +739,8 @@
         private Telerik.WinControls.UI.RadButtonElement Btn_ProductChart;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_LineStateBorder;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_AllLineStateBorder;
-        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_ProductCountBorder;
-        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_ComboinedBorder;
         private Telerik.WinControls.UI.RadButtonElement Btn_LineState;
         private Telerik.WinControls.UI.RadButtonElement Btn_AllLineState;
-        private Telerik.WinControls.UI.RadButtonElement Btn_ProductCount;
-        private Telerik.WinControls.UI.RadButtonElement Btn_Comboined;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_DefineShiftBorder;
         private Telerik.WinControls.UI.RadButtonElement Btn_DefineShift;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_CreateProductProgramBorder;
