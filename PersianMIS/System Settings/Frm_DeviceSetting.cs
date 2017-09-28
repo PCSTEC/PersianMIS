@@ -191,6 +191,7 @@ namespace PersianMIS.System_Settings
             Txt_ActiveStateDesc.Text = Dt.DefaultView[0]["ActiveStateDesc"].ToString();
             Txt_DeActiveDesc.Text= Dt.DefaultView[0]["DeActiveStateDesc"].ToString();
             TxtGapTime.Value=Convert.ToInt32( Dt.DefaultView[0]["gaptime"].ToString());
+            Chk_ActiveLineForShowGroup.Checked =Convert.ToBoolean(  Dt.DefaultView[0]["ActiveLineForShowGroup"].ToString());
         }
 
         private void Btn_UpdateInputLine_Click(object sender, EventArgs e)
