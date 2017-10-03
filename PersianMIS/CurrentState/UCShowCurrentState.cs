@@ -16,19 +16,19 @@ using Telerik.WinControls;
 
 namespace PersianMIS.CurrentState
 {
-  
+
     public partial class UCShowCurrentState : UserControl
     {
-        public  string[,] LastApprochmentInfo = new string[100, 2];
+        public string[,] LastApprochmentInfo = new string[100, 2];
 
         string SelectedProductionLines = "0";
-   
+
         Font HeaderFont = new Font("b titr", 10f, FontStyle.Bold);
         public Boolean IsFirstLoad = false;
         IraniDate.IraniDate.IraniDate IrDate = new IraniDate.IraniDate.IraniDate();
         Persistent.DataAccess.DataAccess pers = new Persistent.DataAccess.DataAccess();
         Random rand = new Random();
-        BLL.CLS_Client BllClient= new BLL.CLS_Client();
+        BLL.CLS_Client BllClient = new BLL.CLS_Client();
 
         BLL.CLS_DeviceLine BllDeviceLine = new BLL.CLS_DeviceLine();
         DateTime CurDate = DateTime.Now;
@@ -72,6 +72,150 @@ namespace PersianMIS.CurrentState
         }
 
 
+        //private void FillData(string StartDate, string EndDate, string ListOfProductionLines)
+        //{
+        //    try
+        //    {
+        //        Array.Clear(LastApprochmentInfo, 0, LastApprochmentInfo.Length);
+        //        this.Cursor = Cursors.WaitCursor;
+
+        //        this.radScheduler1.Appointments.Clear();
+
+        //        radScheduler1.Resources.Clear();
+
+        //        var persianCulture = new PersianCulture();
+        //        System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+        //        System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+        //        SchedulerNavigatorLocalizationProvider.CurrentProvider = new CustomSchedulerNavigatorLocalizationProvider();
+
+        //        Color[] colors = new Color[]
+        //        {
+        //        Color.LightBlue
+        //        };
+
+
+        //        if (LSTProrudtionLines.CheckedItems.Count > 1)
+        //        {
+        //            DataRow[] foundRows = BllDeviceLine.GetAllResource().Select("ActiveLineForShowGroup=true", "ProductLineDesc");
+
+
+
+
+        //            for (int i = 0; i < foundRows.Length; i++)
+        //            {
+        //                Resource resource = new Resource();
+        //                resource.Id = new EventId(foundRows[i]["id"].ToString());
+        //                resource.Name = foundRows[i]["GroupShowName"].ToString();
+        //                resource.Color = colors[0];
+        //                this.radScheduler1.Resources.Add(resource);
+        //                LastApprochmentInfo[i, 0] = foundRows[i]["id"].ToString();
+
+        //            }
+        //        }
+        //        else
+        //        {
+        //            BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString());
+
+        //            for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
+        //            {
+        //                Resource resource = new Resource();
+        //                resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+        //                resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["LineDesc"].ToString();
+        //                resource.Color = colors[0];
+
+        //                this.radScheduler1.Resources.Add(resource);
+
+        //                LastApprochmentInfo[i, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
+
+        //            }
+
+        //        }
+
+
+
+        //        BLL.Cls_PublicOperations.Dt = BllClient.GetAllClientData(StartDate, EndDate, ListOfProductionLines);
+
+        //        DataRow[] ClientData;
+        //        if (LSTProrudtionLines.CheckedItems.Count > 1)
+        //        {
+        //            ClientData = BLL.Cls_PublicOperations.Dt.Select("ActiveLineForShowGroup=true", "ProductLineDesc");
+        //        }
+        //        else
+        //        {
+        //            ClientData = BLL.Cls_PublicOperations.Dt.Select("");
+        //        }
+
+        //        int totalHours;
+
+        //        for (int i = 0; i < ClientData.Length; i++)
+        //        {
+        //            this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(ClientData[i]["color"].ToString()))));
+
+        //            totalHours = 0;
+
+        //            totalHours = Convert.ToInt32(ClientData[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
+
+        //            DateTime Start = new DateTime();
+        //            DateTime end = new DateTime();
+        //            Start = DateTime.Parse(ClientData[i]["MiladiStartDateTime"].ToString());
+        //            end = DateTime.Parse(ClientData[i]["MiladiFinishDateTime"].ToString());
+
+
+
+
+        //            Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
+
+        //            app.StatusId = Convert.ToInt32(ClientData[i]["DeviceStateID"].ToString());
+
+
+
+        //            app.ResourceId = this.radScheduler1.Resources.GetById(ClientData[i]["id"].ToString()).Id;
+
+        //            app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
+
+        //            if (ClientData[i]["color"].ToString() == "16777215")
+        //            {
+        //                app.Visible = false;
+        //            }
+        //            this.radScheduler1.Appointments.Add(app);
+
+        //            var coordinates = LastApprochmentInfo.CoordinatesOf(ClientData[i]["id"].ToString());
+
+        //            LastApprochmentInfo[coordinates.Item1, 1] = ClientData[i]["DeviceStateID"].ToString();
+
+
+        //        }
+
+
+
+        //        this.radScheduler1.GroupType = GroupType.Resource;
+
+        //        this.radScheduler1.ActiveViewType = SchedulerViewType.Timeline;
+        //        this.radScheduler1.GetTimelineView().GroupSeparatorWidth = 0;
+
+        //        this.radScheduler1.GetTimelineView().ResourcesPerView = this.radScheduler1.Resources.Count;
+        //        this.radScheduler1.GetTimelineView().ShowTimescale(Timescales.Minutes);
+        //        RadSchedulerLocalizationProvider.CurrentProvider = new CustomSchedulerLocalizationProvider();
+
+
+        //        if (IsFirstLoad == true)
+        //        {
+        //            IsFirstLoad = false;
+        //        }
+        //        TimelineGroupingByResourcesElement timelineElement = this.radScheduler1.SchedulerElement.ViewElement as TimelineGroupingByResourcesElement;
+
+        //        SchedulerUIHelper.BringAppointmentIntoView(this.radScheduler1.Appointments[this.radScheduler1.Appointments.Count - 1], this.radScheduler1);
+        //        timelineElement.ResourceHeaderWidth = 135;
+        //        timelineElement.ResourcesHeader.TextOrientation = Orientation.Vertical;
+        //        timelineElement.ResourcesHeader.Font = HeaderFont;
+        //        this.Cursor = Cursors.Default;
+        //    }
+        //    catch (Exception E)
+        //    {
+        //        this.Cursor = Cursors.Default;
+        //    }
+        //}
+
         private void FillData(string StartDate, string EndDate, string ListOfProductionLines)
         {
             try
@@ -90,26 +234,25 @@ namespace PersianMIS.CurrentState
 
                 Color[] colors = new Color[]
                 {
-                Color.LightBlue
+                Color.LightBlue, Color.LightBlue, Color.LightBlue,
+                Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue, Color.LightBlue
                 };
 
 
                 if (LSTProrudtionLines.CheckedItems.Count > 1)
                 {
-                    DataRow[] foundRows = BllDeviceLine.GetAllResource().Select("ActiveLineForShowGroup=true", "ProductLineDesc");
-                     
+                    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetAllResource();
 
-                     
+                    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter=  "ActiveLineForShowGroup =1";
 
-                    for (int i = 0; i < foundRows.Length ; i++)
+                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.DefaultView.Count; i++)
                     {
                         Resource resource = new Resource();
-                        resource.Id = new EventId(foundRows[i]["id"].ToString());
-                        resource.Name = foundRows[i]["GroupShowName"].ToString();
-                        resource.Color = colors[0];
+                        resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                        resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["GroupShowName"].ToString() ;
+                        resource.Color = colors[rand.Next(0, 8)];
                         this.radScheduler1.Resources.Add(resource);
-                        LastApprochmentInfo[i, 0] = foundRows[i]["id"].ToString();
-
+                        LastApprochmentInfo[i, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
                     }
                 }
                 else
@@ -129,58 +272,58 @@ namespace PersianMIS.CurrentState
 
                     }
 
+
                 }
 
 
 
-               BLL.Cls_PublicOperations.Dt = BllClient.GetAllClientData(StartDate, EndDate, ListOfProductionLines);
-
-                DataRow[] ClientData;
-                if (LSTProrudtionLines.CheckedItems.Count > 1)
-                {
-                    ClientData = BLL.Cls_PublicOperations.Dt.Select("ActiveLineForShowGroup=true", "ProductLineDesc");
-                }
-                else { 
-                    ClientData = BLL.Cls_PublicOperations.Dt.Select("");
-                }
+                BLL.Cls_PublicOperations.Dt = BllClient.GetAllClientData(StartDate, EndDate, ListOfProductionLines);
 
                 int totalHours;
 
-                for (int i = 0; i < ClientData.Length ; i++)
+
+                if (LSTProrudtionLines.CheckedItems.Count > 1)
                 {
-                    this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(ClientData[i]["color"].ToString()))));
+                    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter="ActiveLineForShowGroup=1";
+                }
+
+
+
+                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.DefaultView.Count ; i++)
+                {
+                    this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
 
                     totalHours = 0;
 
-                    totalHours = Convert.ToInt32(ClientData[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
+                    totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
 
                     DateTime Start = new DateTime();
                     DateTime end = new DateTime();
-                    Start = DateTime.Parse(ClientData[i]["MiladiStartDateTime"].ToString());
-                    end = DateTime.Parse(ClientData[i]["MiladiFinishDateTime"].ToString());
+                    Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
+                    end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
 
 
 
 
                     Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
 
-                    app.StatusId = Convert.ToInt32(ClientData[i]["DeviceStateID"].ToString());
+                    app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
 
 
-                    app.ResourceId = this.radScheduler1.Resources.GetById(ClientData[i]["id"].ToString()).Id;
+                    app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
 
                     app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
 
-                    if (ClientData[i]["color"].ToString() == "16777215")
+                    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")
                     {
                         app.Visible = false;
                     }
                     this.radScheduler1.Appointments.Add(app);
 
-                    var coordinates = LastApprochmentInfo.CoordinatesOf(ClientData[i]["id"].ToString());
+                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
 
-                    LastApprochmentInfo[coordinates.Item1, 1] = ClientData[i]["DeviceStateID"].ToString();
+                    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
 
                 }
@@ -214,8 +357,6 @@ namespace PersianMIS.CurrentState
                 this.Cursor = Cursors.Default;
             }
         }
-
-
 
         private int GetResourceIndex(SchedulerViewGroupedByResourceElementBase viewGroupedByResource)
         {
@@ -434,11 +575,11 @@ namespace PersianMIS.CurrentState
                         var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
                         try
                         {
-    radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
+                            radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
 
-                       
-                        radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
-                        radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
+
+                            radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
+                            radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
                         }
                         catch
                         {
@@ -447,9 +588,9 @@ namespace PersianMIS.CurrentState
                         }
                     }
                 }
-                catch(Exception E)
+                catch (Exception E)
                 {
-                  //  MessageBox.Show(E.ToString());
+                    //  MessageBox.Show(E.ToString());
                 }
 
             }
@@ -507,7 +648,7 @@ namespace PersianMIS.CurrentState
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-                  
+
                 }
                 catch
                 {
@@ -521,7 +662,7 @@ namespace PersianMIS.CurrentState
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-                  
+
                 }
             }
 
@@ -590,33 +731,26 @@ namespace PersianMIS.CurrentState
 public static class ExtensionMethods
 {
     public static int NewIndex;
-    public static Tuple<int, int > CoordinatesOf<T>(this T[,] matrix, T value)
+    public static Tuple<int, int> CoordinatesOf<T>(this T[,] matrix, T value)
     {
 
 
         try
         {
             int w = matrix.GetLength(0); // width
-        int h = matrix.GetLength(1); // height
-    
-        for (int x = 0; x < w; ++x)
-        {
-            for (int y = 0; y < h; ++y)
+            int h = matrix.GetLength(1); // height
+
+            for (int x = 0; x < w; ++x)
             {
-                NewIndex = x;
-                    // if(matrix[x, y] != null  )
-                    //{
-  if (matrix[x, y].Equals(value))
-                            return Tuple.Create(x, y);
-                   // }
-
-                   
-                    
-                    
+                for (int y = 0; y < h; ++y)
+                {
+                    NewIndex = x;
+                    if (matrix[x, y].Equals(value))
+                        return Tuple.Create(x, y);
+                }
             }
-        }
 
-        return Tuple.Create(-1, -1);
+            return Tuple.Create(-1, -1);
         }
         catch
         {
@@ -627,6 +761,45 @@ public static class ExtensionMethods
 
     }
 }
+
+
+//  public static Tuple<int, int > CoordinatesOf<T>(this T[,] matrix, T value)
+//  {
+
+
+//      try
+//      {
+//          int w = matrix.GetLength(0); // width
+//      int h = matrix.GetLength(1); // height
+
+//      for (int x = 0; x < w; ++x)
+//      {
+//          for (int y = 0; y < h; ++y)
+//          {
+//              NewIndex = x;
+//                  // if(matrix[x, y] != null  )
+//                  //{
+//if (matrix[x, y].Equals(value))
+//                          return Tuple.Create(x, y);
+//                 // }
+
+
+
+
+//          }
+//      }
+
+//      return Tuple.Create(-1, -1);
+//      }
+//      catch
+//      {
+//          NewIndex = NewIndex;
+//          return Tuple.Create(-1, -1);
+
+//      }
+
+//  }
+// }
 
 
 //public static class ExtensionMethods
