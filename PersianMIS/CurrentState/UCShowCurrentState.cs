@@ -248,11 +248,11 @@ namespace PersianMIS.CurrentState
                     for (int i = 0; i < BLL.Cls_PublicOperations.Dt.DefaultView.Count; i++)
                     {
                         Resource resource = new Resource();
-                        resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                        resource.Id = new EventId(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString());
                         resource.Name = BLL.Cls_PublicOperations.Dt.DefaultView[i]["GroupShowName"].ToString() ;
                         resource.Color = colors[rand.Next(0, 8)];
                         this.radScheduler1.Resources.Add(resource);
-                        LastApprochmentInfo[i, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString();
+                        LastApprochmentInfo[i, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString();
                     }
                 }
                 else
@@ -282,10 +282,10 @@ namespace PersianMIS.CurrentState
                 int totalHours;
 
 
-                if (LSTProrudtionLines.CheckedItems.Count > 1)
-                {
-                    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter="ActiveLineForShowGroup=1";
-                }
+                //if (LSTProrudtionLines.CheckedItems.Count > 1)
+                //{
+                //    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter="ActiveLineForShowGroup=1";
+                //}
 
 
 
@@ -305,14 +305,21 @@ namespace PersianMIS.CurrentState
 
 
 
-                    Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
+                    Appointment app = new Appointment(Start.AddSeconds(1), end,   (Math.Round((double)totalHours / 60)).ToString());
 
                     app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
 
+                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    {
+                        app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString()).Id;
+                    }
 
-                    app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
+                    else
+                    {
+                        app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
 
+                    }
                     app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
 
                     if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")
@@ -321,9 +328,21 @@ namespace PersianMIS.CurrentState
                     }
                     this.radScheduler1.Appointments.Add(app);
 
-                    var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    { 
+                        var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString());
+                        LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
-                    LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
+                    }
+
+                    else
+                    {
+                   
+ var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString());
+                        LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
+
+                    }
+
 
 
                 }
@@ -531,7 +550,7 @@ namespace PersianMIS.CurrentState
 
                     if (coordinates.Item1 == -1) //New Event In Device Line Id 
                     {
-                        LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
+                        LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = LSTProrudtionLines.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString()   :  BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
                         LastApprochmentInfo[ExtensionMethods.NewIndex, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
                         int totalHours;
@@ -557,7 +576,7 @@ namespace PersianMIS.CurrentState
 
 
 
-                        app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
+                        app.ResourceId = this.radScheduler1.Resources.GetById(LSTProrudtionLines.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString() : BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString()).Id;
 
                         app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
 
@@ -569,6 +588,10 @@ namespace PersianMIS.CurrentState
 
 
 
+                    }
+                    if (coordinates.Item1 == -2)
+                    {
+                        return;
                     }
                     else
                     {
@@ -602,7 +625,7 @@ namespace PersianMIS.CurrentState
         {
             if (radScheduler1.Appointments.Count > 0)
             {
-                FillLastData();
+              FillLastData();
             }
 
         }
@@ -745,12 +768,23 @@ public static class ExtensionMethods
                 for (int y = 0; y < h; ++y)
                 {
                     NewIndex = x;
-                    if (matrix[x, y].Equals(value))
+                    if(string.IsNullOrEmpty(matrix[x, 0].ToString())==true )
+                    {
+                        return Tuple.Create(-1, -1);
+                    }
+                    try
+                    {
+if (matrix[x, y].Equals(value))
                         return Tuple.Create(x, y);
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
 
-            return Tuple.Create(-1, -1);
+            return Tuple.Create(-2, -1);
         }
         catch
         {
