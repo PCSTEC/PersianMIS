@@ -284,12 +284,12 @@ namespace PersianMIS.CurrentState
 
                 //if (LSTProrudtionLines.CheckedItems.Count > 1)
                 //{
-                //    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter="ActiveLineForShowGroup=1";
+                //    BLL.Cls_PublicOperations.Dt.DefaultView.RowFilter = "ActiveLineForShowGroup=1";
                 //}
 
 
 
-                    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.DefaultView.Count ; i++)
+                for (int i = 0; i < BLL.Cls_PublicOperations.Dt.DefaultView.Count ; i++)
                 {
                     this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
 
@@ -326,6 +326,24 @@ namespace PersianMIS.CurrentState
                     {
                         app.Visible = false;
                     }
+
+
+
+                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    {
+                        if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "0" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateForShowGroupOk"].ToString() == "False")
+                        {
+                            app.Visible = false;
+                        }
+
+                        if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "1" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["ActiveStateForShowGroupOk"].ToString() == "False")
+                        {
+                            app.Visible = false;
+                        }
+
+
+                    }
+
                     this.radScheduler1.Appointments.Add(app);
 
                     if (LSTProrudtionLines.CheckedItems.Count > 1)

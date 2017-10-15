@@ -44,7 +44,6 @@
             this.printablePanel = new PersianMIS.CurrentState.PrintablePanel();
             this.MainPnl = new System.Windows.Forms.FlowLayoutPanel();
             this.radCollapsiblePanel2 = new Telerik.WinControls.UI.RadCollapsiblePanel();
-            this.LSTStations = new Telerik.WinControls.UI.RadCheckedListBox();
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
@@ -61,16 +60,17 @@
             this.radLabelElement2 = new Telerik.WinControls.UI.RadLabelElement();
             this.MskEndDate = new Telerik.WinControls.UI.RadDateTimePickerElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
+            this.LSTStations = new Telerik.WinControls.UI.RadCheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
             this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).BeginInit();
             this.radCollapsiblePanel2.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).BeginInit();
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).BeginInit();
             this.SuspendLayout();
             // 
             // radButtonElement2
@@ -253,21 +253,6 @@
             this.radCollapsiblePanel2.Size = new System.Drawing.Size(280, 555);
             this.radCollapsiblePanel2.TabIndex = 13;
             this.radCollapsiblePanel2.Text = "radCollapsiblePanel2";
-            // 
-            // LSTStations
-            // 
-            this.LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTStations.GroupIndent = 14;
-            this.LSTStations.GroupItemSize = new System.Drawing.Size(109, 10);
-            this.LSTStations.HeaderHeight = 17.5F;
-            this.LSTStations.ItemSize = new System.Drawing.Size(109, 10);
-            this.LSTStations.Location = new System.Drawing.Point(0, 0);
-            this.LSTStations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.LSTStations.Name = "LSTStations";
-            this.LSTStations.Size = new System.Drawing.Size(252, 553);
-            this.LSTStations.TabIndex = 0;
-            this.LSTStations.Text = "radCheckedListBox1";
-            this.LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
             // 
             // radCollapsiblePanel1
             // 
@@ -500,6 +485,16 @@
             this.ribbonTab2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.ribbonTab2.UseCompatibleTextRendering = false;
             // 
+            // LSTStations
+            // 
+            this.LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LSTStations.Location = new System.Drawing.Point(0, 0);
+            this.LSTStations.Name = "LSTStations";
+            this.LSTStations.Size = new System.Drawing.Size(252, 553);
+            this.LSTStations.TabIndex = 0;
+            this.LSTStations.Text = "radCheckedListBox1";
+            this.LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
+            // 
             // ShowStationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -516,12 +511,12 @@
             this.radCollapsiblePanel2.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).EndInit();
             this.radCollapsiblePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).EndInit();
             this.radCollapsiblePanel1.PanelContainer.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
             this.radCollapsiblePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).EndInit();
             this.ResumeLayout(false);
 
         }

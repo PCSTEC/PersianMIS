@@ -19,13 +19,11 @@ namespace PersianMIS.StationControl
         Persistent.DataAccess.DataAccess pers = new Persistent.DataAccess.DataAccess();
         BLL.CLS_DeviceLine Bll_DeviceLine = new CLS_DeviceLine();
         BLL.CLS_Device bll_Device = new CLS_Device();
-
         BLL.Cls_Station Bll_Station = new Cls_Station();
         DataTable Dt = new DataTable();
         public Frm_CreateStation( Boolean IsEdit)
         {
             InitializeComponent();
-            
             FillDg();
 
         }
