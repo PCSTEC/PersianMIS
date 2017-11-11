@@ -153,6 +153,26 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Business_Man_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Business Man Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Business_Man_Blue1 {
+            get {
+                object obj = ResourceManager.GetObject("Business Man Blue1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chart_OK {
             get {
                 object obj = ResourceManager.GetObject("Chart OK", resourceCulture);

@@ -1,0 +1,1599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD6ED70C-628F-4FA2-80F2-E3CDE4D87FDB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>wappPersonely.My.MyApplication</StartupObject>
+    <RootNamespace>wappPersonely</RootNamespace>
+    <AssemblyName>wappPersonely</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>users.ico</ApplicationIcon>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>http://localhost/wappPersonely/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>wappPersonely.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42030,42032,42036,42104,42105,42106,42107,42108,42109,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>wappPersonely.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42030,42032,42036,42104,42105,42106,42107,42108,42109,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Activities, Version=1.0.3195.23138, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Activities.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="DevComponents.DotNetBar2, Version=7.4.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="FacRollCall, Version=1.0.3201.25148, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\1\FacRollCall.dll</HintPath>
+    </Reference>
+    <Reference Include="IKIDSecurity, Version=1.0.2501.20695, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\IKIDSecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="IKIDUtility, Version=1.0.3203.18538, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\IKIDUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="IraniDate, Version=1.0.3384.15921, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\IraniDate.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin, Version=2006.3.22.45, Culture=neutral, PublicKeyToken=4f90fce1210833dc">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\IrisSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v2, Version=2.0.1142.0, Culture=neutral, PublicKeyToken=21d5517571b185bf">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Janus.Windows.ButtonBar.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v2, Version=2.0.1142.0, Culture=neutral, PublicKeyToken=21d5517571b185bf">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Janus.Windows.Common.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ExplorerBar.v2, Version=2.0.1142.0, Culture=neutral, PublicKeyToken=21d5517571b185bf">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Janus.Windows.ExplorerBar.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX.v2, Version=2.0.1142.0, Culture=neutral, PublicKeyToken=21d5517571b185bf">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Janus.Windows.GridEX.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v2, Version=2.0.1142.0, Culture=neutral, PublicKeyToken=21d5517571b185bf">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Janus.Windows.UI.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="JFrameWork, Version=1.0.4119.25836, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\1\JFrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="Persistent, Version=1.0.3434.31387, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\Persistent.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\System.Windows.Forms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WLFormGlobalCtrl_DT, Version=1.0.3426.28215, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\IkidSystems\WLFormGlobalCtrl_DT.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Card.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_City.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Commode.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Dossier.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Education.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Employee.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Engage.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Family.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Fee.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Meed.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Other.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Parakanesh.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Post.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Training.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Card.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_City.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Commode.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Dossier.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Education.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Employee.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Engage.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Family.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Fee.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Meed.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Other.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Parakanesh.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Post.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Training.vb" />
+    <Compile Include="Classes\ReportClass\Cls_ReportFacade.vb" />
+    <Compile Include="frmHoghoghCalculate.Designer.vb">
+      <DependentUpon>frmHoghoghCalculate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoghoghCalculate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\SubrptEducation.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubrptEducation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\subrptSavabeghDakheli.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subrptSavabeghDakheli.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\BonEmmision\frmBon.Designer.vb">
+      <DependentUpon>frmBon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\BonEmmision\frmBon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\FrmChart.Designer.vb">
+      <DependentUpon>FrmChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\FrmChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmMainCalculate.designer.vb">
+      <DependentUpon>frmMainCalculate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmMainCalculate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmReportSakhti.designer.vb">
+      <DependentUpon>frmReportSakhti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmReportSakhti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\Herasat\frmHerasat.Designer.vb">
+      <DependentUpon>frmHerasat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\Herasat\frmHerasat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmJob.Designer.vb">
+      <DependentUpon>FrmJob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmChartHoghoogh.Designer.vb">
+      <DependentUpon>FrmChartHoghoogh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmChartHoghoogh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmOlad+18.Designer.vb">
+      <DependentUpon>FrmOlad+18.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmOlad+18.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPassForSale.Designer.vb">
+      <DependentUpon>frmPassForSale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPassForSale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmPezeshki.Designer.vb">
+      <DependentUpon>FrmPezeshki.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\FrmPezeshki.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSEzafeKareVahed.Designer.vb">
+      <DependentUpon>frmPRSEzafeKareVahed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSEzafeKareVahed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSSale.Designer.vb">
+      <DependentUpon>frmPRSSale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSSale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmTraningShow.Designer.vb">
+      <DependentUpon>frmTraningShow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmTraningShow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Crtjabejaie_Detail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Crtjabejaie_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonBime.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonBime.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonJazb_Jab_Mos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonJazb_Jab_Mos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_JazbMosJab.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_JazbMosJab.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_Acord_SubList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_Acord_SubList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_KarkardPersonel.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_KarkardPersonel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_MeedPerson_Sub.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_MeedPerson_Sub.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_PostGroup_Sub.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PostGroup_Sub.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_PostGroup_Sub2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PostGroup_Sub2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_TabagheMashaghel_bazneshastegi.vb">
+      <DependentUpon>Rpt_TabagheMashaghel_bazneshastegi.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptHokmTabaghebandiiiiii.vb">
+      <DependentUpon>rptHokmTabaghebandiiiiii.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrystalReport2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptBon.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBon.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmMostaafiPerson.Designer.vb">
+      <DependentUpon>frmMostaafiPerson.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmMostaafiPerson.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmCommodeDevotion.Designer.vb">
+      <DependentUpon>frmCommodeDevotion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmCommodeDevotion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmCommodeMain.designer.vb">
+      <DependentUpon>frmCommodeMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\PRSCommode\frmCommodeMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Bus_Class\Bus_MDepart.vb" />
+    <Compile Include="Classes\Bus_Class\Bus_Person.vb" />
+    <Compile Include="Classes\classNumtoStr.vb" />
+    <Compile Include="Classes\PictureInfo.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_MDepart.vb" />
+    <Compile Include="Classes\Dac_Class\Dac_Person.vb" />
+    <Compile Include="Modules\mdlHResorce.vb" />
+    <Compile Include="Presentation\PRSReports\frmStayParakanesh.Designer.vb">
+      <DependentUpon>frmStayParakanesh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSReports\frmStayParakanesh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddDescribe.Designer.vb">
+      <DependentUpon>frmAddDescribe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddDescribe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddMadrak.Designer.vb">
+      <DependentUpon>frmAddMadrak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddMadrak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddStudyPlace.Designer.vb">
+      <DependentUpon>frmAddStudyPlace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSManagement\frmAddStudyPlace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmHokmMoavvagheh.Designer.vb">
+      <DependentUpon>frmHokmMoavvagheh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmHokmMoavvagheh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmJobRequest.Designer.vb">
+      <DependentUpon>frmJobRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmJobRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmMsgBox.Designer.vb">
+      <DependentUpon>frmMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmMsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSAlarm.Designer.vb">
+      <DependentUpon>frmPRSAlarm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSAlarm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSGeraiesh.Designer.vb">
+      <DependentUpon>frmPRSGeraiesh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSGeraiesh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmMoavvagheh.Designer.vb">
+      <DependentUpon>frmPRSHokmMoavvagheh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmMoavvagheh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmSaati.Designer.vb">
+      <DependentUpon>frmPRSHokmSaati.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmSaati.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSMeed.Designer.vb">
+      <DependentUpon>frmPRSMeed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSMeed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSPastOfMoavagheh.Designer.vb">
+      <DependentUpon>frmPRSPastOfMoavagheh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSPastOfMoavagheh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSStudyPlace.Designer.vb">
+      <DependentUpon>frmPRSStudyPlace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSStudyPlace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSReports\frmMakeReport.Designer.vb">
+      <DependentUpon>frmMakeReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSReports\frmMakeReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmReport.Designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmReport\frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmAddNode.Designer.vb">
+      <DependentUpon>FrmAddNode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmAddNode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmAddNewUnit.Designer.vb">
+      <DependentUpon>frmAddNewUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmAddNewUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmAddPost.Designer.vb">
+      <DependentUpon>FrmAddPost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmAddPost.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmChangeNode.Designer.vb">
+      <DependentUpon>FrmChangeNode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmChangeNode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmChangePost.Designer.vb">
+      <DependentUpon>FrmChangePost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\FrmChangePost.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmPersonInDepart.Designer.vb">
+      <DependentUpon>frmPersonInDepart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmPersonInDepart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmPRSMainChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSChart\frmPRSMainChart.Designer.vb">
+      <DependentUpon>frmPRSMainChart.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmNewPersonProperty.Designer.vb">
+      <DependentUpon>frmNewPersonProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmNewPersonProperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSDossier.Designer.vb">
+      <DependentUpon>frmPRSDossier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSDossier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokm.Designer.vb">
+      <DependentUpon>frmPRSHokm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSPastHokm.Designer.vb">
+      <DependentUpon>frmPRSPastHokm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSPastHokm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSEducation.Designer.vb">
+      <DependentUpon>frmPRSEducation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSEducation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSFamily.Designer.vb">
+      <DependentUpon>frmPRSFamily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSFamily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmsocial.Designer.vb">
+      <DependentUpon>frmPRSHokmsocial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSHokmsocial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSMain.Designer.vb">
+      <DependentUpon>frmPRSMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSProperty.Designer.vb">
+      <DependentUpon>frmPRSProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSProperty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSTraining.Designer.vb">
+      <DependentUpon>frmPRSTraining.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSPersonal\frmPRSTraining.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\SplashScreenForPRSSw.Designer.vb">
+      <DependentUpon>SplashScreenForPRSSw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\PRSMain\SplashScreenForPRSSw.vb">
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\rptManagerPropertyAbstract.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptManagerPropertyAbstract.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptChartDiploma.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptChartDiploma.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptChartPersonTafkik.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptChartPersonTafkik.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptChartPost.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptChartPost.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptChartsabeghe.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptChartsabeghe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDossierAbstract.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDossierAbstract.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptEndEmploee.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptEndEmploee.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptEndEmploee2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptEndEmploee2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptHoghoogh.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHoghoogh.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHokmTabaghebandiiiiii5.12.93.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHokmTabaghebandiiiiii5.12.93.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonGradeCount.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonGradeCount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCommodeAmar.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCommodeAmar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCommodeKhali.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCommodeKhali.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDailyTreaty.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDailyTreaty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDossier.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDossier.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDossierTefkik.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDossierTefkik.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptExpertsAndGroup.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptExpertsAndGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptEzafehKariFee.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEzafehKariFee.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHoghooghvaMazaiatafkikVahed.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoghooghvaMazaiatafkikVahed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMostaafiPersonAndTrinning.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMostaafiPersonAndTrinning.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMostafeePerson.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMostafeePerson.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptMovingPerson.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMovingPerson.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptParakanesh.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptParakanesh.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersoInDepartsBetWeenDate.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersoInDepartsBetWeenDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAGE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAGE.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndJobTitle.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndJobTitle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndTrinning.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndTrinning.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndEngageType.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndEngageType.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndGroup.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAddress.vb">
+      <DependentUpon>rptPersonAddress.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndPost.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndPost.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonAndTrinningBeTafkik.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonAndTrinningBeTafkik.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonBeTafkikAlefba.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonBeTafkikAlefba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonCard.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonCard.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonCommodeTafkikVahed.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonCommodeTafkikVahed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonEducation.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonEducation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonFamily.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonFamily.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonIndDepart.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonIndDepart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonKhadamati.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonKhadamati.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonMeed.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonMeed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonOverJazb.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonOverJazb.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonOverPost.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonOverPost.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonProperty.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonProperty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptGeneralAbstract.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGeneralAbstract.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPersonPropertyAbstract.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonPropertyAbstract.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptPersonTajrobe.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonTajrobe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPersonValuation.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPersonValuation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptPostPersonINDepart.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPostPersonINDepart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RptSavabeghHokm.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptSavabeghHokm.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptSazehGostar.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSazehGostar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTabaghehBandi.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTabaghehBandi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTedadniro.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTedadniro.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptTimeTreaty.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTimeTreaty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTimeTreatyMoshaver.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTimeTreatyMoshaver.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTimingTraety.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTimingTraety.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptTreaty.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTreaty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptHokm.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHokm.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GozareshEttelaatModiran\SubRepForrptManagerPryAbstract.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubRepForrptManagerPryAbstract.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTreaty_Modiran.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTreaty_Modiran.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Rpt_TabagheMashaghel_2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_TabagheMashaghel_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SubDossier.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubDossier.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptPersonCourse.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPersonCourse.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RptPersonPeroprty.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPersonPeroprty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmHoghoghCalculate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHoghoghCalculate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GozareshEttelaatModiran\Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GozareshEttelaatModiran\SubrptEducation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubrptEducation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GozareshEttelaatModiran\subrptSavabeghDakheli.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>subrptSavabeghDakheli.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="Presentation\frmReport\BonEmmision\frmBon.resx">
+      <DependentUpon>frmBon.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReport\FrmChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReport\frmMainCalculate.resx">
+      <DependentUpon>frmMainCalculate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReport\frmReportSakhti.resx">
+      <DependentUpon>frmReportSakhti.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReport\Herasat\frmHerasat.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHerasat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\FrmJob.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmJob.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\FrmChartHoghoogh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmChartHoghoogh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\FrmOlad+18.resx">
+      <DependentUpon>FrmOlad+18.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPassForSale.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPassForSale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\FrmPezeshki.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmPezeshki.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSEzafeKareVahed.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSEzafeKareVahed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSSale.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSSale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmTraningShow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTraningShow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Crtjabejaie_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Crtjabejaie_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonBime.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonBime.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonJazb_Jab_Mos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonJazb_Jab_Mos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_JazbMosJab.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_JazbMosJab.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_Acord_SubList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_Acord_SubList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_KarkardPersonel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_KarkardPersonel.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_MeedPerson_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_MeedPerson_Sub.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_PostGroup_Sub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PostGroup_Sub.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_PostGroup_Sub2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PostGroup_Sub2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_TabagheMashaghel_bazneshastegi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_TabagheMashaghel_bazneshastegi.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHokmTabaghebandiiiiii.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHokmTabaghebandiiiiii.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBon.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\PRSCommode\frmMostaafiPerson.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMostaafiPerson.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\PRSCommode\frmCommodeDevotion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCommodeDevotion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\PRSCommode\frmCommodeMain.resx">
+      <DependentUpon>frmCommodeMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSMain\frmAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSReports\frmStayParakanesh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmStayParakanesh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSManagement\frmAddDescribe.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddDescribe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSManagement\frmAddMadrak.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddMadrak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSManagement\frmAddStudyPlace.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddStudyPlace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmHokmMoavvagheh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHokmMoavvagheh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\frmJobRequest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmJobRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmMsgBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSAlarm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSAlarm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSGeraiesh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSGeraiesh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSHokmMoavvagheh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSHokmMoavvagheh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSHokmSaati.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSHokmSaati.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSMeed.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSMeed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSPastOfMoavagheh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSPastOfMoavagheh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSStudyPlace.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSStudyPlace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSReports\frmMakeReport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMakeReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSMain\frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmReport\frmReport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\FrmAddNode.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAddNode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\frmAddNewUnit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddNewUnit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\FrmAddPost.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAddPost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\FrmChangeNode.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmChangeNode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\FrmChangePost.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmChangePost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\frmPersonInDepart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPersonInDepart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSChart\frmPRSMainChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSMainChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmNewPersonProperty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewPersonProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSDossier.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSDossier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSHokm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSHokm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSPastHokm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSPastHokm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSEducation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSEducation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSFamily.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSFamily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSHokmsocial.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSHokmsocial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSProperty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSPersonal\frmPRSTraining.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPRSTraining.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PRSMain\SplashScreenForPRSSw.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SplashScreenForPRSSw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GozareshEttelaatModiran\rptManagerPropertyAbstract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptManagerPropertyAbstract.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptChartDiploma.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptChartDiploma.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptChartPersonTafkik.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptChartPersonTafkik.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptChartPost.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptChartPost.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptChartsabeghe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptChartsabeghe.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDossierAbstract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDossierAbstract.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptEndEmploee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptEndEmploee.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptEndEmploee2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptEndEmploee2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptHoghoogh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHoghoogh.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHokmTabaghebandiiiiii5.12.93.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHokmTabaghebandiiiiii5.12.93.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonGradeCount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonGradeCount.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCommodeAmar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCommodeAmar.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCommodeKhali.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCommodeKhali.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDailyTreaty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDailyTreaty.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDossier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDossier.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDossierTefkik.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDossierTefkik.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptExpertsAndGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptExpertsAndGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptEzafehKariFee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEzafehKariFee.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHoghooghvaMazaiatafkikVahed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoghooghvaMazaiatafkikVahed.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMostaafiPersonAndTrinning.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMostaafiPersonAndTrinning.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMostafeePerson.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMostafeePerson.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMovingPerson.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMovingPerson.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptParakanesh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptParakanesh.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersoInDepartsBetWeenDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersoInDepartsBetWeenDate.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAGE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAGE.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndJobTitle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndJobTitle.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndTrinning.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndTrinning.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndEngageType.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndEngageType.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAddress.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAddress.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndPost.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndPost.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonAndTrinningBeTafkik.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonAndTrinningBeTafkik.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonBeTafkikAlefba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonBeTafkikAlefba.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonCard.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonCommodeTafkikVahed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonCommodeTafkikVahed.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonEducation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonEducation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonFamily.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonFamily.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonIndDepart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonIndDepart.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonKhadamati.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonKhadamati.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonMeed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonMeed.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonOverJazb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonOverJazb.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonOverPost.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonOverPost.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonProperty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonProperty.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptGeneralAbstract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGeneralAbstract.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonPropertyAbstract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonPropertyAbstract.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonTajrobe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonTajrobe.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPersonValuation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPersonValuation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPostPersonINDepart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPostPersonINDepart.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptSavabeghHokm.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptSavabeghHokm.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSazehGostar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSazehGostar.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTabaghehBandi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTabaghehBandi.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTedadniro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTedadniro.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTimeTreaty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTimeTreaty.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTimeTreatyMoshaver.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTimeTreatyMoshaver.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTimingTraety.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTimingTraety.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTreaty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTreaty.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptHokm.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHokm.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GozareshEttelaatModiran\SubRepForrptManagerPryAbstract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubRepForrptManagerPryAbstract.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTreaty_Modiran.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTreaty_Modiran.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Rpt_TabagheMashaghel_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_TabagheMashaghel_2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SubDossier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubDossier.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptPersonCourse.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPersonCourse.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptPersonPeroprty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPersonPeroprty.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{00000200-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Resources\10.jpg" />
+    <None Include="Resources\Copy of P5120512.JPG" />
+    <None Include="Resources\back.jpg" />
+    <None Include="Resources\back1.jpg" />
+    <None Include="Resources\back2.jpg" />
+    <None Include="Resources\back3.jpg" />
+    <None Include="Resources\back4.jpg" />
+    <Content Include="users.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

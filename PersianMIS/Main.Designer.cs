@@ -37,7 +37,6 @@
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarButtonGroup1 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.MainRibbonBar = new Telerik.WinControls.UI.RadRibbonBar();
@@ -92,10 +91,15 @@
             this.Btn_CalcDurations = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_SettingsBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_Settings = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Personely = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.BtnPersonelyManage = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_Minimized = new Telerik.WinControls.UI.RadToggleButtonElement();
             this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             this.Mnu_Exit = new Telerik.WinControls.UI.RadMenuItem();
             this.radRibbonFormBehavior1 = new Telerik.WinControls.UI.RadRibbonFormBehavior();
+            this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement3 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement4 = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -141,15 +145,6 @@
             this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
             this.radRibbonBarGroup1.Text = "تعریف دستگاه های ورودی";
             this.radRibbonBarGroup1.UseCompatibleTextRendering = false;
-            // 
-            // radButtonElement2
-            // 
-            this.radButtonElement2.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElement2.Image = global::PersianMIS.Properties.Resources.Create_Parameter_OK;
-            this.radButtonElement2.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radButtonElement2.Name = "radButtonElement2";
-            this.radButtonElement2.Text = "                                           ";
-            this.radButtonElement2.UseCompatibleTextRendering = false;
             // 
             // radRibbonBarButtonGroup1
             // 
@@ -215,7 +210,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -556,12 +551,13 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = false;
+            this.Tab_Setting.IsSelected = true;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
             this.Btn_CalcDuration,
-            this.Btn_SettingsBorder});
+            this.Btn_SettingsBorder,
+            this.Btn_Personely});
             this.Tab_Setting.Name = "Tab_Setting";
             this.Tab_Setting.Text = "تنظیمات سیستم";
             this.Tab_Setting.Click += new System.EventHandler(this.Tab_Setting_Click);
@@ -637,6 +633,28 @@
             this.Btn_Settings.Name = "Btn_Settings";
             this.Btn_Settings.Text = "                               ";
             // 
+            // Btn_Personely
+            // 
+            this.Btn_Personely.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.BtnPersonelyManage});
+            this.Btn_Personely.Name = "Btn_Personely";
+            this.Btn_Personely.Text = "نرم افزار پرسنلی";
+            // 
+            // BtnPersonelyManage
+            // 
+            this.BtnPersonelyManage.AccessibleDescription = "نرم افزار پرسنلی";
+            this.BtnPersonelyManage.AccessibleName = "نرم افزار پرسنلی";
+            this.BtnPersonelyManage.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnPersonelyManage.AutoSize = false;
+            this.BtnPersonelyManage.Bounds = new System.Drawing.Rectangle(0, 0, 100, 62);
+            this.BtnPersonelyManage.DisplayStyle = Telerik.WinControls.DisplayStyle.ImageAndText;
+            this.BtnPersonelyManage.Image = global::PersianMIS.Properties.Resources.Business_Man_Blue1;
+            this.BtnPersonelyManage.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnPersonelyManage.Name = "BtnPersonelyManage";
+            this.BtnPersonelyManage.Text = "";
+            this.BtnPersonelyManage.TextOrientation = System.Windows.Forms.Orientation.Horizontal;
+            this.BtnPersonelyManage.Click += new System.EventHandler(this.BtnPersonelyManage_Click);
+            // 
             // Btn_Minimized
             // 
             this.Btn_Minimized.Image = global::PersianMIS.Properties.Resources.Gantt100;
@@ -665,6 +683,33 @@
             // radRibbonFormBehavior1
             // 
             this.radRibbonFormBehavior1.Form = this;
+            // 
+            // radButtonElement2
+            // 
+            this.radButtonElement2.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement2.Image = global::PersianMIS.Properties.Resources.Create_Parameter_OK;
+            this.radButtonElement2.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement2.Name = "radButtonElement2";
+            this.radButtonElement2.Text = "                                           ";
+            this.radButtonElement2.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElement3
+            // 
+            this.radButtonElement3.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement3.Image = global::PersianMIS.Properties.Resources.Setting_Ok;
+            this.radButtonElement3.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement3.Name = "radButtonElement3";
+            this.radButtonElement3.Text = "                               ";
+            this.radButtonElement3.UseCompatibleTextRendering = false;
+            // 
+            // radButtonElement4
+            // 
+            this.radButtonElement4.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement4.Image = global::PersianMIS.Properties.Resources.Setting_Ok;
+            this.radButtonElement4.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radButtonElement4.Name = "radButtonElement4";
+            this.radButtonElement4.Text = "                               ";
+            this.radButtonElement4.UseCompatibleTextRendering = false;
             // 
             // Main
             // 
@@ -767,5 +812,9 @@
         private Telerik.WinControls.UI.RadButtonElement radButtonElement2;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup1;
         private Telerik.WinControls.UI.RadToggleButtonElement Btn_Minimized;
+        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_Personely;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement3;
+        private Telerik.WinControls.UI.RadButtonElement BtnPersonelyManage;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement4;
     }
 }

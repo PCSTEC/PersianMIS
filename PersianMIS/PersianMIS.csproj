@@ -486,6 +486,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Business Man Blue1.png" />
+    <None Include="Resources\Business Man Blue.png" />
     <None Include="Resources\complete.png" />
     <None Include="Resources\Finish.png" />
     <None Include="Resources\nextButton.png" />

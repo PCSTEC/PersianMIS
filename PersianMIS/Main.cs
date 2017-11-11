@@ -10,6 +10,8 @@ using FarsiLibrary;
 using FarsiLibrary.Utils;
 using Telerik.WinControls.UI;
 using IraniDate.IraniDate;
+ 
+using System.Diagnostics;
 
 namespace PersianMIS
 {
@@ -428,5 +430,25 @@ namespace PersianMIS
          
  
         }
+
+        private void BtnPersonelyManage_Click(object sender, EventArgs e)
+        {
+
+            Process proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath)+ "\\personely\\wappPersonely.exe",
+
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                } 
+            
+        };
+            proc.Start();
+
+        }
+
     }
 }

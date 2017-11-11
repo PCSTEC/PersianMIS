@@ -558,6 +558,7 @@ namespace PersianMIS.CurrentState
         private void FillLastData()
         {
             BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetLastStateOfDeviceLineData();
+           
             for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
             {
                 try
@@ -602,6 +603,25 @@ namespace PersianMIS.CurrentState
                         {
                             app.Visible = false;
                         }
+
+                        if (LSTProrudtionLines.CheckedItems.Count > 1)
+                        {
+                            if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "0" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateForShowGroupOk"].ToString() == "False")
+                            {
+                                app.Visible = false;
+                            }
+
+                            if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "1" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["ActiveStateForShowGroupOk"].ToString() == "False")
+                            {
+                                app.Visible = false;
+                            }
+
+
+                        }
+
+
+
+
                         this.radScheduler1.Appointments.Add(app);
 
 

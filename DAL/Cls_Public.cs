@@ -14,5 +14,6 @@ namespace DAL
        public static string CnnStr = "Data Source=pcstecserver\\pcstecserver;Initial Catalog=PCSTEC;User ID=sa;password=afarinesh";
         public static string SqlStr = "";
         public static DataTable PublicDT = new DataTable();
+
     }
 }
