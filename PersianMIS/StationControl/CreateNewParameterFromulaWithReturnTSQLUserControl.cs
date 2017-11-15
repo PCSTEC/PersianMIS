@@ -48,7 +48,7 @@ namespace PersianMIS.StationControl
         {
             try
             {
-                Pers.FillCmb(BllDeviceLine.GetDeviceLineByDeviceId(Cmb_SelectDevice.SelectedValue.ToString()), Cmb_SelectPuls, "ID", "LineDesc");
+                Pers.FillCmb(BllDeviceLine.GetDeviceLineByDeviceId(Cmb_SelectDevice.SelectedValue.ToString()), Cmb_SelectPuls, "ID", "LineCaptionWithProductLine");
             }
             catch
             {

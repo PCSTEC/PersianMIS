@@ -36,12 +36,14 @@
             this.Txt_ParamteterCaption = new Telerik.WinControls.UI.RadTextBox();
             this.Btn_ShowStation = new Telerik.WinControls.UI.RadButton();
             this.Btn_CreateTSQL = new Telerik.WinControls.UI.RadButton();
+            this.Btn_delete = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ParameterCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Lbl_SelectStation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ParamteterCaption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_ShowStation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateTSQL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_delete)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_PulsNumber
@@ -138,12 +140,25 @@
             this.Btn_CreateTSQL.Text = "اجرا و تست ";
             this.Btn_CreateTSQL.Click += new System.EventHandler(this.Btn_CreateTSQL_Click);
             // 
+            // Btn_delete
+            // 
+            this.Btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_delete.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Btn_delete.Image = global::PersianMIS.Properties.Resources.Delete_OK;
+            this.Btn_delete.Location = new System.Drawing.Point(3, 68);
+            this.Btn_delete.Name = "Btn_delete";
+            this.Btn_delete.Size = new System.Drawing.Size(118, 45);
+            this.Btn_delete.TabIndex = 50;
+            this.Btn_delete.Text = "حذف پارامتر ";
+            this.Btn_delete.Click += new System.EventHandler(this.Btn_delete_Click);
+            // 
             // CreatePulsParameterUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.Btn_delete);
             this.Controls.Add(this.Btn_CreateTSQL);
             this.Controls.Add(this.Txt_ParamteterCaption);
             this.Controls.Add(this.radLabel1);
@@ -163,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ParamteterCaption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_ShowStation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_CreateTSQL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_delete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +193,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadTextBox Txt_ParamteterCaption;
         private Telerik.WinControls.UI.RadButton Btn_CreateTSQL;
+        private Telerik.WinControls.UI.RadButton Btn_delete;
     }
 }

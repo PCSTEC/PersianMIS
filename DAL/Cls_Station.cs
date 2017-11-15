@@ -38,6 +38,22 @@ namespace DAL
 
         }
 
+
+        public void UpdateStationParameters(string ParameterName, string ParamaterTSQL, int StationParameterId)
+        {
+            Cls_Public.Pers.ClearParameter();
+            Cls_Public.Pers.Sp_AddParam("@ParameterName", System.Data.SqlDbType.NVarChar, ParameterName, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ParamaterTSQL", System.Data.SqlDbType.NVarChar, ParamaterTSQL, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@StationParameterId ", System.Data.SqlDbType.Int, StationParameterId, System.Data.ParameterDirection.Input);
+
+            Cls_Public.Pers.Sp_Exe("Sp_UpdateStationParameters", Cls_Public.CnnStr, false);
+
+            Cls_Public.Pers.ClearParameter();
+
+        }
+
+
+
         public void Delete(int StationId)
         {
             Cls_Public.Pers.ClearParameter();

@@ -9,13 +9,39 @@ using System.Windows.Forms;
 
 namespace PersianMIS.StationControl
 {
+
+
     public partial class Frm_CreateNewStation : Telerik.WinControls.UI.RadForm
     {
         BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
-        public Frm_CreateNewStation()
+        private Boolean IsEditable = false;
+        private string ListOfStations = "";
+        DataTable Dt = new DataTable();
+        public Frm_CreateNewStation(Boolean Editable, string StationId)
         {
             InitializeComponent();
+            IsEditable = Editable;
+            ListOfStations = StationId;
+            EditData();
         }
+
+        private void EditData()
+        {
+            if (IsEditable)
+            {
+                Dt = Bll_Station.GetClientData(ListOfStations);
+                Txt_StationCaption.Text = Dt.DefaultView[0]["StationName"].ToString();
+                Txt_StationPulsCount.Text = Dt.Rows.Count.ToString();
+                Btn_CreateStep1_Click(null, null);
+                for (int i = 0; i <= Dt.Rows.Count; i++)
+                {
+                    Cmb_SelectStation.SelectedItem = i;
+
+                }
+
+            }
+        }
+
 
         private void Txt_StationPulsCount_ValueChanged(object sender, EventArgs e)
         {
@@ -65,13 +91,34 @@ namespace PersianMIS.StationControl
 
             for (int i = 1; i <= Txt_StationPulsCount.Value; i++)
             {
-                CreatePulsParameterUserControl NewPulsParameterUC = new CreatePulsParameterUserControl();
+                CreatePulsParameterUserControl NewPulsParameterUC = new CreatePulsParameterUserControl(IsEditable);
 
                 NewPulsParameterUC.Tag = i;
                 NewPulsParameterUC.Name = i.ToString();
                 NewPulsParameterUC.Visible = false;
                 NewPulsParameterUC.ParameterID.Text = i.ToString();
+                if (IsEditable)
+                {
+                    if (i - 1 < Dt.Rows.Count)
+                    {
+                        NewPulsParameterUC.TxtParameterCaptions.Text = Dt.DefaultView[i - 1]["ParameterName"].ToString();
+                        NewPulsParameterUC.ParameterStationId = int.Parse(Dt.DefaultView[i - 1]["StationParameterId"].ToString());
+
+                    }
+                    else
+                    {
+                        NewPulsParameterUC.ParameterStationId = 0;
+                        NewPulsParameterUC.StationId = int.Parse(ListOfStations);
+                    }
+                }
+
                 MainPnl.Controls.Add(NewPulsParameterUC);
+
+            }
+
+            if (IsEditable)
+            {
+                Btn_GotoStep3.Text = "اتمام";
 
             }
             Btn_Step2.Image = global::PersianMIS.Properties.Resources.Step2Ok;
@@ -101,7 +148,7 @@ namespace PersianMIS.StationControl
 
         private void Btn_GotoStpe4_Click(object sender, EventArgs e)
         {
-          int LastNewStationId=  Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
+            int LastNewStationId = Bll_Station.Insert(Txt_StationCaption.Text, (int)Txt_StationPulsCount.Value);
 
             foreach (Control x in MainPnl.Controls)
             {
@@ -115,7 +162,7 @@ namespace PersianMIS.StationControl
             }
 
 
-                PnlStep1.Visible = false;
+            PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;
             Pnl_Step3.Visible = false;
             Pnl_Step4.Visible = true;
@@ -125,6 +172,10 @@ namespace PersianMIS.StationControl
 
         private void Btn_GotoStep3_Click(object sender, EventArgs e)
         {
+            if (IsEditable)
+            {
+                this.Close();
+            }
             Btn_Step3.Image = global::PersianMIS.Properties.Resources.Step3Ok;
             PnlStep1.Visible = false;
             Pnl_Step2.Visible = false;

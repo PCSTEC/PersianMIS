@@ -69,5 +69,13 @@ namespace PersianMIS.StationControl
                 FillDg();
             }
         }
+
+        private void Btn_EditFormula_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            Form frm = new Frm_CreateNewStation(true, Grd_ListOfStation.CurrentRow.Cells["stationid"].Value.ToString());
+            frm.ShowDialog();
+            this.Cursor = Cursors.Arrow ;
+        }
     }
 }

@@ -13,11 +13,32 @@ namespace PersianMIS.StationControl
     {
         private CreateNewParameterFromulaWithReturnTSQLUserControl Uc = new CreateNewParameterFromulaWithReturnTSQLUserControl();
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
-
-        public CreatePulsParameterUserControl()
+        BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
+        private Boolean ISEditdatable = false;
+        string parameterid;
+        public CreatePulsParameterUserControl(Boolean IsEdit)
         {
             InitializeComponent();
+            ISEditdatable = IsEdit;
+
         }
+
+
+
+        private int parameterStationId;
+        public int ParameterStationId
+        {
+            get { return parameterStationId; }
+            set { parameterStationId = value; }
+        }
+
+        private int stationId;
+        public int StationId
+        {
+            get { return stationId; }
+            set { stationId = value; }
+        }
+
 
 
         public Label ParameterID
@@ -27,10 +48,24 @@ namespace PersianMIS.StationControl
 
         }
 
+        public Telerik.WinControls.UI.RadTextBox TxtParameterCaptions
+        {
+            get { return Txt_ParamteterCaption; }
 
+
+        }
+
+        public Telerik.WinControls.UI.RadButton Btn_CreateTSQl
+        {
+            get
+            {
+                return Btn_CreateTSQL;
+            }
+        }
 
         private Panel NewStepPanel(String ID)
         {
+
             DevComponents.Editors.ComboItem comboItem1 = new DevComponents.Editors.ComboItem();
             DevComponents.Editors.ComboItem comboItem2 = new DevComponents.Editors.ComboItem();
             DevComponents.Editors.ComboItem comboItem3 = new DevComponents.Editors.ComboItem();
@@ -247,6 +282,14 @@ namespace PersianMIS.StationControl
 
         private void Btn_CreateTSQL_Click(object sender, EventArgs e)
         {
+
+            if (ISEditdatable)
+            {
+                if (MessageBox.Show("آیا از ویرایش کد ایجاد شده مطمن هستید؟", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+            }
             try
             {
                 if (Txt_ParamteterCaption.Text == "")
@@ -257,6 +300,17 @@ namespace PersianMIS.StationControl
                 string TSQL = GenerateTSQL();
                 Bll_Public.GetDataTableFromTSQL(TSQL);
                 ParameterID.Tag = TSQL;
+                if (ISEditdatable)
+                {
+                    if (parameterStationId < 1)
+                    {
+                        Bll_Station.InsertStationParameters(Txt_ParamteterCaption.Text, TSQL, stationId);
+                    }
+                    else
+                    {
+                        Bll_Station.UpdateStationParameters(Txt_ParamteterCaption.Text, TSQL, parameterStationId);
+                    }
+                }
                 MessageBox.Show("عملیات با موفقیت انجام گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -276,6 +330,16 @@ namespace PersianMIS.StationControl
                 var result = dialog.ShowDialog();
             }
 
+        }
+
+        private void Btn_delete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("آیا از حذف پارامتر ایجاد شده مطمن هستید؟", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Bll_Public.DeleteRecord("SP_DeleteStationParameters", "StationParameterId", parameterStationId.ToString());
+                MessageBox.Show("عملیات با موفقیت انجام گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

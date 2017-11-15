@@ -40,6 +40,7 @@
             this.Btn_Delete = new Telerik.WinControls.UI.RadButton();
             this.Btn_Update = new Telerik.WinControls.UI.RadButton();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.Btn_EditFormula = new Telerik.WinControls.UI.RadButton();
             this.ManGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfStation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfStation.MasterTemplate)).BeginInit();
@@ -48,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Delete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Update)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_EditFormula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +151,7 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.Btn_EditFormula);
             this.groupPanel2.Controls.Add(this.Btn_Delete);
             this.groupPanel2.Controls.Add(this.Btn_Update);
             this.groupPanel2.Location = new System.Drawing.Point(3, 64);
@@ -180,9 +183,9 @@
             // 
             this.Btn_Delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Delete.Image = global::PersianMIS.Properties.Resources.Delete_OK;
-            this.Btn_Delete.Location = new System.Drawing.Point(31, 3);
+            this.Btn_Delete.Location = new System.Drawing.Point(114, 3);
             this.Btn_Delete.Name = "Btn_Delete";
-            this.Btn_Delete.Size = new System.Drawing.Size(142, 33);
+            this.Btn_Delete.Size = new System.Drawing.Size(137, 33);
             this.Btn_Delete.TabIndex = 47;
             this.Btn_Delete.Text = "حذف اطلاعات";
             this.Btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
@@ -192,9 +195,9 @@
             this.Btn_Update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Update.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-            this.Btn_Update.Location = new System.Drawing.Point(220, 3);
+            this.Btn_Update.Location = new System.Drawing.Point(254, 3);
             this.Btn_Update.Name = "Btn_Update";
-            this.Btn_Update.Size = new System.Drawing.Size(128, 33);
+            this.Btn_Update.Size = new System.Drawing.Size(137, 33);
             this.Btn_Update.TabIndex = 46;
             this.Btn_Update.Text = "ویرایش اطلاعات";
             this.Btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
@@ -215,6 +218,17 @@
             this.radLabel1.TabIndex = 31;
             this.radLabel1.Text = "عنوان ایستگاه:";
             this.radLabel1.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Btn_EditFormula
+            // 
+            this.Btn_EditFormula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_EditFormula.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
+            this.Btn_EditFormula.Location = new System.Drawing.Point(3, 3);
+            this.Btn_EditFormula.Name = "Btn_EditFormula";
+            this.Btn_EditFormula.Size = new System.Drawing.Size(106, 33);
+            this.Btn_EditFormula.TabIndex = 48;
+            this.Btn_EditFormula.Text = "        ویرایش فرمول    ";
+            this.Btn_EditFormula.Click += new System.EventHandler(this.Btn_EditFormula_Click);
             // 
             // Frm_CreateStation
             // 
@@ -243,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Delete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Update)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_EditFormula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -257,5 +272,6 @@
         private Telerik.WinControls.UI.RadButton Btn_Update;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadGridView Grd_ListOfStation;
+        private Telerik.WinControls.UI.RadButton Btn_EditFormula;
     }
 }
