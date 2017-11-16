@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.donutShape1 = new Telerik.WinControls.Tests.DonutShape();
             this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
             this.customShape1 = new Telerik.WinControls.CustomShape(this.components);
@@ -94,6 +95,8 @@
             this.Btn_Settings = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_Personely = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.BtnPersonelyManage = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_Calander = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_Calendar = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_Minimized = new Telerik.WinControls.UI.RadToggleButtonElement();
             this.radButtonElement1 = new Telerik.WinControls.UI.RadButtonElement();
             this.Mnu_Exit = new Telerik.WinControls.UI.RadMenuItem();
@@ -206,10 +209,10 @@
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
             this.MainRibbonBar.TabIndex = 0;
-            this.MainRibbonBar.Text = "نرم افزار مدیریت خطوط تولید";
+            this.MainRibbonBar.Text = resources.GetString("MainRibbonBar.Text");
             this.MainRibbonBar.ThemeName = "ControlDefault";
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.MainRibbonBar.GetChildAt(0))).Image = null;
-            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.MainRibbonBar.GetChildAt(0))).Text = "نرم افزار مدیریت خطوط تولید";
+            ((Telerik.WinControls.UI.RadRibbonBarElement)(this.MainRibbonBar.GetChildAt(0))).Text = resources.GetString("resource.Text");
             ((Telerik.WinControls.UI.RadQuickAccessToolBar)(this.MainRibbonBar.GetChildAt(0).GetChildAt(2))).BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             ((Telerik.WinControls.UI.RadQuickAccessToolBar)(this.MainRibbonBar.GetChildAt(0).GetChildAt(2))).Image = null;
             ((Telerik.WinControls.UI.RadQuickAccessOverflowButton)(this.MainRibbonBar.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Image = null;
@@ -257,7 +260,6 @@
             this.Btn_AllLineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_AllLineState.Name = "Btn_AllLineState";
             this.Btn_AllLineState.Text = "";
-            this.Btn_AllLineState.Click += new System.EventHandler(this.Btn_AllLineState_Click);
             // 
             // Tab_Control
             // 
@@ -566,7 +568,8 @@
             this.Btn_defineProductLinesBorder,
             this.Btn_CalcDuration,
             this.Btn_SettingsBorder,
-            this.Btn_Personely});
+            this.Btn_Personely,
+            this.Btn_Calander});
             this.Tab_Setting.Name = "Tab_Setting";
             this.Tab_Setting.Text = "تنظیمات سیستم";
             this.Tab_Setting.Click += new System.EventHandler(this.Tab_Setting_Click);
@@ -625,7 +628,6 @@
             this.Btn_CalcDurations.Text = "";
             this.Btn_CalcDurations.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.Btn_CalcDurations.TextOrientation = System.Windows.Forms.Orientation.Horizontal;
-            this.Btn_CalcDurations.Click += new System.EventHandler(this.Btn_CalcDurations_Click);
             // 
             // Btn_SettingsBorder
             // 
@@ -663,6 +665,25 @@
             this.BtnPersonelyManage.Text = "";
             this.BtnPersonelyManage.TextOrientation = System.Windows.Forms.Orientation.Horizontal;
             this.BtnPersonelyManage.Click += new System.EventHandler(this.BtnPersonelyManage_Click);
+            // 
+            // Btn_Calander
+            // 
+            this.Btn_Calander.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_Calendar});
+            this.Btn_Calander.Name = "Btn_Calander";
+            this.Btn_Calander.Text = "تنظیمات تقویم";
+            // 
+            // Btn_Calendar
+            // 
+            this.Btn_Calendar.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_Calendar.AutoSize = false;
+            this.Btn_Calendar.Bounds = new System.Drawing.Rectangle(0, 0, 100, 62);
+            this.Btn_Calendar.Image = global::PersianMIS.Properties.Resources.calander;
+            this.Btn_Calendar.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_Calendar.Name = "Btn_Calendar";
+            this.Btn_Calendar.Text = "";
+            this.Btn_Calendar.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_Calendar.Click += new System.EventHandler(this.Btn_Calendar_Click);
             // 
             // Btn_Minimized
             // 
@@ -730,7 +751,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "نرم افزار مدیریت خطوط تولید";
+            this.Text = resources.GetString("$this.Text");
             this.ThemeName = "Windows8";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
@@ -816,5 +837,7 @@
         private Telerik.WinControls.UI.RadButtonElement radButtonElement3;
         private Telerik.WinControls.UI.RadButtonElement BtnPersonelyManage;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement4;
+        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_Calander;
+        private Telerik.WinControls.UI.RadButtonElement Btn_Calendar;
     }
 }

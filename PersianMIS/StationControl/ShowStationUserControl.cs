@@ -66,23 +66,6 @@ namespace PersianMIS.StationControl
             System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
-            //BLL.Cls_PublicOperations.Dt = Bll_Stations.GetClientData(ListOfStations);
-
-            //if (BLL.Cls_PublicOperations.Dt.Rows.Count > 0)
-            //{
-            //    MainPnl.Controls.Clear();
-            //    for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
-            //    {
-            //        StationControl.StationUserControl UcShowStation = new StationUserControl();
-            //        UcShowStation.Tag = BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationid"].ToString();
-            //        UcShowStation.TitleBar.Text= BLL.Cls_PublicOperations.Dt.DefaultView[i]["stationName"].ToString();
-            //        UcShowStation.MiladiStartDate = startdate;
-            //        UcShowStation.MiladiiEndDate = enddate;
-            //        MainPnl.Controls.Add(UcShowStation);
-
-            //    }
-
-            //}
 
 
 
@@ -131,76 +114,7 @@ namespace PersianMIS.StationControl
 
 
 
-        private void FillLastData()
-        {
-            //BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetLastStateOfDeviceLineData();
-            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            //{
-            //    try
-            //    {
-
-
-            //        var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
-
-            //        if (coordinates.Item1 == -1) //New Event In Device Line Id 
-            //        {
-            //            LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
-            //            LastApprochmentInfo[ExtensionMethods.NewIndex, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
-
-            //            int totalHours;
-
-
-            //            this.radScheduler1.Backgrounds.Add(new AppointmentBackgroundInfo(this.radScheduler1.Backgrounds.Count + 1, "test", Color.FromArgb(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString()))));
-
-            //            totalHours = 0;
-
-            //            totalHours = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["duration"].ToString()); // (DateTime.Parse(dt.DefaultView[i]["MiladiFinishDateTime"].ToString()) - DateTime.Parse(dt.DefaultView[i]["MiladiStartDateTime"].ToString())).TotalSeconds;
-
-            //            DateTime Start = new DateTime();
-            //            DateTime end = new DateTime();
-            //            Start = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //            end = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-
-
-
-
-            //            Appointment app = new Appointment(Start.AddSeconds(1), end, (Math.Round((double)totalHours / 60)).ToString());
-
-            //            app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
-
-
-
-            //            app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["id"].ToString()).Id;
-
-            //            app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
-
-            //            if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["color"].ToString() == "16777215")
-            //            {
-            //                app.Visible = false;
-            //            }
-            //            this.radScheduler1.Appointments.Add(app);
-
-
-
-            //        }
-            //        else
-            //        {
-            //            var z = radScheduler1.Appointments.FindIndex(n => n.StatusId == Convert.ToInt32(LastApprochmentInfo[coordinates.Item1, 1].ToString()));
-            //            radScheduler1.Appointments[z].Summary = (Math.Round((double)Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Duration"].ToString()) / 60)).ToString();
-
-            //            radScheduler1.Appointments[z].Start = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"];
-            //            radScheduler1.Appointments[z].End = (DateTime)BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"];
-
-            //        }
-            //    }
-            //    catch (Exception E)
-            //    {
-            //        MessageBox.Show(E.ToString());
-            //    }
-
-            //    }
-        }
-
+  
 
  
 

@@ -303,7 +303,7 @@ Public Class frmPRSMainChart
             End If
         End If
     End Sub
-    Private Sub œ—ÃÅ” ToolStripMenuItem_Click(ByVal e As System.EventArgs, ByVal sender As System.Object) Handles œ—ÃÅ” ToolStripMenuItem.Click
+    Private Sub œ—ÃÅ” ToolStripMenuItem_Click(ByVal e As System.EventArgs, ByVal sender As System.Object)
         If TrvOrganChart.SelectedNode.Tag = "0" Then
             MsgBox("„Ã«“ »Â œ—Ã Å”  »—«Ì «Ì‰ ‘«ŒÂ ‰„Ì »«‘Ìœ", MsgBoxStyle.Information, "")
             Exit Sub

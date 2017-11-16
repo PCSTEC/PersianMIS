@@ -1,6 +1,6 @@
 
 Module mdlHResorce
-    Public ConString As String = "Data Source=pcstecserver\\personely;Initial Catalog=PCSTEC;User ID=sa;password=afarinesh "
+    Public ConString As String = "Data Source=PCSTECSERVER\PCSTECSERVER;Initial Catalog=Personely;User ID=sa;password=afarinesh"
 
     ''' Public ConString As String = "packet size=4096;integrated security=SSPI;data source=SQLSRV;persist security info=False;initial catalog=Personely"
     Friend Persist1 As New Persistent.DataAccess.DataAccess

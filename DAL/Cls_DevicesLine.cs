@@ -142,6 +142,15 @@ namespace DAL
             return Cls_Public.PublicDT;
         }
 
+
+        public DataTable GetAllResourceForShowSummeryCurrentState(string ListOfProductLines)
+        {
+            Cls_Public.SqlStr = "select * from Vw_Resources  where ActiveLineForShowGroup =1 and ProductLineId  IN (SELECT * FROM dbo.CSVToTable(" + ListOfProductLines + "))";
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+        }
+
+
         public DataTable GetLastStateOfDeviceLineData()
         {
             Cls_Public.SqlStr = "select * from GetLastStateOfDeviceLineData()  ";

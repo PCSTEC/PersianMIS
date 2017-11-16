@@ -252,6 +252,11 @@ namespace PersianMIS.StationControl
             }
         }
 
+        private void BtnClosed_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
+        {
+            this.Hide();
+
+        }
 
         private void StationUserControl_Load(object sender, EventArgs e)
         {

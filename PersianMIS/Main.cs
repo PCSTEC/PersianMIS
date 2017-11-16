@@ -10,15 +10,16 @@ using FarsiLibrary;
 using FarsiLibrary.Utils;
 using Telerik.WinControls.UI;
 using IraniDate.IraniDate;
- 
+
 using System.Diagnostics;
+using System.IO;
 
 namespace PersianMIS
 {
     public partial class Main : Telerik.WinControls.UI.RadForm
     {
         #region "Public Variable"
-
+        BLL.Cls_PublicOperations Bll_PublicOperations = new BLL.Cls_PublicOperations();
         IraniDate.IraniDate.IraniDate CurrentDate = new IraniDate.IraniDate.IraniDate();
         BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
         BLL.Cls_GetData Bll_GetData = new BLL.Cls_GetData();
@@ -88,12 +89,44 @@ namespace PersianMIS
 
                 if (Dlg.ShowDialog() == DialogResult.OK)
                 {
-                    Pnl_Main.BackgroundImage = new Bitmap(Dlg.FileName);
-                    Pnl_Main.BackgroundImageLayout = ImageLayout.Stretch;
+
+                   if( Bll_PublicOperations.InsertBackgroundImage(Dlg.FileName, "All"))
+                    {
+                        MessageBox.Show("تصویر مورد نظر با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetbackgroundImage("All");
+                    }
+                    else
+                    {
+                        MessageBox.Show("در ثبت تصویر مشکلی وجود دارد ، لطفا مجدد تلاش نمایید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+
+                   
+
+
                 }
             }
         }
 
+        private void GetbackgroundImage (string UserId)
+        {
+             
+            MemoryStream x = new MemoryStream ();
+
+            if (this.IsDisposed)
+            {
+                throw new ObjectDisposedException(MemoryStream,Bll_PublicOperations.GetBackgroundImagesFromDatabase(UserId).CopyTo(x));
+            }
+            c
+         
+
+           
+            
+       var  img = Bitmap.FromStream( x );
+          //  Pnl_Main.BackgroundImage =img;
+            Pnl_Main.BackgroundImageLayout = ImageLayout.Stretch;
+
+        }
 
         private void Tab_Control_Click(object sender, EventArgs e)
         {
@@ -134,22 +167,23 @@ namespace PersianMIS
 
         private void Btn_AllStation_Click(object sender, EventArgs e)
         {
-            //    ShowStations(false);
+            GetbackgroundImage("All");
 
-
-            this.Cursor = Cursors.WaitCursor ;
+            this.Cursor = Cursors.WaitCursor;
             var Pnl = new StationControl.ShowStationUserControl();
             Pnl_Main.Controls.Clear();
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
-             Pnl_Main.Controls.Add(Pnl);
+            Pnl_Main.Controls.Add(Pnl);
 
             this.Cursor = Cursors.Default;
         }
 
-      
+
         private void CloseStation(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
+
             DevComponents.DotNetBar.BubbleButton SelectedValue = (DevComponents.DotNetBar.BubbleButton)sender;
             foreach (Control item in Pnl_Main.Controls)
             {
@@ -165,13 +199,15 @@ namespace PersianMIS
 
         private void Btn_AddStation_Click(object sender, EventArgs e)
         {
-            
-            RadForm Frm = new StationControl.Frm_CreateNewStation(false,"");
+            GetbackgroundImage("All");
+
+            RadForm Frm = new StationControl.Frm_CreateNewStation(false, "");
             Frm.ShowDialog();
         }
 
         private void Btn_EditStationInfo_Click(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
             RadForm Frm = new StationControl.Frm_CreateStation(true);
 
             Frm.ShowDialog();
@@ -179,7 +215,7 @@ namespace PersianMIS
 
         private void Btn_ShowALlStationOnSpecialLine_Click(object sender, EventArgs e)
         {
-
+            GetbackgroundImage("All");
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new StationControl.ShowStationUserControl();
             Pnl_Main.Controls.Clear();
@@ -193,7 +229,7 @@ namespace PersianMIS
         private void Btn_FullScreen_Click(object sender, EventArgs e)
         {
 
-
+            GetbackgroundImage("All");
 
             MainRibbonBar.Visible = false;
 
@@ -202,7 +238,7 @@ namespace PersianMIS
 
         private void Btn_OutOfFullScreen_Click(object sender, EventArgs e)
         {
-
+            GetbackgroundImage("All");
             MainRibbonBar.Visible = true;
 
         }
@@ -218,35 +254,8 @@ namespace PersianMIS
 
         private void Btn_LineState_Click(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
             this.Cursor = Cursors.WaitCursor;
-            //double totalHours;
-            //BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
-            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            //{
-            //    DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //    DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-
-
-            //    totalHours = (EndDate - FirstDate).TotalSeconds;
-            //    Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-            //}
-
-
-            //BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
-            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            //{
-            //    DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //    DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-            //    totalHours = (EndDate - FirstDate).TotalSeconds;
-
-
-
-            //    Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-            //}
-
-
-
-
             var Pnl = new CurrentState.UCShowCurrentState();
             Pnl_Main.Controls.Clear();
             Pnl.Width = Pnl_Main.Width - 18;
@@ -259,45 +268,10 @@ namespace PersianMIS
 
         }
 
-        private void Btn_CalcDurations_Click(object sender, EventArgs e)
-        {
-            // this.Cursor = Cursors.WaitCursor;
-            // double totalHours;
-            // BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
-            //for (int i=0; i<= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            // {
-            //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-
-
-            //     totalHours = (EndDate - FirstDate).TotalSeconds;
-            //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-            // }
-
-
-            // BLL.Cls_PublicOperations.Dt = Bll_Client.Get1000RecordOfCientData();
-            // for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            // {
-            //     DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //     DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-            //     totalHours = (EndDate - FirstDate).TotalSeconds;
-
-
-
-            //     Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-            // }
-
-
-
-
-
-            // this.Cursor = Cursors.Default  ;
-            // MessageBox.Show(" بانک اطلاعات کارکرد دستگاه ها بروز رسانی گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
-
-        }
 
         private void Pnl_Main_Resize(object sender, EventArgs e)
         {
+
             if (Pnl_Main.Controls.Count == 1)
             {
                 Pnl_Main.Controls[0].Width = Pnl_Main.Width - 18;
@@ -313,30 +287,35 @@ namespace PersianMIS
 
         }
 
-        private void Btn_AllLineState_Click(object sender, EventArgs e)
-        {
-         
- 
-        }
-
         private void BtnPersonelyManage_Click(object sender, EventArgs e)
         {
-
+            GetbackgroundImage("All");
             Process proc = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath)+ "\\personely\\wappPersonely.exe",
+                    FileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\personely\\wappPersonely.exe",
 
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     CreateNoWindow = true
-                } 
-            
-        };
+                }
+
+            };
             proc.Start();
 
         }
 
+        private void Btn_Calendar_Click(object sender, EventArgs e)
+        {
+            GetbackgroundImage("All");
+            calendar.Frm_MainCalendar frm = new calendar.Frm_MainCalendar();
+            frm.ShowDialog();
+
+
+
+
+
+        }
     }
 }

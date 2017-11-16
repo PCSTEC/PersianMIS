@@ -34,7 +34,6 @@
             this.TopPnl = new DevComponents.DotNetBar.PanelEx();
             this.BBManage = new DevComponents.DotNetBar.BubbleBar();
             this.BubbleBarTab2 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
-            this.BubbleButton8 = new DevComponents.DotNetBar.BubbleButton();
             this.BtnClosed = new DevComponents.DotNetBar.BubbleButton();
             this.Pnl_State = new System.Windows.Forms.Panel();
             this.Lbl_ParameterCaption = new System.Windows.Forms.Label();
@@ -88,7 +87,7 @@
             this.BBManage.ForeColor = System.Drawing.Color.Transparent;
             this.BBManage.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.BBManage.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.BBManage.Location = new System.Drawing.Point(298, -9);
+            this.BBManage.Location = new System.Drawing.Point(329, -9);
             this.BBManage.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.BBManage.Name = "BBManage";
             this.BBManage.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -96,7 +95,7 @@
             this.BBManage.SelectedTabColors.BackColor = System.Drawing.Color.Transparent;
             this.BBManage.SelectedTabColors.BackColor2 = System.Drawing.Color.Transparent;
             this.BBManage.SelectedTabColors.BorderColor = System.Drawing.Color.Black;
-            this.BBManage.Size = new System.Drawing.Size(123, 54);
+            this.BBManage.Size = new System.Drawing.Size(92, 54);
             this.BBManage.TabIndex = 15;
             this.BBManage.Tabs.Add(this.BubbleBarTab2);
             this.BBManage.TooltipOutlineColor = System.Drawing.Color.Transparent;
@@ -107,7 +106,6 @@
             this.BubbleBarTab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
             this.BubbleBarTab2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
             this.BubbleBarTab2.Buttons.AddRange(new DevComponents.DotNetBar.BubbleButton[] {
-            this.BubbleButton8,
             this.BtnClosed});
             this.BubbleBarTab2.DarkBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.BubbleBarTab2.LightBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -116,19 +114,13 @@
             this.BubbleBarTab2.Text = "";
             this.BubbleBarTab2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(98)))), ((int)(((byte)(166)))));
             // 
-            // BubbleButton8
-            // 
-            this.BubbleButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BubbleButton8.Image = ((System.Drawing.Image)(resources.GetObject("BubbleButton8.Image")));
-            this.BubbleButton8.ImageLarge = ((System.Drawing.Image)(resources.GetObject("BubbleButton8.ImageLarge")));
-            this.BubbleButton8.Name = "BubbleButton8";
-            // 
             // BtnClosed
             // 
             this.BtnClosed.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnClosed.Image = ((System.Drawing.Image)(resources.GetObject("BtnClosed.Image")));
             this.BtnClosed.ImageLarge = ((System.Drawing.Image)(resources.GetObject("BtnClosed.ImageLarge")));
             this.BtnClosed.Name = "BtnClosed";
+            this.BtnClosed.Click += new DevComponents.DotNetBar.ClickEventHandler(this.BtnClosed_Click);
             // 
             // Pnl_State
             // 
@@ -200,7 +192,6 @@
         private DevComponents.DotNetBar.PanelEx TopPnl;
         internal DevComponents.DotNetBar.BubbleBar BBManage;
         internal DevComponents.DotNetBar.BubbleBarTab BubbleBarTab2;
-        internal DevComponents.DotNetBar.BubbleButton BubbleButton8;
         internal DevComponents.DotNetBar.BubbleButton BtnClosed;
         private System.Windows.Forms.Panel Pnl_State;
         private System.Windows.Forms.Label Lbl_ParameterDesc;

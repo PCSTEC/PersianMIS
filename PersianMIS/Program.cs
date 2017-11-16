@@ -16,10 +16,12 @@ namespace PersianMIS
         [STAThread]
         static void Main()
         {
-            ChangeCulture();
+           
+ ChangeCulture();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
+            
         }
 
         public  static void ChangeCulture()

@@ -203,6 +203,7 @@
     <Compile Include="Public Class\CustomSchedulerLocalizationProvider.cs" />
     <Compile Include="Public Class\CustomSchedulerNavigatorLocalizationProvider.cs" />
     <Compile Include="Public Class\PersianCulture.cs" />
+    <Compile Include="Public Class\WorkWithImages.cs" />
     <Compile Include="State\SampleState.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -486,6 +487,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\calander.png" />
+    <None Include="Resources\calander1.png" />
     <None Include="Resources\Business Man Blue1.png" />
     <None Include="Resources\Business Man Blue.png" />
     <None Include="Resources\complete.png" />
@@ -547,6 +550,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{d54988e7-f74a-4962-9813-ace9a3f92a2f}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\calendar\calendar.csproj">
+      <Project>{6fa6b822-b5c9-4e0f-830f-f58f421ed702}</Project>
+      <Name>calendar</Name>
     </ProjectReference>
     <ProjectReference Include="..\IraniDate\IraniDate\IraniDate.vbproj">
       <Project>{9224a64c-06a9-4d77-9545-e282a3022aab}</Project>

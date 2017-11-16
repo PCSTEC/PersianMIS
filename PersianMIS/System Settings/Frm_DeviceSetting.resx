@@ -271,12 +271,6 @@
         yA5kE7mlE1Iz/N0Y7D+waht0MCkjsgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="CPE_SelectDeActiveLineColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="CPE_SelectActiveLineColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 17</value>
-  </metadata>
   <data name="Btn_RefreshPorts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAcCAYAAACUJBTQAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

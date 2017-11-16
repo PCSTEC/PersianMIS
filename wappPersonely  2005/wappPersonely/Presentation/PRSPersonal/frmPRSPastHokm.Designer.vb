@@ -22,6 +22,7 @@ Partial Class frmPRSPastHokm
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPRSPastHokm))
         Me.UiGroupBox1 = New Janus.Windows.EditControls.UIGroupBox
+        Me.savbegh = New Janus.Windows.EditControls.UIButton
         Me.btnDeletHokm = New Janus.Windows.EditControls.UIButton
         Me.JGrade1 = New JFrameWork.jGrade
         Me.btnGhararadadPrint = New Janus.Windows.EditControls.UIButton
@@ -35,10 +36,9 @@ Partial Class frmPRSPastHokm
         Me.btnPrint = New Janus.Windows.EditControls.UIButton
         Me.grdEmployee = New Janus.Windows.GridEX.GridEX
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        ç«ÅÕﬂ„ToolStripMenuItem = New ToolStripMenuItem
+        Me.Mnu_PrintHokm = New System.Windows.Forms.ToolStripMenuItem
         Me.ç«Åﬁ—«—œ«œToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.mnudelHokm = New System.Windows.Forms.ToolStripMenuItem
-        Me.savbegh = New Janus.Windows.EditControls.UIButton
         CType(Me.UiGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UiGroupBox1.SuspendLayout()
         CType(Me.UiGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +65,17 @@ Partial Class frmPRSPastHokm
         Me.UiGroupBox1.Size = New System.Drawing.Size(721, 573)
         Me.UiGroupBox1.TabIndex = 0
         Me.UiGroupBox1.VisualStyle = Janus.Windows.UI.Dock.PanelVisualStyle.Office2003
+        '
+        'savbegh
+        '
+        Me.savbegh.Icon = CType(resources.GetObject("savbegh.Icon"), System.Drawing.Icon)
+        Me.savbegh.Location = New System.Drawing.Point(166, 544)
+        Me.savbegh.Name = "savbegh"
+        Me.savbegh.Size = New System.Drawing.Size(124, 27)
+        Me.savbegh.TabIndex = 5
+        Me.savbegh.Tag = ""
+        Me.savbegh.Text = "ç«Å ”Ê«»ﬁ Õﬂ„"
+        Me.savbegh.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003
         '
         'btnDeletHokm
         '
@@ -204,43 +215,32 @@ Partial Class frmPRSPastHokm
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ç«ÅÕﬂ„ToolStripMenuItem, Me.ç«Åﬁ—«—œ«œToolStripMenuItem, Me.mnudelHokm})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Mnu_PrintHokm, Me.ç«Åﬁ—«—œ«œToolStripMenuItem, Me.mnudelHokm})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(127, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 92)
         '
-        'ç«ÅÕﬂ„ToolStripMenuItem
+        'Mnu_PrintHokm
         '
-        Me.ç«ÅÕﬂ„ToolStripMenuItem.Image = CType(resources.GetObject("ç«ÅÕﬂ„ToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ç«ÅÕﬂ„ToolStripMenuItem.Name = "ç«ÅÕﬂ„ToolStripMenuItem"
-        Me.ç«ÅÕﬂ„ToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.ç«ÅÕﬂ„ToolStripMenuItem.Text = "ç«Å Õﬂ„"
+        Me.Mnu_PrintHokm.Image = CType(resources.GetObject("Mnu_PrintHokm.Image"), System.Drawing.Image)
+        Me.Mnu_PrintHokm.Name = "Mnu_PrintHokm"
+        Me.Mnu_PrintHokm.Size = New System.Drawing.Size(152, 22)
+        Me.Mnu_PrintHokm.Text = "ç«Å Õﬂ„"
         '
         'ç«Åﬁ—«—œ«œToolStripMenuItem
         '
         Me.ç«Åﬁ—«—œ«œToolStripMenuItem.Image = CType(resources.GetObject("ç«Åﬁ—«—œ«œToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ç«Åﬁ—«—œ«œToolStripMenuItem.Name = "ç«Åﬁ—«—œ«œToolStripMenuItem"
-        Me.ç«Åﬁ—«—œ«œToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ç«Åﬁ—«—œ«œToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ç«Åﬁ—«—œ«œToolStripMenuItem.Text = "ç«Å ﬁ—«—œ«œ"
         '
         'mnudelHokm
         '
         Me.mnudelHokm.Image = CType(resources.GetObject("mnudelHokm.Image"), System.Drawing.Image)
         Me.mnudelHokm.Name = "mnudelHokm"
-        Me.mnudelHokm.Size = New System.Drawing.Size(126, 22)
+        Me.mnudelHokm.Size = New System.Drawing.Size(152, 22)
         Me.mnudelHokm.Text = "Õ–› Õﬂ„"
         Me.mnudelHokm.Visible = False
-        '
-        'savbegh
-        '
-        Me.savbegh.Icon = CType(resources.GetObject("savbegh.Icon"), System.Drawing.Icon)
-        Me.savbegh.Location = New System.Drawing.Point(166, 544)
-        Me.savbegh.Name = "savbegh"
-        Me.savbegh.Size = New System.Drawing.Size(124, 27)
-        Me.savbegh.TabIndex = 5
-        Me.savbegh.Tag = ""
-        Me.savbegh.Text = "ç«Å ”Ê«»ﬁ Õﬂ„"
-        Me.savbegh.VisualStyle = Janus.Windows.UI.VisualStyle.Office2003
         '
         'frmPRSPastHokm
         '
@@ -271,7 +271,7 @@ Partial Class frmPRSPastHokm
     Friend WithEvents grdEmployee As Janus.Windows.GridEX.GridEX
     Friend WithEvents btnPrint As Janus.Windows.EditControls.UIButton
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents ç«ÅÕﬂ„ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Mnu_PrintHokm As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UiGroupBox2 As Janus.Windows.EditControls.UIGroupBox
     Friend WithEvents lblEngageDate As System.Windows.Forms.Label
     Friend WithEvents lblEngDate As System.Windows.Forms.Label

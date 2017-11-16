@@ -91,7 +91,7 @@ Public Class frmPRSPastHokm
         End If
     End Sub
 
-    Private Sub ç«ÅÕﬂ„ToolStripMenuItem_Click(ByVal e As System.EventArgs, ByVal sender As System.Object) Handles ç«ÅÕﬂ„ToolStripMenuItem.Click
+    Private Sub ç«ÅÕﬂ„ToolStripMenuItem_Click(ByVal e As System.EventArgs, ByVal sender As System.Object)
         Dim dt1 As New DataTable
         If grdEmployee.GetValue("EngageTypeID") = 1 Or grdEmployee.GetValue("EngageTypeID") = 2 Or grdEmployee.GetValue("EngageTypeID") = 5 Or grdEmployee.GetValue("EngageTypeID") = 11 Then
             Try

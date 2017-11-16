@@ -458,5 +458,18 @@ namespace PersianMIS.System_Settings
             Frm.ShowDialog();
             FillCmbProductLine();
         }
+
+        private void TreeViewDevice2_NodeMouseClick(object sender, RadTreeViewEventArgs e)
+        {
+            try
+            {
+                PublicDt = BLL_DeviceLine.GetDeviceLineById(Deviceid.ToString(), e.Node.Tag.ToString());
+                Fill_CreateDeviceLineItems(PublicDt);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

@@ -1574,6 +1574,7 @@
     <None Include="Resources\back2.jpg" />
     <None Include="Resources\back3.jpg" />
     <None Include="Resources\back4.jpg" />
+    <None Include="Resources\Personely.jpg" />
     <Content Include="users.ico" />
   </ItemGroup>
   <ItemGroup>

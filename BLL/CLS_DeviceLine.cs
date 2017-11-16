@@ -95,5 +95,10 @@ namespace BLL
             return DAL_DeviceLine.GetAllResource();
         }
 
+
+        public DataTable GetAllResourceForShowSummeryCurrentState(string LstOfProductLinesId)
+        {
+            return DAL_DeviceLine.GetAllResourceForShowSummeryCurrentState(LstOfProductLinesId);
+        }
     }
     }

@@ -915,7 +915,7 @@
             this.TreeViewDevice2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TreeViewDevice2.ForeColor = System.Drawing.Color.Black;
             this.TreeViewDevice2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(8)))), ((int)(((byte)(134)))));
-            this.TreeViewDevice2.Location = new System.Drawing.Point(430, 15);
+            this.TreeViewDevice2.Location = new System.Drawing.Point(419, 15);
             this.TreeViewDevice2.Name = "TreeViewDevice2";
             radTreeNode2.Expanded = true;
             radTreeNode2.Font = new System.Drawing.Font("B Titr", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -926,12 +926,13 @@
             radTreeNode2});
             this.TreeViewDevice2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TreeViewDevice2.ShowLines = true;
-            this.TreeViewDevice2.Size = new System.Drawing.Size(251, 340);
+            this.TreeViewDevice2.Size = new System.Drawing.Size(264, 340);
             this.TreeViewDevice2.SpacingBetweenNodes = -1;
             this.TreeViewDevice2.TabIndex = 19;
             this.TreeViewDevice2.Text = "radTreeView1";
             this.TreeViewDevice2.Visible = false;
             this.TreeViewDevice2.NodeMouseMove += new Telerik.WinControls.UI.RadTreeView.TreeViewMouseEventHandler(this.TreeViewDevice2_NodeMouseMove);
+            this.TreeViewDevice2.NodeMouseClick += new Telerik.WinControls.UI.RadTreeView.TreeViewEventHandler(this.TreeViewDevice2_NodeMouseClick);
             // 
             // Img_Device
             // 
