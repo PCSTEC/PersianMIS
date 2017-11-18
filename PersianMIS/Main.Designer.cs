@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.donutShape1 = new Telerik.WinControls.Tests.DonutShape();
             this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
-            this.customShape1 = new Telerik.WinControls.CustomShape(this.components);
+            this.customShape1 = new Telerik.WinControls.CustomShape();
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Lbl_CurrentTime = new Telerik.WinControls.UI.RadLabelElement();
-            this.MainTimer = new System.Windows.Forms.Timer(this.components);
+            this.MainTimer = new System.Windows.Forms.Timer();
             this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
@@ -263,7 +262,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,
@@ -562,7 +561,7 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = false;
+            this.Tab_Setting.IsSelected = true;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
@@ -736,6 +735,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1268, 865);
             this.ControlBox = false;
             this.Controls.Add(this.Pnl_Main);

@@ -10,7 +10,7 @@ using FarsiLibrary;
 using FarsiLibrary.Utils;
 using Telerik.WinControls.UI;
 using IraniDate.IraniDate;
-
+using Calendars;
 using System.Diagnostics;
 using System.IO;
 
@@ -90,10 +90,12 @@ namespace PersianMIS
                 if (Dlg.ShowDialog() == DialogResult.OK)
                 {
 
-                   if( Bll_PublicOperations.InsertBackgroundImage(Dlg.FileName, "All"))
+                    if (Bll_PublicOperations.InsertBackgroundImage(Dlg.FileName, "All"))
                     {
                         MessageBox.Show("تصویر مورد نظر با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       Pnl_Main.Controls.Clear();
                         GetbackgroundImage("All");
+                      
                     }
                     else
                     {
@@ -101,30 +103,39 @@ namespace PersianMIS
 
                     }
 
-                   
+
 
 
                 }
             }
         }
 
-        private void GetbackgroundImage (string UserId)
+        private void GetbackgroundImage(string UserId)
         {
-             
-            MemoryStream x = new MemoryStream ();
-
-            if (this.IsDisposed)
-            {
-                throw new ObjectDisposedException(MemoryStream,Bll_PublicOperations.GetBackgroundImagesFromDatabase(UserId).CopyTo(x));
-            }
-            c
-         
-
-           
             
-       var  img = Bitmap.FromStream( x );
-          //  Pnl_Main.BackgroundImage =img;
-            Pnl_Main.BackgroundImageLayout = ImageLayout.Stretch;
+
+            DataTable dt = new DataTable();
+
+            byte[] picData = Bll_PublicOperations.GetBackgroundImagesFromDatabase(UserId).DefaultView[0]["BackgroundImg"] as byte[] ?? null;
+
+            if (picData != null)
+            {
+                using (MemoryStream ms = new MemoryStream(picData))
+                {
+                    // Load the image from the memory stream. How you do it depends
+                    // on whether you're using Windows Forms or WPF.
+                    // For Windows Forms you could write:
+                    System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(ms);
+
+
+
+
+
+                    //  var  img = Bitmap.FromStream( x );
+                    Pnl_Main.BackgroundImage = bmp;
+                    Pnl_Main.BackgroundImageLayout = ImageLayout.Stretch;
+                }
+            }
 
         }
 
@@ -150,18 +161,23 @@ namespace PersianMIS
 
         private void Btn_DefineParameter_Click(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
+            Pnl_Main.Controls.Clear();
             RadForm Frm = new System_Settings.Frm_DeviceSetting();
             Frm.ShowDialog();
         }
 
         private void Btn_defineProductLines_Click(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
+            Pnl_Main.Controls.Clear();
             RadForm Frm = new System_Settings.Frm_ProductLine();
             Frm.ShowDialog();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
+            GetbackgroundImage("All");
             MoveGroupButtons(Tab_RunTime);
         }
 
@@ -200,6 +216,7 @@ namespace PersianMIS
         private void Btn_AddStation_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+            Pnl_Main.Controls.Clear();
 
             RadForm Frm = new StationControl.Frm_CreateNewStation(false, "");
             Frm.ShowDialog();
@@ -208,6 +225,7 @@ namespace PersianMIS
         private void Btn_EditStationInfo_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+            Pnl_Main.Controls.Clear();
             RadForm Frm = new StationControl.Frm_CreateStation(true);
 
             Frm.ShowDialog();
@@ -215,7 +233,7 @@ namespace PersianMIS
 
         private void Btn_ShowALlStationOnSpecialLine_Click(object sender, EventArgs e)
         {
-            GetbackgroundImage("All");
+            Pnl_Main.BackgroundImage = null;
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new StationControl.ShowStationUserControl();
             Pnl_Main.Controls.Clear();
@@ -229,7 +247,7 @@ namespace PersianMIS
         private void Btn_FullScreen_Click(object sender, EventArgs e)
         {
 
-            GetbackgroundImage("All");
+            
 
             MainRibbonBar.Visible = false;
 
@@ -238,7 +256,7 @@ namespace PersianMIS
 
         private void Btn_OutOfFullScreen_Click(object sender, EventArgs e)
         {
-            GetbackgroundImage("All");
+           
             MainRibbonBar.Visible = true;
 
         }
@@ -254,7 +272,8 @@ namespace PersianMIS
 
         private void Btn_LineState_Click(object sender, EventArgs e)
         {
-            GetbackgroundImage("All");
+            Pnl_Main.BackgroundImage = null;
+
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new CurrentState.UCShowCurrentState();
             Pnl_Main.Controls.Clear();
@@ -309,8 +328,10 @@ namespace PersianMIS
         private void Btn_Calendar_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
-            calendar.Frm_MainCalendar frm = new calendar.Frm_MainCalendar();
-            frm.ShowDialog();
+            Pnl_Main.Controls.Clear();
+
+            Calendars.Frm_MainCalendar frm = new Calendars.Frm_MainCalendar();
+             frm.ShowDialog();
 
 
 

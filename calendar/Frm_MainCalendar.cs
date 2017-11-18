@@ -16,5 +16,16 @@ namespace calendar
         {
             InitializeComponent();
         }
+
+        private void Mnu_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_DeclareCalendares_Click(object sender, EventArgs e)
+        {
+            Form frm = new Frm_DefineCalendar();
+            frm.ShowDialog();
+        }
     }
 }

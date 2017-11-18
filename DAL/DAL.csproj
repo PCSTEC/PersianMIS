@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="CoreCompat.System.Drawing, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0a7ed9c2333b592, processorArchitecture=MSIL">
       <HintPath>..\packages\CoreCompat.System.Drawing.1.0.0-beta006\lib\netstandard1.3\CoreCompat.System.Drawing.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
     <Reference Include="Persistent">

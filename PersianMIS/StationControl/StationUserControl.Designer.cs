@@ -53,7 +53,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
-            this.TopPnl.Size = new System.Drawing.Size(404, 44);
+            this.TopPnl.Size = new System.Drawing.Size(395, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.TopPnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -87,7 +87,7 @@
             this.BBManage.ForeColor = System.Drawing.Color.Transparent;
             this.BBManage.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.BBManage.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.BBManage.Location = new System.Drawing.Point(329, -9);
+            this.BBManage.Location = new System.Drawing.Point(320, -9);
             this.BBManage.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.BBManage.Name = "BBManage";
             this.BBManage.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -163,7 +163,7 @@
             // 
             this.Pnl_Main.Location = new System.Drawing.Point(14, 44);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(387, 428);
+            this.Pnl_Main.Size = new System.Drawing.Size(378, 428);
             this.Pnl_Main.TabIndex = 6;
             // 
             // StationUserControl
@@ -178,7 +178,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "StationUserControl";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(404, 475);
+            this.Size = new System.Drawing.Size(395, 475);
             this.Load += new System.EventHandler(this.StationUserControl_Load);
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).EndInit();

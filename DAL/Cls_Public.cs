@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
- 
+
 using System.Data;
 using Persistent.DataAccess;
 using System.Data.SqlClient;
 using System.IO;
-  
+
 namespace DAL
 {
     public static class Cls_Public
@@ -21,17 +21,31 @@ namespace DAL
 
         public static Boolean InsertBackgroundImgage(string ImgPath, string UserId)
         {
-           
+
             try
             {
+
+
+
                 byte[] imageData = ReadFile(ImgPath);
 
                 SqlConnection CN = new SqlConnection(CnnStr);
 
-            
-                string qry = "insert into Tb_Background (BackgroundUserId,BackgroundImg) values(@BackgroundUserId, @BackgroundImg)";
+                SqlStr = "select * from Tb_Background where BackgroundUserId='" + UserId+"'";
+                PublicDT = Pers.GetDataTable(CnnStr, SqlStr);
+                if (PublicDT.Rows.Count > 0)
+                {
+                    SqlStr = "update  Tb_Background  set  BackgroundImg= @BackgroundImg where BackgroundUserId=@BackgroundUserId ";
 
-                SqlCommand SqlCom = new SqlCommand(qry, CN);
+                }
+                else
+                {
+                    SqlStr = "insert into Tb_Background (BackgroundUserId,BackgroundImg) values(@BackgroundUserId, @BackgroundImg)";
+
+                }
+
+
+                SqlCommand SqlCom = new SqlCommand(SqlStr, CN);
 
                 SqlCom.Parameters.Add(new SqlParameter("@BackgroundUserId",
                                (object)UserId));
@@ -48,43 +62,16 @@ namespace DAL
 
         }
 
-        public static System.Drawing.Bitmap GetBackgroundImagesFromDatabase(string UserId)
+        public static DataTable GetBackgroundImagesFromDatabase(string UserId)
         {
-            MemoryStream ms = new MemoryStream();
-            try
-            {
-                
-                SqlConnection conn = new SqlConnection(CnnStr);
 
-                conn.Open();
 
-                SqlCommand cmd = new SqlCommand("Select * from Tb_Background where BackgroundUserId ='" + UserId + "'", conn);
-               
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        byte[] picData = reader["BackgroundImg"] as byte[] ?? null;
+            SqlStr = "Select * from Tb_Background where BackgroundUserId ='" + UserId + "'";
+            return Pers.GetDataTable(CnnStr, SqlStr);
 
-                        if (picData != null)
-                        {
-                            using (MemoryStream Data = new MemoryStream(picData))
-                            {
-                                
-                                
-                            }
-                        }
-                    }
-                }
-                return ms;
 
-            }
-            catch (Exception ex)
-            {
-                return ms;
-            }
 
- 
+
 
         }
 

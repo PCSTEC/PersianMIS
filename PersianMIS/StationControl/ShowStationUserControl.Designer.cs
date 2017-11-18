@@ -44,6 +44,7 @@
             this.printablePanel = new PersianMIS.CurrentState.PrintablePanel();
             this.MainPnl = new System.Windows.Forms.FlowLayoutPanel();
             this.radCollapsiblePanel2 = new Telerik.WinControls.UI.RadCollapsiblePanel();
+            this.LSTStations = new Telerik.WinControls.UI.RadCheckedListBox();
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
@@ -60,17 +61,16 @@
             this.radLabelElement2 = new Telerik.WinControls.UI.RadLabelElement();
             this.MskEndDate = new Telerik.WinControls.UI.RadDateTimePickerElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
-            this.LSTStations = new Telerik.WinControls.UI.RadCheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
             this.printablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).BeginInit();
             this.radCollapsiblePanel2.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).BeginInit();
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).BeginInit();
             this.SuspendLayout();
             // 
             // radButtonElement2
@@ -230,10 +230,12 @@
             // 
             // MainPnl
             // 
+            this.MainPnl.AutoScroll = true;
             this.MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPnl.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.MainPnl.Location = new System.Drawing.Point(0, 144);
             this.MainPnl.Name = "MainPnl";
+            this.MainPnl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MainPnl.Size = new System.Drawing.Size(686, 555);
             this.MainPnl.TabIndex = 14;
             // 
@@ -253,6 +255,21 @@
             this.radCollapsiblePanel2.Size = new System.Drawing.Size(280, 555);
             this.radCollapsiblePanel2.TabIndex = 13;
             this.radCollapsiblePanel2.Text = "radCollapsiblePanel2";
+            // 
+            // LSTStations
+            // 
+            this.LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LSTStations.GroupIndent = 14;
+            this.LSTStations.GroupItemSize = new System.Drawing.Size(109, 10);
+            this.LSTStations.HeaderHeight = 17.5F;
+            this.LSTStations.ItemSize = new System.Drawing.Size(109, 10);
+            this.LSTStations.Location = new System.Drawing.Point(0, 0);
+            this.LSTStations.Margin = new System.Windows.Forms.Padding(2);
+            this.LSTStations.Name = "LSTStations";
+            this.LSTStations.Size = new System.Drawing.Size(252, 553);
+            this.LSTStations.TabIndex = 0;
+            this.LSTStations.Text = "radCheckedListBox1";
+            this.LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
             // 
             // radCollapsiblePanel1
             // 
@@ -288,7 +305,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(964, 107);
+            this.radRibbonBar1.Size = new System.Drawing.Size(964, 115);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -399,7 +416,7 @@
             this.radLabelElement1,
             this.MskStartDate});
             this.radRibbonBarButtonGroup1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
             this.radRibbonBarButtonGroup1.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup1.ShowBackColor = false;
@@ -442,7 +459,7 @@
             this.radLabelElement2,
             this.MskEndDate});
             this.radRibbonBarButtonGroup2.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
             this.radRibbonBarButtonGroup2.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup2.ShowBackColor = false;
@@ -485,20 +502,11 @@
             this.ribbonTab2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.ribbonTab2.UseCompatibleTextRendering = false;
             // 
-            // LSTStations
-            // 
-            this.LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LSTStations.Location = new System.Drawing.Point(0, 0);
-            this.LSTStations.Name = "LSTStations";
-            this.LSTStations.Size = new System.Drawing.Size(252, 553);
-            this.LSTStations.TabIndex = 0;
-            this.LSTStations.Text = "radCheckedListBox1";
-            this.LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
-            // 
             // ShowStationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.printablePanel);
             this.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -511,12 +519,12 @@
             this.radCollapsiblePanel2.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel2)).EndInit();
             this.radCollapsiblePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).EndInit();
             this.radCollapsiblePanel1.PanelContainer.ResumeLayout(false);
             this.radCollapsiblePanel1.PanelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
             this.radCollapsiblePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LSTStations)).EndInit();
             this.ResumeLayout(false);
 
         }

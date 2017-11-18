@@ -412,10 +412,10 @@
             // 
             this.MainStatusBar.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Lbl_CurrentTime});
-            this.MainStatusBar.Location = new System.Drawing.Point(0, 773);
+            this.MainStatusBar.Location = new System.Drawing.Point(0, 745);
             this.MainStatusBar.Name = "MainStatusBar";
             this.MainStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainStatusBar.Size = new System.Drawing.Size(936, 24);
+            this.MainStatusBar.Size = new System.Drawing.Size(908, 24);
             this.MainStatusBar.TabIndex = 4;
             this.MainStatusBar.Text = "radStatusStrip1";
             // 
@@ -432,7 +432,7 @@
             this.Pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pnl_Main.Location = new System.Drawing.Point(0, 0);
             this.Pnl_Main.Name = "Pnl_Main";
-            this.Pnl_Main.Size = new System.Drawing.Size(936, 797);
+            this.Pnl_Main.Size = new System.Drawing.Size(908, 769);
             this.Pnl_Main.TabIndex = 5;
             // 
             // MainRibbonBar
@@ -461,7 +461,7 @@
             this.Btn_Minimized,
             this.radButtonElement1});
             this.MainRibbonBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainRibbonBar.Size = new System.Drawing.Size(936, 164);
+            this.MainRibbonBar.Size = new System.Drawing.Size(908, 164);
             this.MainRibbonBar.StartButtonImage = global::calendar.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
@@ -509,6 +509,7 @@
             this.Btn_DeclareCalendares.Name = "Btn_DeclareCalendares";
             this.Btn_DeclareCalendares.Text = "                            ";
             this.Btn_DeclareCalendares.UseCompatibleTextRendering = false;
+            this.Btn_DeclareCalendares.Click += new System.EventHandler(this.Btn_DeclareCalendares_Click);
             // 
             // Btn_DeclareShift
             // 
@@ -557,6 +558,7 @@
             this.Mnu_Exit.Name = "Mnu_Exit";
             this.Mnu_Exit.Text = "خروج";
             this.Mnu_Exit.UseCompatibleTextRendering = false;
+            this.Mnu_Exit.Click += new System.EventHandler(this.Mnu_Exit_Click);
             // 
             // Btn_ShowALlStationOnSpecialLineBorder
             // 
@@ -771,7 +773,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             this.BackgroundImage = global::calendar.Properties.Resources.Calendar;
-            this.ClientSize = new System.Drawing.Size(936, 797);
+            this.ClientSize = new System.Drawing.Size(908, 769);
             this.Controls.Add(this.MainRibbonBar);
             this.Controls.Add(this.MainStatusBar);
             this.Controls.Add(this.Pnl_Main);

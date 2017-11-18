@@ -59,6 +59,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_CreateCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_CreateCalendar.Designer.cs">
+      <DependentUpon>Frm_CreateCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_DefineCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_DefineCalendar.Designer.cs">
+      <DependentUpon>Frm_DefineCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MainCalendar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frm_CreateCalendar.resx">
+      <DependentUpon>Frm_CreateCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_DefineCalendar.resx">
+      <DependentUpon>Frm_DefineCalendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_MainCalendar.resx">
       <DependentUpon>Frm_MainCalendar.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +129,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Calendar2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create Calc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar-edit-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create Shift. Okpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Btn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

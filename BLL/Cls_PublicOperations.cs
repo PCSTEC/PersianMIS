@@ -24,7 +24,7 @@ namespace BLL
             DAL_ClsPublicOperations.DeleteRecord(SPName, ParamName, ParamValue); 
         }
 
-        public   MemoryStream  GetBackgroundImagesFromDatabase (string UserId)
+        public DataTable GetBackgroundImagesFromDatabase (string UserId)
         {
            return  DAL.Cls_Public.GetBackgroundImagesFromDatabase(UserId);
         }
