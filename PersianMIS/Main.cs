@@ -93,9 +93,9 @@ namespace PersianMIS
                     if (Bll_PublicOperations.InsertBackgroundImage(Dlg.FileName, "All"))
                     {
                         MessageBox.Show("تصویر مورد نظر با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                       Pnl_Main.Controls.Clear();
+                        Pnl_Main.Controls.Clear();
                         GetbackgroundImage("All");
-                      
+
                     }
                     else
                     {
@@ -112,7 +112,7 @@ namespace PersianMIS
 
         private void GetbackgroundImage(string UserId)
         {
-            
+
 
             DataTable dt = new DataTable();
 
@@ -247,7 +247,7 @@ namespace PersianMIS
         private void Btn_FullScreen_Click(object sender, EventArgs e)
         {
 
-            
+
 
             MainRibbonBar.Visible = false;
 
@@ -256,7 +256,7 @@ namespace PersianMIS
 
         private void Btn_OutOfFullScreen_Click(object sender, EventArgs e)
         {
-           
+
             MainRibbonBar.Visible = true;
 
         }
@@ -331,7 +331,8 @@ namespace PersianMIS
             Pnl_Main.Controls.Clear();
 
             Calendars.Frm_MainCalendar frm = new Calendars.Frm_MainCalendar();
-             frm.ShowDialog();
+            frm.ShowDialog();
+
 
 
 

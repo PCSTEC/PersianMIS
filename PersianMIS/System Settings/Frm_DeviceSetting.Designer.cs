@@ -189,7 +189,7 @@
             this.Main_Page.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
-            this.Main_Page.SelectedPage = this.Tab_NewDevice;
+            this.Main_Page.SelectedPage = this.Tab_ListOfDevices;
             this.Main_Page.Size = new System.Drawing.Size(1106, 660);
             this.Main_Page.TabIndex = 4;
             this.Main_Page.SelectedPageChanged += new System.EventHandler(this.Main_Page_SelectedPageChanged);

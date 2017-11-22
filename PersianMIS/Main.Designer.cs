@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.donutShape1 = new Telerik.WinControls.Tests.DonutShape();
             this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
-            this.customShape1 = new Telerik.WinControls.CustomShape();
+            this.customShape1 = new Telerik.WinControls.CustomShape(this.components);
             this.MainStatusBar = new Telerik.WinControls.UI.RadStatusStrip();
             this.Lbl_CurrentTime = new Telerik.WinControls.UI.RadLabelElement();
-            this.MainTimer = new System.Windows.Forms.Timer();
+            this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.OpenDlgMain = new System.Windows.Forms.OpenFileDialog();
             this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
