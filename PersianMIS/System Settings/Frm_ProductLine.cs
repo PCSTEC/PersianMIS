@@ -13,22 +13,40 @@ namespace PersianMIS.System_Settings
     {
         BLL.Cls_ProductLines Bll_ProductLines = new BLL.Cls_ProductLines();
         BLL.Cls_PublicOperations Bll_publicOperations = new BLL.Cls_PublicOperations();
+
         public Frm_ProductLine()
         {
             InitializeComponent();
             FillDg();
+            fillcmb();
+
         }
+
+        private void fillcmb()
+        {
+            Cmb_NatureType .DataSource = Bll_ProductLines.GetNatureType ();
+            Cmb_NatureType.ValueMember = "NatureId";
+            Cmb_NatureType.DisplayMember = "NatureDesc";
+
+            Cmb_PerformanceType.DataSource = Bll_ProductLines.GetPerformanceType();
+            Cmb_PerformanceType.ValueMember = "PerformanceTypeID";
+            Cmb_PerformanceType.DisplayMember = "PerformanceTypeDesc";
+
+         }
+
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
-            if (Txt_LineCode.Text == "" || Txt_Description.Text == "" || Txt_MizaneTolid.Text == "" || Txt_ProductionLine.Text == "" || Txt_Salon.Text == "")
+
+
+            if (Txt_LineCode.Text == "" || Txt_Description.Text == "" || Cmb_NatureType.Text  == "" || Cmb_PerformanceType.Text=="" || Txt_ProductionLine.Text == "" || Txt_Salon.Text == "")
             {
                 MessageBox.Show("لطفاً اطلاعات را تکمیل نمائید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
-                Bll_ProductLines.Insert(Txt_LineCode.Text, Txt_ProductionLine.Text, Txt_Description.Text, Txt_MizaneTolid.Text, Txt_Salon.Text);
+                Bll_ProductLines.Insert(Txt_LineCode.Text, Txt_ProductionLine.Text, Txt_Description.Text, Txt_Salon.Text ,(int)Cmb_NatureType.SelectedValue,(int)Cmb_PerformanceType.SelectedValue );
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FillDg();
             }
@@ -49,7 +67,7 @@ namespace PersianMIS.System_Settings
         {
             if (MessageBox.Show("آیا از بروز رسانی اطلاعات مطمن هستید ؟", Properties.Settings.Default.AppName.ToString(), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Bll_ProductLines.Update(Txt_LineCode.Text, Txt_ProductionLine.Text, Txt_Description.Text, Txt_MizaneTolid.Text, Txt_Salon.Text, Convert.ToInt32(Grd_ListOfProductLines.CurrentRow.Cells["id"].Value.ToString()));
+                Bll_ProductLines.Update(Txt_LineCode.Text, Txt_ProductionLine.Text, Txt_Description.Text , Txt_Salon.Text, Convert.ToInt32(Grd_ListOfProductLines.CurrentRow.Cells["id"].Value.ToString()), (int)Cmb_NatureType.SelectedValue, (int)Cmb_PerformanceType.SelectedValue);
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FillDg();
             }
@@ -72,7 +90,9 @@ namespace PersianMIS.System_Settings
             {
                 Txt_Description.Text = Grd_ListOfProductLines.CurrentRow.Cells["Description"].Value.ToString();
                 Txt_LineCode.Text = Grd_ListOfProductLines.CurrentRow.Cells["ProductLineId"].Value.ToString();
-                Txt_MizaneTolid.Text = Grd_ListOfProductLines.CurrentRow.Cells["MizaneTolid"].Value.ToString();
+                Cmb_NatureType.Text = Grd_ListOfProductLines.CurrentRow.Cells["NatureDesc"].Value.ToString();
+                Cmb_PerformanceType.Text = Grd_ListOfProductLines.CurrentRow.Cells["PerformanceTypeDesc"].Value.ToString();
+
                 Txt_ProductionLine.Text = Grd_ListOfProductLines.CurrentRow.Cells["ProductLineDesc"].Value.ToString();
                 Txt_Salon.Text = Grd_ListOfProductLines.CurrentRow.Cells["SalonDesc"].Value.ToString();
             }

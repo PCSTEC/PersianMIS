@@ -25,15 +25,29 @@ namespace BLL
             return DAL_ProductLines.GetProductLinesWithSetForDeviceLine();
         }
 
-        
-        public void Insert (string ProductLineId , string ProductLineDesc  , string Description  , string MizaneTolid  , string SalonDesc ) 
+
+        public DataTable GetPerformanceType()
         {
-            DAL_ProductLines.Insert(ProductLineId, ProductLineDesc, Description, MizaneTolid, SalonDesc);
+            return DAL_ProductLines.GetPerformanceType();
         }
 
-        public void Update (string ProductLineId, string ProductLineDesc, string Description, string MizaneTolid, string SalonDesc , int id)
+
+        public DataTable GetNatureType()
         {
-            DAL_ProductLines.Update(ProductLineId, ProductLineDesc, Description, MizaneTolid, SalonDesc,id  );
+            return DAL_ProductLines.GetNatureType();
+        }
+
+
+
+
+        public void Insert (string ProductLineId , string ProductLineDesc  , string Description   , string SalonDesc  , int NatureId , int PerformanceTypeId) 
+        {
+            DAL_ProductLines.Insert(ProductLineId, ProductLineDesc, Description,  SalonDesc,  NatureId,   PerformanceTypeId);
+        }
+
+        public void Update (string ProductLineId, string ProductLineDesc, string Description, string SalonDesc , int id, int NatureId, int PerformanceTypeId)
+        {
+            DAL_ProductLines.Update(ProductLineId, ProductLineDesc, Description,  SalonDesc,id , NatureId, PerformanceTypeId);
         }
 
     }

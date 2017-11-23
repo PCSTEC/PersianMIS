@@ -34,6 +34,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ProductLine));
@@ -49,10 +50,12 @@
             this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.Txt_Salon = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            this.Txt_MizaneTolid = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
             this.Txt_ProductionLine = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.Cmb_NatureType = new Telerik.WinControls.UI.RadDropDownList();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            this.Cmb_PerformanceType = new Telerik.WinControls.UI.RadDropDownList();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfProductLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfProductLines.MasterTemplate)).BeginInit();
             this.ManGroup.SuspendLayout();
@@ -61,12 +64,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_LineCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Delete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Update)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_Salon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_MizaneTolid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ProductionLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_NatureType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_PerformanceType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +87,7 @@
             this.Grd_ListOfProductLines.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.Grd_ListOfProductLines.ForeColor = System.Drawing.Color.Black;
             this.Grd_ListOfProductLines.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Grd_ListOfProductLines.Location = new System.Drawing.Point(0, 271);
+            this.Grd_ListOfProductLines.Location = new System.Drawing.Point(0, 318);
             // 
             // 
             // 
@@ -101,25 +109,30 @@
             gridViewTextBoxColumn3.HeaderText = "عنوان خط تولیدی";
             gridViewTextBoxColumn3.Name = "ProductLineDesc";
             gridViewTextBoxColumn3.Width = 150;
-            gridViewTextBoxColumn4.FieldName = "MizaneTolid";
-            gridViewTextBoxColumn4.HeaderText = "میزان تولید";
-            gridViewTextBoxColumn4.Name = "MizaneTolid";
-            gridViewTextBoxColumn4.Width = 75;
-            gridViewTextBoxColumn5.FieldName = "SalonDesc";
-            gridViewTextBoxColumn5.HeaderText = "عنوان سالن مربوطه";
-            gridViewTextBoxColumn5.Name = "SalonDesc";
-            gridViewTextBoxColumn5.Width = 120;
-            gridViewTextBoxColumn6.FieldName = "Description";
-            gridViewTextBoxColumn6.HeaderText = "توضیحات";
-            gridViewTextBoxColumn6.Name = "Description";
-            gridViewTextBoxColumn6.Width = 250;
+            gridViewTextBoxColumn4.FieldName = "NatureDesc";
+            gridViewTextBoxColumn4.HeaderText = "ماهیت سنجش";
+            gridViewTextBoxColumn4.Name = "NatureDesc";
+            gridViewTextBoxColumn4.Width = 100;
+            gridViewTextBoxColumn5.FieldName = "PerformanceTypeDesc";
+            gridViewTextBoxColumn5.HeaderText = "نحوه عملکرد ";
+            gridViewTextBoxColumn5.Name = "PerformanceTypeDesc";
+            gridViewTextBoxColumn5.Width = 100;
+            gridViewTextBoxColumn6.FieldName = "SalonDesc";
+            gridViewTextBoxColumn6.HeaderText = "عنوان سالن مربوطه";
+            gridViewTextBoxColumn6.Name = "SalonDesc";
+            gridViewTextBoxColumn6.Width = 120;
+            gridViewTextBoxColumn7.FieldName = "Description";
+            gridViewTextBoxColumn7.HeaderText = "توضیحات";
+            gridViewTextBoxColumn7.Name = "Description";
+            gridViewTextBoxColumn7.Width = 250;
             this.Grd_ListOfProductLines.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
             gridViewTextBoxColumn3,
             gridViewTextBoxColumn4,
             gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6});
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7});
             this.Grd_ListOfProductLines.MasterTemplate.EnableCustomSorting = true;
             this.Grd_ListOfProductLines.MasterTemplate.EnableFiltering = true;
             this.Grd_ListOfProductLines.MasterTemplate.EnableGrouping = false;
@@ -145,6 +158,9 @@
             // 
             this.ManGroup.CanvasColor = System.Drawing.SystemColors.Control;
             this.ManGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ManGroup.Controls.Add(this.Cmb_PerformanceType);
+            this.ManGroup.Controls.Add(this.radLabel5);
+            this.ManGroup.Controls.Add(this.Cmb_NatureType);
             this.ManGroup.Controls.Add(this.Txt_Description);
             this.ManGroup.Controls.Add(this.radLabel4);
             this.ManGroup.Controls.Add(this.Txt_LineCode);
@@ -152,14 +168,13 @@
             this.ManGroup.Controls.Add(this.groupPanel2);
             this.ManGroup.Controls.Add(this.Txt_Salon);
             this.ManGroup.Controls.Add(this.radLabel2);
-            this.ManGroup.Controls.Add(this.Txt_MizaneTolid);
             this.ManGroup.Controls.Add(this.radLabel10);
             this.ManGroup.Controls.Add(this.Txt_ProductionLine);
             this.ManGroup.Controls.Add(this.radLabel1);
             this.ManGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManGroup.Location = new System.Drawing.Point(0, 0);
             this.ManGroup.Name = "ManGroup";
-            this.ManGroup.Size = new System.Drawing.Size(652, 271);
+            this.ManGroup.Size = new System.Drawing.Size(652, 318);
             // 
             // 
             // 
@@ -185,7 +200,7 @@
             // Txt_Description
             // 
             this.Txt_Description.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_Description.Location = new System.Drawing.Point(125, 168);
+            this.Txt_Description.Location = new System.Drawing.Point(125, 216);
             this.Txt_Description.Name = "Txt_Description";
             this.Txt_Description.NullText = "توضیحات";
             this.Txt_Description.Size = new System.Drawing.Size(411, 26);
@@ -195,7 +210,7 @@
             // 
             this.radLabel4.BackColor = System.Drawing.Color.Transparent;
             this.radLabel4.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel4.Location = new System.Drawing.Point(540, 170);
+            this.radLabel4.Location = new System.Drawing.Point(540, 218);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(54, 24);
             this.radLabel4.TabIndex = 40;
@@ -229,7 +244,7 @@
             this.groupPanel2.Controls.Add(this.Btn_Delete);
             this.groupPanel2.Controls.Add(this.Btn_Update);
             this.groupPanel2.Controls.Add(this.Btn_Save);
-            this.groupPanel2.Location = new System.Drawing.Point(125, 215);
+            this.groupPanel2.Location = new System.Drawing.Point(126, 262);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(410, 45);
             // 
@@ -258,45 +273,39 @@
             // 
             this.Btn_Delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Delete.Image = global::PersianMIS.Properties.Resources.Delete_OK;
-          //  this.Btn_Delete.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Delete.Location = new System.Drawing.Point(3, 3);
             this.Btn_Delete.Name = "Btn_Delete";
             this.Btn_Delete.Size = new System.Drawing.Size(128, 33);
             this.Btn_Delete.TabIndex = 47;
             this.Btn_Delete.Text = "حذف اطلاعات";
-           // this.Btn_Delete.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Delete.Click += new System.EventHandler(this.Btn_Delete_Click);
             // 
             // Btn_Update
             // 
             this.Btn_Update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Update.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-          //  this.Btn_Update.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Update.Location = new System.Drawing.Point(137, 3);
             this.Btn_Update.Name = "Btn_Update";
             this.Btn_Update.Size = new System.Drawing.Size(128, 33);
             this.Btn_Update.TabIndex = 46;
             this.Btn_Update.Text = "ویرایش اطلاعات";
-          //  this.Btn_Update.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
             // 
             // Btn_Save
             // 
             this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Save.Image = global::PersianMIS.Properties.Resources.save;
-            //this.Btn_Save.ImageSize = new System.Drawing.Size(25, 25);
             this.Btn_Save.Location = new System.Drawing.Point(271, 3);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(128, 33);
             this.Btn_Save.TabIndex = 45;
             this.Btn_Save.Text = "ذخیره";
-           // this.Btn_Save.VisualStyle = Janus.Windows.UI.VisualStyle.VS2010;
             this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
             // 
             // Txt_Salon
             // 
             this.Txt_Salon.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_Salon.Location = new System.Drawing.Point(337, 127);
+            this.Txt_Salon.Location = new System.Drawing.Point(337, 175);
             this.Txt_Salon.Name = "Txt_Salon";
             this.Txt_Salon.NullText = "عنوان سالن مربوطه";
             this.Txt_Salon.Size = new System.Drawing.Size(198, 26);
@@ -306,21 +315,12 @@
             // 
             this.radLabel2.BackColor = System.Drawing.Color.Transparent;
             this.radLabel2.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel2.Location = new System.Drawing.Point(539, 129);
+            this.radLabel2.Location = new System.Drawing.Point(539, 177);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(98, 24);
             this.radLabel2.TabIndex = 35;
             this.radLabel2.Text = "عنوان سالن مربوطه:";
             this.radLabel2.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // Txt_MizaneTolid
-            // 
-            this.Txt_MizaneTolid.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Txt_MizaneTolid.Location = new System.Drawing.Point(338, 84);
-            this.Txt_MizaneTolid.Name = "Txt_MizaneTolid";
-            this.Txt_MizaneTolid.NullText = "میزان تولید روزانه";
-            this.Txt_MizaneTolid.Size = new System.Drawing.Size(198, 26);
-            this.Txt_MizaneTolid.TabIndex = 34;
             // 
             // radLabel10
             // 
@@ -328,9 +328,9 @@
             this.radLabel10.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.radLabel10.Location = new System.Drawing.Point(540, 86);
             this.radLabel10.Name = "radLabel10";
-            this.radLabel10.Size = new System.Drawing.Size(92, 24);
+            this.radLabel10.Size = new System.Drawing.Size(80, 24);
             this.radLabel10.TabIndex = 33;
-            this.radLabel10.Text = "میزان تولید روزانه:";
+            this.radLabel10.Text = "ماهیت سنجش :";
             this.radLabel10.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // Txt_ProductionLine
@@ -353,11 +353,40 @@
             this.radLabel1.Text = "عنوان خط تولیدی:";
             this.radLabel1.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
+            // Cmb_NatureType
+            // 
+            this.Cmb_NatureType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_NatureType.Location = new System.Drawing.Point(337, 86);
+            this.Cmb_NatureType.Name = "Cmb_NatureType";
+            this.Cmb_NatureType.NullText = "ماهیت سنجش";
+            this.Cmb_NatureType.Size = new System.Drawing.Size(199, 26);
+            this.Cmb_NatureType.TabIndex = 42;
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel5.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radLabel5.Location = new System.Drawing.Point(541, 130);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(69, 24);
+            this.radLabel5.TabIndex = 43;
+            this.radLabel5.Text = "نحوه عملکرد:";
+            this.radLabel5.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Cmb_PerformanceType
+            // 
+            this.Cmb_PerformanceType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_PerformanceType.Location = new System.Drawing.Point(336, 128);
+            this.Cmb_PerformanceType.Name = "Cmb_PerformanceType";
+            this.Cmb_PerformanceType.NullText = "نحوه عملکرد";
+            this.Cmb_PerformanceType.Size = new System.Drawing.Size(199, 26);
+            this.Cmb_PerformanceType.TabIndex = 44;
+            // 
             // Frm_ProductLine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 631);
+            this.ClientSize = new System.Drawing.Size(652, 678);
             this.Controls.Add(this.ManGroup);
             this.Controls.Add(this.Grd_ListOfProductLines);
             this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -380,12 +409,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_LineCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             this.groupPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Delete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Update)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_Salon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Txt_MizaneTolid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ProductionLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_NatureType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_PerformanceType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -398,7 +432,6 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private Telerik.WinControls.UI.RadTextBox Txt_Salon;
         private Telerik.WinControls.UI.RadLabel radLabel2;
-        private Telerik.WinControls.UI.RadTextBox Txt_MizaneTolid;
         private Telerik.WinControls.UI.RadLabel radLabel10;
         private Telerik.WinControls.UI.RadTextBox Txt_ProductionLine;
         private Telerik.WinControls.UI.RadLabel radLabel1;
@@ -409,5 +442,8 @@
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadTextBox Txt_LineCode;
         private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadDropDownList Cmb_PerformanceType;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadDropDownList Cmb_NatureType;
     }
 }
