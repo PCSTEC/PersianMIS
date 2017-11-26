@@ -62,9 +62,9 @@ namespace PersianMIS.CurrentState
 
         private void FillLstProductLines()
         {
-            LSTProrudtionLines.DataSource = Bll_ProductLines.GetProductLinesWithSetForDeviceLine();
-            LSTProrudtionLines.DisplayMember = "ProductLineDesc";
-            LSTProrudtionLines.ValueMember = "id";
+            LSTProrudtionLines1.DataSource = Bll_ProductLines.GetProductLinesWithSetForDeviceLine();
+            LSTProrudtionLines1.DisplayMember = "ProductLineDesc";
+            LSTProrudtionLines1.ValueMember = "id";
 
 
 
@@ -94,7 +94,7 @@ namespace PersianMIS.CurrentState
                 };
 
 
-                if (LSTProrudtionLines.CheckedItems.Count > 1)
+                if (LSTProrudtionLines1.CheckedItems.Count > 1)
                 {
                     BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetAllResourceForShowSummeryCurrentState(ListOfProductionLines);
 
@@ -110,7 +110,7 @@ namespace PersianMIS.CurrentState
                 }
                 else
                 {
-                    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines.CheckedItems[0].Value.ToString());
+                    BLL.Cls_PublicOperations.Dt = BllDeviceLine.GetDeviceLineByProductLineId(LSTProrudtionLines1.CheckedItems[0].Value.ToString());
 
                     for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
                     {
@@ -155,7 +155,7 @@ namespace PersianMIS.CurrentState
                     app.StatusId = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString());
 
 
-                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    if (LSTProrudtionLines1.CheckedItems.Count > 1)
                     {
                         app.ResourceId = this.radScheduler1.Resources.GetById(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString()).Id;
                     }
@@ -174,7 +174,7 @@ namespace PersianMIS.CurrentState
 
 
 
-                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    if (LSTProrudtionLines1.CheckedItems.Count > 1)
                     {
                         if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "0" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateForShowGroupOk"].ToString() == "False")
                         {
@@ -191,7 +191,7 @@ namespace PersianMIS.CurrentState
 
                     this.radScheduler1.Appointments.Add(app);
 
-                    if (LSTProrudtionLines.CheckedItems.Count > 1)
+                    if (LSTProrudtionLines1.CheckedItems.Count > 1)
                     {
                         var coordinates = LastApprochmentInfo.CoordinatesOf(BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString());
                         LastApprochmentInfo[coordinates.Item1, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
@@ -384,7 +384,7 @@ namespace PersianMIS.CurrentState
 
                     if (coordinates.Item1 == -1) //New Event In Device Line Id 
                     {
-                        LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = LSTProrudtionLines.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString() : BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
+                        LastApprochmentInfo[ExtensionMethods.NewIndex, 0] = LSTProrudtionLines1.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString() : BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString();
                         LastApprochmentInfo[ExtensionMethods.NewIndex, 1] = BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString();
 
                         int totalHours;
@@ -410,7 +410,7 @@ namespace PersianMIS.CurrentState
 
 
 
-                        app.ResourceId = this.radScheduler1.Resources.GetById(LSTProrudtionLines.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString() : BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString()).Id;
+                        app.ResourceId = this.radScheduler1.Resources.GetById(LSTProrudtionLines1.CheckedItems.Count > 1 ? BLL.Cls_PublicOperations.Dt.DefaultView[i]["ProductLineId"].ToString() : BLL.Cls_PublicOperations.Dt.DefaultView[i]["ID"].ToString()).Id;
 
                         app.BackgroundId = this.radScheduler1.Backgrounds[this.radScheduler1.Backgrounds.Count - 1].Id;
 
@@ -419,7 +419,7 @@ namespace PersianMIS.CurrentState
                             app.Visible = false;
                         }
 
-                        if (LSTProrudtionLines.CheckedItems.Count > 1)
+                        if (LSTProrudtionLines1.CheckedItems.Count > 1)
                         {
                             if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["StateId"].ToString() == "0" && BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeActiveStateForShowGroupOk"].ToString() == "False")
                             {
@@ -498,7 +498,7 @@ namespace PersianMIS.CurrentState
             this.Cursor = Cursors.WaitCursor;
             SelectedProductionLines = "0";
 
-            foreach (var CheckedItem in LSTProrudtionLines.CheckedItems)
+            foreach (var CheckedItem in LSTProrudtionLines1.CheckedItems)
             {
                 SelectedProductionLines = SelectedProductionLines + "," + CheckedItem.Value.ToString() + "";
 

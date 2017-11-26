@@ -1,10 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace calendar
+namespace WindowsApplication1
 {
     static class Program
     {
@@ -16,7 +14,7 @@ namespace calendar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_MainCalendar());
+            Application.Run(new Form1());
         }
     }
 }

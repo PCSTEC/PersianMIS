@@ -21,11 +21,12 @@ namespace PIASService
     public partial class PIASService : ServiceBase
     {
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
-
+        DataTable Dt = new DataTable();
+       
         double totalHours;
         Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
         string stresive1;
-
+        string[] ListOfStartShifTime = new string[100];
         PersianCalendar pc = new PersianCalendar();
         string sqlstr = "";
 
@@ -132,7 +133,7 @@ namespace PIASService
         int CountOfPuls24 = 0;
         string CurShamsiDate = "";
 
-        Boolean isNextDay = false;
+        Boolean IsNewShift = false;
 
         Boolean LstState1 = false;
         Boolean LstState2 = false;
@@ -199,6 +200,13 @@ namespace PIASService
             serialPort1.Open();
             serialPort1.DiscardInBuffer();
             EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
+
+            sqlstr = "SELECT  *  FROM            HumanResource.dbo.vwRCL_ShiftAscribeForGrd_Machin";
+            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+            for(int i = 0; i <= Dt.Rows.Count-1; i++)
+            {
+                ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
+            }
 
         }
 
@@ -288,16 +296,20 @@ namespace PIASService
                 val = val.PadLeft(8, '0');
 
 
-                if (DateTime.Now.Hour == 23)
-                {
-                    isNextDay = false;
-                    // EventLog.WriteEntry("false IS NEXT DAY VALUE IN " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
-                }
-                if (DateTime.Now.Hour == 23 && DateTime.Now.Minute == 59 && DateTime.Now.Second == 59 && isNextDay == false)
-                {
-                    //  EventLog.WriteEntry("Time 0:00 --  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                //if (DateTime.Now.Hour == 23)
+                //{
+                //    IsNewShift = false;
+                //    // EventLog.WriteEntry("false IS NEXT DAY VALUE IN " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
+                //}
+                //if (DateTime.Now.Hour == 23 && DateTime.Now.Minute == 59 && DateTime.Now.Second == 59 && IsNewShift == false)
+                //{
+                //  EventLog.WriteEntry("Time 0:00 --  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                if (IsNewShift)
+                {
+
+              
                     InsertData1(1048, 1, Convert.ToInt32(!LstState1));
                     InsertData2(1048, 2, Convert.ToInt32(!LstState2));
                     InsertData3(1048, 3, Convert.ToInt32(!LstState3));
@@ -322,7 +334,7 @@ namespace PIASService
                     InsertData22(1048, 22, Convert.ToInt32(!LstState22));
                     InsertData23(1048, 23, Convert.ToInt32(!LstState23));
                     InsertData24(1048, 24, Convert.ToInt32(!LstState24));
-                    isNextDay = true;
+                    IsNewShift = false ;
                     Thread.Sleep(1000);
                 }
                 else
@@ -2795,6 +2807,13 @@ namespace PIASService
             }
         }
 
-
+        private void TimerCalcNewShiftStart_Tick(object sender, EventArgs e)
+        {
+            string time = DateTime.Now.ToString("hh:mm");
+            if (ListOfStartShifTime.Contains(time))
+            {
+                IsNewShift = true;
+            }
+        }
     }
 }
