@@ -551,10 +551,6 @@
       <Project>{d54988e7-f74a-4962-9813-ace9a3f92a2f}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Calendars\Calendars.vbproj">
-      <Project>{25c7ccc5-a6e2-473d-8e98-67392992b53b}</Project>
-      <Name>Calendars</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IraniDate\IraniDate\IraniDate.vbproj">
       <Project>{9224a64c-06a9-4d77-9545-e282a3022aab}</Project>
       <Name>IraniDate</Name>
