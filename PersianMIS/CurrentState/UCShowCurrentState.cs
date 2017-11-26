@@ -508,6 +508,11 @@ namespace PersianMIS.CurrentState
             this.Cursor = Cursors.Default;
         }
 
+        private void radCheckedListBox1_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
             if (IsFirstLoad == false)
