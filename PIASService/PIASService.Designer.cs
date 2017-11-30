@@ -39,17 +39,10 @@
             this.serialPort8 = new System.IO.Ports.SerialPort(this.components);
             this.serialPort9 = new System.IO.Ports.SerialPort(this.components);
             this.serialPort10 = new System.IO.Ports.SerialPort(this.components);
-            this.TimerCalcNewShiftStart = new System.Windows.Forms.Timer(this.components);
             // 
             // serialPort1
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            // 
-            // TimerCalcNewShiftStart
-            // 
-            this.TimerCalcNewShiftStart.Enabled = true;
-            this.TimerCalcNewShiftStart.Interval = 60000;
-            this.TimerCalcNewShiftStart.Tick += new System.EventHandler(this.TimerCalcNewShiftStart_Tick);
             // 
             // PIASService
             // 
@@ -69,6 +62,5 @@
         private System.IO.Ports.SerialPort serialPort8;
         private System.IO.Ports.SerialPort serialPort9;
         private System.IO.Ports.SerialPort serialPort10;
-        private System.Windows.Forms.Timer TimerCalcNewShiftStart;
     }
 }

@@ -19,6 +19,7 @@ namespace PersianMIS.CurrentState
 
     public partial class UCShowCurrentState : UserControl
     {
+        Telerik.WinControls.UI.RadCheckedListBox LSTProrudtionLines1 = new Telerik.WinControls.UI.RadCheckedListBox();
         public string[,] LastApprochmentInfo = new string[100, 2];
 
         string SelectedProductionLines = "0";
@@ -39,6 +40,14 @@ namespace PersianMIS.CurrentState
         {
 
             InitializeComponent();
+          
+            this.radCollapsiblePanel2.PanelContainer.Controls.Add( LSTProrudtionLines1);
+            LSTProrudtionLines1.Name = "LSTProrudtionLines1";
+            LSTProrudtionLines1.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged );
+            LSTProrudtionLines1.Dock = System.Windows.Forms.DockStyle.Fill;
+            LSTProrudtionLines1.RightToLeft = RightToLeft.No;
+
+
 
         }
 

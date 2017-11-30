@@ -18,7 +18,7 @@ namespace PersianMIS.StationControl
         BLL.Cls_Station Bll_Station = new Cls_Station();
 
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
-     public    DateTime StartDate, EndDate = new DateTime();
+     public    DateTime StartDate, EndDate , ShiftDate = new DateTime();
         private void Pnl_State_Paint(object sender, PaintEventArgs e)
         {
 
@@ -214,6 +214,13 @@ namespace PersianMIS.StationControl
                 TSql= TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy HH:mm:ss"));
 
                 TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy HH:mm:ss"));
+
+
+                TSql = TSql.Replace("11:11:11", StartDate.ToString("HH:mm:ss"));
+
+                TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy HH:mm:ss"));
+
+
                 Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 
                  
@@ -229,7 +236,9 @@ namespace PersianMIS.StationControl
 
                 if (Dt.Rows.Count > 0)
                 {
-                    Lbl_ParameterDesc.Text = Dt.DefaultView[0][0].ToString();
+                    decimal Data = Decimal.Parse(Utility.NZ( Dt.DefaultView[0][0].ToString(),0).ToString());
+             
+                    Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
                 }
                 else
                 {

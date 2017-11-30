@@ -180,6 +180,9 @@ namespace PersianMIS
         {
             GetbackgroundImage("All");
             MoveGroupButtons(Tab_RunTime);
+
+          
+
         }
 
         private void Btn_AllStation_Click(object sender, EventArgs e)

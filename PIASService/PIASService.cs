@@ -22,11 +22,11 @@ namespace PIASService
     {
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         DataTable Dt = new DataTable();
-       
+
         double totalHours;
         Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
         string stresive1;
-        string[] ListOfStartShifTime = new string[100];
+        string[] ListOfStartShifTime = new string[60];
         PersianCalendar pc = new PersianCalendar();
         string sqlstr = "";
 
@@ -80,7 +80,7 @@ namespace PIASService
         int DeviceStateID22Old = 0;
         int DeviceStateID23Old = 0;
         int DeviceStateID24Old = 0;
-
+        DateTime LastTimeForShift = DateTime.Now ;
 
         Boolean ISStartInt1 = false;
         Boolean ISStartInt2 = false;
@@ -195,18 +195,118 @@ namespace PIASService
             sqlstr = " SELECT   * FROM    Tb_Devices where DeviceId='1048'";
             Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
 
+            LastTimeForShift = DateTime.Now;
 
-            serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString() ;
+            sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
+            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+            int count = 0;
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
+                count = i;
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count +1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndHourTxt"].ToString();
+
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt1"].ToString();
+
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt1"].ToString();
+
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt2"].ToString();
+
+            }
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + i;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt2"].ToString();
+
+            }
+
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt3"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + i;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt3"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt4"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt4"].ToString();
+
+            }
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt5"].ToString();
+
+            }
+
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt5"].ToString();
+
+            }
+
+
+
+            serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString();
             serialPort1.Open();
             serialPort1.DiscardInBuffer();
             EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
 
-            sqlstr = "SELECT  *  FROM            HumanResource.dbo.vwRCL_ShiftAscribeForGrd_Machin";
-            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
-            for(int i = 0; i <= Dt.Rows.Count-1; i++)
-            {
-                ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
-            }
+
 
         }
 
@@ -306,79 +406,104 @@ namespace PIASService
                 //if (DateTime.Now.Hour == 23 && DateTime.Now.Minute == 59 && DateTime.Now.Second == 59 && IsNewShift == false)
                 //{
                 //  EventLog.WriteEntry("Time 0:00 --  " + DateTime.Now.ToString(), EventLogEntryType.Information);
-                if (IsNewShift)
+
+
+                string time = DateTime.Now.ToString("HH:mm");
+
+                 
+
+                foreach (string x in ListOfStartShifTime)
                 {
 
-              
-                    InsertData1(1048, 1, Convert.ToInt32(!LstState1));
-                    InsertData2(1048, 2, Convert.ToInt32(!LstState2));
-                    InsertData3(1048, 3, Convert.ToInt32(!LstState3));
-                    InsertData4(1048, 4, Convert.ToInt32(!LstState4));
-                    InsertData5(1048, 5, Convert.ToInt32(!LstState5));
-                    InsertData6(1048, 6, Convert.ToInt32(!LstState6));
-                    InsertData7(1048, 7, Convert.ToInt32(!LstState7));
-                    InsertData8(1048, 8, Convert.ToInt32(!LstState8));
-                    InsertData9(1048, 9, Convert.ToInt32(!LstState9));
-                    InsertData10(1048, 10, Convert.ToInt32(!LstState10));
-                    InsertData11(1048, 11, Convert.ToInt32(!LstState11));
-                    InsertData12(1048, 12, Convert.ToInt32(!LstState12));
-                    InsertData13(1048, 13, Convert.ToInt32(!LstState13));
-                    InsertData14(1048, 14, Convert.ToInt32(!LstState14));
-                    InsertData15(1048, 15, Convert.ToInt32(!LstState15));
-                    InsertData16(1048, 16, Convert.ToInt32(!LstState16));
-                    InsertData17(1048, 17, Convert.ToInt32(!LstState17));
-                    InsertData18(1048, 18, Convert.ToInt32(!LstState18));
-                    InsertData19(1048, 19, Convert.ToInt32(!LstState19));
-                    InsertData20(1048, 20, Convert.ToInt32(!LstState20));
-                    InsertData21(1048, 21, Convert.ToInt32(!LstState21));
-                    InsertData22(1048, 22, Convert.ToInt32(!LstState22));
-                    InsertData23(1048, 23, Convert.ToInt32(!LstState23));
-                    InsertData24(1048, 24, Convert.ToInt32(!LstState24));
-                    IsNewShift = false ;
-                    Thread.Sleep(1000);
-                }
-                else
-                {
-
-                    if (strcode == "INPUT= 65")
+                    if (time==x && (DateTime.Now   - LastTimeForShift ).TotalSeconds>60   )
                     {
-                        if (val.Substring(0, 1) == "1") { InsertData17(1048, 17, 1); } else { InsertData17(1048, 17, 0); }
-                        if (val.Substring(1, 1) == "1") { InsertData18(1048, 18, 1); } else { InsertData18(1048, 18, 0); }
-                        if (val.Substring(2, 1) == "1") { InsertData19(1048, 19, 1); } else { InsertData19(1048, 19, 0); }
-                        if (val.Substring(3, 1) == "1") { InsertData20(1048, 20, 1); } else { InsertData20(1048, 20, 0); }
-                        if (val.Substring(4, 1) == "1") { InsertData21(1048, 21, 1); } else { InsertData21(1048, 21, 0); }
-                        if (val.Substring(5, 1) == "1") { InsertData22(1048, 22, 1); } else { InsertData22(1048, 22, 0); }
-                        if (val.Substring(6, 1) == "1") { InsertData23(1048, 23, 1); } else { InsertData23(1048, 23, 0); }
-                        if (val.Substring(7, 1) == "1") { InsertData24(1048, 24, 1); } else { InsertData24(1048, 24, 0); }
+                        
+                            EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
+
+                            InsertData1(1048, 1, Convert.ToInt32(!LstState1));
+                            InsertData2(1048, 2, Convert.ToInt32(!LstState2));
+                            InsertData3(1048, 3, Convert.ToInt32(!LstState3));
+                            InsertData4(1048, 4, Convert.ToInt32(!LstState4));
+                            InsertData5(1048, 5, Convert.ToInt32(!LstState5));
+                            InsertData6(1048, 6, Convert.ToInt32(!LstState6));
+                            InsertData7(1048, 7, Convert.ToInt32(!LstState7));
+                            InsertData8(1048, 8, Convert.ToInt32(!LstState8));
+                            InsertData9(1048, 9, Convert.ToInt32(!LstState9));
+                            InsertData10(1048, 10, Convert.ToInt32(!LstState10));
+                            InsertData11(1048, 11, Convert.ToInt32(!LstState11));
+                            InsertData12(1048, 12, Convert.ToInt32(!LstState12));
+                            InsertData13(1048, 13, Convert.ToInt32(!LstState13));
+                            InsertData14(1048, 14, Convert.ToInt32(!LstState14));
+                            InsertData15(1048, 15, Convert.ToInt32(!LstState15));
+                            InsertData16(1048, 16, Convert.ToInt32(!LstState16));
+                            InsertData17(1048, 17, Convert.ToInt32(!LstState17));
+                            InsertData18(1048, 18, Convert.ToInt32(!LstState18));
+                            InsertData19(1048, 19, Convert.ToInt32(!LstState19));
+                            InsertData20(1048, 20, Convert.ToInt32(!LstState20));
+                            InsertData21(1048, 21, Convert.ToInt32(!LstState21));
+                            InsertData22(1048, 22, Convert.ToInt32(!LstState22));
+                            InsertData23(1048, 23, Convert.ToInt32(!LstState23));
+                            InsertData24(1048, 24, Convert.ToInt32(!LstState24));
+
+                          
+                            Thread.Sleep(1000);
+
+                        LastTimeForShift = DateTime.Now;
+
+
+                            EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                      
+
+
+
 
                     }
 
-                    if (strcode == "INPUT= 66")
+
+
+                    else
                     {
 
+                        if (strcode == "INPUT= 65")
+                        {
+                            if (val.Substring(0, 1) == "1") { InsertData17(1048, 17, 1); } else { InsertData17(1048, 17, 0); }
+                            if (val.Substring(1, 1) == "1") { InsertData18(1048, 18, 1); } else { InsertData18(1048, 18, 0); }
+                            if (val.Substring(2, 1) == "1") { InsertData19(1048, 19, 1); } else { InsertData19(1048, 19, 0); }
+                            if (val.Substring(3, 1) == "1") { InsertData20(1048, 20, 1); } else { InsertData20(1048, 20, 0); }
+                            if (val.Substring(4, 1) == "1") { InsertData21(1048, 21, 1); } else { InsertData21(1048, 21, 0); }
+                            if (val.Substring(5, 1) == "1") { InsertData22(1048, 22, 1); } else { InsertData22(1048, 22, 0); }
+                            if (val.Substring(6, 1) == "1") { InsertData23(1048, 23, 1); } else { InsertData23(1048, 23, 0); }
+                            if (val.Substring(7, 1) == "1") { InsertData24(1048, 24, 1); } else { InsertData24(1048, 24, 0); }
 
-                        if (val.Substring(0, 1) == "1") { InsertData9(1048, 9, 1); } else { InsertData9(1048, 9, 0); }
-                        if (val.Substring(1, 1) == "1") { InsertData10(1048, 10, 1); } else { InsertData10(1048, 10, 0); }
-                        if (val.Substring(2, 1) == "1") { InsertData11(1048, 11, 1); } else { InsertData11(1048, 11, 0); }
-                        if (val.Substring(3, 1) == "1") { InsertData12(1048, 12, 1); } else { InsertData12(1048, 12, 0); }
-                        if (val.Substring(4, 1) == "1") { InsertData13(1048, 13, 1); } else { InsertData13(1048, 13, 0); }
-                        if (val.Substring(5, 1) == "1") { InsertData14(1048, 14, 1); } else { InsertData14(1048, 14, 0); }
-                        if (val.Substring(6, 1) == "1") { InsertData15(1048, 15, 1); } else { InsertData15(1048, 15, 0); }
-                        if (val.Substring(7, 1) == "1") { InsertData16(1048, 16, 1); } else { InsertData16(1048, 16, 0); }
+                        }
 
-                    }
-                    if (strcode == "INPUT= 67")
-                    {
+                        if (strcode == "INPUT= 66")
+                        {
 
-                        if (val.Substring(7, 1) == "1") { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
-                        if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
-                        if (val.Substring(5, 1) == "1") { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
-                        if (val.Substring(4, 1) == "1") { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
-                        if (val.Substring(3, 1) == "1") { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
-                        if (val.Substring(2, 1) == "1") { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
-                        if (val.Substring(1, 1) == "1") { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
-                        if (val.Substring(0, 1) == "1") { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
 
+                            if (val.Substring(0, 1) == "1") { InsertData9(1048, 9, 1); } else { InsertData9(1048, 9, 0); }
+                            if (val.Substring(1, 1) == "1") { InsertData10(1048, 10, 1); } else { InsertData10(1048, 10, 0); }
+                            if (val.Substring(2, 1) == "1") { InsertData11(1048, 11, 1); } else { InsertData11(1048, 11, 0); }
+                            if (val.Substring(3, 1) == "1") { InsertData12(1048, 12, 1); } else { InsertData12(1048, 12, 0); }
+                            if (val.Substring(4, 1) == "1") { InsertData13(1048, 13, 1); } else { InsertData13(1048, 13, 0); }
+                            if (val.Substring(5, 1) == "1") { InsertData14(1048, 14, 1); } else { InsertData14(1048, 14, 0); }
+                            if (val.Substring(6, 1) == "1") { InsertData15(1048, 15, 1); } else { InsertData15(1048, 15, 0); }
+                            if (val.Substring(7, 1) == "1") { InsertData16(1048, 16, 1); } else { InsertData16(1048, 16, 0); }
+
+                        }
+                        if (strcode == "INPUT= 67")
+                        {
+
+                            if (val.Substring(7, 1) == "1") { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
+                            if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
+                            if (val.Substring(5, 1) == "1") { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
+                            if (val.Substring(4, 1) == "1") { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
+                            if (val.Substring(3, 1) == "1") { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
+                            if (val.Substring(2, 1) == "1") { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
+                            if (val.Substring(1, 1) == "1") { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
+                            if (val.Substring(0, 1) == "1") { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
+
+                        }
                     }
                 }
             }
@@ -2807,13 +2932,8 @@ namespace PIASService
             }
         }
 
-        private void TimerCalcNewShiftStart_Tick(object sender, EventArgs e)
-        {
-            string time = DateTime.Now.ToString("hh:mm");
-            if (ListOfStartShifTime.Contains(time))
-            {
-                IsNewShift = true;
-            }
-        }
+     
+
+        
     }
 }

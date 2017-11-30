@@ -1023,6 +1023,25 @@ Public Class Shift
         End If
     End Function
 
+
+    Public Function GetShiftListWithInfo() As DataTable
+        SqlStr = "SELECT  *  FROM [HumanResource].[dbo].[tbRCL_Shifts] "
+        Dt = Pers.GetDataTable(strConnection, SqlStr)
+
+        Return Dt
+
+    End Function
+
+
+    Public Function GetShiftInfoByShiftID(ByVal ShiftID As Integer) As DataTable
+        SqlStr = "SELECT  *  FROM [HumanResource].[dbo].[tbRCL_Shifts] where ShiftID='" & ShiftID & "'"
+        Dt = Pers.GetDataTable(strConnection, SqlStr)
+
+
+        Return Dt
+
+    End Function
+
     Public Function TestHourInShift(ByVal myHour As String, ByVal MDepartID As String, ByVal cnnStr As String) As Boolean '¬“„«Ì‘ „Ì ﬂ‰œ ﬂÂ ”«⁄  Ê«—œ ‘œÂ œ— »«“Â ‘Ì› Â«Ì  ⁄—Ì› ‘œÂ »—«Ì Ê«Õœ »«‘œ
         Dim dt1 As New DataTable
         'Dim ps1 As New Persistent.DataAccess.DataAccess
