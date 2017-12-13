@@ -13,7 +13,7 @@ using IraniDate.IraniDate;
 using Calendars;
 using System.Diagnostics;
 using System.IO;
-
+using Calendars;
 namespace PersianMIS
 {
     public partial class Main : Telerik.WinControls.UI.RadForm
@@ -313,7 +313,8 @@ namespace PersianMIS
         private void BtnPersonelyManage_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
-            Process proc = new Process
+          
+            System.Diagnostics.Process proc = new System.Diagnostics.Process
             {
                 StartInfo = new ProcessStartInfo
                 {
@@ -336,11 +337,19 @@ namespace PersianMIS
 
             Calendars.Frm_MainCalendar frm = new Calendars.Frm_MainCalendar();
             frm.ShowDialog();
+        }
 
 
+        private void Btn_DefineShift_Click(object sender, EventArgs e)
+        {
+            Calendars.Frm_MainShift Frm_Shift = new Frm_MainShift();
+            Frm_Shift.ShowDialog();
+        }
 
-
-
+        private void Btn_ManageProcess_Click(object sender, EventArgs e)
+        {
+            Process.Frm_MainProcess Frm_Process = new Process.Frm_MainProcess();
+            Frm_Process.ShowDialog();
 
         }
     }

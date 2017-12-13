@@ -211,14 +211,14 @@ namespace PersianMIS.StationControl
                 //  string TSql = "select top(1) " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString() + " as value from Tb_Client where   (MiladiStartDateTime >= cast( '" +   StartDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime )) AND (MiladiFinishDateTime <= cast('" + EndDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime ))";
 
                 string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString();
-                TSql= TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy HH:mm:ss"));
+                TSql= TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
 
-                TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy HH:mm:ss"));
+                TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
 
 
                 TSql = TSql.Replace("11:11:11", StartDate.ToString("HH:mm:ss"));
 
-                TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy HH:mm:ss"));
+                TSql = TSql.Replace("22:22:22", EndDate.ToString("HH:mm:ss"));
 
 
                 Dt = Bll_Public.GetDataTableFromTSQL(TSql);
@@ -230,6 +230,8 @@ namespace PersianMIS.StationControl
                 Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
                 Lbl_ParameterDesc.TabIndex = 6;
 
+
+
                 Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
@@ -239,6 +241,7 @@ namespace PersianMIS.StationControl
                     decimal Data = Decimal.Parse(Utility.NZ( Dt.DefaultView[0][0].ToString(),0).ToString());
              
                     Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
+
                 }
                 else
                 {

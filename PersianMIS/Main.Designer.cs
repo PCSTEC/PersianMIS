@@ -74,6 +74,8 @@
             this.Tab_Jobs = new Telerik.WinControls.UI.RibbonTab();
             this.Btn_DefineShiftBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_DefineShift = new Telerik.WinControls.UI.RadButtonElement();
+            this.Btn_ProcessManage = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_ManageProcess = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_CreateProductProgramBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_CreateProductProgram = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_RunPogramBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -89,8 +91,6 @@
             this.Btn_DefineParameter = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_defineProductLinesBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_defineProductLines = new Telerik.WinControls.UI.RadButtonElement();
-            this.Btn_CalcDuration = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.Btn_CalcDurations = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_SettingsBorder = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_Settings = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_Personely = new Telerik.WinControls.UI.RadRibbonBarGroup();
@@ -208,7 +208,7 @@
             this.MainRibbonBar.StartButtonImage = global::PersianMIS.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
-            this.MainRibbonBar.TabIndex = 0;
+            this.MainRibbonBar.TabIndex = 2;
             this.MainRibbonBar.Text = resources.GetString("MainRibbonBar.Text");
             this.MainRibbonBar.ThemeName = "ControlDefault";
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.MainRibbonBar.GetChildAt(0))).Image = null;
@@ -222,7 +222,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -458,9 +458,10 @@
             // 
             // Tab_Jobs
             // 
-            this.Tab_Jobs.IsSelected = false;
+            this.Tab_Jobs.IsSelected = true;
             this.Tab_Jobs.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineShiftBorder,
+            this.Btn_ProcessManage,
             this.Btn_CreateProductProgramBorder,
             this.Btn_RunPogramBorder,
             this.Btn_StopPogramBorder,
@@ -484,6 +485,23 @@
             this.Btn_DefineShift.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_DefineShift.Name = "Btn_DefineShift";
             this.Btn_DefineShift.Text = "                            ";
+            this.Btn_DefineShift.Click += new System.EventHandler(this.Btn_DefineShift_Click);
+            // 
+            // Btn_ProcessManage
+            // 
+            this.Btn_ProcessManage.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_ManageProcess});
+            this.Btn_ProcessManage.Name = "Btn_ProcessManage";
+            this.Btn_ProcessManage.Text = "مدیریت پروسه";
+            // 
+            // Btn_ManageProcess
+            // 
+            this.Btn_ManageProcess.AutoSize = false;
+            this.Btn_ManageProcess.Bounds = new System.Drawing.Rectangle(0, 0, 70, 62);
+            this.Btn_ManageProcess.Image = global::PersianMIS.Properties.Resources.Processsss;
+            this.Btn_ManageProcess.Name = "Btn_ManageProcess";
+            this.Btn_ManageProcess.Text = "";
+            this.Btn_ManageProcess.Click += new System.EventHandler(this.Btn_ManageProcess_Click);
             // 
             // Btn_CreateProductProgramBorder
             // 
@@ -555,7 +573,7 @@
             // Btn_DeleteProductProgram
             // 
             this.Btn_DeleteProductProgram.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_DeleteProductProgram.Image = global::PersianMIS.Properties.Resources.Delete_OK;
+            this.Btn_DeleteProductProgram.Image = global::PersianMIS.Properties.Resources.Delete_OkS2;
             this.Btn_DeleteProductProgram.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_DeleteProductProgram.Name = "Btn_DeleteProductProgram";
             this.Btn_DeleteProductProgram.Text = "                        ";
@@ -566,7 +584,6 @@
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
-            this.Btn_CalcDuration,
             this.Btn_SettingsBorder,
             this.Btn_Personely,
             this.Btn_Calander});
@@ -605,29 +622,6 @@
             this.Btn_defineProductLines.Name = "Btn_defineProductLines";
             this.Btn_defineProductLines.Text = "                                 ";
             this.Btn_defineProductLines.Click += new System.EventHandler(this.Btn_defineProductLines_Click);
-            // 
-            // Btn_CalcDuration
-            // 
-            this.Btn_CalcDuration.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_CalcDuration.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_CalcDurations});
-            this.Btn_CalcDuration.Name = "Btn_CalcDuration";
-            this.Btn_CalcDuration.Text = "محاسبه زمان کارکرد";
-            // 
-            // Btn_CalcDurations
-            // 
-            this.Btn_CalcDurations.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_CalcDurations.AutoSize = false;
-            this.Btn_CalcDurations.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.FitToAvailableSize;
-            this.Btn_CalcDurations.Bounds = new System.Drawing.Rectangle(0, 0, 140, 62);
-            this.Btn_CalcDurations.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
-            this.Btn_CalcDurations.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
-            this.Btn_CalcDurations.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-            this.Btn_CalcDurations.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btn_CalcDurations.Name = "Btn_CalcDurations";
-            this.Btn_CalcDurations.Text = "";
-            this.Btn_CalcDurations.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.Btn_CalcDurations.TextOrientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // Btn_SettingsBorder
             // 
@@ -828,8 +822,6 @@
         private Telerik.WinControls.UI.RadButtonElement Btn_Settings;
         private System.Windows.Forms.FlowLayoutPanel Pnl_Main;
         private System.Windows.Forms.OpenFileDialog OpenDlgMain;
-        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_CalcDuration;
-        private Telerik.WinControls.UI.RadButtonElement Btn_CalcDurations;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement2;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup1;
@@ -840,5 +832,7 @@
         private Telerik.WinControls.UI.RadButtonElement radButtonElement4;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_Calander;
         private Telerik.WinControls.UI.RadButtonElement Btn_Calendar;
+        private Telerik.WinControls.UI.RadRibbonBarGroup Btn_ProcessManage;
+        private Telerik.WinControls.UI.RadButtonElement Btn_ManageProcess;
     }
 }

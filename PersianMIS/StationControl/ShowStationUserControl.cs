@@ -40,9 +40,7 @@ namespace PersianMIS.StationControl
             LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
 
 
-            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_FromShift, "ShiftID", "ShiftTitle");
-            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_ToShift, "ShiftID", "ShiftTitle");
-
+        
 
         }
 
@@ -84,7 +82,7 @@ namespace PersianMIS.StationControl
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
 
-
+         
         }
 
 
@@ -106,6 +104,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-30);
             MskEndDate.Value = CurDate;
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
             //   String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
             FillData(SelectedStation);
             this.Cursor = Cursors.Default;
@@ -116,6 +116,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-365);
             MskEndDate.Value = CurDate;
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
             //      String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
             FillData("");
             this.Cursor = Cursors.Default;
@@ -156,6 +158,13 @@ namespace PersianMIS.StationControl
 
             String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
             startdate = CurDate.AddDays(-1).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
+
+
+            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_FromShift, "ShiftID", "ShiftTitle");
+            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_ToShift, "ShiftID", "ShiftTitle");
+
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
             enddate = CurrentDate;
             FillLstStation();
 
@@ -167,14 +176,14 @@ namespace PersianMIS.StationControl
 
 
 
-
-
         }
 
         private void radDateTimePickerElementEnd_ValueChanged(object sender, ValueChangingEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+
+ 
 
         }
 
@@ -192,6 +201,9 @@ namespace PersianMIS.StationControl
             FillData(SelectedStation);
             this.Cursor = Cursors.Default;
 
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
+
         }
 
         private void Btn_Week_Click(object sender, EventArgs e)
@@ -200,7 +212,8 @@ namespace PersianMIS.StationControl
             this.Cursor = Cursors.WaitCursor;
             MskStartDate.Value = CurDate.AddDays(-7);
             MskEndDate.Value = CurDate;
-            //String CurrentDate = CurDate.ToString("yyyy/MM/dd", new CultureInfo("en-US"));
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
             FillData(SelectedStation);
             this.Cursor = Cursors.Default;
 
@@ -223,37 +236,19 @@ namespace PersianMIS.StationControl
 
             }
 
-            //  MskStartDate.Value = new DateTime 
-
-
-            //   String CurrentDate = CurDate.ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
-            //   startdate = CurDate.AddDays(-1).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
-            //   enddate = CurrentDate;
-            //   TimeSpan T = new TimeSpan();
-
-
-            //   T.Add(new TimeSpan(1, 2, 00));
-
-            //   MskStartDate.Value.Value.Add(T);
-
-
-            ////   this.radDateTimePicker1.Value = new DateTime(date.Year, date.Month, date.Day, this.time.Hour, this.time.Minute, this.time.Second);
-
-            //    MskStartDate.Value.
-            //  ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0][""].ToString();
-
+           
         }
 
         private void Cmb_ToShift_SelectedValueChanged(object sender, Telerik.WinControls.UI.Data.ValueChangedEventArgs e)
         {
             try
             {
-                DateTime ShiftDate = new DateTime();
-                ShiftDate = (DateTime)MskEndDate.Value;
+                DateTime ShiftDate2 = new DateTime();
+                ShiftDate2 = (DateTime)MskEndDate.Value;
 
-                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift.SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
 
-                MskEndDate .Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+                MskEndDate.Value = DateTime.Parse(ShiftDate2.ToShortDateString().Trim() + Time);
 
             }
             catch
@@ -262,10 +257,56 @@ namespace PersianMIS.StationControl
             }
         }
 
+        private void Cmb_FromShift_TextChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DateTime ShiftDate = new DateTime();
+                ShiftDate = (DateTime)MskStartDate.Value;
+
+                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
+
+                MskStartDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+
+            }
+            catch
+            {
+
+            }
+
+
+        }
+
+        private void Cmb_ToShift_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime ShiftDate = new DateTime();
+                ShiftDate = (DateTime)MskEndDate.Value;
+
+                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift .SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+
+                MskEndDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Mnu_Refresh_Click(object sender, EventArgs e)
+        {
+FillData(SelectedStation);
+        }
+
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+          
+
 
         }
 

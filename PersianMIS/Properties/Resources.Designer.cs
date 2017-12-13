@@ -363,6 +363,26 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete_OkS {
+            get {
+                object obj = ResourceManager.GetObject("Delete OkS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete_OkS2 {
+            get {
+                object obj = ResourceManager.GetObject("Delete OkS2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -666,6 +686,16 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap printer1 {
             get {
                 object obj = ResourceManager.GetObject("printer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Processsss {
+            get {
+                object obj = ResourceManager.GetObject("Processsss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

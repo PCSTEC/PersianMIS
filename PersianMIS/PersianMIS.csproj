@@ -59,27 +59,48 @@
     </Reference>
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.Data.v15.2.dll</HintPath>
+      <HintPath>C:\IkidSystems\DevExpress.Data.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Core">
+      <HintPath>C:\IkidSystems\DevExpress.Pdf.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing">
+      <HintPath>C:\IkidSystems\DevExpress.Pdf.v15.2.Drawing.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.Printing.v15.2.Core.dll</HintPath>
+      <HintPath>C:\IkidSystems\DevExpress.Printing.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v15.2.Core">
+      <HintPath>C:\IkidSystems\DevExpress.RichEdit.v15.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
+      <HintPath>C:\IkidSystems\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.Utils.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.Utils.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.XtraBars.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraBars.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.XtraBars.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\dev\DevExpress.XtraEditors.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.XtraEditors.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.XtraEditors.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core">
+      <HintPath>C:\IkidSystems\DevExpress.XtraGauges.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.2.Win">
+      <HintPath>C:\IkidSystems\DevExpress.XtraGauges.v15.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.XtraLayout.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.XtraPrinting.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.2">
+      <HintPath>C:\IkidSystems\DevExpress.XtraTreeList.v15.2.dll</HintPath>
     </Reference>
     <Reference Include="FarsiLibrary.Resources">
       <HintPath>..\..\Debug\FarsiLibrary.Resources.dll</HintPath>
@@ -173,6 +194,7 @@
       <HintPath>..\lib\RCWF\2017.2.502.40\TelerikCommon.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentState\MyFormatProvider.cs" />
@@ -192,6 +214,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PCSTECDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProcess\Frm_MainProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProcess\Frm_MainProcess.Designer.cs">
+      <DependentUpon>Frm_MainProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductionControl\ShowProductionStatusUserControl.cs">
       <SubType>UserControl</SubType>
@@ -288,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProcess\Frm_MainProcess.resx">
+      <DependentUpon>Frm_MainProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductionControl\ShowProductionStatusUserControl.resx">
       <DependentUpon>ShowProductionStatusUserControl.cs</DependentUpon>
@@ -488,6 +519,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\Processsss.png" />
+    <None Include="Resources\Delete OkS2.png" />
+    <None Include="Resources\Delete OkS.png" />
     <None Include="Resources\calander.png" />
     <None Include="Resources\calander1.png" />
     <None Include="Resources\Business Man Blue1.png" />
