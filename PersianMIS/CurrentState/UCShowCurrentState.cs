@@ -43,7 +43,6 @@ namespace PersianMIS.CurrentState
           
             this.radCollapsiblePanel2.PanelContainer.Controls.Add( LSTProrudtionLines1);
             LSTProrudtionLines1.Name = "LSTProrudtionLines1";
-            LSTProrudtionLines1.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTProrudtionLines_ItemCheckedChanged );
             LSTProrudtionLines1.Dock = System.Windows.Forms.DockStyle.Fill;
             LSTProrudtionLines1.RightToLeft = RightToLeft.No;
 
@@ -301,7 +300,7 @@ namespace PersianMIS.CurrentState
                         DateTime StDate = (DateTime)radDateTimePickerElementStart.Value;
                         startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
                     }
-                    FillData(startdate, enddate, SelectedProductionLines);
+                 //   FillData(startdate, enddate, SelectedProductionLines);
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
@@ -504,6 +503,16 @@ namespace PersianMIS.CurrentState
 
         private void LSTProrudtionLines_ItemCheckedChanged(object sender, ListViewItemEventArgs e)
         {
+         
+        }
+
+        private void radCheckedListBox1_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_ShowData_Click(object sender, EventArgs e)
+        {
             this.Cursor = Cursors.WaitCursor;
             SelectedProductionLines = "0";
 
@@ -515,11 +524,6 @@ namespace PersianMIS.CurrentState
             SelectedProductionLines = "'" + SelectedProductionLines + "'";
             FillData(startdate, enddate, SelectedProductionLines);
             this.Cursor = Cursors.Default;
-        }
-
-        private void radCheckedListBox1_SelectedItemChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
@@ -534,7 +538,7 @@ namespace PersianMIS.CurrentState
                     {
                         enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
                     }
-                    FillData(startdate, enddate, SelectedProductionLines);
+                 //   FillData(startdate, enddate, SelectedProductionLines);
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
@@ -548,7 +552,7 @@ namespace PersianMIS.CurrentState
                     {
                         enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
                     }
-                    FillData(startdate, enddate, SelectedProductionLines);
+                  //  FillData(startdate, enddate, SelectedProductionLines);
 
                     System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
                     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;

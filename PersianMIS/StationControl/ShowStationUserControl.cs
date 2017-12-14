@@ -36,11 +36,11 @@ namespace PersianMIS.StationControl
 
             this.radCollapsiblePanel2.PanelContainer.Controls.Add(this.LSTStations);
             LSTStations.Name = "LSTStations";
-            LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
+            //  LSTStations.ItemCheckedChanged += new Telerik.WinControls.UI.ListViewItemEventHandler(this.LSTStations_ItemCheckedChanged);
             LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
 
 
-        
+
 
         }
 
@@ -71,19 +71,63 @@ namespace PersianMIS.StationControl
                 MskEndDate.Culture = new CultureInfo("en-GB");
                 UcShowStation.EndDate = (DateTime)MskEndDate.Value;
                 MskEndDate.Culture = new CultureInfo("fa-IR");
+                UcShowStation.Times = "";
 
-                MainPnl.Controls.Add(UcShowStation);
+                if (Ch_Shift1.Checked)
+                {
+                    if (UcShowStation.Times.Length > 2)
+                    {
+                        UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+                    }
+                    else
+                    {
+                        UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                    }
+                }
+
+                if (Ch_Shift2.Checked)
+                {
+                    if (UcShowStation.Times.Length > 2)
+                    {
+                        UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "' and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                    }
+                    else
+                    {
+                        UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "' and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                    }
+                }
+                    if (Ch_Shift3.Checked)
+                    {
+                        if (UcShowStation.Times.Length > 2)
+                        {
+                        UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00" + "' ";
+
+                    }
+                    else
+                        {
+                        UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00" + "' ";
+
+                    }
+                }
+
+
+                    MainPnl.Controls.Add(UcShowStation);
+
+
+
+                }
+
+                MskEndDate.Culture = persianCulture;
+                MskStartDate.Culture = persianCulture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+
+
 
             }
-
-            MskEndDate.Culture = persianCulture;
-            MskStartDate.Culture = persianCulture;
-            System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-
-
-         
-        }
 
 
 
@@ -160,8 +204,6 @@ namespace PersianMIS.StationControl
             startdate = CurDate.AddDays(-1).ToString("yyyy/mm/dd HH:mm:ss", new CultureInfo("en-US"));
 
 
-            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_FromShift, "ShiftID", "ShiftTitle");
-            pers.FillCmb(ShiftCalanders.GetShiftListWithInfo(), Cmb_ToShift, "ShiftID", "ShiftTitle");
 
             Cmb_FromShift_TextChanged(e, e);
             Cmb_ToShift_TextChanged(e, e);
@@ -183,7 +225,7 @@ namespace PersianMIS.StationControl
             System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
- 
+
 
         }
 
@@ -223,12 +265,12 @@ namespace PersianMIS.StationControl
         {
             try
             {
-                DateTime ShiftDate = new DateTime();
-                ShiftDate = (DateTime)MskStartDate.Value;
+                //  DateTime ShiftDate = new DateTime();
+                //  ShiftDate = (DateTime)MskStartDate.Value;
 
-                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
+                //    string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
 
-                MskStartDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+                //   MskStartDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
 
             }
             catch
@@ -236,19 +278,19 @@ namespace PersianMIS.StationControl
 
             }
 
-           
+
         }
 
         private void Cmb_ToShift_SelectedValueChanged(object sender, Telerik.WinControls.UI.Data.ValueChangedEventArgs e)
         {
             try
             {
-                DateTime ShiftDate2 = new DateTime();
-                ShiftDate2 = (DateTime)MskEndDate.Value;
+                //DateTime ShiftDate2 = new DateTime();
+                //ShiftDate2 = (DateTime)MskEndDate.Value;
 
-                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift.SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+                //string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift.SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
 
-                MskEndDate.Value = DateTime.Parse(ShiftDate2.ToShortDateString().Trim() + Time);
+                //MskEndDate.Value = DateTime.Parse(ShiftDate2.ToShortDateString().Trim() + Time);
 
             }
             catch
@@ -262,12 +304,12 @@ namespace PersianMIS.StationControl
 
             try
             {
-                DateTime ShiftDate = new DateTime();
-                ShiftDate = (DateTime)MskStartDate.Value;
+                //DateTime ShiftDate = new DateTime();
+                //ShiftDate = (DateTime)MskStartDate.Value;
 
-                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
+                //string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_FromShift.SelectedValue.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
 
-                MskStartDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+                //MskStartDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
 
             }
             catch
@@ -282,12 +324,12 @@ namespace PersianMIS.StationControl
         {
             try
             {
-                DateTime ShiftDate = new DateTime();
-                ShiftDate = (DateTime)MskEndDate.Value;
+                //DateTime ShiftDate = new DateTime();
+                //ShiftDate = (DateTime)MskEndDate.Value;
 
-                string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift .SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+                //string Time = " " + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Cmb_ToShift .SelectedValue.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
 
-                MskEndDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
+                //MskEndDate.Value = DateTime.Parse(ShiftDate.ToShortDateString().Trim() + Time);
 
             }
             catch
@@ -298,14 +340,32 @@ namespace PersianMIS.StationControl
 
         private void Mnu_Refresh_Click(object sender, EventArgs e)
         {
-FillData(SelectedStation);
+            FillData(SelectedStation);
+        }
+
+        private void Btn_Show_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            SelectedStation = "0";
+
+            foreach (var CheckedItem in LSTStations.CheckedItems)
+            {
+                SelectedStation = SelectedStation + "," + CheckedItem.Value.ToString() + "";
+
+            }
+            SelectedStation = "'" + SelectedStation + "'";
+            FillData(SelectedStation);
+            this.Cursor = Cursors.Default;
+
+            Cmb_FromShift_TextChanged(e, e);
+            Cmb_ToShift_TextChanged(e, e);
         }
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
-          
+
 
 
         }

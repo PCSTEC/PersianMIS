@@ -62,6 +62,8 @@
             this.radRibbonBarButtonGroup2 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
             this.radLabelElement2 = new Telerik.WinControls.UI.RadLabelElement();
             this.radDateTimePickerElementEnd = new Telerik.WinControls.UI.RadDateTimePickerElement();
+            this.radRibbonBarGroup8 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_ShowData = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.BtnPrint = new Telerik.WinControls.UI.RadButtonElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
@@ -310,7 +312,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(1234, 126);
+            this.radRibbonBar1.Size = new System.Drawing.Size(1234, 136);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -334,6 +336,7 @@
             this.radRibbonBarGroup1,
             this.radRibbonBarGroup3,
             this.radRibbonBarGroup6,
+            this.radRibbonBarGroup8,
             this.radRibbonBarGroup4});
             this.ribbonTab1.Name = "ribbonTab1";
             this.ribbonTab1.Text = "s";
@@ -422,7 +425,7 @@
             this.radLabelElement1,
             this.radDateTimePickerElementStart});
             this.radRibbonBarButtonGroup1.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup1.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup1.Name = "radRibbonBarButtonGroup1";
             this.radRibbonBarButtonGroup1.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup1.ShowBackColor = false;
@@ -461,7 +464,7 @@
             this.radLabelElement2,
             this.radDateTimePickerElementEnd});
             this.radRibbonBarButtonGroup2.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(12, 11);
+            this.radRibbonBarButtonGroup2.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup2.Name = "radRibbonBarButtonGroup2";
             this.radRibbonBarButtonGroup2.Padding = new System.Windows.Forms.Padding(1);
             this.radRibbonBarButtonGroup2.ShowBackColor = false;
@@ -493,6 +496,30 @@
             this.radDateTimePickerElementEnd.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementEnd_ValueChanged);
             this.radDateTimePickerElementEnd.Click += new System.EventHandler(this.radDateTimePickerElementEnd_Click);
             // 
+            // radRibbonBarGroup8
+            // 
+            this.radRibbonBarGroup8.AutoSize = false;
+            this.radRibbonBarGroup8.Bounds = new System.Drawing.Rectangle(0, 0, 96, 122);
+            this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_ShowData});
+            this.radRibbonBarGroup8.Margin = new System.Windows.Forms.Padding(1);
+            this.radRibbonBarGroup8.MaxSize = new System.Drawing.Size(0, 2);
+            this.radRibbonBarGroup8.MinSize = new System.Drawing.Size(1, 2);
+            this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
+            this.radRibbonBarGroup8.Text = "نمایش اطلاعات";
+            // 
+            // Btn_ShowData
+            // 
+            this.Btn_ShowData.AutoSize = false;
+            this.Btn_ShowData.Bounds = new System.Drawing.Rectangle(0, 0, 88, 96);
+            this.Btn_ShowData.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
+            this.Btn_ShowData.Image = global::PersianMIS.Properties.Resources.RUN_OK;
+            this.Btn_ShowData.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_ShowData.Name = "Btn_ShowData";
+            this.Btn_ShowData.Text = "";
+            this.Btn_ShowData.UseCompatibleTextRendering = false;
+            this.Btn_ShowData.Click += new System.EventHandler(this.Btn_ShowData_Click);
+            // 
             // radRibbonBarGroup4
             // 
             this.radRibbonBarGroup4.AccessibleDescription = "Print";
@@ -510,15 +537,17 @@
             // 
             this.BtnPrint.AccessibleDescription = "چاپ";
             this.BtnPrint.AccessibleName = "چاپ";
+            this.BtnPrint.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnPrint.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
             this.BtnPrint.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
             this.BtnPrint.Image = global::PersianMIS.Properties.Resources.printer1;
             this.BtnPrint.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnPrint.MinSize = new System.Drawing.Size(1, 0);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
-            this.BtnPrint.Text = "چاپ پیمایش زمانی";
+            this.BtnPrint.Text = "";
             this.BtnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BtnPrint.UseCompatibleTextRendering = false;
+            this.BtnPrint.UseCompatibleTextRendering = true;
             this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
             // ribbonTab2
@@ -589,5 +618,7 @@
         private Telerik.WinControls.UI.RadCollapsiblePanel radCollapsiblePanel1;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadCollapsiblePanel radCollapsiblePanel2;
+        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup8;
+        private Telerik.WinControls.UI.RadButtonElement Btn_ShowData;
     }
 }

@@ -19,6 +19,7 @@ namespace PersianMIS.StationControl
 
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
      public    DateTime StartDate, EndDate , ShiftDate = new DateTime();
+        public string Times = "";
         private void Pnl_State_Paint(object sender, PaintEventArgs e)
         {
 
@@ -216,10 +217,10 @@ namespace PersianMIS.StationControl
                 TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
 
 
-                TSql = TSql.Replace("11:11:11", StartDate.ToString("HH:mm:ss"));
+                //    TSql = TSql.Replace("11:11:11", StartDate.ToString("HH:mm:ss"));
 
-                TSql = TSql.Replace("22:22:22", EndDate.ToString("HH:mm:ss"));
-
+                //   TSql = TSql.Replace("22:22:22", EndDate.ToString("HH:mm:ss"));
+                TSql = TSql.Replace("strtime", Times); 
 
                 Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 

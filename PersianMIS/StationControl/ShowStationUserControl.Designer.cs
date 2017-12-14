@@ -42,10 +42,7 @@
             this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radDateTimePickerElement1 = new Telerik.WinControls.UI.RadDateTimePickerElement();
-            this.Ch_Shift2 = new Telerik.WinControls.UI.RadCheckBoxElement();
             this.Btn_Shift1 = new Telerik.WinControls.UI.RadCheckBoxElement();
-            this.Btn_Shift2 = new Telerik.WinControls.UI.RadCheckBoxElement();
-            this.Btn_Shift3 = new Telerik.WinControls.UI.RadCheckBoxElement();
             this.MainMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Mnu_Refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.printablePanel = new PersianMIS.CurrentState.PrintablePanel();
@@ -54,7 +51,6 @@
             this.radCollapsiblePanel1 = new Telerik.WinControls.UI.RadCollapsiblePanel();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.ribbonTab1 = new Telerik.WinControls.UI.RibbonTab();
-            this.radRibbonBarGroup1 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radRibbonBarGroup3 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_Week = new Telerik.WinControls.UI.RadButtonElement();
             this.Btn_Month = new Telerik.WinControls.UI.RadButtonElement();
@@ -68,11 +64,13 @@
             this.MskEndDate = new Telerik.WinControls.UI.RadDateTimePickerElement();
             this.ShiftGroups = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radRibbonBarButtonGroup3 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
-            this.radLabelElement3 = new Telerik.WinControls.UI.RadLabelElement();
-            this.Cmb_FromShift = new Telerik.WinControls.UI.RadDropDownListElement();
+            this.Ch_Shift1 = new Telerik.WinControls.UI.RadCheckBoxElement();
             this.radRibbonBarButtonGroup4 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
-            this.radLabelElement4 = new Telerik.WinControls.UI.RadLabelElement();
-            this.Cmb_ToShift = new Telerik.WinControls.UI.RadDropDownListElement();
+            this.Ch_Shift2 = new Telerik.WinControls.UI.RadCheckBoxElement();
+            this.radRibbonBarButtonGroup5 = new Telerik.WinControls.UI.RadRibbonBarButtonGroup();
+            this.Ch_Shift3 = new Telerik.WinControls.UI.RadCheckBoxElement();
+            this.GroupShow = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.Btn_Show = new Telerik.WinControls.UI.RadButtonElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
             this.MainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
@@ -83,8 +81,6 @@
             this.radCollapsiblePanel1.PanelContainer.SuspendLayout();
             this.radCollapsiblePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_FromShift)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ToShift)).BeginInit();
             this.SuspendLayout();
             // 
             // radButtonElement2
@@ -229,46 +225,11 @@
             this.radDateTimePickerElement1.Text = "radButtonElement10";
             this.radDateTimePickerElement1.UseCompatibleTextRendering = false;
             // 
-            // Ch_Shift2
-            // 
-            this.Ch_Shift2.Checked = false;
-            this.Ch_Shift2.Font = new System.Drawing.Font("B Nazanin", 10F, System.Drawing.FontStyle.Bold);
-            this.Ch_Shift2.Name = "Ch_Shift2";
-            this.Ch_Shift2.ReadOnly = false;
-            this.Ch_Shift2.StretchVertically = false;
-            this.Ch_Shift2.Text = "شیفت 2";
-            this.Ch_Shift2.UseCompatibleTextRendering = false;
-            // 
             // Btn_Shift1
             // 
-            this.Btn_Shift1.AccessibleDescription = "Btn_Shift1";
-            this.Btn_Shift1.AccessibleName = "Btn_Shift1";
             this.Btn_Shift1.Checked = false;
             this.Btn_Shift1.Name = "Btn_Shift1";
             this.Btn_Shift1.ReadOnly = false;
-            this.Btn_Shift1.StretchVertically = false;
-            this.Btn_Shift1.Text = "شیفت 1";
-            this.Btn_Shift1.UseCompatibleTextRendering = false;
-            // 
-            // Btn_Shift2
-            // 
-            this.Btn_Shift2.AccessibleDescription = "Btn_Shift1";
-            this.Btn_Shift2.AccessibleName = "Btn_Shift1";
-            this.Btn_Shift2.Checked = false;
-            this.Btn_Shift2.Name = "Btn_Shift2";
-            this.Btn_Shift2.ReadOnly = false;
-            this.Btn_Shift2.StretchVertically = false;
-            this.Btn_Shift2.Text = "شیفت 2";
-            this.Btn_Shift2.UseCompatibleTextRendering = false;
-            // 
-            // Btn_Shift3
-            // 
-            this.Btn_Shift3.Checked = false;
-            this.Btn_Shift3.Name = "Btn_Shift3";
-            this.Btn_Shift3.ReadOnly = false;
-            this.Btn_Shift3.StretchVertically = false;
-            this.Btn_Shift3.Text = "شیفت 3";
-            this.Btn_Shift3.UseCompatibleTextRendering = false;
             // 
             // MainMenu
             // 
@@ -360,7 +321,7 @@
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
             this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.radRibbonBar1.Size = new System.Drawing.Size(964, 115);
+            this.radRibbonBar1.Size = new System.Drawing.Size(964, 114);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
             this.radRibbonBar1.TabIndex = 9;
             this.radRibbonBar1.Text = "RadGanttViewExample";
@@ -381,26 +342,14 @@
             this.ribbonTab1.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.ribbonTab1.IsSelected = true;
             this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radRibbonBarGroup1,
             this.radRibbonBarGroup3,
             this.radRibbonBarGroup6,
-            this.ShiftGroups});
+            this.ShiftGroups,
+            this.GroupShow});
             this.ribbonTab1.Name = "ribbonTab1";
             this.ribbonTab1.Text = "s";
             this.ribbonTab1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.ribbonTab1.UseCompatibleTextRendering = false;
-            // 
-            // radRibbonBarGroup1
-            // 
-            this.radRibbonBarGroup1.AutoSize = false;
-            this.radRibbonBarGroup1.Bounds = new System.Drawing.Rectangle(0, 0, 5, 101);
-            this.radRibbonBarGroup1.Margin = new System.Windows.Forms.Padding(0);
-            this.radRibbonBarGroup1.MaxSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup1.MinSize = new System.Drawing.Size(0, 0);
-            this.radRibbonBarGroup1.Name = "radRibbonBarGroup1";
-            this.radRibbonBarGroup1.Text = "ITEMS";
-            this.radRibbonBarGroup1.UseCompatibleTextRendering = false;
-            this.radRibbonBarGroup1.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
             // radRibbonBarGroup3
             // 
@@ -492,7 +441,7 @@
             this.MskStartDate.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.MskStartDate.AutoSize = false;
             this.MskStartDate.Bounds = new System.Drawing.Rectangle(0, 0, 150, 25);
-            this.MskStartDate.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.MskStartDate.CustomFormat = "yyyy/MM/dd";
             this.MskStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.MskStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.MskStartDate.MinDate = new System.DateTime(((long)(0)));
@@ -534,7 +483,7 @@
             // 
             this.MskEndDate.AutoSize = false;
             this.MskEndDate.Bounds = new System.Drawing.Rectangle(0, 0, 155, 25);
-            this.MskEndDate.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.MskEndDate.CustomFormat = "yyyy/MM/dd";
             this.MskEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.MskEndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.MskEndDate.MinDate = new System.DateTime(((long)(0)));
@@ -556,7 +505,8 @@
             this.ShiftGroups.Bounds = new System.Drawing.Rectangle(0, 0, 180, 100);
             this.ShiftGroups.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radRibbonBarButtonGroup3,
-            this.radRibbonBarButtonGroup4});
+            this.radRibbonBarButtonGroup4,
+            this.radRibbonBarButtonGroup5});
             this.ShiftGroups.Margin = new System.Windows.Forms.Padding(1);
             this.ShiftGroups.MaxSize = new System.Drawing.Size(0, 1);
             this.ShiftGroups.MinSize = new System.Drawing.Size(1, 1);
@@ -570,107 +520,78 @@
             // radRibbonBarButtonGroup3
             // 
             this.radRibbonBarButtonGroup3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radLabelElement3,
-            this.Cmb_FromShift});
+            this.Ch_Shift1});
             this.radRibbonBarButtonGroup3.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup3.Name = "radRibbonBarButtonGroup3";
             this.radRibbonBarButtonGroup3.Text = "radRibbonBarButtonGroup3";
             // 
-            // radLabelElement3
+            // Ch_Shift1
             // 
-            this.radLabelElement3.Name = "radLabelElement3";
-            this.radLabelElement3.Text = "از :";
-            this.radLabelElement3.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.radLabelElement3.TextWrap = true;
-            // 
-            // Cmb_FromShift
-            // 
-            this.Cmb_FromShift.AutoCompleteAppend = null;
-            this.Cmb_FromShift.AutoCompleteDataSource = null;
-            this.Cmb_FromShift.AutoCompleteSuggest = null;
-            this.Cmb_FromShift.DataMember = "";
-            this.Cmb_FromShift.DataSource = null;
-            this.Cmb_FromShift.DefaultValue = null;
-            this.Cmb_FromShift.DisplayMember = "";
-            this.Cmb_FromShift.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InQuad;
-            this.Cmb_FromShift.DropDownAnimationEnabled = true;
-        
-            this.Cmb_FromShift.EditableElementText = "";
-            this.Cmb_FromShift.EditorElement = this.Cmb_FromShift;
-            this.Cmb_FromShift.EditorManager = null;
-            this.Cmb_FromShift.Filter = null;
-            this.Cmb_FromShift.FilterExpression = "";
-            this.Cmb_FromShift.Focusable = true;
-            this.Cmb_FromShift.FormatString = "";
-            this.Cmb_FromShift.FormattingEnabled = true;
-       
-            this.Cmb_FromShift.MaxDropDownItems = 0;
-            this.Cmb_FromShift.MaxLength = 32767;
-            this.Cmb_FromShift.MaxValue = null;
-            this.Cmb_FromShift.MinValue = null;
-            this.Cmb_FromShift.Name = "Cmb_FromShift";
-            this.Cmb_FromShift.NullText = "لطفاً شیفت را انتخاب کنید";
-            this.Cmb_FromShift.NullValue = null;
-            this.Cmb_FromShift.OwnerOffset = 0;
-            this.Cmb_FromShift.ShowImageInEditorArea = true;
-            this.Cmb_FromShift.SortStyle = Telerik.WinControls.Enumerations.SortStyle.None;
-            this.Cmb_FromShift.Value = null;
-            this.Cmb_FromShift.ValueMember = "";
-            this.Cmb_FromShift.SelectedValueChanged += new Telerik.WinControls.UI.Data.ValueChangedEventHandler(this.Cmb_FromShift_SelectedValueChanged);
-            this.Cmb_FromShift.TextChanged += new System.EventHandler(this.Cmb_FromShift_TextChanged);
+            this.Ch_Shift1.Checked = false;
+            this.Ch_Shift1.Name = "Ch_Shift1";
+            this.Ch_Shift1.ReadOnly = false;
+            this.Ch_Shift1.Tag = "82";
+            this.Ch_Shift1.Text = "شیفت1";
             // 
             // radRibbonBarButtonGroup4
             // 
             this.radRibbonBarButtonGroup4.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radLabelElement4,
-            this.Cmb_ToShift});
+            this.Ch_Shift2});
             this.radRibbonBarButtonGroup4.MinSize = new System.Drawing.Size(22, 22);
             this.radRibbonBarButtonGroup4.Name = "radRibbonBarButtonGroup4";
             this.radRibbonBarButtonGroup4.Text = "radRibbonBarButtonGroup4";
             // 
-            // radLabelElement4
+            // Ch_Shift2
             // 
-            this.radLabelElement4.Name = "radLabelElement4";
-            this.radLabelElement4.Text = "تا :";
-            this.radLabelElement4.TextAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.radLabelElement4.TextWrap = true;
+            this.Ch_Shift2.Checked = false;
+            this.Ch_Shift2.Name = "Ch_Shift2";
+            this.Ch_Shift2.ReadOnly = false;
+            this.Ch_Shift2.Tag = "83";
+            this.Ch_Shift2.Text = "شیفت 2";
             // 
-            // Cmb_ToShift
+            // radRibbonBarButtonGroup5
             // 
-     
-            this.Cmb_ToShift.AutoCompleteAppend = null;
-            this.Cmb_ToShift.AutoCompleteDataSource = null;
-            this.Cmb_ToShift.AutoCompleteSuggest = null;
-            this.Cmb_ToShift.DataMember = "";
-            this.Cmb_ToShift.DataSource = null;
-            this.Cmb_ToShift.DefaultValue = null;
-            this.Cmb_ToShift.DisplayMember = "";
-            this.Cmb_ToShift.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InQuad;
-            this.Cmb_ToShift.DropDownAnimationEnabled = true;
-        
-            this.Cmb_ToShift.EditableElementText = "";
-            this.Cmb_ToShift.EditorElement = this.Cmb_ToShift;
-            this.Cmb_ToShift.EditorManager = null;
-            this.Cmb_ToShift.Filter = null;
-            this.Cmb_ToShift.FilterExpression = "";
-            this.Cmb_ToShift.Focusable = true;
-            this.Cmb_ToShift.FormatString = "";
-            this.Cmb_ToShift.FormattingEnabled = true;
-     
-            this.Cmb_ToShift.MaxDropDownItems = 0;
-            this.Cmb_ToShift.MaxLength = 32767;
-            this.Cmb_ToShift.MaxValue = null;
-            this.Cmb_ToShift.MinValue = null;
-            this.Cmb_ToShift.Name = "Cmb_ToShift";
-            this.Cmb_ToShift.NullText = "لطفاً شیفت را انتخاب کنید";
-            this.Cmb_ToShift.NullValue = null;
-            this.Cmb_ToShift.OwnerOffset = 0;
-            this.Cmb_ToShift.ShowImageInEditorArea = true;
-            this.Cmb_ToShift.SortStyle = Telerik.WinControls.Enumerations.SortStyle.None;
-            this.Cmb_ToShift.Value = null;
-            this.Cmb_ToShift.ValueMember = "";
-            this.Cmb_ToShift.SelectedValueChanged += new Telerik.WinControls.UI.Data.ValueChangedEventHandler(this.Cmb_ToShift_SelectedValueChanged);
-            this.Cmb_ToShift.TextChanged += new System.EventHandler(this.Cmb_ToShift_TextChanged);
+            this.radRibbonBarButtonGroup5.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Ch_Shift3});
+            this.radRibbonBarButtonGroup5.MinSize = new System.Drawing.Size(22, 22);
+            this.radRibbonBarButtonGroup5.Name = "radRibbonBarButtonGroup5";
+            this.radRibbonBarButtonGroup5.Text = "radRibbonBarButtonGroup5";
+            // 
+            // Ch_Shift3
+            // 
+            this.Ch_Shift3.Checked = false;
+            this.Ch_Shift3.Name = "Ch_Shift3";
+            this.Ch_Shift3.ReadOnly = false;
+            this.Ch_Shift3.Tag = "84";
+            this.Ch_Shift3.Text = "شیفت 3";
+            // 
+            // GroupShow
+            // 
+            this.GroupShow.AutoSize = false;
+            this.GroupShow.Bounds = new System.Drawing.Rectangle(0, 0, 73, 100);
+            this.GroupShow.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.Btn_Show});
+            this.GroupShow.Margin = new System.Windows.Forms.Padding(1);
+            this.GroupShow.MaxSize = new System.Drawing.Size(0, 4);
+            this.GroupShow.MinSize = new System.Drawing.Size(1, 3);
+            this.GroupShow.Name = "GroupShow";
+            this.GroupShow.Text = "نمایش اطلاعات";
+            this.GroupShow.UseCompatibleTextRendering = false;
+            // 
+            // Btn_Show
+            // 
+            this.Btn_Show.AutoSize = false;
+            this.Btn_Show.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.Btn_Show.Bounds = new System.Drawing.Rectangle(0, 0, 70, 74);
+            this.Btn_Show.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
+            this.Btn_Show.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
+            this.Btn_Show.Image = global::PersianMIS.Properties.Resources.RUN_OK;
+            this.Btn_Show.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Btn_Show.Name = "Btn_Show";
+            this.Btn_Show.StretchHorizontally = true;
+            this.Btn_Show.StretchVertically = true;
+            this.Btn_Show.Text = "";
+            this.Btn_Show.Click += new System.EventHandler(this.Btn_Show_Click);
             // 
             // ribbonTab2
             // 
@@ -703,8 +624,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radCollapsiblePanel1)).EndInit();
             this.radCollapsiblePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_FromShift)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ToShift)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -713,7 +632,6 @@
 
         private Telerik.WinControls.UI.RadRibbonBar radRibbonBar1;
         private Telerik.WinControls.UI.RibbonTab ribbonTab1;
-        private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup1;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup3;
         private Telerik.WinControls.UI.RadButtonElement Btn_Week;
         private Telerik.WinControls.UI.RadButtonElement Btn_Month;
@@ -743,18 +661,19 @@
         private System.Windows.Forms.FlowLayoutPanel MainPnl;
         private Telerik.WinControls.UI.RadDateTimePickerElement radDateTimePickerElement1;
         private Telerik.WinControls.UI.RadRibbonBarGroup ShiftGroups;
-        private Telerik.WinControls.UI.RadCheckBoxElement Ch_Shift2;
+   
     
         private Telerik.WinControls.UI.RadCheckBoxElement Btn_Shift1;
-        private Telerik.WinControls.UI.RadCheckBoxElement Btn_Shift2;
-        private Telerik.WinControls.UI.RadCheckBoxElement Btn_Shift3;
+     
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup3;
-        private Telerik.WinControls.UI.RadLabelElement radLabelElement3;
-        private Telerik.WinControls.UI.RadDropDownListElement Cmb_FromShift;
         private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup4;
-        private Telerik.WinControls.UI.RadLabelElement radLabelElement4;
-        private Telerik.WinControls.UI.RadDropDownListElement Cmb_ToShift;
         private System.Windows.Forms.ContextMenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Refresh;
+        private Telerik.WinControls.UI.RadCheckBoxElement Ch_Shift1;
+        private Telerik.WinControls.UI.RadCheckBoxElement Ch_Shift2;
+        private Telerik.WinControls.UI.RadRibbonBarButtonGroup radRibbonBarButtonGroup5;
+        private Telerik.WinControls.UI.RadCheckBoxElement Ch_Shift3;
+        private Telerik.WinControls.UI.RadRibbonBarGroup GroupShow;
+        private Telerik.WinControls.UI.RadButtonElement Btn_Show;
     }
 }
