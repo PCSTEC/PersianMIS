@@ -135,7 +135,7 @@
             // MainTimer
             // 
             this.MainTimer.Enabled = true;
-            this.MainTimer.Interval = 1000;
+            this.MainTimer.Interval = 60000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
             // 
             // radRibbonBarGroup1
@@ -263,7 +263,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = false;
+            this.Tab_Control.IsSelected = true;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,
@@ -458,7 +458,7 @@
             // 
             // Tab_Jobs
             // 
-            this.Tab_Jobs.IsSelected = true;
+            this.Tab_Jobs.IsSelected = false;
             this.Tab_Jobs.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineShiftBorder,
             this.Btn_ProcessManage,

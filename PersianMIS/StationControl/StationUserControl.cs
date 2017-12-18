@@ -18,21 +18,13 @@ namespace PersianMIS.StationControl
         BLL.Cls_Station Bll_Station = new Cls_Station();
 
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
-     public    DateTime StartDate, EndDate , ShiftDate = new DateTime();
-        public string Times = "";
-        private void Pnl_State_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        public DateTime StartDate, EndDate, ShiftDate, Shift3beginDate, Shift3Enddate = new DateTime();
+        public Boolean IsSHift3 = false;
+        public string Times, Shift3beginTime, Shift3EndTime = "";
 
 
         IKIDUtility.IKIDUtility.Formating Utility = new IKIDUtility.IKIDUtility.Formating();
-        private void TimerState_Tick(object sender, EventArgs e)
-        {
-            FillData();
 
-
-        }
 
         DataTable Dt = new DataTable();
         BLL.CLS_DeviceLine Bll_DeviceLine = new CLS_DeviceLine();
@@ -47,130 +39,12 @@ namespace PersianMIS.StationControl
         }
 
 
-
-
-
         public StationUserControl()
         {
             InitializeComponent();
 
 
         }
-
-        //public void CreateObjectsForCount()
-        //{
-        //    int ConnectTime = 0, DisconnectedTime = 0;
-        //    Lbl_ParameterDesc.Text = ProductLineDesc;
-        //    Lbl_DeviceDesc.Text = deviceDesc;
-        //    Lbl_LineDesc.Text = Linedesc;
-        //    Lbl_ActiveName.Text = ActiveStateDesc;
-        //    Lbl_DeActiveName.Text = DeActiveStateDesc;
-        //    Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime, MiladiiEndDate, MiladiEndTime);
-        //    DTLastState = Bll_DeviceLine.GetLastStateFromSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime);
-        //    if (Dt.Rows.Count > 0)
-        //    {
-        //        if (Dt.DefaultView[0]["StateId"].ToString() == "0")
-        //        {
-        //            Lbl_DeActiveName.Text = DeActiveStateDesc + ":";
-        //            DisconnectedTime = Convert.ToInt32(Utility.NZ(Dt.DefaultView[0]["SumDuration"].ToString(), 0));
-        //            Lbl_SumDisconnectTime.Text = (DisconnectedTime / 60).ToString();
-        //        }
-
-        //        if (Dt.Rows.Count > 1 || Dt.DefaultView[0]["StateId"].ToString() == "1")
-        //        {
-
-        //            Dt = Bll_DeviceLine.GetSpecialLineStateByDateDateForCount(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime, "", "");
-        //            if (Dt.Rows.Count > 0)
-        //            {
-
-        //                Lbl_ActiveName.Text = ActiveStateDesc + ":";
-        //                Lbl_SumConnectTime.Text = Dt.DefaultView[0]["Count"].ToString();
-        //            }
-        //        }
-        //    }
-
-
-
-        //    if (DTLastState.Rows.Count > 0 && DTLastState.DefaultView[0]["StateId"].ToString() == "0")
-        //    {
-        //        double totalHours;
-        //        DateTime FirstDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiStartDateTime"].ToString());
-        //        DateTime EndDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiFinishDateTime"].ToString());
-
-
-        //        totalHours = (EndDate - FirstDate).TotalSeconds;
-
-        //        Lbl_SumDisconnectTime.Text = Convert.ToString(Convert.ToInt32(totalHours) + DisconnectedTime);
-        //    }
-
-
-        //    TimerState.Enabled = true;
-        //}
-
-        //public void CreateObjects()
-        //{
-        //    int ConnectTime = 0, DisconnectedTime = 0;
-        //    Lbl_ParameterDesc.Text = ProductLineDesc;
-        //    Lbl_DeviceDesc.Text = deviceDesc;
-        //    Lbl_LineDesc.Text = Linedesc;
-        //    Lbl_ActiveName.Text = ActiveStateDesc;
-        //    Lbl_DeActiveName.Text = DeActiveStateDesc;
-        //    Dt = Bll_DeviceLine.GetSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime, MiladiiEndDate, MiladiEndTime);
-        //    DTLastState = Bll_DeviceLine.GetLastStateFromSpecialLineStateByDate(DeviceId.ToString(), LineID.ToString(), MiladiStartDate, MiladiStartTime);
-        //    if (Dt.Rows.Count > 0)
-        //    {
-        //        if (Dt.DefaultView[0]["StateId"].ToString() == "0")
-        //        {
-        //            Lbl_DeActiveName.Text = DeActiveStateDesc + ":";
-        //            DisconnectedTime = Convert.ToInt32(Utility.NZ(Dt.DefaultView[0]["SumDuration"].ToString(), 0));
-        //            Lbl_SumDisconnectTime.Text = (DisconnectedTime / 60).ToString();
-        //        }
-
-        //        if (Dt.Rows.Count > 1 || Dt.DefaultView[0]["StateId"].ToString() == "1")
-        //        {
-        //            if (Dt.Rows.Count > 1)
-        //            {
-        //                ConnectTime = Convert.ToInt32(Utility.NZ(Dt.DefaultView[1]["SumDuration"].ToString(), 0));
-        //            }
-        //            if (Dt.DefaultView[0]["StateId"].ToString() == "1")
-        //            {
-        //                ConnectTime = Convert.ToInt32(Utility.NZ(Dt.DefaultView[0]["SumDuration"].ToString(), 0));
-        //            }
-        //            Lbl_ActiveName.Text = ActiveStateDesc + ":";
-        //            Lbl_SumConnectTime.Text = (ConnectTime / 60).ToString();
-        //        }
-        //    }
-
-
-        //    if (DTLastState.Rows.Count > 0 && DTLastState.DefaultView[0]["StateId"].ToString() == "1" && DBNull.Value.Equals(DTLastState.DefaultView[0]["Duration"].ToString()))
-        //    {
-        //        double totalHours;
-        //        DateTime FirstDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiStartDateTime"].ToString());
-        //        DateTime EndDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiFinishDateTime"].ToString());
-
-
-        //        totalHours = (EndDate - FirstDate).TotalSeconds;
-
-        //        Lbl_SumConnectTime.Text = Convert.ToString((Convert.ToInt32(totalHours) + ConnectTime) / 60);
-        //    }
-
-        //    if (DTLastState.Rows.Count > 0 && DTLastState.DefaultView[0]["StateId"].ToString() == "0" && DBNull.Value.Equals(DTLastState.DefaultView[0]["Duration"].ToString()))
-        //    {
-        //        double totalHours;
-        //        DateTime FirstDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiStartDateTime"].ToString());
-        //        DateTime EndDate = DateTime.Parse(DTLastState.DefaultView[0]["MiladiFinishDateTime"].ToString());
-
-
-        //        totalHours = (EndDate - FirstDate).TotalSeconds;
-
-        //        Lbl_SumDisconnectTime.Text = Convert.ToString((totalHours + DisconnectedTime) / 60);
-        //    }
-
-
-        //    TimerState.Enabled = true;
-        //}
-
-
 
         public Panel MainPnl
         {
@@ -182,7 +56,7 @@ namespace PersianMIS.StationControl
         {
             BLL.Cls_PublicOperations.Dt = Bll_Station.GetClientData(this.Tag.ToString());
             Pnl_Main.Controls.Clear();
-          
+
             for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
             {
                 Panel Pnl_State = new Panel();
@@ -197,50 +71,53 @@ namespace PersianMIS.StationControl
                 Label Lbl_ParameterDesc = new Label();
 
 
-               // Lbl_ParameterCaption.AutoSize = true;
+                // Lbl_ParameterCaption.AutoSize = true;
                 Lbl_ParameterCaption.ForeColor = System.Drawing.Color.White;
                 Lbl_ParameterCaption.Location = new System.Drawing.Point(97, 7);
                 Lbl_ParameterCaption.Name = "Lbl_ParameterCaption";
                 Lbl_ParameterCaption.Size = new System.Drawing.Size(240, 26);
                 Lbl_ParameterCaption.TabIndex = 9;
-                 Lbl_ParameterCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString();
-                Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight ;
+                Lbl_ParameterCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString();
+                Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                 Lbl_ParameterCaption.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                System.Threading.Thread.CurrentThread.CurrentCulture = new   CultureInfo("en-GB");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
 
 
                 //  string TSql = "select top(1) " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString() + " as value from Tb_Client where   (MiladiStartDateTime >= cast( '" +   StartDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime )) AND (MiladiFinishDateTime <= cast('" + EndDate.ToString("MM/dd/yyyy HH:mm:ss") + "'  as datetime ))";
 
                 string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParamaterTSQL"].ToString();
-                TSql= TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
+                TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
 
-                TSql= TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
+                TSql = TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
+                if (IsSHift3)
+                {
+                    TSql = TSql.Replace("'12/12/2005'", "'" + Shift3beginDate.ToString("MM/dd/yyyy") + "'");
+                    TSql = TSql.Replace("'12/13/2005'", "'" + Shift3Enddate.ToString("MM/dd/yyyy") + "'");
+                    TSql = TSql.Replace("01:00:00", Shift3beginTime);
+                    TSql = TSql.Replace("06:00:00", Shift3EndTime);
+                    if (IsSHift3 && Times.Length < 5)
+                    {
+                        TSql = TSql.Replace("strtime", "AND (CAST(dbo.Tb_Client.StartTime AS time) BETWEEN '00:00:00' AND  '00:00:00' ");
+                    }
+                }
 
 
-                //    TSql = TSql.Replace("11:11:11", StartDate.ToString("HH:mm:ss"));
-
-                //   TSql = TSql.Replace("22:22:22", EndDate.ToString("HH:mm:ss"));
-                TSql = TSql.Replace("strtime", Times); 
+                TSql = TSql.Replace("strtime", Times);
 
                 Dt = Bll_Public.GetDataTableFromTSQL(TSql);
-
-                 
                 Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
                 Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
                 Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
                 Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
                 Lbl_ParameterDesc.TabIndex = 6;
-
-
-
                 Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
 
                 if (Dt.Rows.Count > 0)
                 {
-                    decimal Data = Decimal.Parse(Utility.NZ( Dt.DefaultView[0][0].ToString(),0).ToString());
-             
+                    decimal Data = Decimal.Parse(Utility.NZ(Dt.DefaultView[0][0].ToString(), 0).ToString());
+
                     Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
 
                 }
@@ -250,18 +127,10 @@ namespace PersianMIS.StationControl
                 }
 
                 Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-
-                //    Pnl_State.Paint += new System.Windows.Forms.PaintEventHandler(this.Pnl_State_Paint);
-
-
-                //Pnl_Main.Controls.Add(Lbl_ParameterCaption);
-                //Pnl_Main.Controls.Add(Lbl_ParameterDesc);
                 Pnl_State.Controls.Add(Lbl_ParameterCaption);
                 Pnl_State.Controls.Add(Lbl_ParameterDesc);
 
                 Pnl_Main.Controls.Add(Pnl_State);
-                //   Pnl_Main.Controls[i].Left  = 0;
             }
         }
 

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StationUserControl));
-            this.office2010BlueTheme1 = new Telerik.WinControls.Themes.Office2010BlueTheme();
             this.TopPnl = new DevComponents.DotNetBar.PanelEx();
             this.BBManage = new DevComponents.DotNetBar.BubbleBar();
             this.BubbleBarTab2 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
@@ -38,7 +37,6 @@
             this.Pnl_State = new System.Windows.Forms.Panel();
             this.Lbl_ParameterCaption = new System.Windows.Forms.Label();
             this.Lbl_ParameterDesc = new System.Windows.Forms.Label();
-            this.TimerState = new System.Windows.Forms.Timer(this.components);
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
             this.TopPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).BeginInit();
@@ -131,7 +129,6 @@
             this.Pnl_State.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Pnl_State.Size = new System.Drawing.Size(362, 37);
             this.Pnl_State.TabIndex = 5;
-            this.Pnl_State.Paint += new System.Windows.Forms.PaintEventHandler(this.Pnl_State_Paint);
             // 
             // Lbl_ParameterCaption
             // 
@@ -153,11 +150,6 @@
             this.Lbl_ParameterDesc.TabIndex = 6;
             this.Lbl_ParameterDesc.Text = "label1";
             this.Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TimerState
-            // 
-            this.TimerState.Interval = 1000;
-            this.TimerState.Tick += new System.EventHandler(this.TimerState_Tick);
             // 
             // Pnl_Main
             // 
@@ -188,7 +180,6 @@
         }
 
         #endregion
-        private Telerik.WinControls.Themes.Office2010BlueTheme office2010BlueTheme1;
         private DevComponents.DotNetBar.PanelEx TopPnl;
         internal DevComponents.DotNetBar.BubbleBar BBManage;
         internal DevComponents.DotNetBar.BubbleBarTab BubbleBarTab2;
@@ -196,7 +187,6 @@
         private System.Windows.Forms.Panel Pnl_State;
         private System.Windows.Forms.Label Lbl_ParameterDesc;
         private System.Windows.Forms.Label Lbl_ParameterCaption;
-        private System.Windows.Forms.Timer TimerState;
         private System.Windows.Forms.FlowLayoutPanel Pnl_Main;
     }
 }

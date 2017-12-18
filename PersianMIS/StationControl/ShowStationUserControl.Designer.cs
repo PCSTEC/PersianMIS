@@ -71,6 +71,7 @@
             this.Ch_Shift3 = new Telerik.WinControls.UI.RadCheckBoxElement();
             this.GroupShow = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.Btn_Show = new Telerik.WinControls.UI.RadButtonElement();
+            this.Ch_DontCalcRestTime = new Telerik.WinControls.UI.RadCheckBoxElement();
             this.ribbonTab2 = new Telerik.WinControls.UI.RibbonTab();
             this.MainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.printablePanel)).BeginInit();
@@ -320,12 +321,10 @@
             // 
             // 
             this.radRibbonBar1.OptionsButton.Text = "Options";
-            this.radRibbonBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radRibbonBar1.Size = new System.Drawing.Size(964, 114);
             this.radRibbonBar1.StartButtonImage = ((System.Drawing.Image)(resources.GetObject("radRibbonBar1.StartButtonImage")));
-            this.radRibbonBar1.TabIndex = 9;
+            this.radRibbonBar1.TabIndex = 0;
             this.radRibbonBar1.Text = "RadGanttViewExample";
-            this.radRibbonBar1.ThemeName = "TelerikMetroBlue";
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.radRibbonBar1.GetChildAt(0))).Text = "RadGanttViewExample";
             ((Telerik.WinControls.UI.RadQuickAccessToolBar)(this.radRibbonBar1.GetChildAt(0).GetChildAt(2))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             ((Telerik.WinControls.UI.RadRibbonBarCaption)(this.radRibbonBar1.GetChildAt(0).GetChildAt(3))).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
@@ -455,7 +454,6 @@
             this.MskStartDate.StretchVertically = false;
             this.MskStartDate.Text = "radButtonElement9";
             this.MskStartDate.UseCompatibleTextRendering = false;
-            this.MskStartDate.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementStart_ValueChanged);
             // 
             // radRibbonBarButtonGroup2
             // 
@@ -494,7 +492,6 @@
             this.MskEndDate.StretchVertically = false;
             this.MskEndDate.Text = "radButtonElement10";
             this.MskEndDate.UseCompatibleTextRendering = false;
-            this.MskEndDate.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementEnd_ValueChanged);
             this.MskEndDate.Click += new System.EventHandler(this.radDateTimePickerElementEnd_Click);
             // 
             // ShiftGroups
@@ -568,13 +565,15 @@
             // GroupShow
             // 
             this.GroupShow.AutoSize = false;
-            this.GroupShow.Bounds = new System.Drawing.Rectangle(0, 0, 73, 100);
+            this.GroupShow.Bounds = new System.Drawing.Rectangle(0, 0, 150, 100);
             this.GroupShow.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.Btn_Show});
+            this.Btn_Show,
+            this.Ch_DontCalcRestTime});
             this.GroupShow.Margin = new System.Windows.Forms.Padding(1);
-            this.GroupShow.MaxSize = new System.Drawing.Size(0, 4);
-            this.GroupShow.MinSize = new System.Drawing.Size(1, 3);
+            this.GroupShow.MaxSize = new System.Drawing.Size(0, 1);
+            this.GroupShow.MinSize = new System.Drawing.Size(1, 1);
             this.GroupShow.Name = "GroupShow";
+            this.GroupShow.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.GroupShow.Text = "نمایش اطلاعات";
             this.GroupShow.UseCompatibleTextRendering = false;
             // 
@@ -582,7 +581,7 @@
             // 
             this.Btn_Show.AutoSize = false;
             this.Btn_Show.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
-            this.Btn_Show.Bounds = new System.Drawing.Rectangle(0, 0, 70, 74);
+            this.Btn_Show.Bounds = new System.Drawing.Rectangle(0, 0, 150, 50);
             this.Btn_Show.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
             this.Btn_Show.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
             this.Btn_Show.Image = global::PersianMIS.Properties.Resources.RUN_OK;
@@ -592,6 +591,14 @@
             this.Btn_Show.StretchVertically = true;
             this.Btn_Show.Text = "";
             this.Btn_Show.Click += new System.EventHandler(this.Btn_Show_Click);
+            // 
+            // Ch_DontCalcRestTime
+            // 
+            this.Ch_DontCalcRestTime.Checked = false;
+            this.Ch_DontCalcRestTime.Name = "Ch_DontCalcRestTime";
+            this.Ch_DontCalcRestTime.ReadOnly = false;
+            this.Ch_DontCalcRestTime.StretchVertically = false;
+            this.Ch_DontCalcRestTime.Text = "عدم محاسبه زمان استراحت";
             // 
             // ribbonTab2
             // 
@@ -611,7 +618,6 @@
             this.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ShowStationUserControl";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(966, 699);
             this.Load += new System.EventHandler(this.ShowStationUserControl_Load);
             this.MainMenu.ResumeLayout(false);
@@ -675,5 +681,6 @@
         private Telerik.WinControls.UI.RadCheckBoxElement Ch_Shift3;
         private Telerik.WinControls.UI.RadRibbonBarGroup GroupShow;
         private Telerik.WinControls.UI.RadButtonElement Btn_Show;
+        private Telerik.WinControls.UI.RadCheckBoxElement Ch_DontCalcRestTime;
     }
 }

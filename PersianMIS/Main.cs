@@ -94,6 +94,8 @@ namespace PersianMIS
                     if (Bll_PublicOperations.InsertBackgroundImage(Dlg.FileName, "All"))
                     {
                         MessageBox.Show("تصویر مورد نظر با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        foreach (Control c in Pnl_Main.Controls)
+                            c.Dispose();
                         Pnl_Main.Controls.Clear();
                         GetbackgroundImage("All");
 
@@ -163,6 +165,8 @@ namespace PersianMIS
         private void Btn_DefineParameter_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
             RadForm Frm = new System_Settings.Frm_DeviceSetting();
             Frm.ShowDialog();
@@ -171,6 +175,8 @@ namespace PersianMIS
         private void Btn_defineProductLines_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
             RadForm Frm = new System_Settings.Frm_ProductLine();
             Frm.ShowDialog();
@@ -219,33 +225,61 @@ namespace PersianMIS
 
         private void Btn_AddStation_Click(object sender, EventArgs e)
         {
+
             GetbackgroundImage("All");
+
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
 
             RadForm Frm = new StationControl.Frm_CreateNewStation(false, "");
+
             Frm.ShowDialog();
+
+
         }
 
         private void Btn_EditStationInfo_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
+
             RadForm Frm = new StationControl.Frm_CreateStation(true);
 
             Frm.ShowDialog();
+
         }
 
         private void Btn_ShowALlStationOnSpecialLine_Click(object sender, EventArgs e)
         {
             Pnl_Main.BackgroundImage = null;
+            //Pnl_Main.Controls.Clear();
+            // Pnl_Main.Dispose();
+
+ 
+         //   List<Control> ctrls = new List<Control>(Pnl_Main.Controls );
+            
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
+            Pnl_Main.Controls.Clear();
+
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new StationControl.ShowStationUserControl();
-            Pnl_Main.Controls.Clear();
+           
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
-            Pnl_Main.Controls.Add(Pnl);
+           Pnl_Main.Controls.Add(Pnl);
 
             this.Cursor = Cursors.Default;
+
+
+
+          
+
+
         }
 
         private void Btn_FullScreen_Click(object sender, EventArgs e)
@@ -280,7 +314,10 @@ namespace PersianMIS
 
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new CurrentState.UCShowCurrentState();
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
+
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
 
@@ -333,7 +370,10 @@ namespace PersianMIS
         private void Btn_Calendar_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
             Pnl_Main.Controls.Clear();
+        
 
             Calendars.Frm_MainCalendar frm = new Calendars.Frm_MainCalendar();
             frm.ShowDialog();

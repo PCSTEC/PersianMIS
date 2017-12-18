@@ -118,10 +118,12 @@ Namespace DataAccess
 
         End Function
 
-     
-     
+
+
         Public Function GetDataTable(ByVal ConStr, ByVal SqlStr) As DataTable
-            Dim DA As New SqlClient.SqlDataAdapter
+            Try
+
+                Dim DA As New SqlClient.SqlDataAdapter
             Dim Dt As New DataTable
             Dim cl As New DataAccess
             Dim cn As New SqlClient.SqlConnection
@@ -139,7 +141,12 @@ Namespace DataAccess
 
             cn.Close()
             cn = Nothing
-            Return Dt
+                Return Dt
+
+            Catch ex As Exception
+                Dim x As Integer
+                x = 0
+            End Try
         End Function
 
         Public Function GetDataReader(ByRef Conection As SqlClient.SqlConnection, ByVal SqlStr As String) As SqlClient.SqlDataReader

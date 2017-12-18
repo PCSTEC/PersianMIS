@@ -301,8 +301,8 @@ namespace PersianMIS.CurrentState
                         startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
                     }
                  //   FillData(startdate, enddate, SelectedProductionLines);
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+             //       System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+               //     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
 
                 }
@@ -513,6 +513,7 @@ namespace PersianMIS.CurrentState
 
         private void Btn_ShowData_Click(object sender, EventArgs e)
         {
+          
             this.Cursor = Cursors.WaitCursor;
             SelectedProductionLines = "0";
 
@@ -540,8 +541,8 @@ namespace PersianMIS.CurrentState
                     }
                  //   FillData(startdate, enddate, SelectedProductionLines);
 
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+                 //   System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+                 //   System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
                 }
                 catch
