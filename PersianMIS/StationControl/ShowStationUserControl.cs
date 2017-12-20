@@ -33,10 +33,12 @@ namespace PersianMIS.StationControl
             InitializeComponent();
 
 
-
-            this.radCollapsiblePanel2.PanelContainer.Controls.Add(this.LSTStations);
+            LSTStations.Controls.Add(Btn_Check);
             LSTStations.Name = "LSTStations";
-            LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
+               LSTStations.Dock = System.Windows.Forms.DockStyle.Fill;
+            
+            this.radCollapsiblePanel2.PanelContainer.Controls.Add(this.LSTStations);
+          
             radCollapsiblePanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 
 
@@ -56,106 +58,205 @@ namespace PersianMIS.StationControl
             MainPnl.Controls.Clear();
 
 
-
-            foreach (var x in LSTStations.CheckedItems)
-            {
+ if(Ch_Accumulative.Checked)
+                {
                 StationControl.StationUserControl UcShowStation = new StationUserControl();
-                UcShowStation.Tag = x.Value.ToString();
-                UcShowStation.TitleBar.Text = x.Text;
-                MskStartDate.Culture = new CultureInfo("en-GB");
-                UcShowStation.StartDate = (DateTime)MskStartDate.Value;
-                MskStartDate.Culture = new CultureInfo("fa-IR");
 
-                MskEndDate.Culture = new CultureInfo("en-GB");
-                UcShowStation.EndDate = (DateTime)MskEndDate.Value;
-                MskEndDate.Culture = new CultureInfo("fa-IR");
-                UcShowStation.Times = "";
+                UcShowStation.ISAccumulative = true;
 
-                if (Ch_Shift1.Checked)
-                {
-                    if (UcShowStation.Times.Length > 2)
+                    UcShowStation.Tag = ListOfStations;
+                    UcShowStation.TitleBar.Text = "مشاهده اطلاعات تجمعی ";
+                    MskStartDate.Culture = new CultureInfo("en-GB");
+                    UcShowStation.StartDate = (DateTime)MskStartDate.Value;
+                    MskStartDate.Culture = new CultureInfo("fa-IR");
+
+                    MskEndDate.Culture = new CultureInfo("en-GB");
+                    UcShowStation.EndDate = (DateTime)MskEndDate.Value;
+                    MskEndDate.Culture = new CultureInfo("fa-IR");
+                    UcShowStation.Times = "";
+
+                    if (Ch_Shift1.Checked)
                     {
-
-                        if (Ch_DontCalcRestTime.Checked)
+                        if (UcShowStation.Times.Length > 2)
                         {
 
-                            UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
-                         
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+
+
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                            }
 
                         }
                         else
                         {
-                            UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+                            }
+
 
                         }
-
                     }
-                    else
+
+                    if (Ch_Shift2.Checked)
                     {
-                        if (Ch_DontCalcRestTime.Checked)
+                        if (UcShowStation.Times.Length > 2)
                         {
-                            UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
-                        }
-                        else
-                        {
-                            UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
-                        }
 
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
 
-                    }
-                }
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
 
-                if (Ch_Shift2.Checked)
-                {
-                    if (UcShowStation.Times.Length > 2)
-                    {
-
-                        if (Ch_DontCalcRestTime.Checked)
-                        {
-                            UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
-
-                        }
-                        else
-                        {
-                            UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
-
-                        }
-
-                    }
-                    else
-                    {
-                        if (Ch_DontCalcRestTime.Checked)
-                        {
-                            UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+                            }
 
                         }
                         else
                         {
-                            UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
 
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                            }
                         }
                     }
-                }
-                if (Ch_Shift3.Checked)
-                {
-                    UcShowStation.IsSHift3 = true;
-                    DateTime StartDate = (DateTime)MskStartDate.Value;
-                    DateTime EndDate = (DateTime)MskEndDate.Value;
+                    if (Ch_Shift3.Checked)
+                    {
+                        UcShowStation.IsSHift3 = true;
+                        DateTime StartDate = (DateTime)MskStartDate.Value;
+                        DateTime EndDate = (DateTime)MskEndDate.Value;
 
-                    UcShowStation.Shift3beginDate = StartDate.AddDays(1);
-                    UcShowStation.Shift3Enddate = EndDate.AddDays(1);
-                    UcShowStation.Shift3beginTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
-                    UcShowStation.Shift3EndTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
-
-
-                }
-
-
+                        UcShowStation.Shift3beginDate = StartDate.AddDays(1);
+                        UcShowStation.Shift3Enddate = EndDate.AddDays(1);
+                        UcShowStation.Shift3beginTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
+                        UcShowStation.Shift3EndTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+                 }
                 MainPnl.Controls.Add(UcShowStation);
-
-
-
             }
+                else
+                {
+                foreach (var x in LSTStations.CheckedItems)
+                {
+                    StationControl.StationUserControl UcShowStation = new StationUserControl();
+
+                    UcShowStation.Tag = x.Value.ToString();
+                    UcShowStation.TitleBar.Text = x.Text;
+                    MskStartDate.Culture = new CultureInfo("en-GB");
+                    UcShowStation.StartDate = (DateTime)MskStartDate.Value;
+                    MskStartDate.Culture = new CultureInfo("fa-IR");
+
+                    MskEndDate.Culture = new CultureInfo("en-GB");
+                    UcShowStation.EndDate = (DateTime)MskEndDate.Value;
+                    MskEndDate.Culture = new CultureInfo("fa-IR");
+                    UcShowStation.Times = "";
+
+                    if (Ch_Shift1.Checked)
+                    {
+                        if (UcShowStation.Times.Length > 2)
+                        {
+
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+
+
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                            }
+
+                        }
+                        else
+                        {
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift1.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+                            }
+
+
+                        }
+                    }
+
+                    if (Ch_Shift2.Checked)
+                    {
+                        if (UcShowStation.Times.Length > 2)
+                        {
+
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or   CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " or     CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                            }
+
+                        }
+                        else
+                        {
+                            if (Ch_DontCalcRestTime.Checked)
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt1"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt1"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt2"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt2"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt3"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt3"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt4"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt4"].ToString() + ":00" + "' and  CAST(StartTime AS time)  NOT BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginBreakTimeTxt5"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndBreakTimeTxt5"].ToString() + ":00" + "' ";
+
+                            }
+                            else
+                            {
+                                UcShowStation.Times = UcShowStation.Times + " and   ( CAST(EndTime AS time)  BETWEEN '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "' and '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":59" + "'  and     CAST(StartTime AS time) >=   '" + ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift2.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00" + "'";
+
+                            }
+                        }
+                    }
+                    if (Ch_Shift3.Checked)
+                    {
+                        UcShowStation.IsSHift3 = true;
+                        DateTime StartDate = (DateTime)MskStartDate.Value;
+                        DateTime EndDate = (DateTime)MskEndDate.Value;
+
+                        UcShowStation.Shift3beginDate = StartDate.AddDays(1);
+                        UcShowStation.Shift3Enddate = EndDate.AddDays(1);
+                        UcShowStation.Shift3beginTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftBeginHourTxt"].ToString() + ":00";
+                        UcShowStation.Shift3EndTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
+
+
+                    }
+
+
+                    MainPnl.Controls.Add(UcShowStation);
+
+
+
+                }
+            }
+         
 
             MskEndDate.Culture = persianCulture;
             MskStartDate.Culture = persianCulture;
@@ -287,6 +388,39 @@ namespace PersianMIS.StationControl
             FillData(SelectedStation);
         }
 
+        private void Btn_Check_Click(object sender, EventArgs e)
+        {
+            if (this.Btn_Check.Tag.ToString() =="1")
+            {
+                this.LSTStations .CheckAllItems();
+                this.Btn_Check.Tag = "0";
+                ((Telerik.WinControls.UI.RadButtonElement)(this.Btn_Check.GetChildAt(0))).Image = global::PersianMIS.Properties.Resources.UnCheck ;
+
+            }
+            else
+            {
+                this.LSTStations.UncheckAllItems ();
+                this.Btn_Check.Tag = "1";
+                ((Telerik.WinControls.UI.RadButtonElement)(this.Btn_Check.GetChildAt(0))).Image = global::PersianMIS.Properties.Resources.Check;
+
+            }
+        }
+ 
+
+        private void Ch_ShowOnlineData_CheckStateChanged(object sender, EventArgs e)
+        {
+            foreach (Control Ctrl in MainPnl.Controls)
+            {
+                var n = (StationControl.StationUserControl)Ctrl;
+                n.Maintimer.Enabled = Ch_ShowOnlineData.Checked;
+            }
+        }
+
+        private void Ch_ShowOnlineData_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Btn_Show_Click(object sender, EventArgs e)
         {
             if (Ch_Shift1.Checked == false && Ch_Shift2.Checked == false && Ch_Shift3.Checked == false)
@@ -294,6 +428,7 @@ namespace PersianMIS.StationControl
                 MessageBox.Show("لطفاً حداقل یک شیفت را انتخاب نمائید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             this.Cursor = Cursors.WaitCursor;
             SelectedStation = "0";
 

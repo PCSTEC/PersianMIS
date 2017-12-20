@@ -527,6 +527,24 @@ namespace PersianMIS.CurrentState
             this.Cursor = Cursors.Default;
         }
 
+        private void Btn_Check_Click(object sender, EventArgs e)
+        {
+            if (this.Btn_Check.Tag.ToString() == "1")
+            {
+                this.LSTProrudtionLines1.CheckAllItems();
+                this.Btn_Check.Tag = "0";
+                ((Telerik.WinControls.UI.RadButtonElement)(this.Btn_Check.GetChildAt(0))).Image = global::PersianMIS.Properties.Resources.UnCheck;
+
+            }
+            else
+            {
+                this.LSTProrudtionLines1.UncheckAllItems();
+                this.Btn_Check.Tag = "1";
+                ((Telerik.WinControls.UI.RadButtonElement)(this.Btn_Check.GetChildAt(0))).Image = global::PersianMIS.Properties.Resources.Check;
+
+            }
+        }
+
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
             if (IsFirstLoad == false)

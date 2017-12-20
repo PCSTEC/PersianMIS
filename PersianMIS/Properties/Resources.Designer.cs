@@ -63,6 +63,16 @@ namespace PersianMIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1111 {
+            get {
+                object obj = ResourceManager.GetObject("1111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_Btn {
             get {
                 object obj = ResourceManager.GetObject("Add Btn", resourceCulture);
@@ -206,6 +216,26 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap Chart_State_Ok {
             get {
                 object obj = ResourceManager.GetObject("Chart State Ok", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Check {
+            get {
+                object obj = ResourceManager.GetObject("Check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checklist_check_list_todo_512 {
+            get {
+                object obj = ResourceManager.GetObject("checklist_check_list_todo-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1066,6 +1096,16 @@ namespace PersianMIS.Properties {
         internal static System.Drawing.Bitmap STOP_OK {
             get {
                 object obj = ResourceManager.GetObject("STOP OK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnCheck {
+            get {
+                object obj = ResourceManager.GetObject("UnCheck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

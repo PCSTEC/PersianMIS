@@ -208,7 +208,7 @@
             this.MainRibbonBar.StartButtonImage = global::PersianMIS.Properties.Resources.EndLogo1;
             this.MainRibbonBar.StartMenuItems.AddRange(new Telerik.WinControls.RadItem[] {
             this.Mnu_Exit});
-            this.MainRibbonBar.TabIndex = 2;
+            this.MainRibbonBar.TabIndex = 0;
             this.MainRibbonBar.Text = resources.GetString("MainRibbonBar.Text");
             this.MainRibbonBar.ThemeName = "ControlDefault";
             ((Telerik.WinControls.UI.RadRibbonBarElement)(this.MainRibbonBar.GetChildAt(0))).Image = null;
@@ -222,7 +222,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -263,7 +263,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,

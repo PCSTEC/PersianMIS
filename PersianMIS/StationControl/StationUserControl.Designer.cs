@@ -38,6 +38,7 @@
             this.Lbl_ParameterCaption = new System.Windows.Forms.Label();
             this.Lbl_ParameterDesc = new System.Windows.Forms.Label();
             this.Pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
+            this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.TopPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BBManage)).BeginInit();
             this.Pnl_State.SuspendLayout();
@@ -158,6 +159,11 @@
             this.Pnl_Main.Size = new System.Drawing.Size(378, 428);
             this.Pnl_Main.TabIndex = 6;
             // 
+            // MainTimer
+            // 
+            this.MainTimer.Interval = 10000;
+            this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
+            // 
             // StationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 26F);
@@ -188,5 +194,6 @@
         private System.Windows.Forms.Label Lbl_ParameterDesc;
         private System.Windows.Forms.Label Lbl_ParameterCaption;
         private System.Windows.Forms.FlowLayoutPanel Pnl_Main;
+        private System.Windows.Forms.Timer MainTimer;
     }
 }
