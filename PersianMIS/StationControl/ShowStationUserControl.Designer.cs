@@ -301,10 +301,10 @@
             this.Btn_Check.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Check.Image = global::PersianMIS.Properties.Resources.Check;
             this.Btn_Check.ImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.Btn_Check.Location = new System.Drawing.Point(0, 2);
+            this.Btn_Check.Location = new System.Drawing.Point(0, 1);
             this.Btn_Check.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.Btn_Check.Name = "Btn_Check";
-            this.Btn_Check.Size = new System.Drawing.Size(31, 41);
+            this.Btn_Check.Size = new System.Drawing.Size(27, 36);
             this.Btn_Check.TabIndex = 46;
             this.Btn_Check.Tag = "0";
             this.Btn_Check.Click += new System.EventHandler(this.Btn_Check_Click);
@@ -622,6 +622,7 @@
             this.Ch_Accumulative.ReadOnly = false;
             this.Ch_Accumulative.StretchVertically = false;
             this.Ch_Accumulative.Text = "محاسبه تجمیعی";
+            this.Ch_Accumulative.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
             // 
             // Ch_ShowOnlineData
             // 
@@ -639,8 +640,8 @@
             this.ShowDataGroup.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_Show});
             this.ShowDataGroup.Margin = new System.Windows.Forms.Padding(1);
-            this.ShowDataGroup.MaxSize = new System.Drawing.Size(0, 4);
-            this.ShowDataGroup.MinSize = new System.Drawing.Size(1, 3);
+            this.ShowDataGroup.MaxSize = new System.Drawing.Size(0, 2);
+            this.ShowDataGroup.MinSize = new System.Drawing.Size(1, 2);
             this.ShowDataGroup.Name = "ShowDataGroup";
             this.ShowDataGroup.Text = "نمایش اطلاعات";
             // 

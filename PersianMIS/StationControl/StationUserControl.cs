@@ -323,8 +323,9 @@ namespace PersianMIS.StationControl
                         {
                             TimeSpan span = TimeSpan.FromSeconds(Convert.ToDouble(Data));
 
-                            string label = span.ToString(@"hh\:mm\:ss");
+                            string label = String.Format("{0:D2}:{1:D2}:{2:D2}:{3}", span.Days, span.Hours, span.Minutes, span.Seconds);// span.ToString(@"hh\:mm\:ss");
                             Lbl_ParameterDesc.Text = label;
+
                         }
 
 

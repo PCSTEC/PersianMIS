@@ -40,8 +40,8 @@ namespace PersianMIS.CurrentState
         {
 
             InitializeComponent();
-          
-            this.radCollapsiblePanel2.PanelContainer.Controls.Add( LSTProrudtionLines1);
+
+            this.radCollapsiblePanel2.PanelContainer.Controls.Add(LSTProrudtionLines1);
             LSTProrudtionLines1.Name = "LSTProrudtionLines1";
             LSTProrudtionLines1.Dock = System.Windows.Forms.DockStyle.Fill;
             LSTProrudtionLines1.RightToLeft = RightToLeft.No;
@@ -287,40 +287,42 @@ namespace PersianMIS.CurrentState
 
         private void radDateTimePickerElementEnd_ValueChanged(object sender, ValueChangingEventArgs e)
         {
-            if (IsFirstLoad == false)
-            {
 
-                try
-                {
-                    DateTime x = (DateTime)e.NewValue;
-                    enddate = x.Year + "/" + x.Month + "/" + x.Day;
+            //   enddate  = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
 
-                    if (startdate == null)
-                    {
-                        DateTime StDate = (DateTime)radDateTimePickerElementStart.Value;
-                        startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
-                    }
-                 //   FillData(startdate, enddate, SelectedProductionLines);
-             //       System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-               //     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+            ////if (IsFirstLoad == false)
+            ////{
+
+            ////    try
+            ////    {
+            ////        DateTime x = (DateTime)e.NewValue;
+            ////        enddate = x.Year + "/" + x.Month + "/" + x.Day;
 
 
-                }
-                catch
-                {
-                    DateTime x = (DateTime)e.OldValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (startdate == null)
-                    {
-                        startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
-                    }
-                    FillData(startdate, enddate, SelectedProductionLines);
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+            ////            DateTime StDate = (DateTime)radDateTimePickerElementStart.Value;
+            ////            startdate = StDate.Year + "/" + StDate.Month + "/" + StDate.Day;// (DateTime.se (Select x => (DateTime) radDateTimePickerElementStart.Value());// IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
 
-                }
+            ////     //   FillData(startdate, enddate, SelectedProductionLines);
+            //// //       System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            ////   //     System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
 
-            }
+
+            ////    }
+            ////    catch
+            ////    {
+            ////        DateTime x = (DateTime)e.OldValue;
+            ////        startdate = x.Year + "/" + x.Month + "/" + x.Day;
+            ////        if (startdate == null)
+            ////        {
+            ////            startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
+            ////        }
+            ////        FillData(startdate, enddate, SelectedProductionLines);
+            ////        System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            ////        System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+
+            ////    }
+
+            ////}
         }
 
         private void BtnPrint_Click(object sender, EventArgs e)
@@ -503,7 +505,7 @@ namespace PersianMIS.CurrentState
 
         private void LSTProrudtionLines_ItemCheckedChanged(object sender, ListViewItemEventArgs e)
         {
-         
+
         }
 
         private void radCheckedListBox1_SelectedItemChanged(object sender, EventArgs e)
@@ -513,7 +515,7 @@ namespace PersianMIS.CurrentState
 
         private void Btn_ShowData_Click(object sender, EventArgs e)
         {
-          
+
             this.Cursor = Cursors.WaitCursor;
             SelectedProductionLines = "0";
 
@@ -522,7 +524,27 @@ namespace PersianMIS.CurrentState
                 SelectedProductionLines = SelectedProductionLines + "," + CheckedItem.Value.ToString() + "";
 
             }
+
             SelectedProductionLines = "'" + SelectedProductionLines + "'";
+
+            this.radScheduler1.Appointments.Clear();
+
+            radScheduler1.Resources.Clear();
+            Array.Clear(LastApprochmentInfo, 0, LastApprochmentInfo.Length);
+
+            //startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.Year+"/"+ radDateTimePickerElementStart.Value.Value.Month + "/" + radDateTimePickerElementStart.Value.Value.Day )).ToString()) ;
+            //enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
+
+         //   radDateTimePickerElementStart.Culture = new CultureInfo("en-GB");
+            startdate = radDateTimePickerElementStart.Value.Value.ToString("MM/dd/yyyy", new CultureInfo("en-GB"));   
+           // radDateTimePickerElementStart.Culture = new CultureInfo("fa-IR");
+
+          //  radDateTimePickerElementEnd.Culture = new CultureInfo("en-GB");
+            enddate  = radDateTimePickerElementEnd .Value.Value.ToString("MM/dd/yyyy", new CultureInfo("en-GB"));
+         //   radDateTimePickerElementEnd.Culture = new CultureInfo("fa-IR");
+
+
+
             FillData(startdate, enddate, SelectedProductionLines);
             this.Cursor = Cursors.Default;
         }
@@ -547,43 +569,37 @@ namespace PersianMIS.CurrentState
 
         private void radDateTimePickerElementStart_ValueChanged(object sender, ValueChangingEventArgs e)
         {
-            if (IsFirstLoad == false)
-            {
-                try
-                {
-                    DateTime x = (DateTime)e.NewValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (enddate == null)
-                    {
-                        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
-                    }
-                 //   FillData(startdate, enddate, SelectedProductionLines);
 
-                 //   System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                 //   System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+            //      startdate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementStart.Value.Value.ToShortDateString())).ToString());
 
-                }
-                catch
-                {
-                    DateTime x = (DateTime)e.OldValue;
-                    startdate = x.Year + "/" + x.Month + "/" + x.Day;
-                    if (enddate == null)
-                    {
-                        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
-                    }
-                  //  FillData(startdate, enddate, SelectedProductionLines);
+            //try
+            //{
+            //    DateTime x = (DateTime)e.NewValue;
+            //    startdate = x.Year + "/" + x.Month + "/" + x.Day;
 
-                    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+            //        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
 
-                }
-            }
+
+            //}
+            //catch
+            //{
+            //    DateTime x = (DateTime)e.OldValue;
+            //    startdate = x.Year + "/" + x.Month + "/" + x.Day;
+
+            //        enddate = IrDate.GetDateIntToStr_GivenDate(IrDate.GetLatin_FromIraniDate(IrDate.ConvDateStrToInt_GivenDate(radDateTimePickerElementEnd.Value.Value.ToShortDateString())).ToString());
+
+
+            //    System.Threading.Thread.CurrentThread.CurrentCulture = persianCulture;
+            //    System.Threading.Thread.CurrentThread.CurrentUICulture = persianCulture;
+
+            //}
 
 
         }
+
     }
 
-    
+
     public class PrintablePanel : RadPanel, IPrintable
     {
         public int BeginPrint(RadPrintDocument sender, PrintEventArgs args)

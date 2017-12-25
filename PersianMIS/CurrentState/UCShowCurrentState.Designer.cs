@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
+            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle2 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCShowCurrentState));
             this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElementProgress25 = new Telerik.WinControls.UI.RadButtonElement();
@@ -252,12 +252,12 @@
             this.radScheduler1.HighlightToday = false;
             this.radScheduler1.Location = new System.Drawing.Point(0, 0);
             this.radScheduler1.Name = "radScheduler1";
-            schedulerDailyPrintStyle1.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            schedulerDailyPrintStyle1.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
-            schedulerDailyPrintStyle1.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            schedulerDailyPrintStyle1.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
-            schedulerDailyPrintStyle1.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
+            schedulerDailyPrintStyle2.AppointmentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            schedulerDailyPrintStyle2.DateEndRange = new System.DateTime(2017, 7, 7, 0, 0, 0, 0);
+            schedulerDailyPrintStyle2.DateHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            schedulerDailyPrintStyle2.DateStartRange = new System.DateTime(2017, 7, 2, 0, 0, 0, 0);
+            schedulerDailyPrintStyle2.PageHeadingFont = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.radScheduler1.PrintStyle = schedulerDailyPrintStyle2;
             this.radScheduler1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radScheduler1.ShowAllDayAppointmentStatus = true;
             this.radScheduler1.Size = new System.Drawing.Size(1040, 479);
@@ -288,10 +288,10 @@
             this.Btn_Check.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Check.Image = global::PersianMIS.Properties.Resources.Check;
             this.Btn_Check.ImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.Btn_Check.Location = new System.Drawing.Point(140, 1);
-            this.Btn_Check.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Check.Location = new System.Drawing.Point(141, 0);
+            this.Btn_Check.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.Btn_Check.Name = "Btn_Check";
-            this.Btn_Check.Size = new System.Drawing.Size(28, 36);
+            this.Btn_Check.Size = new System.Drawing.Size(27, 36);
             this.Btn_Check.TabIndex = 47;
             this.Btn_Check.Tag = "0";
             this.Btn_Check.Click += new System.EventHandler(this.Btn_Check_Click);
@@ -470,7 +470,8 @@
             this.radDateTimePickerElementStart.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radDateTimePickerElementStart.AutoSize = false;
             this.radDateTimePickerElementStart.Bounds = new System.Drawing.Rectangle(0, 0, 150, 25);
-            this.radDateTimePickerElementStart.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.radDateTimePickerElementStart.CustomFormat = "yyyy/MM/dd";
+            this.radDateTimePickerElementStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.radDateTimePickerElementStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.radDateTimePickerElementStart.MinDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementStart.MinSize = new System.Drawing.Size(1, 0);
@@ -480,8 +481,6 @@
             this.radDateTimePickerElementStart.StretchVertically = false;
             this.radDateTimePickerElementStart.Text = "radButtonElement9";
             this.radDateTimePickerElementStart.UseCompatibleTextRendering = false;
-            this.radDateTimePickerElementStart.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementStart_ValueChanged);
-            this.radDateTimePickerElementStart.Click += new System.EventHandler(this.radDateTimePickerElementStart_Click);
             // 
             // radRibbonBarButtonGroup2
             // 
@@ -509,17 +508,18 @@
             // 
             this.radDateTimePickerElementEnd.AutoSize = false;
             this.radDateTimePickerElementEnd.Bounds = new System.Drawing.Rectangle(0, 0, 155, 25);
-            this.radDateTimePickerElementEnd.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.radDateTimePickerElementEnd.CustomFormat = "yyyy/MM/dd";
+            this.radDateTimePickerElementEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.radDateTimePickerElementEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.radDateTimePickerElementEnd.MinDate = new System.DateTime(((long)(0)));
             this.radDateTimePickerElementEnd.MinSize = new System.Drawing.Size(1, 0);
             this.radDateTimePickerElementEnd.Name = "radDateTimePickerElementEnd";
             this.radDateTimePickerElementEnd.NullDate = new System.DateTime(((long)(0)));
+            this.radDateTimePickerElementEnd.ShouldPaint = true;
+            this.radDateTimePickerElementEnd.ShowCurrentTime = true;
             this.radDateTimePickerElementEnd.StretchVertically = false;
             this.radDateTimePickerElementEnd.Text = "radButtonElement10";
             this.radDateTimePickerElementEnd.UseCompatibleTextRendering = false;
-            this.radDateTimePickerElementEnd.ValueChanging += new Telerik.WinControls.UI.ValueChangingEventHandler(this.radDateTimePickerElementEnd_ValueChanged);
-            this.radDateTimePickerElementEnd.Click += new System.EventHandler(this.radDateTimePickerElementEnd_Click);
             // 
             // radRibbonBarGroup8
             // 
