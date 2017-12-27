@@ -418,7 +418,7 @@ namespace PIASService
                     if (time==x && (DateTime.Now   - LastTimeForShift ).TotalSeconds>60   )
                     {
                         
-                            EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                         //   EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
                             InsertData1(1048, 1, Convert.ToInt32(!LstState1));
                             InsertData2(1048, 2, Convert.ToInt32(!LstState2));
@@ -451,7 +451,7 @@ namespace PIASService
                         LastTimeForShift = DateTime.Now;
 
 
-                            EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                         //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
                       
 
 

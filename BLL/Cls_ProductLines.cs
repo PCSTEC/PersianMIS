@@ -25,7 +25,13 @@ namespace BLL
             return DAL_ProductLines.GetProductLinesWithSetForDeviceLine();
         }
 
+        public DataTable GetProductLineToHowDeviceSet()
+        {
+            return DAL_ProductLines.GetProductLineToHowDeviceSet();
+        }
 
+
+        
         public DataTable GetPerformanceType()
         {
             return DAL_ProductLines.GetPerformanceType();

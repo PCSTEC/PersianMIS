@@ -317,7 +317,7 @@ namespace PersianMIS.StationControl
 
                         if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString().Trim().Contains("(%)"))
                         {
-                            Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
+                            Lbl_ParameterDesc.Text = Decimal.Round(Data, 1).ToString();
                         }
                         else
                         {

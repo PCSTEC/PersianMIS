@@ -42,7 +42,7 @@ namespace PersianMIS
 
         private void MainTimer_Tick(object sender, EventArgs e)
         {
-       
+
             Lbl_CurrentTime.Text = string.Format("تاریخ و ساعت : {0},{1}", CurrentDate.GetIrani8DateStr_CurDate(), "    " + DateTime.Now.ToLongTimeString());
 
         }
@@ -187,7 +187,7 @@ namespace PersianMIS
             GetbackgroundImage("All");
             MoveGroupButtons(Tab_RunTime);
 
-          
+
 
         }
 
@@ -259,25 +259,25 @@ namespace PersianMIS
             //Pnl_Main.Controls.Clear();
             // Pnl_Main.Dispose();
 
- 
-         //   List<Control> ctrls = new List<Control>(Pnl_Main.Controls );
-            
+
+            //   List<Control> ctrls = new List<Control>(Pnl_Main.Controls );
+
             foreach (Control c in Pnl_Main.Controls)
                 c.Dispose();
             Pnl_Main.Controls.Clear();
 
             this.Cursor = Cursors.WaitCursor;
             var Pnl = new StationControl.ShowStationUserControl();
-           
+
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
-           Pnl_Main.Controls.Add(Pnl);
+            Pnl_Main.Controls.Add(Pnl);
 
             this.Cursor = Cursors.Default;
 
 
 
-          
+
 
 
         }
@@ -350,7 +350,7 @@ namespace PersianMIS
         private void BtnPersonelyManage_Click(object sender, EventArgs e)
         {
             GetbackgroundImage("All");
-          
+
             System.Diagnostics.Process proc = new System.Diagnostics.Process
             {
                 StartInfo = new ProcessStartInfo
@@ -373,7 +373,7 @@ namespace PersianMIS
             foreach (Control c in Pnl_Main.Controls)
                 c.Dispose();
             Pnl_Main.Controls.Clear();
-        
+
 
             Calendars.Frm_MainCalendar frm = new Calendars.Frm_MainCalendar();
             frm.ShowDialog();
@@ -390,6 +390,27 @@ namespace PersianMIS
         {
             Process.Frm_MainProcess Frm_Process = new Process.Frm_MainProcess();
             Frm_Process.ShowDialog();
+
+        }
+
+        private void Btn_ProductChart_Click(object sender, EventArgs e)
+        {
+            Pnl_Main.BackgroundImage = null;
+            foreach (Control c in Pnl_Main.Controls)
+                c.Dispose();
+            Pnl_Main.Controls.Clear();
+
+            this.Cursor = Cursors.WaitCursor;
+            var Pnl = new Production.Chart.UCShowProductionChart ();
+
+            Pnl.Width = Pnl_Main.Width - 18;
+            Pnl.Height = Pnl_Main.Height - 14;
+            Pnl_Main.Controls.Add(Pnl);
+
+            this.Cursor = Cursors.Default;
+
+
+
 
         }
     }

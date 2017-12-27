@@ -222,7 +222,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -402,7 +402,7 @@
             // 
             // Tab_Product
             // 
-            this.Tab_Product.IsSelected = false;
+            this.Tab_Product.IsSelected = true;
             this.Tab_Product.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_MizaneTolidBorder,
             this.Btn_ProductReportBorder,
@@ -455,6 +455,7 @@
             this.Btn_ProductChart.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_ProductChart.Name = "Btn_ProductChart";
             this.Btn_ProductChart.Text = "                         ";
+            this.Btn_ProductChart.Click += new System.EventHandler(this.Btn_ProductChart_Click);
             // 
             // Tab_Jobs
             // 

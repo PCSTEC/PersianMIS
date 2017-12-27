@@ -22,10 +22,17 @@ namespace BLL
         {
 
             return DAL_DeviceLine.GetDeviceLineById(ID );
+ 
+        }
 
-                       
+        public DataTable GetAllDeviceWithInformation( )
+        {
+
+            return DAL_DeviceLine.GetAllDeviceWithInformation( );
 
         }
+
+        
 
         public DataTable GetLastStateOfDeviceLineData()
         {
