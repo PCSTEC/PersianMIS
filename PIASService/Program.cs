@@ -17,7 +17,7 @@ namespace PIASService
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new PIASService()
+                new PCSTECService()
             };
             ServiceBase.Run(ServicesToRun);
         }

@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 using IraniDate.IraniDate;
 namespace PIASService
 {
-    public partial class PIASService : ServiceBase
+    public partial class PCSTECService : ServiceBase
     {
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         DataTable Dt = new DataTable();
@@ -160,7 +160,7 @@ namespace PIASService
         Boolean LstState23 = false;
         Boolean LstState24 = false;
 
-        public PIASService()
+        public PCSTECService()
         {
             InitializeComponent();
 
@@ -184,7 +184,7 @@ namespace PIASService
 
             //}
 
-            System.Diagnostics.Debugger.Launch();
+       //     System.Diagnostics.Debugger.Launch();
             EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
             serialPort1.Close();
             serialPort1.DataBits = 8;
@@ -210,8 +210,18 @@ namespace PIASService
 
             for (int i = 0; i <= Dt.Rows.Count - 1; i++)
             {
-                count = count +1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndHourTxt"].ToString();
+
+                count = count + 1;
+                TimeSpan Time = new TimeSpan();
+                Time = TimeSpan.Parse(Dt.DefaultView[i]["ShiftEndHourTxt"].ToString());
+                TimeSpan ts = TimeSpan.FromMinutes(-2);
+
+                var ts2 = Time.Add(ts);
+                string Hour = ts2.Hours.ToString().Length == 2 ? ts2.Hours.ToString() : "0" + ts2.Hours.ToString();
+                string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
+                ListOfStartShifTime[count] = Hour + ":" + Minute;
+
+                 
 
             }
 

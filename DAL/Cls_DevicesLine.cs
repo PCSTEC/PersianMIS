@@ -99,8 +99,19 @@ namespace DAL
             return Cls_Public.PublicDT;
 
         }
+        public DataTable GetAllDeviceLineStates()
+        {
 
 
+
+            Cls_Public.SqlStr = "select * from   GetAllDeviceLineStates()  ";
+
+
+            Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+            return Cls_Public.PublicDT;
+
+        }
+       
         public DataTable GetDeviceLineByProductLineId(  string ProductLineId)
         {
 

@@ -46,9 +46,8 @@ namespace PersianMIS.Production.Chart
 
         private void Mnu_AddChart_Click(object sender, EventArgs e)
         {
-            UCProductionChart UcChart = new UCProductionChart();
-
-            MainPnl.Controls.Add (UcChart);
+            Form frm = new Frm_SelectChartOptions();
+            frm.ShowDialog();
         }
     }
 }

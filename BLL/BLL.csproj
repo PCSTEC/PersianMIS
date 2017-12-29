@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLS_Chart.cs" />
     <Compile Include="CLS_Client.cs" />
     <Compile Include="CLS_Device.cs" />
     <Compile Include="CLS_DeviceLine.cs" />

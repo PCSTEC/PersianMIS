@@ -546,6 +546,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\PreviewChartOk.png" />
     <None Include="Resources\UnCheck.png" />
     <None Include="Resources\Check.png" />
     <None Include="Resources\1111.png" />

@@ -1,6 +1,6 @@
 ﻿namespace PIASService
 {
-    partial class PIASService
+    partial class PCSTECService
     {
         /// <summary> 
         /// Required designer variable.
@@ -44,9 +44,9 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // PIASService
+            // PCSTECService
             // 
-            this.ServiceName = "PIASService";
+            this.ServiceName = "PCSTECService";
 
         }
 

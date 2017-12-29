@@ -222,7 +222,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -260,6 +260,7 @@
             this.Btn_AllLineState.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.Btn_AllLineState.Name = "Btn_AllLineState";
             this.Btn_AllLineState.Text = "";
+            this.Btn_AllLineState.Click += new System.EventHandler(this.Btn_AllLineState_Click);
             // 
             // Tab_Control
             // 
@@ -402,7 +403,7 @@
             // 
             // Tab_Product
             // 
-            this.Tab_Product.IsSelected = true;
+            this.Tab_Product.IsSelected = false;
             this.Tab_Product.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_MizaneTolidBorder,
             this.Btn_ProductReportBorder,

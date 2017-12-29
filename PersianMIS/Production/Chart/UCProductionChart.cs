@@ -20,7 +20,7 @@ namespace PersianMIS.Production.Chart
         {
             Form frm = new Frm_SelectChartOptions();
             frm.ShowDialog();
-            frm.ShowDialog();
+           
 
 
         }

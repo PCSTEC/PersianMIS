@@ -31,8 +31,13 @@ namespace BLL
             return DAL_DeviceLine.GetAllDeviceWithInformation( );
 
         }
-
         
+  public DataTable GetAllDeviceLineStates()
+        {
+
+            return DAL_DeviceLine.GetAllDeviceLineStates();
+
+        }
 
         public DataTable GetLastStateOfDeviceLineData()
         {
