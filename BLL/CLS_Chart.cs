@@ -22,5 +22,19 @@ namespace BLL
         {
             Dal_Chart.Insert(UserId, IsMainThemplate, TSQL, Caption, ChartType, ChartFieldCaptionsType);
         }
+
+
+        public DataTable GetListOFChartForSpecialUser(string UserId)
+        {
+          
+            return Dal_Chart.GetListOFChartForSpecialUser(UserId);
+
+        }
+        public DataTable GetSpecialChartParameterData(string ChartOptionId)
+        {
+            return Dal_Chart.GetSpecialChartParameterData(ChartOptionId);
+
+        }
+
     }
 }

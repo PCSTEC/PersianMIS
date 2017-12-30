@@ -34,5 +34,21 @@ namespace DAL
         }
 
 
+
+        public DataTable GetListOFChartForSpecialUser(string UserId)
+        {
+            Cls_Public.SqlStr = "select * from GetListOFChartForSpecialUser('"+ UserId+"') ";
+            return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+
+        }
+
+        public DataTable GetSpecialChartParameterData(string ChartOptionId)
+        {
+            Cls_Public.SqlStr = "select * from GetSpecialChartParameterData('" + ChartOptionId + "') ";
+            return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+
+        }
+
+
     }
 }
