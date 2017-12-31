@@ -259,6 +259,17 @@ namespace PersianMIS.Production.Chart
 
         }
 
+   
+
+        private void Ch_ShowOnlineData_CheckStateChanged(object sender, EventArgs e)
+        {
+            foreach (Control Ctrl in MainPnl.Controls)
+            {
+                var n = (Production.Chart.UCProductionChart)Ctrl;
+                n.Maintimer.Enabled = Ch_ShowOnlineData.Checked;
+            }
+        }
+
         private void Mnu_AddChart_Click(object sender, EventArgs e)
         {
             Form frm = new Frm_SelectChartOptions();

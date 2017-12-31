@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using Telerik.WinControls;
 using BLL;
 using Telerik.WinControls.UI;
+using System.Windows.Forms.DataVisualization.Charting;
+using Telerik.Windows.Diagrams.Core;
+using System.Collections;
 
 namespace PersianMIS.Production.Chart
 {
@@ -41,8 +44,46 @@ namespace PersianMIS.Production.Chart
                 this.MainTree.AutoCheckChildNodes = true;
             }
             SQLStrMainThemplate = bll_Chart.GetActiveChartThemplate().DefaultView[0]["TSQL"].ToString();
+            //SeriesChartType n = new   SeriesChartType();
+            //foreach (var x in Enum.GetNames(typeof(SeriesChartType)))
+            //{
+            //    Cmb_ChartType.Items.Add(x.ToString());
+
+            //}
+            // Cmb_ChartType.Items.AddRange(IEnumerable < SeriesChartType > Enum.GetNames(typeof(SeriesChartType)))  ;
+            Cmb_ChartType.Items.AddRange(Enum.GetNames(typeof(SeriesChartType)));
+            Cmb_ChartType.Items[0].Text = "Pie";
         }
 
+        private void FillThemplateChart()
+        {
+            ThemplateChart.Legends.Clear();
+            ThemplateChart.Series.Clear();
+            ThemplateChart.ChartAreas.Clear();
+            double[] yValue = { 100, 200, 150, 300 };
+            string[] XValue = { "داده1", "داده2", "داده3", "داده4" };
+       
+
+            ThemplateChart.Series.Add("Default");
+            ThemplateChart.Series[0].ChartType=    (SeriesChartType)Enum.Parse(typeof(SeriesChartType),  Cmb_ChartType.Text ) ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+            ThemplateChart.Legends.Add("Default");
+            ThemplateChart.Series[0].XValueMember = "StateCaption";
+            ThemplateChart.Series[0].YValueMembers = "Duration";
+            ThemplateChart.ChartAreas.Add("Main Area");
+           // ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = true;
+            ThemplateChart.Series[0].Points.DataBindXY(XValue, yValue);
+            ThemplateChart.Titles[0].Text = Txt_ChartTitle.Text ;
+            ThemplateChart.Legends[0].BackColor = Color.Transparent;
+            ThemplateChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            ThemplateChart.Series["Default"]["PyramidLabelStyle"] = "Inside";
+            ThemplateChart.Series[0].IsValueShownAsLabel = true;
+
+            //درصدی کردن
+            // ThemplateChart.Series["Default"].IsValueShownAsLabel = true;
+            //   ThemplateChart.Series["Default"].Label = "#PERCENT";
+
+
+        }
 
 
         private void MainTree_NodeCheckedChanged(object sender, Telerik.WinControls.UI.TreeNodeCheckedEventArgs e)
@@ -87,6 +128,11 @@ namespace PersianMIS.Production.Chart
             MessageBox.Show("ساختار نمودار جدیدی برای شما ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information );
             this.Close();
 
+        }
+
+        private void Cmb_ChartType_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            FillThemplateChart();
         }
 
         private void SyncThreeLevel(RadTreeViewEventArgs e)

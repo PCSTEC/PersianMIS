@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PersianMIS.Production.Chart
 {
@@ -57,6 +58,7 @@ namespace PersianMIS.Production.Chart
         }
 
 
+
         public Timer Maintimer
         {
             get { return MainTimer; }
@@ -82,35 +84,10 @@ namespace PersianMIS.Production.Chart
         {
 
             BLL.Cls_PublicOperations.Dt = Bll_Chart.GetSpecialChartParameterData(this.Tag.ToString());
+            MainChart.Series.Clear();
+            MainChart.ChartAreas.Clear();
+            MainChart.Legends.Clear();
 
-            // Pnl_Main.Controls.Clear();
-
-
-
-
-
-
-            //for (int i = 0; i < BLL.Cls_PublicOperations.Dt.Rows.Count; i++)
-            //{
-
-            //    Panel Pnl_State = new Panel();
-
-            //    Pnl_State.Name = "Pnl_State";
-            //    Pnl_State.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            //    Pnl_State.Size = new System.Drawing.Size(348, 42);
-            //    Pnl_State.TabIndex = 5;
-
-            //    Label Lbl_ParameterCaption = new Label();
-            //    Label Lbl_ParameterDesc = new Label();
-
-            //    Lbl_ParameterCaption.ForeColor = System.Drawing.Color.White;
-            //    Lbl_ParameterCaption.Location = new System.Drawing.Point(97, 7);
-            //    Lbl_ParameterCaption.Name = "Lbl_ParameterCaption";
-            //    Lbl_ParameterCaption.Size = new System.Drawing.Size(240, 26);
-            //    Lbl_ParameterCaption.TabIndex = 9;
-            //    Lbl_ParameterCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString();
-            //    Lbl_ParameterCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //    Lbl_ParameterCaption.RightToLeft = System.Windows.Forms.RightToLeft.No;
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
                     TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
@@ -139,20 +116,40 @@ namespace PersianMIS.Production.Chart
 
             MainChart.DataSource = Dt;
             MainChart.DataBind();
-  MainChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-          
+            MainChart.Series.Add("Default");
+            MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());  ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+            MainChart.Legends.Add("Default");
             MainChart.Series[0].XValueMember = "StateCaption";
             MainChart.Series[0].YValueMembers = "Duration";
+            MainChart.ChartAreas.Add("Main Area");
             MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
+            
             MainChart.Titles[0].Text = TitleBar.Text;
+            MainChart.Legends[0].BackColor = Color.Transparent;
+            MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
 
+           // Set labels style
+           //      MainChart.Series[0]["PieLabelStyle"] = "Outside";
 
-                    //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-                    //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
-                    //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
-                    //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
-                    //Lbl_ParameterDesc.TabIndex = 6;
-                    //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+           // Set Doughnut radius percentage
+           // MainChart.Series["Default"]["DoughnutRadius"] = "30";
+
+           // Explode data point with label "Italy"
+           //   MainChart.Series["Default"].Points[4]["Exploded"] = "true";
+
+           // Enable 3D
+           MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+            // Set drawing style
+            MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
+            MainChart.Series["Default"].IsVisibleInLegend = true;
+
+            //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
+            //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
+            //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
+            //Lbl_ParameterDesc.TabIndex = 6;
+            //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
 
