@@ -16,6 +16,8 @@ using System.IO.Ports;
 using Microsoft.SqlServer.Server;
 using System.Data.SqlClient;
 using IraniDate.IraniDate;
+using System.Timers;
+
 namespace PIASService
 {
     public partial class PCSTECService : ServiceBase
@@ -80,7 +82,7 @@ namespace PIASService
         int DeviceStateID22Old = 0;
         int DeviceStateID23Old = 0;
         int DeviceStateID24Old = 0;
-        DateTime LastTimeForShift = DateTime.Now ;
+        DateTime LastTimeForShift = DateTime.Now;
 
         Boolean ISStartInt1 = false;
         Boolean ISStartInt2 = false;
@@ -159,7 +161,7 @@ namespace PIASService
         Boolean LstState22 = false;
         Boolean LstState23 = false;
         Boolean LstState24 = false;
-
+        private static System.Timers.Timer aTimer;
         public PCSTECService()
         {
             InitializeComponent();
@@ -184,7 +186,7 @@ namespace PIASService
 
             //}
 
-       //     System.Diagnostics.Debugger.Launch();
+            System.Diagnostics.Debugger.Launch();
             EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
             serialPort1.Close();
             serialPort1.DataBits = 8;
@@ -221,7 +223,7 @@ namespace PIASService
                 string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
                 ListOfStartShifTime[count] = Hour + ":" + Minute;
 
-                 
+
 
             }
 
@@ -317,9 +319,18 @@ namespace PIASService
             EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
 
 
+            //aTimer = new System.Timers.Timer(10000);
 
+            //// Hook up the Elapsed event for the timer.
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
+            //// Set the Interval to 2 seconds (2000 milliseconds).
+            //aTimer.Interval = 10000;
+            //aTimer.Enabled = true;
+
+        
         }
-
+       
         protected override void OnStop()
         {
             EventLog.WriteEntry("STOP PCS TEC Service ", EventLogEntryType.Information);
@@ -374,6 +385,11 @@ namespace PIASService
         {
             try
             {
+
+                serialPort1.DiscardInBuffer();
+
+                serialPort1.DiscardOutBuffer();
+
                 IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
 
                 //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
@@ -381,9 +397,11 @@ namespace PIASService
                 DateTime thisDate = DateTime.Now;
                 CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
                 stresive1 = serialPort1.ReadLine();
-                Thread thread1 = new Thread(new ThreadStart(display1));
-                thread1.Start();
-                thread1.Join();
+
+                display1();
+                //Thread thread1 = new Thread(new ThreadStart(display1));
+                //thread1.Start();
+                //thread1.Join();
 
 
             }
@@ -420,49 +438,49 @@ namespace PIASService
 
                 string time = DateTime.Now.ToString("HH:mm");
 
-                 
+
 
                 foreach (string x in ListOfStartShifTime)
                 {
 
-                    if (time==x && (DateTime.Now   - LastTimeForShift ).TotalSeconds>60   )
+                    if (time == x && (DateTime.Now - LastTimeForShift).TotalSeconds > 60)
                     {
-                        
-                         //   EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
-                            InsertData1(1048, 1, Convert.ToInt32(!LstState1));
-                            InsertData2(1048, 2, Convert.ToInt32(!LstState2));
-                            InsertData3(1048, 3, Convert.ToInt32(!LstState3));
-                            InsertData4(1048, 4, Convert.ToInt32(!LstState4));
-                            InsertData5(1048, 5, Convert.ToInt32(!LstState5));
-                            InsertData6(1048, 6, Convert.ToInt32(!LstState6));
-                            InsertData7(1048, 7, Convert.ToInt32(!LstState7));
-                            InsertData8(1048, 8, Convert.ToInt32(!LstState8));
-                            InsertData9(1048, 9, Convert.ToInt32(!LstState9));
-                            InsertData10(1048, 10, Convert.ToInt32(!LstState10));
-                            InsertData11(1048, 11, Convert.ToInt32(!LstState11));
-                            InsertData12(1048, 12, Convert.ToInt32(!LstState12));
-                            InsertData13(1048, 13, Convert.ToInt32(!LstState13));
-                            InsertData14(1048, 14, Convert.ToInt32(!LstState14));
-                            InsertData15(1048, 15, Convert.ToInt32(!LstState15));
-                            InsertData16(1048, 16, Convert.ToInt32(!LstState16));
-                            InsertData17(1048, 17, Convert.ToInt32(!LstState17));
-                            InsertData18(1048, 18, Convert.ToInt32(!LstState18));
-                            InsertData19(1048, 19, Convert.ToInt32(!LstState19));
-                            InsertData20(1048, 20, Convert.ToInt32(!LstState20));
-                            InsertData21(1048, 21, Convert.ToInt32(!LstState21));
-                            InsertData22(1048, 22, Convert.ToInt32(!LstState22));
-                            InsertData23(1048, 23, Convert.ToInt32(!LstState23));
-                            InsertData24(1048, 24, Convert.ToInt32(!LstState24));
+                        //   EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
-                          
-                            Thread.Sleep(1000);
+                        InsertData1(1048, 1, Convert.ToInt32(!LstState1));
+                        InsertData2(1048, 2, Convert.ToInt32(!LstState2));
+                        InsertData3(1048, 3, Convert.ToInt32(!LstState3));
+                        InsertData4(1048, 4, Convert.ToInt32(!LstState4));
+                        InsertData5(1048, 5, Convert.ToInt32(!LstState5));
+                        InsertData6(1048, 6, Convert.ToInt32(!LstState6));
+                        InsertData7(1048, 7, Convert.ToInt32(!LstState7));
+                        InsertData8(1048, 8, Convert.ToInt32(!LstState8));
+                        InsertData9(1048, 9, Convert.ToInt32(!LstState9));
+                        InsertData10(1048, 10, Convert.ToInt32(!LstState10));
+                        InsertData11(1048, 11, Convert.ToInt32(!LstState11));
+                        InsertData12(1048, 12, Convert.ToInt32(!LstState12));
+                        InsertData13(1048, 13, Convert.ToInt32(!LstState13));
+                        InsertData14(1048, 14, Convert.ToInt32(!LstState14));
+                        InsertData15(1048, 15, Convert.ToInt32(!LstState15));
+                        InsertData16(1048, 16, Convert.ToInt32(!LstState16));
+                        InsertData17(1048, 17, Convert.ToInt32(!LstState17));
+                        InsertData18(1048, 18, Convert.ToInt32(!LstState18));
+                        InsertData19(1048, 19, Convert.ToInt32(!LstState19));
+                        InsertData20(1048, 20, Convert.ToInt32(!LstState20));
+                        InsertData21(1048, 21, Convert.ToInt32(!LstState21));
+                        InsertData22(1048, 22, Convert.ToInt32(!LstState22));
+                        InsertData23(1048, 23, Convert.ToInt32(!LstState23));
+                        InsertData24(1048, 24, Convert.ToInt32(!LstState24));
+
+
+                        Thread.Sleep(1000);
 
                         LastTimeForShift = DateTime.Now;
 
 
-                         //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
-                      
+                        //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+
 
 
 
@@ -560,6 +578,8 @@ namespace PIASService
                         LstState1 = Convert.ToBoolean(StateID);
                         ISStartInt1 = true;
                         Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                        //      EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID="+ StateID, EventLogEntryType.Information);
+
                     }
                     catch { }
 
@@ -567,6 +587,7 @@ namespace PIASService
                     sqlstr = " SELECT        TOP (2) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC ";
                     Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
 
+                    //     EventLog.WriteEntry("SQLSTR=" + sqlstr, EventLogEntryType.Information  );
 
                     if (Cls_Public.PublicDT.Rows.Count == 2)
                     {
@@ -575,6 +596,11 @@ namespace PIASService
                             DeviceStateID1 = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[0]["DeviceStateID"].ToString());
 
                             DeviceStateID1Old = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[1]["DeviceStateID"].ToString());
+
+
+
+                            //       EventLog.WriteEntry("DeviceStateID1=" + DeviceStateID1 + "DeviceStateID1Old="+ DeviceStateID1Old + "StateID=" + StateID, EventLogEntryType.Information);
+
                         }
                         catch { }
                     }
@@ -582,6 +608,7 @@ namespace PIASService
                     {
 
                         DeviceStateID1Old = Convert.ToInt32(Cls_Public.PublicDT.DefaultView[1]["DeviceStateID"].ToString());
+                        //       EventLog.WriteEntry("DeviceStateID1Old=" + DeviceStateID1Old+ "StateID=" + StateID , EventLogEntryType.Information );
 
                     }
                     return;
@@ -594,12 +621,14 @@ namespace PIASService
                     {
                         // sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
                         sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID='" + DeviceStateID1 + "'";
+                        //   EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
 
                     }
                     else
                     {
                         //  sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
                         sqlstr = "select * from  Tb_Client where DeviceStateID='" + DeviceStateID1 + "'";
+                        //     EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
 
                         Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
                         DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
@@ -611,14 +640,18 @@ namespace PIASService
                         {
                             sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=Count+" + ++CountOfPuls1 + " where DevicestateID='" + DeviceStateID1Old + "'";
                             Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                            //   EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
 
                             sqlstr = "delete from Tb_Client  where DevicestateID='" + DeviceStateID1 + "'";
                             Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                            //      EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
+
                         }
                         else
                         {
                             sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID='" + DeviceStateID1 + "'";
                             Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                            //   EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
 
                         }
                         //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
@@ -641,6 +674,7 @@ namespace PIASService
                 ISStartInt1 = false;
                 sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID= '" + DeviceStateID1 + "'";
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
+                EventLog.WriteEntry("SQLSTR=" + sqlstr + "StateID=" + StateID, EventLogEntryType.Information);
 
             }
         }
@@ -837,7 +871,7 @@ namespace PIASService
             }
             catch (Exception e)
             {
-                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Information);
+                EventLog.WriteEntry("UnSuccess Insert Data With Method InsertData in db!!!" + e.Message + "   SQLSTR=" + sqlstr, EventLogEntryType.Error);
                 ISStartInt3 = false;
                 sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls3 + " where  DevicestateID= '" + DeviceStateID3 + "'";
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
@@ -2021,6 +2055,7 @@ namespace PIASService
                             Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
 
                         }
+
                         //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls15 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
 
                         LstState15 = Convert.ToBoolean(StateID);
@@ -2191,7 +2226,7 @@ namespace PIASService
                 {
                     if (LstState17 == Convert.ToBoolean(StateID))
                     {
-                        // sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls17 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        // sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where  DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
                         sqlstr = "update   Tb_Client  set  enddate='" + CurShamsiDate + "' ,MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') ,endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls17 + " where  DevicestateID='" + DeviceStateID17 + "'";
 
                     }
@@ -2220,7 +2255,7 @@ namespace PIASService
                             Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
 
                         }
-                        //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls17 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
+                        //   sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + DeviceId + "') AND (DeviceLineId = '" + DeviceLineId + "')  ORDER BY DeviceStateID DESC)";
 
                         LstState17 = Convert.ToBoolean(StateID);
                         ISStartInt17 = false;
@@ -2243,6 +2278,8 @@ namespace PIASService
 
             }
         }
+
+
         private void InsertData18(int DeviceId, int DeviceLineId, int StateID)
         {
 
@@ -2941,9 +2978,32 @@ namespace PIASService
 
             }
         }
+        private   void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
 
-     
+                //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
 
-        
+                DateTime thisDate = DateTime.Now;
+
+                serialPort1.DiscardInBuffer();
+
+                serialPort1.DiscardOutBuffer();
+                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
+                stresive1 = serialPort1.ReadLine();
+
+                display1();
+                //Thread thread1 = new Thread(new ThreadStart(display1));
+                //thread1.Start();
+                //thread1.Join();
+
+
+            }
+
+            catch { }
+        }
+       
     }
 }

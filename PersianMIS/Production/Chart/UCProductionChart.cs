@@ -127,18 +127,26 @@ namespace PersianMIS.Production.Chart
             MainChart.Titles[0].Text = TitleBar.Text;
             MainChart.Legends[0].BackColor = Color.Transparent;
             MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            MainChart.Series["Default"].IsValueShownAsLabel = true;
+            MainChart.Series["Default"].Label = "#PERCENT";
 
-           // Set labels style
-           //      MainChart.Series[0]["PieLabelStyle"] = "Outside";
+            MainChart.Series["Default"].Legend = "Default";
+            MainChart.Series["Default"].IsVisibleInLegend = true;
 
-           // Set Doughnut radius percentage
-           // MainChart.Series["Default"]["DoughnutRadius"] = "30";
 
-           // Explode data point with label "Italy"
-           //   MainChart.Series["Default"].Points[4]["Exploded"] = "true";
 
-           // Enable 3D
-           MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+            // Set labels style
+            //      MainChart.Series[0]["PieLabelStyle"] = "Outside";
+
+            // Set Doughnut radius percentage
+            // MainChart.Series["Default"]["DoughnutRadius"] = "30";
+
+            // Explode data point with label "Italy"
+            //   MainChart.Series["Default"].Points[4]["Exploded"] = "true";
+
+            // Enable 3D
+            MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
 
             // Set drawing style
             MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
