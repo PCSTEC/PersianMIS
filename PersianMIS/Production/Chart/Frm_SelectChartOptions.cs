@@ -23,6 +23,7 @@ namespace PersianMIS.Production.Chart
         BLL.CLS_Device Bll_device = new CLS_Device();
         BLL.Cls_ProductLines Bll_ProductLine = new Cls_ProductLines();
         string SQLStrMainThemplate, SQLStrThemplate;
+        Legend Themlegend = new Legend();
         public Frm_SelectChartOptions()
         {
             InitializeComponent();
@@ -53,36 +54,49 @@ namespace PersianMIS.Production.Chart
             // Cmb_ChartType.Items.AddRange(IEnumerable < SeriesChartType > Enum.GetNames(typeof(SeriesChartType)))  ;
             Cmb_ChartType.Items.AddRange(Enum.GetNames(typeof(SeriesChartType)));
             Cmb_ChartType.Items[0].Text = "Pie";
+
         }
 
         private void FillThemplateChart()
         {
-            ThemplateChart.Legends.Clear();
+
+
+         ThemplateChart.Legends.Clear();
             ThemplateChart.Series.Clear();
             ThemplateChart.ChartAreas.Clear();
             double[] yValue = { 100, 200, 150, 300 };
             string[] XValue = { "داده1", "داده2", "داده3", "داده4" };
-
+ 
 
             ThemplateChart.Series.Add("Default");
             ThemplateChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), Cmb_ChartType.Text);// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
-            ThemplateChart.Legends.Add("Default");
-            ThemplateChart.Series[0].XValueMember = "StateCaption";
-            ThemplateChart.Series[0].YValueMembers = "Duration";
+                                                                                                                          //   ThemplateChart.Legends.Add("Default");
+           //  ThemplateChart.Series[0].XValueMember = "StateCaption";
+        //    ThemplateChart.Series[0].LegendText = "StateCaption";
+       //  ThemplateChart.Series[0].YValueMembers = "Duration";
+
+      //      ThemplateChart.Series[0].Legen  = XValue;
+
             ThemplateChart.ChartAreas.Add("Main Area");
             // ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = true;
             ThemplateChart.Series[0].Points.DataBindXY(XValue, yValue);
             ThemplateChart.Titles[0].Text = Txt_ChartTitle.Text;
-            ThemplateChart.Legends[0].BackColor = Color.Transparent;
-            ThemplateChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+          //  ThemplateChart.Legends[0].BackColor = Color.Transparent;
             ThemplateChart.Series["Default"]["PyramidLabelStyle"] = "Inside";
             ThemplateChart.Series[0].IsValueShownAsLabel = true;
             ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = Ch_3d.Checked;
             ThemplateChart.Titles[0].Visible = Ch_ShowTitleOption.Checked;
-              //درصدی کردن
+            //درصدی کردن
             // ThemplateChart.Series["Default"].IsValueShownAsLabel = true;
             //   ThemplateChart.Series["Default"].Label = "#PERCENT";
 
+            ThemplateChart.Legends.Add(new Legend("Expenses"));
+              ThemplateChart.Series[0].Legend = "Expenses";
+            ThemplateChart.Series[0].LegendText = "#VALX";
+            ThemplateChart.Legends["Expenses"].BackColor = Color.Transparent;
+            ThemplateChart.Legends["Expenses"].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            //  ThemplateChart.Series[0].Color = Color.Transparent;
+            ThemplateChart.ChartAreas[0].BackColor = Color.Transparent;
             try
             {
                 if (Cmb_DataTypeShow.SelectedItem.Index == 0)
@@ -103,6 +117,8 @@ namespace PersianMIS.Production.Chart
             {
 
             }
+
+
 
         }
 
@@ -131,9 +147,8 @@ namespace PersianMIS.Production.Chart
                     else
                     {
                         ThemplateChart.Series["Default"].IsValueShownAsLabel = false;
-
-
                     }
+
                 }
                 catch
                 {
@@ -200,6 +215,17 @@ namespace PersianMIS.Production.Chart
             {
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+            Themlegend = ThemplateChart.Legends[0];
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ThemplateChart.Legends[0] = Themlegend;
         }
 
         private void SyncThreeLevel(RadTreeViewEventArgs e)

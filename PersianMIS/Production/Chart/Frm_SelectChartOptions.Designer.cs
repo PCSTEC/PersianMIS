@@ -32,20 +32,15 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem4 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem5 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem6 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem7 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem8 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem9 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem10 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem11 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem12 = new Telerik.WinControls.UI.RadListDataItem();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_SelectChartOptions));
             this.MainPageView = new Telerik.WinControls.UI.RadPageView();
             this.SelectDataTab = new Telerik.WinControls.UI.RadPageViewPage();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.radCheckBox1 = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_3d = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_ShowTitleOption = new Telerik.WinControls.UI.RadCheckBox();
             this.Cmb_ChartType = new Telerik.WinControls.UI.RadDropDownList();
@@ -62,11 +57,11 @@
             this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.SelectDataPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.MainTree = new Telerik.WinControls.UI.RadTreeView();
-            this.radCheckBox1 = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainPageView)).BeginInit();
             this.MainPageView.SuspendLayout();
             this.SelectDataTab.SuspendLayout();
             this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_3d)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartType)).BeginInit();
@@ -78,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             this.SelectDataPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +105,8 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.button2);
+            this.groupPanel2.Controls.Add(this.button1);
             this.groupPanel2.Controls.Add(this.radCheckBox1);
             this.groupPanel2.Controls.Add(this.Ch_3d);
             this.groupPanel2.Controls.Add(this.Ch_ShowTitleOption);
@@ -148,6 +144,37 @@
             this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel2.TabIndex = 65;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(128, 66);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 71;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(225, 67);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 70;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // radCheckBox1
+            // 
+            this.radCheckBox1.AutoSize = false;
+            this.radCheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.radCheckBox1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radCheckBox1.Location = new System.Drawing.Point(225, 35);
+            this.radCheckBox1.Name = "radCheckBox1";
+            this.radCheckBox1.Size = new System.Drawing.Size(90, 24);
+            this.radCheckBox1.TabIndex = 69;
+            this.radCheckBox1.Text = "نماش هدف";
             // 
             // Ch_3d
             // 
@@ -194,14 +221,6 @@
             // Cmb_FieldShowType
             // 
             this.Cmb_FieldShowType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem5.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem5.Tag = "0";
-            radListDataItem5.Text = "عنوان اصلی فیلد";
-            radListDataItem6.Font = new System.Drawing.Font("B Nazanin", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem6.Tag = "1";
-            radListDataItem6.Text = "ترکیبی (عنوان اصلی + عنوان ماشین(";
-            this.Cmb_FieldShowType.Items.Add(radListDataItem5);
-            this.Cmb_FieldShowType.Items.Add(radListDataItem6);
             this.Cmb_FieldShowType.Location = new System.Drawing.Point(438, 34);
             this.Cmb_FieldShowType.Name = "Cmb_FieldShowType";
             this.Cmb_FieldShowType.NullText = "نحوه نمایش عنوان فیلد ";
@@ -211,18 +230,6 @@
             // radDropDownList1
             // 
             this.radDropDownList1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem7.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem7.Text = "تاریخ";
-            radListDataItem8.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem8.Text = "عنوان پارامتر";
-            radListDataItem9.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem9.Text = "عنوان پارامتر همراه با خط";
-            radListDataItem10.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem10.Text = "تاریخ و ساعت";
-            this.radDropDownList1.Items.Add(radListDataItem7);
-            this.radDropDownList1.Items.Add(radListDataItem8);
-            this.radDropDownList1.Items.Add(radListDataItem9);
-            this.radDropDownList1.Items.Add(radListDataItem10);
             this.radDropDownList1.Location = new System.Drawing.Point(12, 0);
             this.radDropDownList1.Name = "radDropDownList1";
             this.radDropDownList1.NullText = "محور افقی نمودار";
@@ -280,12 +287,6 @@
             // Cmb_DataTypeShow
             // 
             this.Cmb_DataTypeShow.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            radListDataItem11.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem11.Text = "درصد";
-            radListDataItem12.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            radListDataItem12.Text = "مقدار";
-            this.Cmb_DataTypeShow.Items.Add(radListDataItem11);
-            this.Cmb_DataTypeShow.Items.Add(radListDataItem12);
             this.Cmb_DataTypeShow.Location = new System.Drawing.Point(212, 0);
             this.Cmb_DataTypeShow.Name = "Cmb_DataTypeShow";
             this.Cmb_DataTypeShow.NullText = " نحوه نمایش ";
@@ -366,17 +367,6 @@
             this.MainTree.TabIndex = 1;
             this.MainTree.Text = "radTreeView1";
             // 
-            // radCheckBox1
-            // 
-            this.radCheckBox1.AutoSize = false;
-            this.radCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.radCheckBox1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radCheckBox1.Location = new System.Drawing.Point(225, 35);
-            this.radCheckBox1.Name = "radCheckBox1";
-            this.radCheckBox1.Size = new System.Drawing.Size(90, 24);
-            this.radCheckBox1.TabIndex = 69;
-            this.radCheckBox1.Text = "نماش هدف";
-            // 
             // Frm_SelectChartOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +390,7 @@
             this.SelectDataTab.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_3d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartType)).EndInit();
@@ -411,7 +402,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             this.SelectDataPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -439,5 +429,7 @@
         private Telerik.WinControls.UI.RadCheckBox Ch_3d;
         private Telerik.WinControls.UI.RadCheckBox Ch_ShowTitleOption;
         private Telerik.WinControls.UI.RadCheckBox radCheckBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

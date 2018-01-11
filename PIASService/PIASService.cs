@@ -186,7 +186,7 @@ namespace PIASService
 
             //}
 
-            System.Diagnostics.Debugger.Launch();
+         //   System.Diagnostics.Debugger.Launch();
             EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
             serialPort1.Close();
             serialPort1.DataBits = 8;
@@ -386,10 +386,7 @@ namespace PIASService
             try
             {
 
-                serialPort1.DiscardInBuffer();
-
-                serialPort1.DiscardOutBuffer();
-
+              
                 IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
 
                 //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
@@ -474,7 +471,7 @@ namespace PIASService
                         InsertData24(1048, 24, Convert.ToInt32(!LstState24));
 
 
-                        Thread.Sleep(1000);
+                     //   Thread.Sleep(1000);
 
                         LastTimeForShift = DateTime.Now;
 
@@ -537,6 +534,9 @@ namespace PIASService
             }
             catch { }
 
+            serialPort1.DiscardInBuffer();
+
+            serialPort1.DiscardOutBuffer();
 
 
         }
