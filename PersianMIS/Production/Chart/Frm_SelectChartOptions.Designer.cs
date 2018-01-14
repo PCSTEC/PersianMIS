@@ -38,14 +38,12 @@
             this.MainPageView = new Telerik.WinControls.UI.RadPageView();
             this.SelectDataTab = new Telerik.WinControls.UI.RadPageViewPage();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radCheckBox1 = new Telerik.WinControls.UI.RadCheckBox();
-            this.Ch_3d = new Telerik.WinControls.UI.RadCheckBox();
+            this.Ch_ShowChartPurpose = new Telerik.WinControls.UI.RadCheckBox();
+            this.Ch_ShowChart3d = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_ShowTitleOption = new Telerik.WinControls.UI.RadCheckBox();
             this.Cmb_ChartType = new Telerik.WinControls.UI.RadDropDownList();
-            this.Cmb_FieldShowType = new Telerik.WinControls.UI.RadDropDownList();
-            this.radDropDownList1 = new Telerik.WinControls.UI.RadDropDownList();
+            this.Cmb_ChartLegendType = new Telerik.WinControls.UI.RadDropDownList();
+            this.Cmb_ChartAxisXType = new Telerik.WinControls.UI.RadDropDownList();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_ChartTitle = new Telerik.WinControls.UI.RadTextBox();
@@ -61,12 +59,12 @@
             this.MainPageView.SuspendLayout();
             this.SelectDataTab.SuspendLayout();
             this.groupPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ch_3d)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChartPurpose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChart3d)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_FieldShowType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartLegendType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartAxisXType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ChartTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_DataTypeShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThemplateChart)).BeginInit();
@@ -84,7 +82,7 @@
             this.MainPageView.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.MainPageView.Location = new System.Drawing.Point(0, 0);
             this.MainPageView.Name = "MainPageView";
-            this.MainPageView.SelectedPage = this.SelectDataTab;
+            this.MainPageView.SelectedPage = this.SelectDataPage;
             this.MainPageView.Size = new System.Drawing.Size(678, 750);
             this.MainPageView.TabIndex = 0;
             this.MainPageView.Text = "انتخاب داده";
@@ -105,14 +103,12 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Controls.Add(this.button2);
-            this.groupPanel2.Controls.Add(this.button1);
-            this.groupPanel2.Controls.Add(this.radCheckBox1);
-            this.groupPanel2.Controls.Add(this.Ch_3d);
+            this.groupPanel2.Controls.Add(this.Ch_ShowChartPurpose);
+            this.groupPanel2.Controls.Add(this.Ch_ShowChart3d);
             this.groupPanel2.Controls.Add(this.Ch_ShowTitleOption);
             this.groupPanel2.Controls.Add(this.Cmb_ChartType);
-            this.groupPanel2.Controls.Add(this.Cmb_FieldShowType);
-            this.groupPanel2.Controls.Add(this.radDropDownList1);
+            this.groupPanel2.Controls.Add(this.Cmb_ChartLegendType);
+            this.groupPanel2.Controls.Add(this.Cmb_ChartAxisXType);
             this.groupPanel2.Controls.Add(this.label1);
             this.groupPanel2.Controls.Add(this.label2);
             this.groupPanel2.Controls.Add(this.Txt_ChartTitle);
@@ -145,54 +141,33 @@
             this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel2.TabIndex = 65;
             // 
-            // button2
+            // Ch_ShowChartPurpose
             // 
-            this.button2.Location = new System.Drawing.Point(128, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 71;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Ch_ShowChartPurpose.BackColor = System.Drawing.Color.Transparent;
+            this.Ch_ShowChartPurpose.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ch_ShowChartPurpose.Location = new System.Drawing.Point(180, 36);
+            this.Ch_ShowChartPurpose.Name = "Ch_ShowChartPurpose";
+            this.Ch_ShowChartPurpose.Size = new System.Drawing.Size(72, 24);
+            this.Ch_ShowChartPurpose.TabIndex = 69;
+            this.Ch_ShowChartPurpose.Text = "نماش هدف";
             // 
-            // button1
+            // Ch_ShowChart3d
             // 
-            this.button1.Location = new System.Drawing.Point(225, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 70;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // radCheckBox1
-            // 
-            this.radCheckBox1.AutoSize = false;
-            this.radCheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.radCheckBox1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radCheckBox1.Location = new System.Drawing.Point(225, 35);
-            this.radCheckBox1.Name = "radCheckBox1";
-            this.radCheckBox1.Size = new System.Drawing.Size(90, 24);
-            this.radCheckBox1.TabIndex = 69;
-            this.radCheckBox1.Text = "نماش هدف";
-            // 
-            // Ch_3d
-            // 
-            this.Ch_3d.AutoSize = false;
-            this.Ch_3d.BackColor = System.Drawing.Color.Transparent;
-            this.Ch_3d.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ch_3d.Location = new System.Drawing.Point(341, 67);
-            this.Ch_3d.Name = "Ch_3d";
-            this.Ch_3d.Size = new System.Drawing.Size(90, 24);
-            this.Ch_3d.TabIndex = 68;
-            this.Ch_3d.Text = "نماش سه بعدی";
-            this.Ch_3d.CheckStateChanged += new System.EventHandler(this.Ch_3d_CheckStateChanged);
+            this.Ch_ShowChart3d.AutoSize = false;
+            this.Ch_ShowChart3d.BackColor = System.Drawing.Color.Transparent;
+            this.Ch_ShowChart3d.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ch_ShowChart3d.Location = new System.Drawing.Point(292, 68);
+            this.Ch_ShowChart3d.Name = "Ch_ShowChart3d";
+            this.Ch_ShowChart3d.Size = new System.Drawing.Size(90, 24);
+            this.Ch_ShowChart3d.TabIndex = 68;
+            this.Ch_ShowChart3d.Text = "نماش سه بعدی";
+            this.Ch_ShowChart3d.CheckStateChanged += new System.EventHandler(this.Ch_3d_CheckStateChanged);
             // 
             // Ch_ShowTitleOption
             // 
             this.Ch_ShowTitleOption.BackColor = System.Drawing.Color.Transparent;
             this.Ch_ShowTitleOption.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ch_ShowTitleOption.Location = new System.Drawing.Point(321, 35);
+            this.Ch_ShowTitleOption.Location = new System.Drawing.Point(271, 36);
             this.Ch_ShowTitleOption.Name = "Ch_ShowTitleOption";
             this.Ch_ShowTitleOption.Size = new System.Drawing.Size(111, 24);
             this.Ch_ShowTitleOption.TabIndex = 67;
@@ -211,30 +186,30 @@
             this.Cmb_ChartType.Items.Add(radListDataItem2);
             this.Cmb_ChartType.Items.Add(radListDataItem3);
             this.Cmb_ChartType.Items.Add(radListDataItem4);
-            this.Cmb_ChartType.Location = new System.Drawing.Point(437, 66);
+            this.Cmb_ChartType.Location = new System.Drawing.Point(389, 66);
             this.Cmb_ChartType.Name = "Cmb_ChartType";
             this.Cmb_ChartType.NullText = "نوع نمودار را انتخاب کنید";
-            this.Cmb_ChartType.Size = new System.Drawing.Size(141, 26);
+            this.Cmb_ChartType.Size = new System.Drawing.Size(189, 26);
             this.Cmb_ChartType.TabIndex = 62;
             this.Cmb_ChartType.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.Cmb_ChartType_SelectedIndexChanged);
             // 
-            // Cmb_FieldShowType
+            // Cmb_ChartLegendType
             // 
-            this.Cmb_FieldShowType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_FieldShowType.Location = new System.Drawing.Point(438, 34);
-            this.Cmb_FieldShowType.Name = "Cmb_FieldShowType";
-            this.Cmb_FieldShowType.NullText = "نحوه نمایش عنوان فیلد ";
-            this.Cmb_FieldShowType.Size = new System.Drawing.Size(140, 26);
-            this.Cmb_FieldShowType.TabIndex = 63;
+            this.Cmb_ChartLegendType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_ChartLegendType.Location = new System.Drawing.Point(390, 34);
+            this.Cmb_ChartLegendType.Name = "Cmb_ChartLegendType";
+            this.Cmb_ChartLegendType.NullText = "نحوه نمایش عنوان فیلد ";
+            this.Cmb_ChartLegendType.Size = new System.Drawing.Size(188, 26);
+            this.Cmb_ChartLegendType.TabIndex = 63;
             // 
-            // radDropDownList1
+            // Cmb_ChartAxisXType
             // 
-            this.radDropDownList1.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radDropDownList1.Location = new System.Drawing.Point(12, 0);
-            this.radDropDownList1.Name = "radDropDownList1";
-            this.radDropDownList1.NullText = "محور افقی نمودار";
-            this.radDropDownList1.Size = new System.Drawing.Size(140, 26);
-            this.radDropDownList1.TabIndex = 66;
+            this.Cmb_ChartAxisXType.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Cmb_ChartAxisXType.Location = new System.Drawing.Point(3, 0);
+            this.Cmb_ChartAxisXType.Name = "Cmb_ChartAxisXType";
+            this.Cmb_ChartAxisXType.NullText = "محور افقی نمودار";
+            this.Cmb_ChartAxisXType.Size = new System.Drawing.Size(116, 26);
+            this.Cmb_ChartAxisXType.TabIndex = 66;
             // 
             // label1
             // 
@@ -259,9 +234,9 @@
             // Txt_ChartTitle
             // 
             this.Txt_ChartTitle.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Txt_ChartTitle.Location = new System.Drawing.Point(437, 1);
+            this.Txt_ChartTitle.Location = new System.Drawing.Point(389, 1);
             this.Txt_ChartTitle.Name = "Txt_ChartTitle";
-            this.Txt_ChartTitle.Size = new System.Drawing.Size(141, 26);
+            this.Txt_ChartTitle.Size = new System.Drawing.Size(189, 26);
             this.Txt_ChartTitle.TabIndex = 56;
             // 
             // Lbl_ChartCaption
@@ -278,7 +253,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(148, 1);
+            this.label4.Location = new System.Drawing.Point(115, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 65;
@@ -287,10 +262,10 @@
             // Cmb_DataTypeShow
             // 
             this.Cmb_DataTypeShow.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Cmb_DataTypeShow.Location = new System.Drawing.Point(212, 0);
+            this.Cmb_DataTypeShow.Location = new System.Drawing.Point(180, -1);
             this.Cmb_DataTypeShow.Name = "Cmb_DataTypeShow";
             this.Cmb_DataTypeShow.NullText = " نحوه نمایش ";
-            this.Cmb_DataTypeShow.Size = new System.Drawing.Size(127, 26);
+            this.Cmb_DataTypeShow.Size = new System.Drawing.Size(106, 26);
             this.Cmb_DataTypeShow.TabIndex = 64;
             this.Cmb_DataTypeShow.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.Cmb_DataTypeShow_SelectedIndexChanged);
             // 
@@ -298,7 +273,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(336, 6);
+            this.label3.Location = new System.Drawing.Point(283, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 63;
@@ -354,7 +329,7 @@
             this.SelectDataPage.ItemSize = new System.Drawing.SizeF(71F, 34F);
             this.SelectDataPage.Location = new System.Drawing.Point(10, 43);
             this.SelectDataPage.Name = "SelectDataPage";
-            this.SelectDataPage.Size = new System.Drawing.Size(603, 696);
+            this.SelectDataPage.Size = new System.Drawing.Size(657, 696);
             this.SelectDataPage.Text = "انتخاب داده";
             // 
             // MainTree
@@ -362,10 +337,11 @@
             this.MainTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTree.Location = new System.Drawing.Point(0, 0);
             this.MainTree.Name = "MainTree";
-            this.MainTree.Size = new System.Drawing.Size(603, 696);
+            this.MainTree.Size = new System.Drawing.Size(657, 696);
             this.MainTree.SpacingBetweenNodes = -1;
             this.MainTree.TabIndex = 1;
             this.MainTree.Text = "radTreeView1";
+            this.MainTree.NodeCheckedChanged += new Telerik.WinControls.UI.TreeNodeCheckedEventHandler(this.MainTree_NodeCheckedChanged);
             // 
             // Frm_SelectChartOptions
             // 
@@ -390,12 +366,12 @@
             this.SelectDataTab.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radCheckBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ch_3d)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChartPurpose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChart3d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cmb_FieldShowType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radDropDownList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartLegendType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cmb_ChartAxisXType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ChartTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_DataTypeShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThemplateChart)).EndInit();
@@ -416,20 +392,18 @@
         private System.Windows.Forms.Label Lbl_ChartCaption;
         private Telerik.WinControls.UI.RadButton Btn_Save;
         private System.Windows.Forms.Label label2;
-        private Telerik.WinControls.UI.RadDropDownList Cmb_FieldShowType;
+        private Telerik.WinControls.UI.RadDropDownList Cmb_ChartLegendType;
         private Telerik.WinControls.UI.RadDropDownList Cmb_ChartType;
         private System.Windows.Forms.DataVisualization.Charting.Chart ThemplateChart;
         private Telerik.WinControls.UI.RadPageViewPage SelectDataPage;
         private Telerik.WinControls.UI.RadTreeView MainTree;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownList1;
+        private Telerik.WinControls.UI.RadDropDownList Cmb_ChartAxisXType;
         private System.Windows.Forms.Label label4;
         private Telerik.WinControls.UI.RadDropDownList Cmb_DataTypeShow;
         private System.Windows.Forms.Label label3;
-        private Telerik.WinControls.UI.RadCheckBox Ch_3d;
+        private Telerik.WinControls.UI.RadCheckBox Ch_ShowChart3d;
         private Telerik.WinControls.UI.RadCheckBox Ch_ShowTitleOption;
-        private Telerik.WinControls.UI.RadCheckBox radCheckBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private Telerik.WinControls.UI.RadCheckBox Ch_ShowChartPurpose;
     }
 }

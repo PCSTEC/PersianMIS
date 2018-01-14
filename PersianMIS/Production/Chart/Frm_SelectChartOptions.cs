@@ -24,6 +24,10 @@ namespace PersianMIS.Production.Chart
         BLL.Cls_ProductLines Bll_ProductLine = new Cls_ProductLines();
         string SQLStrMainThemplate, SQLStrThemplate;
         Legend Themlegend = new Legend();
+
+        Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
+
+
         public Frm_SelectChartOptions()
         {
             InitializeComponent();
@@ -45,15 +49,18 @@ namespace PersianMIS.Production.Chart
                 this.MainTree.AutoCheckChildNodes = true;
             }
             SQLStrMainThemplate = bll_Chart.GetActiveChartThemplate().DefaultView[0]["TSQL"].ToString();
-            //SeriesChartType n = new   SeriesChartType();
-            //foreach (var x in Enum.GetNames(typeof(SeriesChartType)))
-            //{
-            //    Cmb_ChartType.Items.Add(x.ToString());
 
-            //}
-            // Cmb_ChartType.Items.AddRange(IEnumerable < SeriesChartType > Enum.GetNames(typeof(SeriesChartType)))  ;
             Cmb_ChartType.Items.AddRange(Enum.GetNames(typeof(SeriesChartType)));
             Cmb_ChartType.Items[0].Text = "Pie";
+            FillCmb();
+        }
+
+
+        private void FillCmb()
+        {
+            Pers.FillCmb(bll_Chart.GetChartShowType (), Cmb_DataTypeShow, "ChartShowTypeId", "ChartShowTypeDesc");
+            Pers.FillCmb(bll_Chart.GetChartAxisXType(), Cmb_ChartAxisXType, "chartAxisXTypeId", "chartAxisXTypeDesc");
+            Pers.FillCmb(bll_Chart. GetChartLegendType(), Cmb_ChartLegendType, "LegendTypeId", "LegendTypeText");
 
         }
 
@@ -61,37 +68,37 @@ namespace PersianMIS.Production.Chart
         {
 
 
-         ThemplateChart.Legends.Clear();
+            ThemplateChart.Legends.Clear();
             ThemplateChart.Series.Clear();
             ThemplateChart.ChartAreas.Clear();
             double[] yValue = { 100, 200, 150, 300 };
             string[] XValue = { "داده1", "داده2", "داده3", "داده4" };
- 
+
 
             ThemplateChart.Series.Add("Default");
             ThemplateChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), Cmb_ChartType.Text);// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
                                                                                                                           //   ThemplateChart.Legends.Add("Default");
-           //  ThemplateChart.Series[0].XValueMember = "StateCaption";
-        //    ThemplateChart.Series[0].LegendText = "StateCaption";
-       //  ThemplateChart.Series[0].YValueMembers = "Duration";
+                                                                                                                          //  ThemplateChart.Series[0].XValueMember = "StateCaption";
+                                                                                                                          //    ThemplateChart.Series[0].LegendText = "StateCaption";
+                                                                                                                          //  ThemplateChart.Series[0].YValueMembers = "Duration";
 
-      //      ThemplateChart.Series[0].Legen  = XValue;
+            //      ThemplateChart.Series[0].Legen  = XValue;
 
             ThemplateChart.ChartAreas.Add("Main Area");
             // ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = true;
             ThemplateChart.Series[0].Points.DataBindXY(XValue, yValue);
             ThemplateChart.Titles[0].Text = Txt_ChartTitle.Text;
-          //  ThemplateChart.Legends[0].BackColor = Color.Transparent;
+            //  ThemplateChart.Legends[0].BackColor = Color.Transparent;
             ThemplateChart.Series["Default"]["PyramidLabelStyle"] = "Inside";
             ThemplateChart.Series[0].IsValueShownAsLabel = true;
-            ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = Ch_3d.Checked;
+            ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = Ch_ShowChart3d.Checked;
             ThemplateChart.Titles[0].Visible = Ch_ShowTitleOption.Checked;
             //درصدی کردن
             // ThemplateChart.Series["Default"].IsValueShownAsLabel = true;
             //   ThemplateChart.Series["Default"].Label = "#PERCENT";
 
             ThemplateChart.Legends.Add(new Legend("Expenses"));
-              ThemplateChart.Series[0].Legend = "Expenses";
+            ThemplateChart.Series[0].Legend = "Expenses";
             ThemplateChart.Series[0].LegendText = "#VALX";
             ThemplateChart.Legends["Expenses"].BackColor = Color.Transparent;
             ThemplateChart.Legends["Expenses"].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
@@ -166,7 +173,9 @@ namespace PersianMIS.Production.Chart
             }
 
 
-            bll_Chart.Insert("all", false, SQLStrThemplate, Txt_ChartTitle.Text, Cmb_ChartType.Text, Convert.ToInt32(Cmb_FieldShowType.SelectedItem.Tag.ToString()));
+            bll_Chart.Insert("all", false, SQLStrThemplate, Txt_ChartTitle.Text,  Cmb_ChartType.Text , Convert.ToInt32(Cmb_ChartLegendType.SelectedValue ), (int)Cmb_ChartLegendType.SelectedValue , (int)Cmb_DataTypeShow.SelectedValue , (int)Cmb_ChartAxisXType.SelectedValue,Ch_ShowTitleOption.Checked,Ch_ShowChartPurpose.Checked,Ch_ShowChart3d.Checked );
+
+
             MessageBox.Show("ساختار نمودار جدیدی برای شما ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
 
@@ -181,6 +190,7 @@ namespace PersianMIS.Production.Chart
         {
             try
             {
+                ThemplateChart.Titles[0].Text = Txt_ChartTitle.Text;
                 ThemplateChart.Titles[0].Visible = Ch_ShowTitleOption.Checked;
             }
             catch { }
@@ -190,7 +200,7 @@ namespace PersianMIS.Production.Chart
         {
             try
             {
-                ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = Ch_3d.Checked;
+                ThemplateChart.ChartAreas[0].Area3DStyle.Enable3D = Ch_ShowChart3d.Checked;
             }
             catch { }
         }
@@ -199,17 +209,17 @@ namespace PersianMIS.Production.Chart
         {
             try
             {
-  if (e.Position == 0)
-            {
-                ThemplateChart.Series["Default"].IsValueShownAsLabel = true;
-                ThemplateChart.Series["Default"].Label = "#PERCENT";
-            }
-            else
-            {
-                ThemplateChart.Series["Default"].IsValueShownAsLabel = false;
-                ThemplateChart.Series["Default"].Label = "#VAL";
-                ThemplateChart.Series[0].IsValueShownAsLabel = true;
-            }
+                if (e.Position == 1)
+                {
+                    ThemplateChart.Series["Default"].IsValueShownAsLabel = true;
+                    ThemplateChart.Series["Default"].Label = "#PERCENT";
+                }
+                else
+                {
+                    ThemplateChart.Series["Default"].IsValueShownAsLabel = false;
+                    ThemplateChart.Series["Default"].Label = "#VAL";
+                    ThemplateChart.Series[0].IsValueShownAsLabel = true;
+                }
             }
             catch
             {
@@ -217,16 +227,9 @@ namespace PersianMIS.Production.Chart
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-            Themlegend = ThemplateChart.Legends[0];
-        }
+     
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ThemplateChart.Legends[0] = Themlegend;
-        }
+       
 
         private void SyncThreeLevel(RadTreeViewEventArgs e)
         {

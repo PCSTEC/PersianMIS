@@ -22,11 +22,11 @@ namespace PersianMIS.Production.Chart
         {
             Form frm = new Frm_SelectChartOptions();
             frm.ShowDialog();
-           
+
 
 
         }
-       BLL.CLS_Chart Bll_Chart = new BLL.CLS_Chart ();
+        BLL.CLS_Chart Bll_Chart = new BLL.CLS_Chart();
 
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
         public DateTime StartDate, EndDate, ShiftDate, Shift3beginDate, Shift3Enddate = new DateTime();
@@ -50,7 +50,7 @@ namespace PersianMIS.Production.Chart
             this.Hide();
         }
 
-      //  BLL.CLS_DeviceLine Bll_DeviceLine = new CLS_DeviceLine();
+        //  BLL.CLS_DeviceLine Bll_DeviceLine = new CLS_DeviceLine();
         public DevComponents.DotNetBar.PanelEx TitleBar
         {
             get { return TopPnl; }
@@ -78,7 +78,7 @@ namespace PersianMIS.Production.Chart
 
 
 
-      
+
 
         private void FillData()
         {
@@ -90,63 +90,75 @@ namespace PersianMIS.Production.Chart
 
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
-                    TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
+            TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
 
-                    TSql = TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
-                    if (IsSHift3)
-                    {
-                        TSql = TSql.Replace("'12/12/2005'", "'" + Shift3beginDate.ToString("MM/dd/yyyy") + "'");
-                        TSql = TSql.Replace("'12/13/2005'", "'" + Shift3Enddate.ToString("MM/dd/yyyy") + "'");
-                        TSql = TSql.Replace("01:00:00", Shift3beginTime);
-                        TSql = TSql.Replace("06:00:00", Shift3EndTime);
-                        if (IsSHift3 && Times.Length < 5)
-                        {
-                            TSql = TSql.Replace("strtime", "AND (CAST(dbo.Tb_Client.StartTime AS time) BETWEEN '00:00:00' AND  '00:00:00' ");
-                        }
-                    }
-                    TSql = TSql.Replace(" 60 ", " 1 ");
-                    TSql = TSql.Replace(" 3600 ", " 1 ");
+            TSql = TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
+            if (IsSHift3)
+            {
+                TSql = TSql.Replace("'12/12/2005'", "'" + Shift3beginDate.ToString("MM/dd/yyyy") + "'");
+                TSql = TSql.Replace("'12/13/2005'", "'" + Shift3Enddate.ToString("MM/dd/yyyy") + "'");
+                TSql = TSql.Replace("01:00:00", Shift3beginTime);
+                TSql = TSql.Replace("06:00:00", Shift3EndTime);
+                if (IsSHift3 && Times.Length < 5)
+                {
+                    TSql = TSql.Replace("strtime", "AND (CAST(dbo.Tb_Client.StartTime AS time) BETWEEN '00:00:00' AND  '00:00:00' ");
+                }
+            }
+            TSql = TSql.Replace(" 60 ", " 1 ");
+            TSql = TSql.Replace(" 3600 ", " 1 ");
 
 
-                    TSql = TSql.Replace("strtime", Times);
+            TSql = TSql.Replace("strtime", Times);
 
-                    Dt = Bll_Public.GetDataTableFromTSQL(TSql);
+            Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 
 
 
             MainChart.DataSource = Dt;
             MainChart.DataBind();
             MainChart.Series.Add("Default");
-            MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());  ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+            MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
             MainChart.Legends.Add("Default");
             MainChart.Series[0].XValueMember = "StateCaption";
             MainChart.Series[0].YValueMembers = "Duration";
             MainChart.ChartAreas.Add("Main Area");
-            MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
-            
-            MainChart.Titles[0].Text = TitleBar.Text;
+            MainChart.ChartAreas[0].BackColor = Color.Transparent;
+
             MainChart.Legends[0].BackColor = Color.Transparent;
             MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            MainChart.Series["Default"].IsValueShownAsLabel = true;
-            MainChart.Series["Default"].Label = "#PERCENT";
+            
 
-            MainChart.Series["Default"].Legend = "Default";
-            MainChart.Series["Default"].IsVisibleInLegend = true;
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartCaption"].ToString() == "True")
+            {
+                MainChart.Titles[0].Text = BLL.Cls_PublicOperations.Dt.DefaultView[0]["Caption"].ToString();
+                MainChart.Titles[0].Visible = true;
+            }
 
 
 
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
+            {
+                MainChart.Series["Default"].IsValueShownAsLabel = false;
+                MainChart.Series["Default"].Label = "#VAL";
+                MainChart.Series[0].IsValueShownAsLabel = true;
+            }
+            else
+            {
+                MainChart.Series["Default"].IsValueShownAsLabel = true;
+                MainChart.Series["Default"].Label = "#PERCENT";
+  
+            }
 
-            // Set labels style
-            //      MainChart.Series[0]["PieLabelStyle"] = "Outside";
 
-            // Set Doughnut radius percentage
-            // MainChart.Series["Default"]["DoughnutRadius"] = "30";
 
-            // Explode data point with label "Italy"
-            //   MainChart.Series["Default"].Points[4]["Exploded"] = "true";
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
+            {
+                MainChart.ChartAreas[0].Area3DStyle.Enable3D = true ;
 
-            // Enable 3D
-            MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
+            }
+
+
+
 
             // Set drawing style
             MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
@@ -195,8 +207,8 @@ namespace PersianMIS.Production.Chart
             //   Pnl_Main.Controls.Add(Pnl_State);
         }
     }
-        }
+}
 
-       
-    
- 
+
+
+

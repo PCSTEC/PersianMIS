@@ -18,9 +18,9 @@ namespace BLL
         }
 
 
-        public void Insert(string UserId, Boolean IsMainThemplate, string TSQL, string Caption, string ChartType, int ChartFieldCaptionsType)
+        public void Insert(string UserId, Boolean IsMainThemplate, string TSQL, string Caption, string ChartType, int ChartFieldCaptionsType, int ChartLegentType, int ChartTypeDataShow, int chartAxisXType, Boolean ShowChartCaption, Boolean ShowChartPurpose, Boolean ShowChart3D)
         {
-            Dal_Chart.Insert(UserId, IsMainThemplate, TSQL, Caption, ChartType, ChartFieldCaptionsType);
+            Dal_Chart.Insert(UserId, IsMainThemplate, TSQL, Caption, ChartType, ChartFieldCaptionsType,   ChartLegentType,   ChartTypeDataShow,   chartAxisXType,   ShowChartCaption,   ShowChartPurpose,   ShowChart3D);
         }
 
 
@@ -35,6 +35,28 @@ namespace BLL
             return Dal_Chart.GetSpecialChartParameterData(ChartOptionId);
 
         }
+
+
+
+        public DataTable GetChartAxisXType()
+        {
+           return  Dal_Chart.GetChartAxisXType( );
+
+        }
+
+
+        public DataTable GetChartLegendType()
+        {
+          return   Dal_Chart.GetChartLegendType();
+
+        }
+
+        public DataTable GetChartShowType()
+        {
+            return Dal_Chart.GetChartShowType();
+
+        }
+
 
     }
 }

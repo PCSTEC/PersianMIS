@@ -155,7 +155,7 @@
             title1.Name = "Title1";
             title1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             title1.ShadowOffset = 3;
-            title1.Text = "Polar Chart";
+            title1.Visible = false;
             this.MainChart.Titles.Add(title1);
             // 
             // UCProductionChart

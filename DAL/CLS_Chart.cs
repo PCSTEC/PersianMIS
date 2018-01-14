@@ -16,7 +16,7 @@ namespace DAL
         }
 
 
-        public  void  Insert(string  UserId , Boolean  IsMainThemplate  , string TSQL  , string  Caption  , string ChartType  ,int ChartFieldCaptionsType   )
+        public  void  Insert(string  UserId , Boolean  IsMainThemplate  , string TSQL  , string  Caption  , string ChartType  ,int ChartFieldCaptionsType ,int ChartLegentType ,int ChartTypeDataShow  ,int chartAxisXType,Boolean ShowChartCaption, Boolean ShowChartPurpose , Boolean ShowChart3D )
         {
            
             Cls_Public.Pers.ClearParameter();
@@ -26,6 +26,13 @@ namespace DAL
             Cls_Public.Pers.Sp_AddParam("@Caption", System.Data.SqlDbType.NVarChar , Caption, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ChartType", System.Data.SqlDbType.NChar , ChartType, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ChartFieldCaptionsType", System.Data.SqlDbType.Int , ChartFieldCaptionsType, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ChartLegentType", System.Data.SqlDbType.Int, ChartLegentType, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ChartTypeDataShow", System.Data.SqlDbType.Int, ChartTypeDataShow, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@chartAxisXType", System.Data.SqlDbType.Int, chartAxisXType, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ShowChartCaption", System.Data.SqlDbType.Bit , ShowChartCaption, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ShowChartPurpose", System.Data.SqlDbType.Bit, ShowChartPurpose, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ShowChart3D", System.Data.SqlDbType.Bit, ShowChart3D, System.Data.ParameterDirection.Input);
+
 
             Cls_Public.Pers.Sp_Exe("SP_InsertChartOption", Cls_Public.CnnStr, false);
            
@@ -48,6 +55,32 @@ namespace DAL
             return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
 
         }
+
+        public DataTable GetChartAxisXType(  )
+        {
+            Cls_Public.SqlStr = "select * from Tb_ChartAxisXType  ";
+            return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+
+        }
+
+
+        public DataTable GetChartLegendType( )
+        {
+            Cls_Public.SqlStr = "select * from Tb_ChartLegendType ";
+            return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+
+        }
+
+        public DataTable GetChartShowType( )
+        {
+            Cls_Public.SqlStr = "select * from Tb_ChartShowType ";
+            return Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
+
+        }
+
+
+
+
 
 
     }
