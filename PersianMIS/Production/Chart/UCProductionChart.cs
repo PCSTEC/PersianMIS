@@ -110,8 +110,11 @@ namespace PersianMIS.Production.Chart
 
             TSql = TSql.Replace("strtime", Times);
 
-            Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 
+            TSql = TSql.Replace("strcolumns", ",WeekID");
+ 
+
+            Dt = Bll_Public.GetDataTableFromTSQL(TSql);
 
 
             MainChart.DataSource = Dt;
@@ -119,11 +122,68 @@ namespace PersianMIS.Production.Chart
             MainChart.Series.Add("Default");
             MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
             MainChart.Legends.Add("Default");
+            MainChart.Legends.Add("Date");
+
+            //  MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "1")
+            {
+                MainChart.Series.Add("Date");
+                MainChart.Series[1].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+
+                MainChart.Series[0].XValueMember = "WeekID";
+                MainChart.Series[1].XValueMember = "Fullname";
+                MainChart.Series[1].YValueMembers = "Duration";
+                MainChart.Series[1].Legend = "Default";
+                MainChart.Series[1].LegendText = "#VALX";
+
+            }
+
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "2")
+            {
+           
             MainChart.Series[0].XValueMember = "StateCaption";
-            MainChart.Series[0].YValueMembers = "Duration";
-            MainChart.ChartAreas.Add("Main Area");
+
+            }
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "3")
+            {
+
+                MainChart.Series[0].XValueMember = "Fullname";
+            }
+
+
+
+            //if (  BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
+            //{
+            //    MainChart.Series[0].Legend = "Default";
+            //    MainChart.Series[0].LegendText = "#VALX";
+            //}
+
+  MainChart.Series[0].Legend = "Default";
+                MainChart.Series[0].LegendText = "#VALX";
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "3")
+            {
+                MainChart.Series[0].IsVisibleInLegend = false;
+            }
+
+
+
+
+
+
+
+            MainChart.Series[0].YValueMembers = "Duration";// نمایش مقدار در قسمت Y
+
+            //  MainChart.Series[0].Points.DataBindXY(, );
+          //  MainChart.Series[0].LabelToolTip  = "!StartDate";
+
+
+
+
+           MainChart.ChartAreas.Add("Main Area");
             MainChart.ChartAreas[0].BackColor = Color.Transparent;
 
+         
             MainChart.Legends[0].BackColor = Color.Transparent;
             MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             
@@ -150,6 +210,20 @@ namespace PersianMIS.Production.Chart
             }
 
 
+            //if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
+            //{
+            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+            //}
+            //else
+            //{
+
+            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+            //}
+
+
+
 
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
             {
@@ -161,8 +235,8 @@ namespace PersianMIS.Production.Chart
 
 
             // Set drawing style
-            MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
-            MainChart.Series["Default"].IsVisibleInLegend = true;
+          //  MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
+           // MainChart.Series["Default"].IsVisibleInLegend = true;
 
             //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
