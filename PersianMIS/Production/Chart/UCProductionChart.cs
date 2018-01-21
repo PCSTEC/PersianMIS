@@ -180,7 +180,6 @@ namespace PersianMIS.Production.Chart
                 if (Mnu_Week.Checked)
                 {
                     TSql = TSql.Replace("strcolumns", ",CalIraniWeekNum");
-
                 }
                 if (Mnu_Year.Checked)
                 {
@@ -189,22 +188,24 @@ namespace PersianMIS.Production.Chart
             }
 
             Dt = Bll_Public.GetDataTableFromTSQL(TSql);
-
-
-            //    MainChart.DataSource = Dt;
-            //  MainChart.DataBind();
-            //  MainChart.Series.Add("Default");
+            MainChart.DataSource = Dt;
+            MainChart.DataBind();
+        //    MainChart.Series.Add("Default");
+        //    MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
             MainChart.Legends.Add("Default");
+            MainChart.Legends.Add("Date");
+
             for (int i = 0; i <= Dt.Rows.Count; i++)
             {
                 try
                 {
                     MainChart.Series.Add(Dt.DefaultView[i]["Fullname"].ToString());
-                    //    MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartArea = "Default";
+                   // MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartArea = "Main Area";
                     MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].YValueMembers = "Duration";
-                    MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
+                        MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
                     MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
-
+                                                                                                                                                                                                                    //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
+                                                                                                                                                                                                                    //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
                 }
 
                 catch
@@ -215,21 +216,22 @@ namespace PersianMIS.Production.Chart
             }
 
 
-         //   MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
-
-           // MainChart.Legends.Add("Date");
+            //  MainChart.Series[0].LegendText = "StartDate";// "#VALX";
 
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "1")
             {
 
                 if (Mnu_FullDate.Checked)
                 {
-
-                    MainChart.Series[0].XValueMember = "StartDate";
-                    MainChart.Series["Date"].XValueMember = "ProductLineDesc";
-                    MainChart.Series["Date"].Legend = "Default";
-                    MainChart.Series["Date"].LegendText = "#VALX";
-                    MainChart.Series["Date"].YValueMembers = "Duration";
+                    foreach (var N in MainChart.Series)
+                    {
+                        N.XValueMember = "StartDate";
+                    }
+                    //   MainChart.Series[0].XValueMember = "StartDate";
+                    //     MainChart.Series["Date"].XValueMember = "ProductLineDesc";
+                    //   MainChart.Series["Date"].Legend = "Default";
+                    //  MainChart.Series["Date"].LegendText = "#VALX";
+                    // MainChart.Series["Date"].YValueMembers = "Duration";
 
                 }
                 if (Mnu_Month.Checked)
@@ -248,12 +250,6 @@ namespace PersianMIS.Production.Chart
 
                 }
             }
-
-
-
-
-
-            //  MainChart.Series[0].LegendText = "StartDate";// "#VALX";
 
 
 
@@ -290,7 +286,7 @@ namespace PersianMIS.Production.Chart
 
 
 
-            MainChart.Series[0].YValueMembers = "Duration";// نمایش مقدار در قسمت Y
+         //   MainChart.Series[0].YValueMembers = "Duration";// نمایش مقدار در قسمت Y
 
             //  MainChart.Series[0].Points.DataBindXY(, );
             //  MainChart.Series[0].LabelToolTip  = "!StartDate";
@@ -322,9 +318,15 @@ namespace PersianMIS.Production.Chart
             }
             else
             {
-                MainChart.Series["Default"].IsValueShownAsLabel = true;
-                MainChart.Series["Default"].Label = "#PERCENT";
+                foreach (var N in MainChart.Series)
+                {
+                  
+                    
+                    N.IsValueShownAsLabel = true;
+                    N.Label = "#PERCENT";
+                }
 
+               
             }
 
 
@@ -400,6 +402,7 @@ namespace PersianMIS.Production.Chart
         }
     }
 }
+
 
 
 
