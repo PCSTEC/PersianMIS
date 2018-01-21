@@ -38,9 +38,16 @@
             this.BtnClosed = new DevComponents.DotNetBar.BubbleButton();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.MainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.MainContexMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Mnu_XType = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnu_FullDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnu_Month = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnu_Week = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnu_Year = new System.Windows.Forms.ToolStripMenuItem();
             this.TopPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainChart)).BeginInit();
+            this.MainContexMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopPnl
@@ -134,6 +141,7 @@
             this.MainChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             this.MainChart.BorderlineWidth = 2;
             this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
             this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Alignment = System.Drawing.StringAlignment.Far;
             legend1.BackColor = System.Drawing.Color.Transparent;
@@ -158,6 +166,63 @@
             title1.Visible = false;
             this.MainChart.Titles.Add(title1);
             // 
+            // MainContexMenuStrip
+            // 
+            this.MainContexMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Mnu_XType});
+            this.MainContexMenuStrip.Name = "MainContexMenuStrip";
+            this.MainContexMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainContexMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // Mnu_XType
+            // 
+            this.Mnu_XType.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Mnu_FullDate,
+            this.Mnu_Month,
+            this.Mnu_Week,
+            this.Mnu_Year});
+            this.Mnu_XType.Name = "Mnu_XType";
+            this.Mnu_XType.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_XType.Text = "محور افقی";
+            // 
+            // Mnu_FullDate
+            // 
+            this.Mnu_FullDate.Checked = true;
+            this.Mnu_FullDate.CheckOnClick = true;
+            this.Mnu_FullDate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Mnu_FullDate.Name = "Mnu_FullDate";
+            this.Mnu_FullDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Mnu_FullDate.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_FullDate.Text = "تاریخ کامل";
+            this.Mnu_FullDate.CheckStateChanged += new System.EventHandler(this.Mnu_FullDate_CheckStateChanged);
+            // 
+            // Mnu_Month
+            // 
+            this.Mnu_Month.CheckOnClick = true;
+            this.Mnu_Month.Name = "Mnu_Month";
+            this.Mnu_Month.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Mnu_Month.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Month.Text = "عنوان ماه";
+            this.Mnu_Month.CheckStateChanged += new System.EventHandler(this.Mnu_Month_CheckStateChanged);
+            // 
+            // Mnu_Week
+            // 
+            this.Mnu_Week.CheckOnClick = true;
+            this.Mnu_Week.Name = "Mnu_Week";
+            this.Mnu_Week.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Mnu_Week.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Week.Text = "شماره هفته";
+            this.Mnu_Week.CheckStateChanged += new System.EventHandler(this.Mnu_Week_CheckStateChanged);
+            // 
+            // Mnu_Year
+            // 
+            this.Mnu_Year.CheckOnClick = true;
+            this.Mnu_Year.Name = "Mnu_Year";
+            this.Mnu_Year.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Mnu_Year.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Year.Text = "سال";
+            this.Mnu_Year.CheckStateChanged += new System.EventHandler(this.Mnu_Year_CheckStateChanged);
+            // 
             // UCProductionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -174,6 +239,7 @@
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainChart)).EndInit();
+            this.MainContexMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -186,5 +252,11 @@
         internal DevComponents.DotNetBar.BubbleButton BtnClosed;
         private System.Windows.Forms.Timer MainTimer;
         private System.Windows.Forms.DataVisualization.Charting.Chart MainChart;
+        private System.Windows.Forms.ContextMenuStrip MainContexMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem Mnu_XType;
+        private System.Windows.Forms.ToolStripMenuItem Mnu_FullDate;
+        private System.Windows.Forms.ToolStripMenuItem Mnu_Month;
+        private System.Windows.Forms.ToolStripMenuItem Mnu_Week;
+        private System.Windows.Forms.ToolStripMenuItem Mnu_Year;
     }
 }
