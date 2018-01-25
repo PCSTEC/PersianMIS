@@ -13,6 +13,8 @@ namespace PersianMIS.Production.Chart
 {
     public partial class UCProductionChart : UserControl
     {
+
+        Boolean mouseClicked = false;
         public UCProductionChart()
         {
             InitializeComponent();
@@ -95,6 +97,47 @@ namespace PersianMIS.Production.Chart
                 Mnu_Week.Checked = false;
 
             }
+        }
+ 
+
+        private void UCProductionChart_MouseMove(object sender, MouseEventArgs e)
+        {
+            //           try
+            //           {
+            //base.OnMouseMove(e);
+
+            //           if (bIsResizing)
+            //           {
+            //               Height = oldSize.Height + (e.Location.Y - oldPoint.Y);
+            //               Width = oldSize.Width + (e.Location.X - oldPoint.X);
+            //           }
+            //           }
+            //           catch
+            //           {
+
+            //           }
+            if (mouseClicked)
+            {
+                this.Height = this .Top + e.Y;
+                this.Width = this .Left + e.X;
+            }
+
+        }
+
+        private void UCProductionChart_MouseUp(object sender, MouseEventArgs e)
+        {
+         
+
+        }
+
+        private void MainChart_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseClicked = true;
+        }
+
+        private void MainChart_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseClicked = false;
         }
 
         private void BtnClosed_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -273,8 +316,7 @@ namespace PersianMIS.Production.Chart
             //    MainChart.Series[0].LegendText = "#VALX";
             //}
 
-            MainChart.Series[0].Legend = "Default";
-            MainChart.Series[0].LegendText = "#VALX";
+           
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "3")
             {
                 MainChart.Series[0].IsVisibleInLegend = false;
@@ -312,9 +354,9 @@ namespace PersianMIS.Production.Chart
 
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
             {
-                MainChart.Series["Default"].IsValueShownAsLabel = false;
+                //MainChart.Series["Default"].IsValueShownAsLabel = false;
                 MainChart.Series["Default"].Label = "#VAL";
-                MainChart.Series[0].IsValueShownAsLabel = true;
+             //   MainChart.Series[0].IsValueShownAsLabel = true;
             }
             else
             {
@@ -322,7 +364,7 @@ namespace PersianMIS.Production.Chart
                 {
                   
                     
-                    N.IsValueShownAsLabel = true;
+                 //   N.IsValueShownAsLabel = true;
                     N.Label = "#PERCENT";
                 }
 

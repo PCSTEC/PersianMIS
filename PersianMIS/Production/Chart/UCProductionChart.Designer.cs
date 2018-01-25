@@ -142,7 +142,6 @@
             this.MainChart.BorderlineWidth = 2;
             this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
             this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
-            this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Alignment = System.Drawing.StringAlignment.Far;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
@@ -156,7 +155,7 @@
             this.MainChart.Legends.Add(legend1);
             this.MainChart.Location = new System.Drawing.Point(0, 44);
             this.MainChart.Name = "MainChart";
-            this.MainChart.Size = new System.Drawing.Size(394, 402);
+            this.MainChart.Size = new System.Drawing.Size(380, 390);
             this.MainChart.TabIndex = 6;
             title1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
@@ -165,6 +164,8 @@
             title1.ShadowOffset = 3;
             title1.Visible = false;
             this.MainChart.Titles.Add(title1);
+            this.MainChart.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseDown);
+            this.MainChart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseUp);
             // 
             // MainContexMenuStrip
             // 
@@ -172,7 +173,7 @@
             this.Mnu_XType});
             this.MainContexMenuStrip.Name = "MainContexMenuStrip";
             this.MainContexMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainContexMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.MainContexMenuStrip.Size = new System.Drawing.Size(128, 26);
             // 
             // Mnu_XType
             // 
@@ -182,7 +183,7 @@
             this.Mnu_Week,
             this.Mnu_Year});
             this.Mnu_XType.Name = "Mnu_XType";
-            this.Mnu_XType.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_XType.Size = new System.Drawing.Size(127, 22);
             this.Mnu_XType.Text = "محور افقی";
             // 
             // Mnu_FullDate
@@ -192,7 +193,7 @@
             this.Mnu_FullDate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Mnu_FullDate.Name = "Mnu_FullDate";
             this.Mnu_FullDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Mnu_FullDate.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_FullDate.Size = new System.Drawing.Size(131, 22);
             this.Mnu_FullDate.Text = "تاریخ کامل";
             this.Mnu_FullDate.CheckStateChanged += new System.EventHandler(this.Mnu_FullDate_CheckStateChanged);
             // 
@@ -201,7 +202,7 @@
             this.Mnu_Month.CheckOnClick = true;
             this.Mnu_Month.Name = "Mnu_Month";
             this.Mnu_Month.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Mnu_Month.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Month.Size = new System.Drawing.Size(131, 22);
             this.Mnu_Month.Text = "عنوان ماه";
             this.Mnu_Month.CheckStateChanged += new System.EventHandler(this.Mnu_Month_CheckStateChanged);
             // 
@@ -210,7 +211,7 @@
             this.Mnu_Week.CheckOnClick = true;
             this.Mnu_Week.Name = "Mnu_Week";
             this.Mnu_Week.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Mnu_Week.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Week.Size = new System.Drawing.Size(131, 22);
             this.Mnu_Week.Text = "شماره هفته";
             this.Mnu_Week.CheckStateChanged += new System.EventHandler(this.Mnu_Week_CheckStateChanged);
             // 
@@ -219,7 +220,7 @@
             this.Mnu_Year.CheckOnClick = true;
             this.Mnu_Year.Name = "Mnu_Year";
             this.Mnu_Year.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Mnu_Year.Size = new System.Drawing.Size(152, 22);
+            this.Mnu_Year.Size = new System.Drawing.Size(131, 22);
             this.Mnu_Year.Text = "سال";
             this.Mnu_Year.CheckStateChanged += new System.EventHandler(this.Mnu_Year_CheckStateChanged);
             // 
