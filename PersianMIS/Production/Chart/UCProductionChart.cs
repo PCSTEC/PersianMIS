@@ -98,20 +98,20 @@ namespace PersianMIS.Production.Chart
 
             }
         }
- 
 
- 
 
-   
+
+
+
 
         private void RadResizerChart_MouseDown(object sender, MouseEventArgs e)
         {
-        
+
         }
 
         private void RadResizerChart_MouseUp(object sender, MouseEventArgs e)
         {
-          
+
 
         }
 
@@ -182,7 +182,7 @@ namespace PersianMIS.Production.Chart
             MainChart.Series.Clear();
             MainChart.ChartAreas.Clear();
             MainChart.Legends.Clear();
-
+            MainChart.Titles.Clear();
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
 
@@ -233,10 +233,8 @@ namespace PersianMIS.Production.Chart
             Dt = Bll_Public.GetDataTableFromTSQL(TSql);
             MainChart.DataSource = Dt;
             MainChart.DataBind();
-            //    MainChart.Series.Add("Default");
-            //    MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
             MainChart.Legends.Add("Default");
-            MainChart.Legends.Add("Date");
+
             Boolean IsRandomColor = false;
             if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString())
             {
@@ -244,40 +242,159 @@ namespace PersianMIS.Production.Chart
             }
             ColourGenerator generator = new ColourGenerator();
 
-            for (int i = 0; i <= Dt.Rows.Count; i++)
+            string LegendField, Xfield, YField, LabelType;
+
+            try
             {
-                try
-                {
-                    MainChart.Series.Add(Dt.DefaultView[i]["Fullname"].ToString());
-                    // MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartArea = "Main Area";
-                    MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].YValueMembers = "Duration";
-                    if (IsRandomColor)
-                    {
-                        
-                        string x = generator.NextColour();
-                        //  Random rnd = new Random();
-                        MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
 
-                        // Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
 
-                    }
-                    else
-                    {
-                        MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
-
-                    }
-
-                    MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
-                                                                                                                                                                                                                    //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
-                                                                                                                                                                                                                    //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
-                }
-
-                catch
+                YField = "Duration";
+                Xfield = "";
+                LegendField = "";
+                LabelType = "";
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "1")
                 {
 
+                    if (Mnu_FullDate.Checked)
+                    {
+
+                        //  MainChart.DataBindCrossTab(myReader, "Name", "Year", "Sales", "Label=Commissions");
+                        /// MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Points.DataBindXY(  Dt.DefaultView[i]["StartDate"].ToString(), "");
+
+                        Xfield = "StartDate";
+
+                    }
+                    if (Mnu_Month.Checked)
+                    {
+
+                        Xfield = "CalIraniMonthID";
+
+                    }
+                    if (Mnu_Week.Checked)
+                    {
+                        Xfield = "CalIraniWeekNum";
+
+                    }
+                    if (Mnu_Year.Checked)
+                    {
+                        Xfield = "CalIraniYearID";
+                    }
                 }
+
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "2")
+                {
+                    Xfield = "StateCaption";
+
+                }
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "3")
+                {
+                    Xfield = "Fullname";
+
+                }
+
+
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
+                {
+                    LegendField = "StateCaption";
+                }
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "2")
+                {
+                    LegendField = "Fullname";
+                }
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "3")
+                {
+                    LegendField = "ProductLineDesc";
+                }
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
+                {
+                    LegendField = "Fullname";
+
+
+                }
+
+
+
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
+                {
+
+
+                    LabelType = "Label=#VAL";
+
+
+
+                }
+                else
+                {
+
+
+                    LabelType = "Label=#PERCENT";
+
+
+
+
+
+
+
+                }
+
+
+
+
+                MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
+
+                if (IsRandomColor)
+                {
+                    foreach (Series N in MainChart.Series)
+                    {
+                        N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+                    }
+
+                }
+                else
+                {
+
+                    for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                    {
+                        MainChart.Series[Dt.DefaultView[i][LegendField].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
+
+                    }
+
+
+
+                }
+
+                foreach (Series N in MainChart.Series)
+                {
+                    N.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+
+
+                }
+
+                //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
+                //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
+            }
+
+            catch
+            {
 
             }
+
+
+
+
+
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
+            {
+                foreach (Series N in MainChart.Series)
+                {
+                    N.IsVisibleInLegend = false;
+
+
+                }
+
+
+            }
+
 
 
 
@@ -290,52 +407,7 @@ namespace PersianMIS.Production.Chart
 
             //  MainChart.Series[0].LegendText = "StartDate";// "#VALX";
 
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "1")
-            {
 
-                if (Mnu_FullDate.Checked)
-                {
-                    foreach (var N in MainChart.Series)
-                    {
-                        N.XValueMember = "StartDate";
-                    }
-                    //   MainChart.Series[0].XValueMember = "StartDate";
-                    //     MainChart.Series["Date"].XValueMember = "ProductLineDesc";
-                    //   MainChart.Series["Date"].Legend = "Default";
-                    //  MainChart.Series["Date"].LegendText = "#VALX";
-                    // MainChart.Series["Date"].YValueMembers = "Duration";
-                    //    MainChart.Series[0].XValueMember = "StartDate";
-                }
-                if (Mnu_Month.Checked)
-                {
-                    MainChart.Series[0].XValueMember = "CalIraniMonthID";
-
-                }
-                if (Mnu_Week.Checked)
-                {
-                    MainChart.Series[0].XValueMember = "CalIraniWeekNum";
-
-                }
-                if (Mnu_Year.Checked)
-                {
-                    MainChart.Series[0].XValueMember = "CalIraniYearID";
-
-                }
-            }
-
-
-
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "2")
-            {
-
-                MainChart.Series[0].XValueMember = "StateCaption";
-
-            }
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "3")
-            {
-
-                MainChart.Series[0].XValueMember = "Fullname";
-            }
 
 
 
@@ -345,11 +417,6 @@ namespace PersianMIS.Production.Chart
             //    MainChart.Series[0].LegendText = "#VALX";
             //}
 
-           
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "3")
-            {
-                MainChart.Series[0].IsVisibleInLegend = false;
-            }
 
 
 
@@ -357,7 +424,8 @@ namespace PersianMIS.Production.Chart
 
 
 
-         //   MainChart.Series[0].YValueMembers = "Duration";// نمایش مقدار در قسمت Y
+
+            //   MainChart.Series[0].YValueMembers = "Duration";// نمایش مقدار در قسمت Y
 
             //  MainChart.Series[0].Points.DataBindXY(, );
             //  MainChart.Series[0].LabelToolTip  = "!StartDate";
@@ -375,48 +443,81 @@ namespace PersianMIS.Production.Chart
 
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartCaption"].ToString() == "True")
             {
+                MainChart.Titles.Add("Default");
                 MainChart.Titles[0].Text = BLL.Cls_PublicOperations.Dt.DefaultView[0]["Caption"].ToString();
                 MainChart.Titles[0].Visible = true;
             }
 
 
-
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
             {
-                //MainChart.Series["Default"].IsValueShownAsLabel = false;
-                MainChart.Series["Default"].Label = "#VAL";
-             //   MainChart.Series[0].IsValueShownAsLabel = true;
-            }
-            else
-            {
-                foreach (var N in MainChart.Series)
+                for (int x = 0; x < MainChart.Series.Count; x++)
                 {
-                  
-                    
-                 //   N.IsValueShownAsLabel = true;
-                    N.Label = "#PERCENT";
+                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    {
+                        MainChart.Series[x].Points[i].Label = "#VAL";
+                    }
+
                 }
 
-               
+
             }
 
 
-            //if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
-            //{
-            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
 
-            //}
-            //else
-            //{
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "2")
+            {
+                for (int x = 0; x < MainChart.Series.Count; x++)
+                {
+                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    {
+                        MainChart.Series[x].Points[i].Label = "#PERCENT";
+                    }
 
-            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
-
-            //}
-
-
+                }
 
 
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
+            }
+
+
+
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "3")
+            {
+                for (int x = 0; x < MainChart.Series.Count; x++)
+                {
+                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    {
+                        MainChart.Series[x].Points[i].Label = "";
+                    }
+
+                }
+
+
+            }
+
+
+
+
+
+        
+
+
+                //if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
+                //{
+                //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+                //}
+                //else
+                //{
+
+                //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+                //}
+
+
+
+
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
             {
                 MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
 
@@ -425,52 +526,52 @@ namespace PersianMIS.Production.Chart
 
 
 
-            // Set drawing style
-            //  MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
-            // MainChart.Series["Default"].IsVisibleInLegend = true;
+    // Set drawing style
+    //  MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
+    // MainChart.Series["Default"].IsVisibleInLegend = true;
 
-            //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
-            //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
-            //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
-            //Lbl_ParameterDesc.TabIndex = 6;
-            //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-
-
-            //if (Dt.Rows.Count > 0)
-            //{
-            //    decimal Data = Decimal.Parse(Utility.NZ(Dt.DefaultView[0][0].ToString(), 0).ToString());
-
-            //    // Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
-
-            //    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString().Trim().Contains("(%)"))
-            //    {
-            //        Lbl_ParameterDesc.Text = Decimal.Round(Data, 1).ToString();
-            //    }
-            //    else
-            //    {
-            //        TimeSpan span = TimeSpan.FromSeconds(Convert.ToDouble(Data));
-
-            //        string label = String.Format("{0:D2}:{1:D2}:{2:D2}:{3}", span.Days, span.Hours, span.Minutes, span.Seconds);// span.ToString(@"hh\:mm\:ss");
-            //        Lbl_ParameterDesc.Text = label;
-
-            //    }
+    //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+    //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
+    //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
+    //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
+    //Lbl_ParameterDesc.TabIndex = 6;
+    //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
 
-            //}
-            //else
-            //{
-            //    Lbl_ParameterDesc.Text = "عدم خروجی دستور ایجاد شده";
-            //}
+    //if (Dt.Rows.Count > 0)
+    //{
+    //    decimal Data = Decimal.Parse(Utility.NZ(Dt.DefaultView[0][0].ToString(), 0).ToString());
 
-            //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //Pnl_State.Controls.Add(Lbl_ParameterCaption);
-            //Pnl_State.Controls.Add(Lbl_ParameterDesc);
+    //    // Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
 
-            //   Pnl_Main.Controls.Add(Pnl_State);
-        }
+    //    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString().Trim().Contains("(%)"))
+    //    {
+    //        Lbl_ParameterDesc.Text = Decimal.Round(Data, 1).ToString();
+    //    }
+    //    else
+    //    {
+    //        TimeSpan span = TimeSpan.FromSeconds(Convert.ToDouble(Data));
+
+    //        string label = String.Format("{0:D2}:{1:D2}:{2:D2}:{3}", span.Days, span.Hours, span.Minutes, span.Seconds);// span.ToString(@"hh\:mm\:ss");
+    //        Lbl_ParameterDesc.Text = label;
+
+    //    }
+
+
+
+    //}
+    //else
+    //{
+    //    Lbl_ParameterDesc.Text = "عدم خروجی دستور ایجاد شده";
+    //}
+
+    //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+    //Pnl_State.Controls.Add(Lbl_ParameterCaption);
+    //Pnl_State.Controls.Add(Lbl_ParameterDesc);
+
+    //   Pnl_Main.Controls.Add(Pnl_State);
+}
     }
 }
 
