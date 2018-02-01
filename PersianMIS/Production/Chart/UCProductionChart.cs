@@ -100,33 +100,23 @@ namespace PersianMIS.Production.Chart
         }
  
 
-        private void UCProductionChart_MouseMove(object sender, MouseEventArgs e)
+ 
+
+   
+
+        private void RadResizerChart_MouseDown(object sender, MouseEventArgs e)
         {
-            //           try
-            //           {
-            //base.OnMouseMove(e);
+        
+        }
 
-            //           if (bIsResizing)
-            //           {
-            //               Height = oldSize.Height + (e.Location.Y - oldPoint.Y);
-            //               Width = oldSize.Width + (e.Location.X - oldPoint.X);
-            //           }
-            //           }
-            //           catch
-            //           {
-
-            //           }
-            if (mouseClicked)
-            {
-                this.Height = this .Top + e.Y;
-                this.Width = this .Left + e.X;
-            }
+        private void RadResizerChart_MouseUp(object sender, MouseEventArgs e)
+        {
+          
 
         }
 
-        private void UCProductionChart_MouseUp(object sender, MouseEventArgs e)
+        private void RadResizerChart_MouseMove(object sender, MouseEventArgs e)
         {
-         
 
         }
 
@@ -138,6 +128,16 @@ namespace PersianMIS.Production.Chart
         private void MainChart_MouseUp(object sender, MouseEventArgs e)
         {
             mouseClicked = false;
+        }
+
+        private void MainChart_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (mouseClicked)
+            {
+                this.Height = this.Top + e.Y;
+                this.Width = this.Left + e.X;
+            }
         }
 
         private void BtnClosed_Click(object sender, DevComponents.DotNetBar.ClickEventArgs e)
@@ -233,19 +233,40 @@ namespace PersianMIS.Production.Chart
             Dt = Bll_Public.GetDataTableFromTSQL(TSql);
             MainChart.DataSource = Dt;
             MainChart.DataBind();
-        //    MainChart.Series.Add("Default");
-        //    MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+            //    MainChart.Series.Add("Default");
+            //    MainChart.Series[0].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString()); ;// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
             MainChart.Legends.Add("Default");
             MainChart.Legends.Add("Date");
+            Boolean IsRandomColor = false;
+            if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString())
+            {
+                IsRandomColor = true;
+            }
+            ColourGenerator generator = new ColourGenerator();
 
             for (int i = 0; i <= Dt.Rows.Count; i++)
             {
                 try
                 {
                     MainChart.Series.Add(Dt.DefaultView[i]["Fullname"].ToString());
-                   // MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartArea = "Main Area";
+                    // MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartArea = "Main Area";
                     MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].YValueMembers = "Duration";
+                    if (IsRandomColor)
+                    {
+                        
+                        string x = generator.NextColour();
+                        //  Random rnd = new Random();
+                        MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+
+                        // Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+
+                    }
+                    else
+                    {
                         MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
+
+                    }
+
                     MainChart.Series[Dt.DefaultView[i]["Fullname"].ToString()].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
                                                                                                                                                                                                                     //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
                                                                                                                                                                                                                     //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
@@ -257,6 +278,14 @@ namespace PersianMIS.Production.Chart
                 }
 
             }
+
+
+
+
+
+
+
+
 
 
             //  MainChart.Series[0].LegendText = "StartDate";// "#VALX";
@@ -275,7 +304,7 @@ namespace PersianMIS.Production.Chart
                     //   MainChart.Series["Date"].Legend = "Default";
                     //  MainChart.Series["Date"].LegendText = "#VALX";
                     // MainChart.Series["Date"].YValueMembers = "Duration";
-
+                    //    MainChart.Series[0].XValueMember = "StartDate";
                 }
                 if (Mnu_Month.Checked)
                 {
@@ -449,3 +478,144 @@ namespace PersianMIS.Production.Chart
 
 
 
+public class ColourGenerator
+{
+
+    private int index = 0;
+    private IntensityGenerator intensityGenerator = new IntensityGenerator();
+
+    public string NextColour()
+    {
+        string colour = string.Format(PatternGenerator.NextPattern(index),
+            intensityGenerator.NextIntensity(index));
+        index++;
+        return colour;
+    }
+}
+public class PatternGenerator
+{
+    public static string NextPattern(int index)
+    {
+        switch (index % 7)
+        {
+            case 0: return "{0}0000";
+            case 1: return "00{0}00";
+            case 2: return "0000{0}";
+            case 3: return "{0}{0}00";
+            case 4: return "{0}00{0}";
+            case 5: return "00{0}{0}";
+            case 6: return "{0}{0}{0}";
+            default: throw new Exception("Math error");
+        }
+    }
+}
+
+public class IntensityGenerator
+{
+    private IntensityValueWalker walker;
+    private int current;
+
+    public string NextIntensity(int index)
+    {
+        if (index == 0)
+        {
+            current = 255;
+        }
+        else if (index % 7 == 0)
+        {
+            if (walker == null)
+            {
+                walker = new IntensityValueWalker();
+            }
+            else
+            {
+                walker.MoveNext();
+            }
+            current = walker.Current.Value;
+        }
+        string currentText = current.ToString("X");
+        if (currentText.Length == 1) currentText = "0" + currentText;
+        return currentText;
+    }
+}
+
+public class IntensityValue
+{
+
+    private IntensityValue mChildA;
+    private IntensityValue mChildB;
+
+    public IntensityValue(IntensityValue parent, int value, int level)
+    {
+        if (level > 7) throw new Exception("There are no more colours left");
+        Value = value;
+        Parent = parent;
+        Level = level;
+    }
+
+    public int Level { get; set; }
+    public int Value { get; set; }
+    public IntensityValue Parent { get; set; }
+
+    public IntensityValue ChildA
+    {
+        get
+        {
+            return mChildA ?? (mChildA = new IntensityValue(this, this.Value - (1 << (7 - Level)), Level + 1));
+        }
+    }
+
+    public IntensityValue ChildB
+    {
+        get
+        {
+            return mChildB ?? (mChildB = new IntensityValue(this, Value + (1 << (7 - Level)), Level + 1));
+        }
+    }
+}
+
+public class IntensityValueWalker
+{
+
+    public IntensityValueWalker()
+    {
+        Current = new IntensityValue(null, 1 << 7, 1);
+    }
+
+    public IntensityValue Current { get; set; }
+
+    public void MoveNext()
+    {
+        if (Current.Parent == null)
+        {
+            Current = Current.ChildA;
+        }
+        else if (Current.Parent.ChildA == Current)
+        {
+            Current = Current.Parent.ChildB;
+        }
+        else
+        {
+            int levelsUp = 1;
+            Current = Current.Parent;
+            while (Current.Parent != null && Current == Current.Parent.ChildB)
+            {
+                Current = Current.Parent;
+                levelsUp++;
+            }
+            if (Current.Parent != null)
+            {
+                Current = Current.Parent.ChildB;
+            }
+            else
+            {
+                levelsUp++;
+            }
+            for (int i = 0; i < levelsUp; i++)
+            {
+                Current = Current.ChildA;
+            }
+
+        }
+    }
+}

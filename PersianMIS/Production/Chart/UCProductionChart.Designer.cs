@@ -37,17 +37,17 @@
             this.bubbleBarTab1 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
             this.BtnClosed = new DevComponents.DotNetBar.BubbleButton();
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
-            this.MainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MainContexMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Mnu_XType = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_FullDate = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Month = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Week = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Year = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.TopPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).BeginInit();
             this.MainContexMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).BeginInit();
             this.SuspendLayout();
             // 
             // TopPnl
@@ -58,7 +58,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
-            this.TopPnl.Size = new System.Drawing.Size(394, 44);
+            this.TopPnl.Size = new System.Drawing.Size(466, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.TopPnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -92,7 +92,7 @@
             this.bubbleBar1.ForeColor = System.Drawing.Color.Transparent;
             this.bubbleBar1.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.bubbleBar1.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.bubbleBar1.Location = new System.Drawing.Point(319, -9);
+            this.bubbleBar1.Location = new System.Drawing.Point(391, -9);
             this.bubbleBar1.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.bubbleBar1.Name = "bubbleBar1";
             this.bubbleBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -131,41 +131,6 @@
             // 
             this.MainTimer.Interval = 10000;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
-            // 
-            // MainChart
-            // 
-            this.MainChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(223)))), ((int)(((byte)(240)))));
-            this.MainChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.MainChart.BackSecondaryColor = System.Drawing.Color.White;
-            this.MainChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.MainChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.MainChart.BorderlineWidth = 2;
-            this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
-            legend1.Alignment = System.Drawing.StringAlignment.Far;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Default";
-            legend1.Position.Auto = false;
-            legend1.Position.Height = 14.23021F;
-            legend1.Position.Width = 19.34047F;
-            legend1.Position.X = 74.73474F;
-            legend1.Position.Y = 74.08253F;
-            this.MainChart.Legends.Add(legend1);
-            this.MainChart.Location = new System.Drawing.Point(0, 44);
-            this.MainChart.Name = "MainChart";
-            this.MainChart.Size = new System.Drawing.Size(380, 390);
-            this.MainChart.TabIndex = 6;
-            title1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
-            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            title1.Name = "Title1";
-            title1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            title1.ShadowOffset = 3;
-            title1.Visible = false;
-            this.MainChart.Titles.Add(title1);
-            this.MainChart.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseDown);
-            this.MainChart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseUp);
             // 
             // MainContexMenuStrip
             // 
@@ -224,23 +189,60 @@
             this.Mnu_Year.Text = "سال";
             this.Mnu_Year.CheckStateChanged += new System.EventHandler(this.Mnu_Year_CheckStateChanged);
             // 
+            // MainChart
+            // 
+            this.MainChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(223)))), ((int)(((byte)(240)))));
+            this.MainChart.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.MainChart.BackSecondaryColor = System.Drawing.Color.White;
+            this.MainChart.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.MainChart.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MainChart.BorderlineWidth = 2;
+            this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
+            this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Alignment = System.Drawing.StringAlignment.Far;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold);
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Default";
+            legend1.Position.Auto = false;
+            legend1.Position.Height = 14.23021F;
+            legend1.Position.Width = 19.34047F;
+            legend1.Position.X = 74.73474F;
+            legend1.Position.Y = 74.08253F;
+            this.MainChart.Legends.Add(legend1);
+            this.MainChart.Location = new System.Drawing.Point(0, 44);
+            this.MainChart.Name = "MainChart";
+            this.MainChart.Size = new System.Drawing.Size(466, 445);
+            this.MainChart.TabIndex = 8;
+            title1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            title1.Name = "Title1";
+            title1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            title1.ShadowOffset = 3;
+            title1.Visible = false;
+            this.MainChart.Titles.Add(title1);
+            this.MainChart.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseDown);
+            this.MainChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseMove);
+            this.MainChart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseUp);
+            // 
             // UCProductionChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(134)))), ((int)(((byte)(228)))));
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.MainChart);
             this.Controls.Add(this.TopPnl);
             this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UCProductionChart";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(394, 446);
+            this.Size = new System.Drawing.Size(466, 489);
             this.Load += new System.EventHandler(this.UCProductionChart_Load);
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).EndInit();
             this.MainContexMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MainChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,12 +254,12 @@
         internal DevComponents.DotNetBar.BubbleBarTab bubbleBarTab1;
         internal DevComponents.DotNetBar.BubbleButton BtnClosed;
         private System.Windows.Forms.Timer MainTimer;
-        private System.Windows.Forms.DataVisualization.Charting.Chart MainChart;
         private System.Windows.Forms.ContextMenuStrip MainContexMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem Mnu_XType;
         private System.Windows.Forms.ToolStripMenuItem Mnu_FullDate;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Month;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Week;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Year;
+        private System.Windows.Forms.DataVisualization.Charting.Chart MainChart;
     }
 }
