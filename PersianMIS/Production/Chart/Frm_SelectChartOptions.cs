@@ -166,14 +166,14 @@ namespace PersianMIS.Production.Chart
             }
 
 
-            if (Txt_ChartTitle.Text == "")
+            if (Txt_ChartTitle.Text == "" || SQLStrThemplate.Length<20)
             {
                 MessageBox.Show("لطفاً اطلاعات درخواستی را تکمیل نمایید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
 
-            bll_Chart.Insert("all", false, SQLStrThemplate, Txt_ChartTitle.Text,  Cmb_ChartType.Text , Convert.ToInt32(Cmb_ChartLegendType.SelectedValue ), (int)Cmb_ChartLegendType.SelectedValue , (int)Cmb_DataTypeShow.SelectedValue , (int)Cmb_ChartAxisXType.SelectedValue,Ch_ShowTitleOption.Checked,Ch_ShowChartPurpose.Checked,Ch_ShowChart3d.Checked );
+            bll_Chart.Insert("all", false, SQLStrThemplate, Txt_ChartTitle.Text,  Cmb_ChartType.Text , Convert.ToInt32(Cmb_ChartLegendType.SelectedValue ), (int)Cmb_ChartLegendType.SelectedValue , (int)Cmb_DataTypeShow.SelectedValue , (int)Cmb_ChartAxisXType.SelectedValue,Ch_ShowTitleOption.Checked,Ch_ShowChartPurpose.Checked,Ch_ShowChart3d.Checked , Ch_IsChartBar.Checked  );
 
 
             MessageBox.Show("ساختار نمودار جدیدی برای شما ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -16,7 +16,7 @@ namespace DAL
         }
 
 
-        public  void  Insert(string  UserId , Boolean  IsMainThemplate  , string TSQL  , string  Caption  , string ChartType  ,int ChartFieldCaptionsType ,int ChartLegentType ,int ChartTypeDataShow  ,int chartAxisXType,Boolean ShowChartCaption, Boolean ShowChartPurpose , Boolean ShowChart3D )
+        public  void  Insert(string  UserId , Boolean  IsMainThemplate  , string TSQL  , string  Caption  , string ChartType  ,int ChartFieldCaptionsType ,int ChartLegentType ,int ChartTypeDataShow  ,int chartAxisXType,Boolean ShowChartCaption, Boolean ShowChartPurpose , Boolean ShowChart3D, Boolean IsChartBar )
         {
            
             Cls_Public.Pers.ClearParameter();
@@ -32,8 +32,9 @@ namespace DAL
             Cls_Public.Pers.Sp_AddParam("@ShowChartCaption", System.Data.SqlDbType.Bit , ShowChartCaption, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ShowChartPurpose", System.Data.SqlDbType.Bit, ShowChartPurpose, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@ShowChart3D", System.Data.SqlDbType.Bit, ShowChart3D, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@IsChartBar", System.Data.SqlDbType.Bit, IsChartBar, System.Data.ParameterDirection.Input);
 
-
+            
             Cls_Public.Pers.Sp_Exe("SP_InsertChartOption", Cls_Public.CnnStr, false);
            
 

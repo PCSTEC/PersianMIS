@@ -55,6 +55,7 @@
             this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.SelectDataPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.MainTree = new Telerik.WinControls.UI.RadTreeView();
+            this.Ch_IsChartBar = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainPageView)).BeginInit();
             this.MainPageView.SuspendLayout();
             this.SelectDataTab.SuspendLayout();
@@ -71,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             this.SelectDataPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             this.MainPageView.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.MainPageView.Location = new System.Drawing.Point(0, 0);
             this.MainPageView.Name = "MainPageView";
-            this.MainPageView.SelectedPage = this.SelectDataPage;
+            this.MainPageView.SelectedPage = this.SelectDataTab;
             this.MainPageView.Size = new System.Drawing.Size(678, 750);
             this.MainPageView.TabIndex = 0;
             this.MainPageView.Text = "انتخاب داده";
@@ -103,6 +105,7 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.Ch_IsChartBar);
             this.groupPanel2.Controls.Add(this.Ch_ShowChartPurpose);
             this.groupPanel2.Controls.Add(this.Ch_ShowChart3d);
             this.groupPanel2.Controls.Add(this.Ch_ShowTitleOption);
@@ -343,6 +346,17 @@
             this.MainTree.Text = "radTreeView1";
             this.MainTree.NodeCheckedChanged += new Telerik.WinControls.UI.TreeNodeCheckedEventHandler(this.MainTree_NodeCheckedChanged);
             // 
+            // Ch_IsChartBar
+            // 
+            this.Ch_IsChartBar.AutoSize = false;
+            this.Ch_IsChartBar.BackColor = System.Drawing.Color.Transparent;
+            this.Ch_IsChartBar.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ch_IsChartBar.Location = new System.Drawing.Point(115, 66);
+            this.Ch_IsChartBar.Name = "Ch_IsChartBar";
+            this.Ch_IsChartBar.Size = new System.Drawing.Size(137, 24);
+            this.Ch_IsChartBar.TabIndex = 70;
+            this.Ch_IsChartBar.Text = "نمودار میله ای می باشد";
+            // 
             // Frm_SelectChartOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             this.SelectDataPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -405,5 +420,6 @@
         private Telerik.WinControls.UI.RadCheckBox Ch_ShowChart3d;
         private Telerik.WinControls.UI.RadCheckBox Ch_ShowTitleOption;
         private Telerik.WinControls.UI.RadCheckBox Ch_ShowChartPurpose;
+        private Telerik.WinControls.UI.RadCheckBox Ch_IsChartBar;
     }
 }

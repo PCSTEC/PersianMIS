@@ -99,25 +99,12 @@ namespace PersianMIS.Production.Chart
             }
         }
 
+ 
+       
 
-
-
-
-
-        private void RadResizerChart_MouseDown(object sender, MouseEventArgs e)
+        private void MainChart_MouseUp(object sender, MouseEventArgs e)
         {
-
-        }
-
-        private void RadResizerChart_MouseUp(object sender, MouseEventArgs e)
-        {
-
-
-        }
-
-        private void RadResizerChart_MouseMove(object sender, MouseEventArgs e)
-        {
-
+   mouseClicked = false;
         }
 
         private void MainChart_MouseDown(object sender, MouseEventArgs e)
@@ -125,14 +112,8 @@ namespace PersianMIS.Production.Chart
             mouseClicked = true;
         }
 
-        private void MainChart_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseClicked = false;
-        }
-
         private void MainChart_MouseMove(object sender, MouseEventArgs e)
         {
-
             if (mouseClicked)
             {
                 this.Height = this.Top + e.Y;
@@ -186,9 +167,9 @@ namespace PersianMIS.Production.Chart
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
 
-            TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
+            TSql = TSql.Replace("01/01/2015", StartDate.ToString("MM/dd/yyyy"));
 
-            TSql = TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
+            TSql = TSql.Replace("01/01/2016", EndDate.ToString("MM/dd/yyyy"));
             if (IsSHift3)
             {
                 TSql = TSql.Replace("'12/12/2005'", "'" + Shift3beginDate.ToString("MM/dd/yyyy") + "'");
@@ -229,6 +210,7 @@ namespace PersianMIS.Production.Chart
                     TSql = TSql.Replace("strcolumns", ",CalIraniYearID");
                 }
             }
+            TSql = TSql.Replace("strcolumns", "");
 
             Dt = Bll_Public.GetDataTableFromTSQL(TSql);
             MainChart.DataSource = Dt;
@@ -236,7 +218,7 @@ namespace PersianMIS.Production.Chart
             MainChart.Legends.Add("Default");
 
             Boolean IsRandomColor = false;
-            if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString())
+            if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString()  && Dt.DefaultView[0]["ProductLineDesc"].ToString() != Dt.DefaultView[1]["ProductLineDesc"].ToString())
             {
                 IsRandomColor = true;
             }
@@ -338,37 +320,92 @@ namespace PersianMIS.Production.Chart
                 }
 
 
-
-
-                MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
-
-                if (IsRandomColor)
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "True")
                 {
-                    foreach (Series N in MainChart.Series)
-                    {
-                        N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
-                    }
+     MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
 
                 }
                 else
                 {
 
-                    for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                    MainChart.Series.Add("Default");
+                    for (int i = 0; i < Dt.Rows.Count; i++)
                     {
-                        MainChart.Series[Dt.DefaultView[i][LegendField].ToString()].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[i]["StateColor"].ToString()));
+                        MainChart.Series["Default"].Points.AddXY(Dt.DefaultView[i][Xfield].ToString(), Convert.ToInt32(Dt.DefaultView[i][YField]));
+
 
                     }
 
+                    MainChart.Series[0].Legend = "Default";
+                    MainChart.Series[0].IsVisibleInLegend = true;
+                    MainChart.Series[0].LegendText = "#VALX";
 
 
                 }
 
-                foreach (Series N in MainChart.Series)
+
+
+
+                try
+                {
+                    if (IsRandomColor)
+                    {
+                        foreach (Series N in MainChart.Series)
+                        {
+                            N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+                        }
+
+                    }
+                    else
+                    {
+
+                        for (int x = 0; x < MainChart.Series.Count; x++)
+                        {
+                            for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                            {
+
+                                for(int j=0; j< Dt.Rows.Count; j++)
+                                {
+  if(Dt.DefaultView[j][LegendField].ToString()== MainChart.Series[x].Points[i].AxisLabel)
+                                {
+ MainChart.Series[x].Points[i].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
+                                        MainChart.Series[x].Color = Color.Red;// Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
+                                }
+                                }
+                              
+                               
+                            }
+
+                        }
+
+
+                        for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                        {
+                        
+                        }
+
+
+
+                    }
+                }
+                catch
+                {
+
+                }
+                try
+                {
+ foreach (Series N in MainChart.Series)
                 {
                     N.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
 
 
                 }
+                }
+                catch
+                {
+
+                }
+               
 
                 //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
                 //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
@@ -381,9 +418,9 @@ namespace PersianMIS.Production.Chart
 
 
 
-
-
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
+            try
+            {
+ if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
             {
                 foreach (Series N in MainChart.Series)
                 {
@@ -394,8 +431,13 @@ namespace PersianMIS.Production.Chart
 
 
             }
+            }
 
+           
 
+            catch{
+
+            }
 
 
 
@@ -439,8 +481,7 @@ namespace PersianMIS.Production.Chart
 
             MainChart.Legends[0].BackColor = Color.Transparent;
             MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-
-
+        
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartCaption"].ToString() == "True")
             {
                 MainChart.Titles.Add("Default");
@@ -449,7 +490,9 @@ namespace PersianMIS.Production.Chart
             }
 
 
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
+            try
+            {
+    if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
             {
                 for (int x = 0; x < MainChart.Series.Count; x++)
                 {
@@ -462,10 +505,16 @@ namespace PersianMIS.Production.Chart
 
 
             }
+            }
 
+            catch
+            {
 
+            }
 
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "2")
+            try
+            {
+ if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "2")
             {
                 for (int x = 0; x < MainChart.Series.Count; x++)
                 {
@@ -478,10 +527,16 @@ namespace PersianMIS.Production.Chart
 
 
             }
+            }
+            catch
+            {
+
+            }
 
 
-
-            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "3")
+            try
+            {
+ if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "3")
             {
                 for (int x = 0; x < MainChart.Series.Count; x++)
                 {
@@ -492,6 +547,11 @@ namespace PersianMIS.Production.Chart
 
                 }
 
+
+            }
+            }
+            catch
+            {
 
             }
 

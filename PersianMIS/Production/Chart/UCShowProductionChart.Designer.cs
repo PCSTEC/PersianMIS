@@ -94,7 +94,7 @@
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mnu_NewChart});
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(158, 26);
+            this.MainMenu.Size = new System.Drawing.Size(158, 48);
             // 
             // Mnu_NewChart
             // 
@@ -303,7 +303,7 @@
             this.Btn_Check.Location = new System.Drawing.Point(0, 0);
             this.Btn_Check.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.Btn_Check.Name = "Btn_Check";
-            this.Btn_Check.Size = new System.Drawing.Size(8, 8);
+            this.Btn_Check.Size = new System.Drawing.Size(23, 32);
             this.Btn_Check.TabIndex = 46;
             this.Btn_Check.Tag = "0";
             this.Btn_Check.Click += new System.EventHandler(this.Btn_Check_Click);
@@ -628,7 +628,7 @@
             this.Ch_ShowOnlineData.Text = "نمایش آنلاین داده ها";
             this.Ch_ShowOnlineData.UseCompatibleTextRendering = false;
             this.Ch_ShowOnlineData.CheckStateChanged += new System.EventHandler(this.Ch_ShowOnlineData_CheckStateChanged);
-             // 
+            // 
             // ShowDataGroup
             // 
             this.ShowDataGroup.AutoSize = false;

@@ -18,9 +18,9 @@ namespace BLL
         }
 
 
-        public void Insert(string UserId, Boolean IsMainThemplate, string TSQL, string Caption, string ChartType, int ChartFieldCaptionsType, int ChartLegentType, int ChartTypeDataShow, int chartAxisXType, Boolean ShowChartCaption, Boolean ShowChartPurpose, Boolean ShowChart3D)
+        public void Insert(string UserId, Boolean IsMainThemplate, string TSQL, string Caption, string ChartType, int ChartFieldCaptionsType, int ChartLegentType, int ChartTypeDataShow, int chartAxisXType, Boolean ShowChartCaption, Boolean ShowChartPurpose, Boolean ShowChart3D, Boolean IsChartBar)
         {
-            Dal_Chart.Insert(UserId, IsMainThemplate, TSQL, Caption, ChartType, ChartFieldCaptionsType,   ChartLegentType,   ChartTypeDataShow,   chartAxisXType,   ShowChartCaption,   ShowChartPurpose,   ShowChart3D);
+            Dal_Chart.Insert(UserId, IsMainThemplate, TSQL, Caption, ChartType, ChartFieldCaptionsType,   ChartLegentType,   ChartTypeDataShow,   chartAxisXType,   ShowChartCaption,   ShowChartPurpose,   ShowChart3D, IsChartBar);
         }
 
 

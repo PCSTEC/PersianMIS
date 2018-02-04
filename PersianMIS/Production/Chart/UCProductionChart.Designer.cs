@@ -57,7 +57,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
-            this.TopPnl.Size = new System.Drawing.Size(466, 44);
+            this.TopPnl.Size = new System.Drawing.Size(392, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.TopPnl.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -91,7 +91,7 @@
             this.bubbleBar1.ForeColor = System.Drawing.Color.Transparent;
             this.bubbleBar1.ImageSizeLarge = new System.Drawing.Size(60, 60);
             this.bubbleBar1.ImageSizeNormal = new System.Drawing.Size(35, 35);
-            this.bubbleBar1.Location = new System.Drawing.Point(391, -9);
+            this.bubbleBar1.Location = new System.Drawing.Point(317, -9);
             this.bubbleBar1.MouseOverTabColors.BorderColor = System.Drawing.Color.Transparent;
             this.bubbleBar1.Name = "bubbleBar1";
             this.bubbleBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -201,12 +201,16 @@
             this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
             chartArea1.Name = "ChartArea1";
             this.MainChart.ChartAreas.Add(chartArea1);
+            this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
             this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainChart.Location = new System.Drawing.Point(0, 44);
             this.MainChart.Name = "MainChart";
             this.MainChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            this.MainChart.Size = new System.Drawing.Size(466, 445);
+            this.MainChart.Size = new System.Drawing.Size(392, 438);
             this.MainChart.TabIndex = 6;
+            this.MainChart.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseDown);
+            this.MainChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseMove);
+            this.MainChart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainChart_MouseUp);
             // 
             // UCProductionChart
             // 
@@ -219,7 +223,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UCProductionChart";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(466, 489);
+            this.Size = new System.Drawing.Size(392, 482);
             this.Load += new System.EventHandler(this.UCProductionChart_Load);
             this.TopPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bubbleBar1)).EndInit();
