@@ -193,22 +193,44 @@ namespace PersianMIS.Production.Chart
             {
                 if (Mnu_FullDate.Checked)
                 {
-                    TSql = TSql.Replace("strcolumns", ",StartDate");
+                    TSql = TSql.Replace("strcolumns", ",StartDate ");
 
                 }
                 if (Mnu_Month.Checked)
                 {
-                    TSql = TSql.Replace("strcolumns", ",CalIraniMonthID");
+                    TSql = TSql.Replace("strcolumns", ",CalIraniMonthID ");
 
                 }
                 if (Mnu_Week.Checked)
                 {
-                    TSql = TSql.Replace("strcolumns", ",CalIraniWeekNum");
+                    TSql = TSql.Replace("strcolumns", ",CalIraniWeekNum  ");
                 }
                 if (Mnu_Year.Checked)
                 {
-                    TSql = TSql.Replace("strcolumns", ",CalIraniYearID");
+                    TSql = TSql.Replace("strcolumns", ",CalIraniYearID  ");
                 }
+
+
+
+                if (Mnu_FullDate.Checked)
+                {
+                    TSql = TSql +  "  order by startdate" ;
+
+                }
+                if (Mnu_Month.Checked)
+                {
+                    TSql = TSql +" order by CalIraniMonthID" ;
+
+                }
+                if (Mnu_Week.Checked)
+                {
+                    TSql = TSql +" order by CalIraniWeekNum" ;
+                }
+                if (Mnu_Year.Checked)
+                {
+                    TSql = TSql +" order by CalIraniYearID" ;
+                }
+
             }
             TSql = TSql.Replace("strcolumns", "");
 
