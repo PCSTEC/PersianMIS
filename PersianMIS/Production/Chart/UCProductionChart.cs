@@ -13,6 +13,8 @@ namespace PersianMIS.Production.Chart
 {
     public partial class UCProductionChart : UserControl
     {
+        private Color color;
+        private int b;
 
         Boolean mouseClicked = false;
         public UCProductionChart()
@@ -29,7 +31,7 @@ namespace PersianMIS.Production.Chart
 
         }
         BLL.CLS_Chart Bll_Chart = new BLL.CLS_Chart();
-
+        string[] RandomColor;
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
         public DateTime StartDate, EndDate, ShiftDate, Shift3beginDate, Shift3Enddate = new DateTime();
         public Boolean IsSHift3 = false;
@@ -45,6 +47,7 @@ namespace PersianMIS.Production.Chart
         private void UCProductionChart_Load(object sender, EventArgs e)
         {
             FillData();
+
         }
 
         private void Mnu_FullDate_CheckStateChanged(object sender, EventArgs e)
@@ -56,6 +59,7 @@ namespace PersianMIS.Production.Chart
                 Mnu_Month.Checked = false;
                 Mnu_Week.Checked = false;
                 Mnu_Year.Checked = false;
+                FillData();
 
             }
         }
@@ -69,7 +73,7 @@ namespace PersianMIS.Production.Chart
                 Mnu_FullDate.Checked = false;
                 Mnu_Week.Checked = false;
                 Mnu_Year.Checked = false;
-
+                FillData();
             }
         }
 
@@ -82,7 +86,7 @@ namespace PersianMIS.Production.Chart
                 Mnu_Month.Checked = false;
                 Mnu_FullDate.Checked = false;
                 Mnu_Year.Checked = false;
-
+                FillData();
             }
         }
 
@@ -95,7 +99,7 @@ namespace PersianMIS.Production.Chart
                 Mnu_Month.Checked = false;
                 Mnu_FullDate.Checked = false;
                 Mnu_Week.Checked = false;
-
+                FillData();
             }
         }
 
@@ -152,9 +156,58 @@ namespace PersianMIS.Production.Chart
         }
 
 
+        public Color Random()
+        {
+            Random r = new Random();
+            b = r.Next(1, 6);
+            switch (b)
+            {
+                case 1:
+                    {
+                        color = Color.Aqua ;
+                    }
+                    break;
+                case 2:
+                    {
+                        color = Color.LightBlue;
+                    }
+                    break;
+                case 3:
+                    {
+                        color = Color.LightCyan;
+                    }
+                    break;
+                case 4:
+                    {
+                        color = Color.LightGreen;
+                    }
+                    break;
 
 
+                case 5:
+                    {
+                        color = Color.LightPink;
+                    }
+                    break;
+                case 6:
+                    {
+                        color = Color.LightYellow;
+                    }
+                    break;
+                case 7:
+                    {
+                        color = Color.Maroon;
+                    }
+                    break;
 
+            }
+
+            return color;
+        }
+
+        private static readonly Random rand = new Random();
+
+ 
 
         private void FillData()
         {
@@ -167,9 +220,9 @@ namespace PersianMIS.Production.Chart
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
 
-            TSql = TSql.Replace("01/01/2015", StartDate.ToString("MM/dd/yyyy"));
+            TSql = TSql.Replace("01/01/2015 00:00:00", StartDate.ToString("MM/dd/yyyy"));
 
-            TSql = TSql.Replace("01/01/2016", EndDate.ToString("MM/dd/yyyy"));
+            TSql = TSql.Replace("01/01/2016 00:00:00", EndDate.ToString("MM/dd/yyyy"));
             if (IsSHift3)
             {
                 TSql = TSql.Replace("'12/12/2005'", "'" + Shift3beginDate.ToString("MM/dd/yyyy") + "'");
@@ -345,6 +398,11 @@ namespace PersianMIS.Production.Chart
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "True")
                 {
      MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
+                    foreach (Series N in MainChart.Series)
+                    {
+                        N.BorderWidth  = 2;
+                    }
+
 
                 }
                 else
@@ -370,13 +428,33 @@ namespace PersianMIS.Production.Chart
 
                 try
                 {
-                    if (IsRandomColor)
+                    if (IsRandomColor && BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "True")
                     {
+
+
                         foreach (Series N in MainChart.Series)
                         {
+                            //   N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+
                             N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
                         }
 
+                    }
+                    if (IsRandomColor && BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "False")
+                    {
+                        for (int x = 0; x < MainChart.Series.Count; x++)
+                        {
+                            for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                            {
+                                foreach (Series N in MainChart.Series)
+                                {
+                                    //   N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+
+                                   // N.Color = Random();
+                                    MainChart.Series[x].Points[i].Color =   System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -386,16 +464,16 @@ namespace PersianMIS.Production.Chart
                             for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
                             {
 
-                                for(int j=0; j< Dt.Rows.Count; j++)
+                                for (int j = 0; j < Dt.Rows.Count; j++)
                                 {
-  if(Dt.DefaultView[j][LegendField].ToString()== MainChart.Series[x].Points[i].AxisLabel)
-                                {
- MainChart.Series[x].Points[i].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
+                                    if (Dt.DefaultView[j][LegendField].ToString() == MainChart.Series[x].Points[i].AxisLabel)
+                                    {
+                                        MainChart.Series[x].Points[i].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
                                         MainChart.Series[x].Color = Color.Red;// Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
+                                    }
                                 }
-                                }
-                              
-                               
+
+
                             }
 
                         }
@@ -403,7 +481,7 @@ namespace PersianMIS.Production.Chart
 
                         for (int i = 0; i <= Dt.Rows.Count - 1; i++)
                         {
-                        
+
                         }
 
 
@@ -661,6 +739,8 @@ namespace PersianMIS.Production.Chart
 
 
 
+
+
 public class ColourGenerator
 {
 
@@ -802,3 +882,6 @@ public class IntensityValueWalker
         }
     }
 }
+
+
+
