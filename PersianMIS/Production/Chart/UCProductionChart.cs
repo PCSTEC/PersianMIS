@@ -293,9 +293,12 @@ namespace PersianMIS.Production.Chart
             MainChart.Legends.Add("Default");
 
             Boolean IsRandomColor = false;
-            if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString()  && Dt.DefaultView[0]["ProductLineDesc"].ToString() != Dt.DefaultView[1]["ProductLineDesc"].ToString())
+            if (Dt.Rows.Count > 1)
             {
-                IsRandomColor = true;
+                if (Dt.DefaultView[0]["StateColor"].ToString() == Dt.DefaultView[1]["StateColor"].ToString() && Dt.DefaultView[0]["ProductLineDesc"].ToString() != Dt.DefaultView[1]["ProductLineDesc"].ToString())
+                {
+                    IsRandomColor = true;
+                }
             }
             ColourGenerator generator = new ColourGenerator();
 
