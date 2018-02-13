@@ -222,7 +222,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = true;
+            this.Tab_RunTime.IsSelected = false;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -460,7 +460,7 @@
             // 
             // Tab_Jobs
             // 
-            this.Tab_Jobs.IsSelected = false;
+            this.Tab_Jobs.IsSelected = true;
             this.Tab_Jobs.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineShiftBorder,
             this.Btn_ProcessManage,

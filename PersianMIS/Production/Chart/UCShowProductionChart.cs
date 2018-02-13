@@ -39,7 +39,7 @@ namespace PersianMIS.Production.Chart
             this.radCollapsiblePanel2.PanelContainer.Controls.Add(this.LSTStations);
 
             radCollapsiblePanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-
+        
         }
 
         private void FillLstStation()
@@ -147,6 +147,14 @@ namespace PersianMIS.Production.Chart
                     UcShowStation.Shift3EndTime = ShiftCalanders.GetShiftInfoByShiftID(int.Parse(Ch_Shift3.Tag.ToString())).DefaultView[0]["ShiftEndHourTxt"].ToString() + ":00";
 
 
+                }
+                if (MskCountOfColumns.Text != "0")
+                {
+                    UcShowStation.Width = (MainPnl.Width - 40 ) / Convert.ToInt32(MskCountOfColumns.Text) ;
+                }
+                if (MskCountOfRow .Text != "0")
+                {
+                    UcShowStation.Height  = (MainPnl.Height - 40 ) /  Convert.ToInt32(MskCountOfRow.Text) ;
                 }
 
 
@@ -268,6 +276,11 @@ namespace PersianMIS.Production.Chart
                 var n = (Production.Chart.UCProductionChart)Ctrl;
                 n.Maintimer.Enabled = Ch_ShowOnlineData.Checked;
             }
+        }
+
+        private void Mnu_Refresh_Click(object sender, EventArgs e)
+        {
+            Btn_Show_Click(sender, e);
         }
 
         private void Mnu_AddChart_Click(object sender, EventArgs e)

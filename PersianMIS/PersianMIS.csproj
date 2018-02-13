@@ -210,6 +210,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageProcess\PersianDiagramRibbonBarLocalizationProvider.cs" />
     <Compile Include="PCSTECDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

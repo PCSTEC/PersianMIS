@@ -217,6 +217,7 @@ namespace PersianMIS.Production.Chart
             MainChart.ChartAreas.Clear();
             MainChart.Legends.Clear();
             MainChart.Titles.Clear();
+            DataTable DtTrend = new DataTable();
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-GB");
             string TSql = BLL.Cls_PublicOperations.Dt.DefaultView[0]["TSQL"].ToString();
 
@@ -286,8 +287,21 @@ namespace PersianMIS.Production.Chart
 
             }
             TSql = TSql.Replace("strcolumns", "");
+ DataTable TempTable = new DataTable();
+                TempTable= Bll_Public.GetDataTableFromTSQL(TSql);
+           // TempTable.DefaultView.RowFilter = "Fullname <> '0'";
 
-            Dt = Bll_Public.GetDataTableFromTSQL(TSql);
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartPurpose"].ToString() == "True")
+            {
+                Dt =TempTable.DefaultView.Table.Select("Fullname <> '0'").CopyToDataTable();   
+                TempTable.DefaultView.RowFilter = "Fullname ='0'";
+                DtTrend= TempTable.DefaultView.Table;
+            }
+            else
+            {
+                Dt = TempTable.DefaultView.Table;
+            }
+             //   Dt = Bll_Public.GetDataTableFromTSQL(TSql);
             MainChart.DataSource = Dt;
             MainChart.DataBind();
             MainChart.Legends.Add("Default");
@@ -351,7 +365,11 @@ namespace PersianMIS.Production.Chart
                     Xfield = "Fullname";
 
                 }
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "7")
+                {
+                    Xfield = "ProductLineDesc";
 
+                }
 
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
                 {
@@ -367,7 +385,7 @@ namespace PersianMIS.Production.Chart
                 }
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
                 {
-                    LegendField = "Fullname";
+                    LegendField = "";
 
 
                 }
@@ -397,7 +415,7 @@ namespace PersianMIS.Production.Chart
 
                 }
 
-
+        
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "True")
                 {
      MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
