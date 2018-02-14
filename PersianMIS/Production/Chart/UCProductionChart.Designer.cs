@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCProductionChart));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.TopPnl = new DevComponents.DotNetBar.PanelEx();
             this.bubbleBar1 = new DevComponents.DotNetBar.BubbleBar();
             this.bubbleBarTab1 = new DevComponents.DotNetBar.BubbleBarTab(this.components);
@@ -57,6 +57,7 @@
             this.TopPnl.Font = new System.Drawing.Font("B Nazanin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.TopPnl.Location = new System.Drawing.Point(0, 0);
             this.TopPnl.Name = "TopPnl";
+            this.TopPnl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TopPnl.Size = new System.Drawing.Size(392, 44);
             this.TopPnl.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.TopPnl.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
@@ -66,7 +67,7 @@
             this.TopPnl.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.TopPnl.Style.GradientAngle = 90;
             this.TopPnl.TabIndex = 5;
-            this.TopPnl.Text = "سیستم داشبورد مدیریت";
+            this.TopPnl.Text = "نمودار";
             // 
             // bubbleBar1
             // 
@@ -199,8 +200,8 @@
             this.MainChart.BorderSkin.BackImage = "D:\\PCS11\\PCS\\graphic\\01.jpg";
             this.MainChart.BorderSkin.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
             this.MainChart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea1.Name = "ChartArea1";
-            this.MainChart.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.MainChart.ChartAreas.Add(chartArea2);
             this.MainChart.ContextMenuStrip = this.MainContexMenuStrip;
             this.MainChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainChart.Location = new System.Drawing.Point(0, 44);

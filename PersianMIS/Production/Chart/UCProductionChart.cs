@@ -103,12 +103,12 @@ namespace PersianMIS.Production.Chart
             }
         }
 
- 
-       
+
+
 
         private void MainChart_MouseUp(object sender, MouseEventArgs e)
         {
-   mouseClicked = false;
+            mouseClicked = false;
         }
 
         private void MainChart_MouseDown(object sender, MouseEventArgs e)
@@ -164,7 +164,7 @@ namespace PersianMIS.Production.Chart
             {
                 case 1:
                     {
-                        color = Color.Aqua ;
+                        color = Color.Aqua;
                     }
                     break;
                 case 2:
@@ -207,7 +207,7 @@ namespace PersianMIS.Production.Chart
 
         private static readonly Random rand = new Random();
 
- 
+
 
         private void FillData()
         {
@@ -268,40 +268,40 @@ namespace PersianMIS.Production.Chart
 
                 if (Mnu_FullDate.Checked)
                 {
-                    TSql = TSql +  "  order by startdate" ;
+                    TSql = TSql + "  order by startdate";
 
                 }
                 if (Mnu_Month.Checked)
                 {
-                    TSql = TSql +" order by CalIraniMonthID" ;
+                    TSql = TSql + " order by CalIraniMonthID";
 
                 }
                 if (Mnu_Week.Checked)
                 {
-                    TSql = TSql +" order by CalIraniWeekNum" ;
+                    TSql = TSql + " order by CalIraniWeekNum";
                 }
                 if (Mnu_Year.Checked)
                 {
-                    TSql = TSql +" order by CalIraniYearID" ;
+                    TSql = TSql + " order by CalIraniYearID";
                 }
 
             }
             TSql = TSql.Replace("strcolumns", "");
- DataTable TempTable = new DataTable();
-                TempTable= Bll_Public.GetDataTableFromTSQL(TSql);
-           // TempTable.DefaultView.RowFilter = "Fullname <> '0'";
+            DataTable TempTable = new DataTable();
+            TempTable = Bll_Public.GetDataTableFromTSQL(TSql);
+            // TempTable.DefaultView.RowFilter = "Fullname <> '0'";
 
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartPurpose"].ToString() == "True")
             {
-                Dt =TempTable.DefaultView.Table.Select("Fullname <> '0'").CopyToDataTable();   
-                TempTable.DefaultView.RowFilter = "Fullname ='0'";
-                DtTrend= TempTable.DefaultView.Table;
+                Dt = TempTable.DefaultView.Table.Select("Fullname <> '0'").CopyToDataTable();
+
+                DtTrend = TempTable.DefaultView.Table.Select("Fullname ='0'").CopyToDataTable();
             }
             else
             {
-                Dt = TempTable.DefaultView.Table;
+                Dt = TempTable.DefaultView.Table.Select("Fullname <> '0'").CopyToDataTable();
             }
-             //   Dt = Bll_Public.GetDataTableFromTSQL(TSql);
+            //   Dt = Bll_Public.GetDataTableFromTSQL(TSql);
             MainChart.DataSource = Dt;
             MainChart.DataBind();
             MainChart.Legends.Add("Default");
@@ -317,15 +317,12 @@ namespace PersianMIS.Production.Chart
             ColourGenerator generator = new ColourGenerator();
 
             string LegendField, Xfield, YField, LabelType;
-
+            YField = "Duration";
+            Xfield = "";
+            LegendField = "";
+            LabelType = "";
             try
             {
-
-
-                YField = "Duration";
-                Xfield = "";
-                LegendField = "";
-                LabelType = "";
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["chartAxisXType"].ToString() == "1")
                 {
 
@@ -415,13 +412,13 @@ namespace PersianMIS.Production.Chart
 
                 }
 
-        
+
                 if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["IsChartBar"].ToString() == "True")
                 {
-     MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
+                    MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
                     foreach (Series N in MainChart.Series)
                     {
-                        N.BorderWidth  = 2;
+                        N.BorderWidth = 2;
                     }
 
 
@@ -471,8 +468,8 @@ namespace PersianMIS.Production.Chart
                                 {
                                     //   N.Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
 
-                                   // N.Color = Random();
-                                    MainChart.Series[x].Points[i].Color =   System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+                                    // N.Color = Random();
+                                    MainChart.Series[x].Points[i].Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
                                 }
                             }
                         }
@@ -487,10 +484,10 @@ namespace PersianMIS.Production.Chart
 
                                 for (int j = 0; j < Dt.Rows.Count; j++)
                                 {
-                                    if (Dt.DefaultView[j][LegendField].ToString() == MainChart.Series[x].Points[i].AxisLabel)
+                                    if (Dt.DefaultView[j][LegendField].ToString() == MainChart.Series[x].Points[i].AxisLabel  )
                                     {
                                         MainChart.Series[x].Points[i].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
-                                        MainChart.Series[x].Color = Color.Red;// Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
+                                     //   MainChart.Series[x].Color = Color.Red;// Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
                                     }
                                 }
 
@@ -500,11 +497,7 @@ namespace PersianMIS.Production.Chart
                         }
 
 
-                        for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                        {
-
-                        }
-
+                       
 
 
                     }
@@ -515,18 +508,18 @@ namespace PersianMIS.Production.Chart
                 }
                 try
                 {
- foreach (Series N in MainChart.Series)
-                {
-                    N.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
+                    foreach (Series N in MainChart.Series)
+                    {
+                        N.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
 
 
-                }
+                    }
                 }
                 catch
                 {
 
                 }
-               
+
 
                 //  MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].Legend = "Default";
                 //      MainChart.Series [Dt.DefaultView[i]["Fullname"].ToString()].LegendText = "#VALX";
@@ -541,22 +534,23 @@ namespace PersianMIS.Production.Chart
 
             try
             {
- if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
-            {
-                foreach (Series N in MainChart.Series)
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "4")
                 {
-                    N.IsVisibleInLegend = false;
+                    foreach (Series N in MainChart.Series)
+                    {
+                        N.IsVisibleInLegend = false;
+
+
+                    }
 
 
                 }
-
-
-            }
             }
 
-           
 
-            catch{
+
+            catch
+            {
 
             }
 
@@ -602,7 +596,7 @@ namespace PersianMIS.Production.Chart
 
             MainChart.Legends[0].BackColor = Color.Transparent;
             MainChart.Legends[0].Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-        
+
             if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChartCaption"].ToString() == "True")
             {
                 MainChart.Titles.Add("Default");
@@ -613,19 +607,19 @@ namespace PersianMIS.Production.Chart
 
             try
             {
-    if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
-            {
-                for (int x = 0; x < MainChart.Series.Count; x++)
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "1")
                 {
-                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    for (int x = 0; x < MainChart.Series.Count; x++)
                     {
-                        MainChart.Series[x].Points[i].Label = "#VAL";
+                        for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                        {
+                            MainChart.Series[x].Points[i].Label = "#VAL";
+                        }
+
                     }
 
+
                 }
-
-
-            }
             }
 
             catch
@@ -635,19 +629,19 @@ namespace PersianMIS.Production.Chart
 
             try
             {
- if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "2")
-            {
-                for (int x = 0; x < MainChart.Series.Count; x++)
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "2")
                 {
-                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    for (int x = 0; x < MainChart.Series.Count; x++)
                     {
-                        MainChart.Series[x].Points[i].Label = "#PERCENT";
+                        for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                        {
+                            MainChart.Series[x].Points[i].Label = "#PERCENT";
+                        }
+
                     }
 
+
                 }
-
-
-            }
             }
             catch
             {
@@ -657,19 +651,19 @@ namespace PersianMIS.Production.Chart
 
             try
             {
- if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "3")
-            {
-                for (int x = 0; x < MainChart.Series.Count; x++)
+                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartTypeDataShow"].ToString() == "3")
                 {
-                    for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                    for (int x = 0; x < MainChart.Series.Count; x++)
                     {
-                        MainChart.Series[x].Points[i].Label = "";
+                        for (int i = 0; i < MainChart.Series[x].Points.Count; i++)
+                        {
+                            MainChart.Series[x].Points[i].Label = "";
+                        }
+
                     }
 
+
                 }
-
-
-            }
             }
             catch
             {
@@ -680,25 +674,25 @@ namespace PersianMIS.Production.Chart
 
 
 
-        
-
-
-                //if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
-                //{
-                //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
-
-                //}
-                //else
-                //{
-
-                //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
-
-                //}
 
 
 
+            //if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartLegentType"].ToString() == "1")
+            //{
+            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
 
-                if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
+            //}
+            //else
+            //{
+
+            //    MainChart.Series[0].LegendText = "StartDate";// "#VALX";
+
+            //}
+
+
+
+
+            if (BLL.Cls_PublicOperations.Dt.DefaultView[0]["ShowChart3D"].ToString() == "True")
             {
                 MainChart.ChartAreas[0].Area3DStyle.Enable3D = true;
 
@@ -707,52 +701,74 @@ namespace PersianMIS.Production.Chart
 
 
 
-    // Set drawing style
-    //  MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
-    // MainChart.Series["Default"].IsVisibleInLegend = true;
+            // Set drawing style
+            //  MainChart.Series["Default"]["PieDrawingStyle"] = "SoftEdge";
+            // MainChart.Series["Default"].IsVisibleInLegend = true;
 
-    //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-    //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
-    //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
-    //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
-    //Lbl_ParameterDesc.TabIndex = 6;
-    //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-
-
-    //if (Dt.Rows.Count > 0)
-    //{
-    //    decimal Data = Decimal.Parse(Utility.NZ(Dt.DefaultView[0][0].ToString(), 0).ToString());
-
-    //    // Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
-
-    //    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString().Trim().Contains("(%)"))
-    //    {
-    //        Lbl_ParameterDesc.Text = Decimal.Round(Data, 1).ToString();
-    //    }
-    //    else
-    //    {
-    //        TimeSpan span = TimeSpan.FromSeconds(Convert.ToDouble(Data));
-
-    //        string label = String.Format("{0:D2}:{1:D2}:{2:D2}:{3}", span.Days, span.Hours, span.Minutes, span.Seconds);// span.ToString(@"hh\:mm\:ss");
-    //        Lbl_ParameterDesc.Text = label;
-
-    //    }
+            //Lbl_ParameterDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            //Lbl_ParameterDesc.Location = new System.Drawing.Point(8, 7);
+            //Lbl_ParameterDesc.Name = "Lbl_ParameterDesc";
+            //Lbl_ParameterDesc.Size = new System.Drawing.Size(91, 26);
+            //Lbl_ParameterDesc.TabIndex = 6;
+            //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
 
 
-    //}
-    //else
-    //{
-    //    Lbl_ParameterDesc.Text = "عدم خروجی دستور ایجاد شده";
-    //}
+            //if (Dt.Rows.Count > 0)
+            //{
+            //    decimal Data = Decimal.Parse(Utility.NZ(Dt.DefaultView[0][0].ToString(), 0).ToString());
 
-    //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-    //Pnl_State.Controls.Add(Lbl_ParameterCaption);
-    //Pnl_State.Controls.Add(Lbl_ParameterDesc);
+            //    // Lbl_ParameterDesc.Text = Decimal.Round(Data, 2).ToString();
 
-    //   Pnl_Main.Controls.Add(Pnl_State);
-}
+            //    if (BLL.Cls_PublicOperations.Dt.DefaultView[i]["ParameterName"].ToString().Trim().Contains("(%)"))
+            //    {
+            //        Lbl_ParameterDesc.Text = Decimal.Round(Data, 1).ToString();
+            //    }
+            //    else
+            //    {
+            //        TimeSpan span = TimeSpan.FromSeconds(Convert.ToDouble(Data));
+
+            //        string label = String.Format("{0:D2}:{1:D2}:{2:D2}:{3}", span.Days, span.Hours, span.Minutes, span.Seconds);// span.ToString(@"hh\:mm\:ss");
+            //        Lbl_ParameterDesc.Text = label;
+
+            //    }
+
+
+
+            //}
+            //else
+            //{
+            //    Lbl_ParameterDesc.Text = "عدم خروجی دستور ایجاد شده";
+            //}
+
+            //Lbl_ParameterDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //Pnl_State.Controls.Add(Lbl_ParameterCaption);
+            //Pnl_State.Controls.Add(Lbl_ParameterDesc);
+
+            //   Pnl_Main.Controls.Add(Pnl_State);
+
+
+            if (DtTrend.Rows.Count > 0)
+            {
+                int x = MainChart.Series.Count;
+                for (int i = 0; i <= x-1; i++)
+                {
+                    DtTrend = TempTable.DefaultView.Table.Select(LegendField + "='" + MainChart.Series[i].Name + "' ").CopyToDataTable();
+                    DtTrend= DtTrend.DefaultView.Table.Select("Fullname = '0' ").CopyToDataTable();
+
+                    MainChart.Series.Add("زمان در دسترس "+ MainChart.Series[i].Name);
+                    for (int j = 0; j < DtTrend.DefaultView.Table.Rows.Count; j++)
+                    {
+                        
+
+                        MainChart.Series["زمان در دسترس " + MainChart.Series[i].Name].Points.AddXY(DtTrend.DefaultView.Table.Rows[j][Xfield].ToString(), Convert.ToInt32(DtTrend.DefaultView.Table.Rows[j][YField]));
+                        MainChart.Series["زمان در دسترس " + MainChart.Series[i].Name].ChartType = SeriesChartType.Line;
+                        MainChart.Series["زمان در دسترس " + MainChart.Series[i].Name].Color = System.Drawing.ColorTranslator.FromHtml("#" + generator.NextColour());
+                    }
+                }
+
+            }
+        }
     }
 }
 

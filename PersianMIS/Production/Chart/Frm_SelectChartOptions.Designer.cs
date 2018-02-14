@@ -38,6 +38,7 @@
             this.MainPageView = new Telerik.WinControls.UI.RadPageView();
             this.SelectDataTab = new Telerik.WinControls.UI.RadPageViewPage();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.Ch_IsChartBar = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_ShowChartPurpose = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_ShowChart3d = new Telerik.WinControls.UI.RadCheckBox();
             this.Ch_ShowTitleOption = new Telerik.WinControls.UI.RadCheckBox();
@@ -55,11 +56,11 @@
             this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.SelectDataPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.MainTree = new Telerik.WinControls.UI.RadTreeView();
-            this.Ch_IsChartBar = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainPageView)).BeginInit();
             this.MainPageView.SuspendLayout();
             this.SelectDataTab.SuspendLayout();
             this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChartPurpose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChart3d)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).BeginInit();
@@ -72,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             this.SelectDataPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@
             this.MainPageView.Location = new System.Drawing.Point(0, 0);
             this.MainPageView.Name = "MainPageView";
             this.MainPageView.SelectedPage = this.SelectDataTab;
-            this.MainPageView.Size = new System.Drawing.Size(678, 750);
+            this.MainPageView.Size = new System.Drawing.Size(678, 691);
             this.MainPageView.TabIndex = 0;
             this.MainPageView.Text = "انتخاب داده";
             // 
@@ -98,7 +98,7 @@
             this.SelectDataTab.ItemSize = new System.Drawing.SizeF(88F, 34F);
             this.SelectDataTab.Location = new System.Drawing.Point(10, 43);
             this.SelectDataTab.Name = "SelectDataTab";
-            this.SelectDataTab.Size = new System.Drawing.Size(657, 696);
+            this.SelectDataTab.Size = new System.Drawing.Size(657, 637);
             this.SelectDataTab.Text = "تنظیمات نمودار";
             // 
             // groupPanel2
@@ -143,6 +143,17 @@
             this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel2.TabIndex = 65;
+            // 
+            // Ch_IsChartBar
+            // 
+            this.Ch_IsChartBar.AutoSize = false;
+            this.Ch_IsChartBar.BackColor = System.Drawing.Color.Transparent;
+            this.Ch_IsChartBar.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ch_IsChartBar.Location = new System.Drawing.Point(115, 66);
+            this.Ch_IsChartBar.Name = "Ch_IsChartBar";
+            this.Ch_IsChartBar.Size = new System.Drawing.Size(137, 24);
+            this.Ch_IsChartBar.TabIndex = 70;
+            this.Ch_IsChartBar.Text = "نمودار میله ای می باشد";
             // 
             // Ch_ShowChartPurpose
             // 
@@ -305,7 +316,7 @@
             this.ThemplateChart.Legends.Add(legend1);
             this.ThemplateChart.Location = new System.Drawing.Point(3, 141);
             this.ThemplateChart.Name = "ThemplateChart";
-            this.ThemplateChart.Size = new System.Drawing.Size(654, 513);
+            this.ThemplateChart.Size = new System.Drawing.Size(654, 456);
             this.ThemplateChart.TabIndex = 64;
             title1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold);
             title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
@@ -319,7 +330,7 @@
             // 
             this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_Save.Image = global::PersianMIS.Properties.Resources.save;
-            this.Btn_Save.Location = new System.Drawing.Point(260, 660);
+            this.Btn_Save.Location = new System.Drawing.Point(250, 603);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(138, 33);
             this.Btn_Save.TabIndex = 59;
@@ -346,22 +357,11 @@
             this.MainTree.Text = "radTreeView1";
             this.MainTree.NodeCheckedChanged += new Telerik.WinControls.UI.TreeNodeCheckedEventHandler(this.MainTree_NodeCheckedChanged);
             // 
-            // Ch_IsChartBar
-            // 
-            this.Ch_IsChartBar.AutoSize = false;
-            this.Ch_IsChartBar.BackColor = System.Drawing.Color.Transparent;
-            this.Ch_IsChartBar.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ch_IsChartBar.Location = new System.Drawing.Point(115, 66);
-            this.Ch_IsChartBar.Name = "Ch_IsChartBar";
-            this.Ch_IsChartBar.Size = new System.Drawing.Size(137, 24);
-            this.Ch_IsChartBar.TabIndex = 70;
-            this.Ch_IsChartBar.Text = "نمودار میله ای می باشد";
-            // 
             // Frm_SelectChartOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 750);
+            this.ClientSize = new System.Drawing.Size(678, 691);
             this.Controls.Add(this.MainPageView);
             this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -380,6 +380,7 @@
             this.SelectDataTab.ResumeLayout(false);
             this.groupPanel2.ResumeLayout(false);
             this.groupPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChartPurpose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowChart3d)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ch_ShowTitleOption)).EndInit();
@@ -392,7 +393,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             this.SelectDataPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ch_IsChartBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
