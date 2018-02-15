@@ -21,8 +21,8 @@ namespace PersianMIS.Process
             InitializeComponent();
             DiagramRibbonBarLocalizationProvider.CurrentProvider = new PersianDiagramRibbonBarLocalizationProvider();
 
-    
-            foreach (var Item in Rd_Toolbars.Items.ToList ())
+
+            foreach (var Item in Rd_Toolbars.Items.ToList())
             {
                 Item.Key = "";
             }
@@ -30,7 +30,7 @@ namespace PersianMIS.Process
 
 
 
-    private void SampleFillData()
+        private void SampleFillData()
         {
 
             //DataTable tasksTable = new DataTable("Tasks");
@@ -113,38 +113,19 @@ namespace PersianMIS.Process
         {
             try
             {
-                Telerik.WinControls.UI.RadDiagram SelectedItem =   (Telerik.WinControls.UI.RadDiagram)sender;
-                if (SelectedItem.Items.Count > 0)
+
+
+                for (int i = 0; i <= RdMainDiagram.Items.Count - 1; i++)
                 {
-
-                    Telerik.WinControls.UI.RadDiagramShape X = (Telerik.WinControls.UI.RadDiagramShape ) SelectedItem.Items[0];
-
-
-                    MessageBox.Show(X.Tag.ToString());
-                 if(   X.ShapeText == "123")
+                    if (RdMainDiagram.Items[i].Tag == null)
                     {
-                        MessageBox.Show("Is 123");
-                    } 
-
-
-
-                  
+                        RdMainDiagram.Items[i].Tag = ++MaxTag;
+                        RdMainDiagram.Items[i].Name = "Obj" + MaxTag;
+                    }
+ 
                 }
 
 
-              }
-            catch
-            {
-
-            }
-        }
-
-    
-
-        private void RdMainDiagram_Click(object sender, EventArgs e)
-        {
-            try
-            {
                 Telerik.WinControls.UI.RadDiagram SelectedItem = (Telerik.WinControls.UI.RadDiagram)sender;
                 if (SelectedItem.Items.Count > 0)
                 {
@@ -171,7 +152,57 @@ namespace PersianMIS.Process
             }
         }
 
-      
+
+
+        private void RdMainDiagram_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RdMainDiagram_AdditionalContentActivated(object sender, Telerik.WinControls.UI.Diagrams.AdditionalContentActivatedEventArgs e)
+        {
+
+        }
+
+        private void RdMainDiagram_CommandExecuted(object sender, Telerik.Windows.Diagrams.Core.CommandEventArgs e)
+        {
+
+            try
+            {
+                foreach (var x in RdMainDiagram.Items)
+                {
+                    if (x.Tag != null)
+                    {
+                        x.Tag = ++MaxTag;
+                    }
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            //RadDiagramElement X = (RadDiagramElement)sender;
+            //X.Tag = ++MaxTag;
+            //X.Name = "test" + X;
+
+        }
+
+        private void RdMainDiagram_DiagramLayoutComplete(object sender, Telerik.Windows.Diagrams.Core.DiagramLayoutEventArgs e)
+        {
+
+        }
+
+        private void Rd_Toolbars_ItemCreating(object sender, ListViewItemCreatingEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 class MyItemInformationAdorner : Telerik.WinControls.UI.Diagrams.Primitives.ItemInformationAdorner

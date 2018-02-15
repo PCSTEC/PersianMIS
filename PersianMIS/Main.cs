@@ -30,6 +30,9 @@ namespace PersianMIS
         public Main()
         {
             InitializeComponent();
+
+
+
         }
 
         private void Mnu_Exit_Click(object sender, EventArgs e)
@@ -401,7 +404,7 @@ namespace PersianMIS
             Pnl_Main.Controls.Clear();
 
             this.Cursor = Cursors.WaitCursor;
-            var Pnl = new Production.Chart.UCShowProductionChart ();
+            var Pnl = new Production.Chart.UCShowProductionChart();
 
             Pnl.Width = Pnl_Main.Width - 18;
             Pnl.Height = Pnl_Main.Height - 14;
@@ -416,9 +419,28 @@ namespace PersianMIS
 
         private void Btn_AllLineState_Click(object sender, EventArgs e)
         {
-           
 
 
+
+        }
+
+        private void Main_Activated(object sender, EventArgs e)
+        {
+           // MainDesctopAlert.ContentImage  = global::PersianMIS.Properties.Resources.EndLogo1;
+            MainDesctopAlert.CaptionText = "نرم افزار PCSTEC";
+            MainDesctopAlert.ContentText = @"کاربر گرامی!
+             آخرین امکانات اضافه شده به نرم افزار عبارتست از :
+            1:امکان ایجاد نمودار جدید
+            2: امکان تعیین نحوه نمایش نمودار ها در صفحه 
+            3:امکان نمایش مدت زمان در دسترسی هر ماشین به عنوان هدف در نمودار ها 
+            4:برخی از باگ ها در بخش نمودار رفع گردیده است 
+            ***** در صورت سوال و پیشنهاد میتوانید با داخلی 231-آزادفلاح تماس بگیرید **** ";
+            MainDesctopAlert.ScreenPosition = AlertScreenPosition.Manual;
+            MainDesctopAlert.Popup.AlertElement.ContentElement.Font = new Font("b nazanin", 11f, FontStyle.Regular);
+            
+            MainDesctopAlert.AutoSize = true;
+            MainDesctopAlert.ScreenPosition = AlertScreenPosition.BottomLeft;
+            MainDesctopAlert.Show();
         }
     }
 }

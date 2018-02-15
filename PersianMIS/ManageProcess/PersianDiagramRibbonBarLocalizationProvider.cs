@@ -35,7 +35,7 @@ namespace PersianMIS.ManageProcess
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonPaste:
                     return "چسباندن";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonPointerTool:
-                    return "ابزار های نقاشی";
+                    return "انتخاب";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonPrint:
                     return "چاپ";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonRedo:
@@ -100,6 +100,12 @@ namespace PersianMIS.ManageProcess
                     return "تنظیم بر اساس جدول";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonSnapToItems:
                     return "تنظیم بر اساس محتوی";
+                case DiagramRibbonBarStringId.DiagramRibbonBarArrangementGroup :
+                    return "مرتب سازی ";
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringForward :
+                    return "جابجایی به جلو";
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringToTop :
+                    return "جابجایی به بالا";
                 default:
                     return base.GetLocalizedString(id);
             }

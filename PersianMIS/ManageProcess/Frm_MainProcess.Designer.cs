@@ -30,9 +30,11 @@
         {
             this.Rd_Menu = new Telerik.WinControls.UI.RadDiagramRibbonBar();
             this.RdMainDiagram = new Telerik.WinControls.UI.RadDiagram();
+            this.button1 = new System.Windows.Forms.Button();
             this.Rd_Toolbars = new Telerik.WinControls.UI.RadDiagramToolbox();
             ((System.ComponentModel.ISupportInitialize)(this.Rd_Menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdMainDiagram)).BeginInit();
+            this.RdMainDiagram.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Rd_Toolbars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -56,10 +58,10 @@
             this.Rd_Menu.OptionsButton.Text = "Options";
             this.Rd_Menu.Size = new System.Drawing.Size(931, 182);
             this.Rd_Menu.TabIndex = 0;
- 
             // 
             // RdMainDiagram
             // 
+            this.RdMainDiagram.Controls.Add(this.button1);
             this.RdMainDiagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RdMainDiagram.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.RdMainDiagram.Location = new System.Drawing.Point(140, 182);
@@ -67,8 +69,21 @@
             this.RdMainDiagram.Size = new System.Drawing.Size(791, 624);
             this.RdMainDiagram.TabIndex = 3;
             this.RdMainDiagram.Text = "radDiagram1";
-          
-         
+            this.RdMainDiagram.CommandExecuted += new System.EventHandler<Telerik.Windows.Diagrams.Core.CommandEventArgs>(this.RdMainDiagram_CommandExecuted);
+            this.RdMainDiagram.DiagramLayoutComplete += new System.EventHandler<Telerik.Windows.Diagrams.Core.DiagramLayoutEventArgs>(this.RdMainDiagram_DiagramLayoutComplete);
+            this.RdMainDiagram.AdditionalContentActivated += new System.EventHandler<Telerik.WinControls.UI.Diagrams.AdditionalContentActivatedEventArgs>(this.RdMainDiagram_AdditionalContentActivated);
+            this.RdMainDiagram.Click += new System.EventHandler(this.RdMainDiagram_Click);
+            this.RdMainDiagram.DoubleClick += new System.EventHandler(this.RdMainDiagram_DoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(203, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Rd_Toolbars
             // 
@@ -90,6 +105,7 @@
             this.Rd_Toolbars.TabIndex = 2;
             this.Rd_Toolbars.Text = "radDiagramToolbox1";
             this.Rd_Toolbars.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
+            this.Rd_Toolbars.ItemCreating += new Telerik.WinControls.UI.ListViewItemCreatingEventHandler(this.Rd_Toolbars_ItemCreating);
             // 
             // Frm_MainProcess
             // 
@@ -111,6 +127,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.Rd_Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RdMainDiagram)).EndInit();
+            this.RdMainDiagram.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Rd_Toolbars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -123,5 +140,6 @@
         private Telerik.WinControls.UI.RadDiagramRibbonBar Rd_Menu;
         private Telerik.WinControls.UI.RadDiagramToolbox Rd_Toolbars;
         private Telerik.WinControls.UI.RadDiagram RdMainDiagram;
+        private System.Windows.Forms.Button button1;
     }
 }

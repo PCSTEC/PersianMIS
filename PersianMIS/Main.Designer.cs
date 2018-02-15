@@ -103,6 +103,7 @@
             this.radRibbonFormBehavior1 = new Telerik.WinControls.UI.RadRibbonFormBehavior();
             this.radButtonElement3 = new Telerik.WinControls.UI.RadButtonElement();
             this.radButtonElement4 = new Telerik.WinControls.UI.RadButtonElement();
+            this.MainDesctopAlert = new Telerik.WinControls.UI.RadDesktopAlert(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainRibbonBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -222,7 +223,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -460,7 +461,7 @@
             // 
             // Tab_Jobs
             // 
-            this.Tab_Jobs.IsSelected = true;
+            this.Tab_Jobs.IsSelected = false;
             this.Tab_Jobs.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineShiftBorder,
             this.Btn_ProcessManage,
@@ -728,6 +729,14 @@
             this.radButtonElement4.Text = "                               ";
             this.radButtonElement4.UseCompatibleTextRendering = false;
             // 
+            // MainDesctopAlert
+            // 
+            this.MainDesctopAlert.FadeAnimationFrames = 50;
+            this.MainDesctopAlert.Opacity = 1F;
+            this.MainDesctopAlert.PopupAnimationFrames = 80;
+            this.MainDesctopAlert.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainDesctopAlert.ThemeName = "";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,6 +760,7 @@
             this.Text = resources.GetString("$this.Text");
             this.ThemeName = "Windows8";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.Main_Activated);
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Main_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.MainStatusBar)).EndInit();
@@ -836,5 +846,6 @@
         private Telerik.WinControls.UI.RadButtonElement Btn_Calendar;
         private Telerik.WinControls.UI.RadRibbonBarGroup Btn_ProcessManage;
         private Telerik.WinControls.UI.RadButtonElement Btn_ManageProcess;
+        private Telerik.WinControls.UI.RadDesktopAlert MainDesctopAlert;
     }
 }
