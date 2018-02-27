@@ -186,149 +186,159 @@ namespace PIASService
 
             //}
 
-         //   System.Diagnostics.Debugger.Launch();
-            EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
-            serialPort1.Close();
-            serialPort1.DataBits = 8;
-            serialPort1.Parity = Parity.None;
-            serialPort1.StopBits = StopBits.One;
-            serialPort1.BaudRate = int.Parse("9600");
-
-            sqlstr = " SELECT   * FROM    Tb_Devices where DeviceId='1048'";
-            Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
-
-            LastTimeForShift = DateTime.Now;
-
-            sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
-            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
-            int count = 0;
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
-                count = i;
-            }
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            // System.Diagnostics.Debugger.Launch();
+            try
             {
 
-                count = count + 1;
-                TimeSpan Time = new TimeSpan();
-                Time = TimeSpan.Parse(Dt.DefaultView[i]["ShiftEndHourTxt"].ToString());
-                TimeSpan ts = TimeSpan.FromMinutes(-2);
 
-                var ts2 = Time.Add(ts);
-                string Hour = ts2.Hours.ToString().Length == 2 ? ts2.Hours.ToString() : "0" + ts2.Hours.ToString();
-                string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
-                ListOfStartShifTime[count] = Hour + ":" + Minute;
+                EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
+                serialPort1.Close();
+                serialPort1.DataBits = 8;
+                serialPort1.Parity = Parity.None;
+                serialPort1.StopBits = StopBits.One;
+                serialPort1.BaudRate = int.Parse("9600");
+
+                sqlstr = " SELECT   * FROM    Tb_Devices where DeviceId='1048'";
+                Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+
+                LastTimeForShift = DateTime.Now;
+
+                sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
+                Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+                int count = 0;
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
+                    count = i;
+                }
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+
+                    count = count + 1;
+                    TimeSpan Time = new TimeSpan();
+                    Time = TimeSpan.Parse(Dt.DefaultView[i]["ShiftEndHourTxt"].ToString());
+                    TimeSpan ts = TimeSpan.FromMinutes(-2);
+
+                    var ts2 = Time.Add(ts);
+                    string Hour = ts2.Hours.ToString().Length == 2 ? ts2.Hours.ToString() : "0" + ts2.Hours.ToString();
+                    string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
+                    ListOfStartShifTime[count] = Hour + ":" + Minute;
 
 
 
+                }
+
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt1"].ToString();
+
+                }
+
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt1"].ToString();
+
+                }
+
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt2"].ToString();
+
+                }
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + i;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt2"].ToString();
+
+                }
+
+
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt3"].ToString();
+
+                }
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + i;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt3"].ToString();
+
+                }
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt4"].ToString();
+
+                }
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt4"].ToString();
+
+                }
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt5"].ToString();
+
+                }
+
+
+
+
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+                {
+                    count = count + 1;
+                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt5"].ToString();
+
+                }
+
+
+
+                serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString();
+                serialPort1.Open();
+                serialPort1.DiscardInBuffer();
+                EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
+
+
+                //aTimer = new System.Timers.Timer(10000);
+
+                //// Hook up the Elapsed event for the timer.
+                //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
+                //// Set the Interval to 2 seconds (2000 milliseconds).
+                //aTimer.Interval = 10000;
+                //aTimer.Enabled = true;
             }
-
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            catch( Exception E)
             {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt1"].ToString();
+
+                EventLog.WriteEntry("Error Start  ", E.Message.ToString());
 
             }
 
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt1"].ToString();
-
-            }
-
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt2"].ToString();
-
-            }
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + i;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt2"].ToString();
-
-            }
-
-
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt3"].ToString();
-
-            }
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + i;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt3"].ToString();
-
-            }
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt4"].ToString();
-
-            }
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt4"].ToString();
-
-            }
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt5"].ToString();
-
-            }
-
-
-
-
-            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-            {
-                count = count + 1;
-                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt5"].ToString();
-
-            }
-
-
-
-            serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString();
-            serialPort1.Open();
-            serialPort1.DiscardInBuffer();
-            EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
-
-
-            //aTimer = new System.Timers.Timer(10000);
-
-            //// Hook up the Elapsed event for the timer.
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-
-            //// Set the Interval to 2 seconds (2000 milliseconds).
-            //aTimer.Interval = 10000;
-            //aTimer.Enabled = true;
-
-        
         }
        
         protected override void OnStop()
@@ -351,6 +361,7 @@ namespace PIASService
 
         protected override void OnShutdown()
         {
+
             EventLog.WriteEntry("ShutDown PCS TEC Service ", EventLogEntryType.Information);
 
         }
