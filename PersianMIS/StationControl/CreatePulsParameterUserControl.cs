@@ -302,16 +302,18 @@ namespace PersianMIS.StationControl
                 ParameterID.Tag = TSQL;
                 if (ISEditdatable)
                 {
+
+
+                    Bll_Station.UpdateStationParameters(Txt_ParamteterCaption.Text, TSQL, parameterStationId);
+
+                } else
+                {
                     if (parameterStationId < 1)
                     {
                         Bll_Station.InsertStationParameters(Txt_ParamteterCaption.Text, TSQL, stationId);
-                    }
-                    else
-                    {
-                        Bll_Station.UpdateStationParameters(Txt_ParamteterCaption.Text, TSQL, parameterStationId);
-                    }
-                }
-                MessageBox.Show("عملیات با موفقیت انجام گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } }
+                 
+                    MessageBox.Show("عملیات با موفقیت انجام گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
 

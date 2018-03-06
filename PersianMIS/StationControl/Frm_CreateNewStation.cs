@@ -153,9 +153,9 @@ namespace PersianMIS.StationControl
             foreach (Control x in MainPnl.Controls)
             {
 
-                if (x.Controls[1].Text != "" && x.Controls[6].Tag != null)
+                if (x.Controls[2].Text != "" && x.Controls[7].Tag != null)
                 {
-                    Bll_Station.InsertStationParameters(x.Controls[1].Text, x.Controls[6].Tag.ToString(), LastNewStationId);
+                    Bll_Station.InsertStationParameters(x.Controls[2].Text, x.Controls[7].Tag.ToString(), LastNewStationId);
 
                 }
 
@@ -185,9 +185,11 @@ namespace PersianMIS.StationControl
             {
 
                 int i = 0;
-                if (x.Controls[1].Text != "" && x.Controls[6].Tag != null)
+                //for(  i = 0; i <= x.Controls.Count - 1; i++)
+                //{
+    if (x.Controls[2].Text != "" && x.Controls[7].Tag != null)
                 {
-                    i = i + 1;
+                     i = i + 1;
                     Pnl_Step3.Text = Txt_StationCaption.Text;
                     Label Lbl_ParametersExecutaion = new Label();
                     Lbl_ParametersExecutaion.BackColor = System.Drawing.Color.Transparent;
@@ -196,9 +198,11 @@ namespace PersianMIS.StationControl
                     Lbl_ParametersExecutaion.AutoSize = true;
                     Lbl_ParametersExecutaion.TextAlign = System.Drawing.ContentAlignment.TopRight;
 
-                    Lbl_ParametersExecutaion.Text = i + "-" + x.Controls[1].Text;
+                    Lbl_ParametersExecutaion.Text = i + "-" + x.Controls[2].Text;
                     FlowPnl_Step3.Controls.Add(Lbl_ParametersExecutaion);
                 }
+               // }
+            
 
 
             }

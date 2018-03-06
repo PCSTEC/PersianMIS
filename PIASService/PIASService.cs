@@ -529,13 +529,38 @@ namespace PIASService
                         }
                         if (strcode == "INPUT= 67")
                         {
-
+                          
                             if (val.Substring(7, 1) == "1") { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
-                            if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
+                          
+                            
+                            
+                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
+                            
+                            if (val.Substring(6, 1) == "1" && val.Substring(5, 1) == "1")  
+                            {
+                                InsertData2(1048, 2, 0);
+                            }
+                            else
+                            {
+                                if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
+                            }
+
                             if (val.Substring(5, 1) == "1") { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
                             if (val.Substring(4, 1) == "1") { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
                             if (val.Substring(3, 1) == "1") { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
                             if (val.Substring(2, 1) == "1") { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
+
+                             // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
+
+                            if (val.Substring(6, 1) == "1" && val.Substring(5, 1) == "1")
+                            {
+                                InsertData2(1048, 2, 0);
+                            }
+                            else
+                            {
+                                if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
+                            }
+
                             if (val.Substring(1, 1) == "1") { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
                             if (val.Substring(0, 1) == "1") { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
 
