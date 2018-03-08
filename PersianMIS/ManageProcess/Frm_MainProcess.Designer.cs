@@ -71,15 +71,14 @@
             this.RdMainDiagram.Text = "radDiagram1";
             this.RdMainDiagram.CommandExecuted += new System.EventHandler<Telerik.Windows.Diagrams.Core.CommandEventArgs>(this.RdMainDiagram_CommandExecuted);
             this.RdMainDiagram.DiagramLayoutComplete += new System.EventHandler<Telerik.Windows.Diagrams.Core.DiagramLayoutEventArgs>(this.RdMainDiagram_DiagramLayoutComplete);
-            this.RdMainDiagram.AdditionalContentActivated += new System.EventHandler<Telerik.WinControls.UI.Diagrams.AdditionalContentActivatedEventArgs>(this.RdMainDiagram_AdditionalContentActivated);
-            this.RdMainDiagram.Click += new System.EventHandler(this.RdMainDiagram_Click);
+           
             this.RdMainDiagram.DoubleClick += new System.EventHandler(this.RdMainDiagram_DoubleClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(203, 51);
+            this.button1.Location = new System.Drawing.Point(129, 53);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 47);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;

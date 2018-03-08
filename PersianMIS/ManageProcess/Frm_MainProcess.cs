@@ -154,15 +154,9 @@ namespace PersianMIS.Process
 
 
 
-        private void RdMainDiagram_Click(object sender, EventArgs e)
-        {
+   
 
-        }
-
-        private void RdMainDiagram_AdditionalContentActivated(object sender, Telerik.WinControls.UI.Diagrams.AdditionalContentActivatedEventArgs e)
-        {
-
-        }
+    
 
         private void RdMainDiagram_CommandExecuted(object sender, Telerik.Windows.Diagrams.Core.CommandEventArgs e)
         {
