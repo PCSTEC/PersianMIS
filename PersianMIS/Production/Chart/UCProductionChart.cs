@@ -418,6 +418,7 @@ namespace PersianMIS.Production.Chart
                     MainChart.DataBindCrossTable(Dt.AsEnumerable(), LegendField, Xfield, YField, "Label=Duration");
                     foreach (Series N in MainChart.Series)
                     {
+                        N.AxisLabel = "ProductLineDesc";
                         N.BorderWidth = 2;
                     }
 
@@ -486,6 +487,7 @@ namespace PersianMIS.Production.Chart
                                 {
                                     if (Dt.DefaultView[j][LegendField].ToString() == MainChart.Series[x].Points[i].AxisLabel  )
                                     {
+                                       
                                         MainChart.Series[x].Points[i].Color = Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
                                      //   MainChart.Series[x].Color = Color.Red;// Color.FromArgb(Convert.ToInt32(Dt.DefaultView[j]["StateColor"].ToString()));
                                     }
@@ -510,6 +512,7 @@ namespace PersianMIS.Production.Chart
                 {
                     foreach (Series N in MainChart.Series)
                     {
+                        N.AxisLabel = "ProductLineDesc";
                         N.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), BLL.Cls_PublicOperations.Dt.DefaultView[0]["ChartType"].ToString());// Enum.GetValues (typeof(SeriesChartType), "RangeBar");// System.Windows.Forms.DataVisualization.Charting.SeriesChartType( "System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar") ;
 
 
