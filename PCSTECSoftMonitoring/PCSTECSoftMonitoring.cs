@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.ServiceProcess;
 using System.Text;
-
-using Persistent.DataAccess;
-using DAL;
-using System.Windows;
-using FarsiLibrary.Utils;
-using System.Threading;
-using System.IO.Ports;
-using Microsoft.SqlServer.Server;
-using System.Data.SqlClient;
-using IraniDate.IraniDate;
+using System.Threading.Tasks;
 using System.Timers;
+using BLL;
+using DAL;
 
-namespace PIASService
+namespace PCSTECSoftMonitoring
 {
-    public partial class PCSTECService : ServiceBase
+
+
+    public partial class PCSTECSoftMonitoring : ServiceBase
     {
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         DataTable Dt = new DataTable();
@@ -29,6 +26,8 @@ namespace PIASService
         Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
         string stresive1;
         string[] ListOfStartShifTime = new string[60];
+        string[,] ListOfSoftwares = new string[2,60];
+
         PersianCalendar pc = new PersianCalendar();
         string sqlstr = "";
 
@@ -161,50 +160,42 @@ namespace PIASService
         Boolean LstState22 = false;
         Boolean LstState23 = false;
         Boolean LstState24 = false;
+        int DeviceId = 0;
         private static System.Timers.Timer aTimer;
-        public PCSTECService()
+
+
+
+        public PCSTECSoftMonitoring()
         {
             InitializeComponent();
-
         }
-
-        IraniDate.IraniDate.IraniDate CurrentDate = new IraniDate.IraniDate.IraniDate();
-
-
-
 
         protected override void OnStart(string[] args)
         {
-            //BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
-            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            //{
+          
+            GetListOfActiveShifts();
 
-            //    DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //    DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-            //    totalHours = (EndDate - FirstDate).TotalSeconds;
-            //    Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
+            GetListOfProcessAssignForThisComputer();
 
-            //}
-
-            // System.Diagnostics.Debugger.Launch();
-            try
+            while (true)
             {
 
+                CheckForHowToWork();
 
-                EventLog.WriteEntry("Start Mohsen Event", EventLogEntryType.Information);
-                serialPort1.Close();
-                serialPort1.DataBits = 8;
-                serialPort1.Parity = Parity.None;
-                serialPort1.StopBits = StopBits.One;
-                serialPort1.BaudRate = int.Parse("9600");
+            }
 
-                sqlstr = " SELECT   * FROM    Tb_Devices where DeviceId='1048'";
-                Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+        }
 
-                LastTimeForShift = DateTime.Now;
+        protected override void OnStop()
+        {
 
-                // sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
-                sqlstr = @"SELECT        dbo.tbRCL_ShiftAscribe_Machin.AscribeID, dbo.tbRCL_ShiftAscribe_Machin.AscShiftID, dbo.tbRCL_Shifts.ShiftTitle, dbo.tbRCL_Shifts.ShiftType, dbo.tbRCL_ShiftAscribe_Machin.AscMDepartID, 
+        }
+
+        private void GetListOfActiveShifts()
+        {
+            LastTimeForShift = DateTime.Now;
+
+            sqlstr = @"SELECT        dbo.tbRCL_ShiftAscribe_Machin.AscribeID, dbo.tbRCL_ShiftAscribe_Machin.AscShiftID, dbo.tbRCL_Shifts.ShiftTitle, dbo.tbRCL_Shifts.ShiftType, dbo.tbRCL_ShiftAscribe_Machin.AscMDepartID, 
                          dbo.tbRCL_ShiftAscribe_Machin.Ascription, dbo.tbRCL_ShiftAscribe_Machin.AcsStateID, dbo.tbRCL_ShiftAscribe_Machin.AscFromDate, dbo.tbRCL_ShiftAscribe_Machin.AscToDate, 
                          dbo.tbRCL_ShiftAscState.StateName, dbo.tbRCL_Shifts.ShiftID, dbo.tbRCL_Shifts.ShiftBeginHour, dbo.tbRCL_Shifts.ShiftBeginHourTxt, dbo.tbRCL_Shifts.ShiftEndHour, dbo.tbRCL_Shifts.ShiftEndHourTxt, 
                          dbo.tbRCL_Shifts.ShiftDayStateID, dbo.tbRCL_Shifts.ShiftToDayStateID, dbo.tbRCL_Shifts.ShiftBeginBreakTime1, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftEndBreakTime1, 
@@ -229,428 +220,193 @@ FROM            dbo.tbRCL_Shifts INNER JOIN
                          dbo.tbRCL_Calendar_Machin ON dbo.tbRCL_CalendarWeek.WeekID = dbo.tbRCL_Calendar_Machin.CalWeekID INNER JOIN
                          dbo.tbRCL_CalendarDayStatus ON dbo.tbRCL_Calendar_Machin.CalDayStatusID = dbo.tbRCL_CalendarDayStatus.DayStatusID ON 
                          dbo.tbRCL_ShiftAscribe_Machin.AscFromDate = dbo.tbRCL_Calendar_Machin.CalIraniDate
-WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLineId IN (N'G1205', N'G1206',N'G1201',N'G1011',N'G1141',N'G1022',N'G1021'))";
+WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLineId IN (N'" + Dns.GetHostName()  + "'))";
 
-                Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
-                int count = 0;
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
-                    count = i;
-                }
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-
-                    count = count + 1;
-                    TimeSpan Time = new TimeSpan();
-                    Time = TimeSpan.Parse(Dt.DefaultView[i]["ShiftEndHourTxt"].ToString());
-                    TimeSpan ts = TimeSpan.FromMinutes(-2);
-
-                    var ts2 = Time.Add(ts);
-                    string Hour = ts2.Hours.ToString().Length == 2 ? ts2.Hours.ToString() : "0" + ts2.Hours.ToString();
-                    string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
-                    ListOfStartShifTime[count] = Hour + ":" + Minute;
+            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+            int count = 0;
 
 
-
-                }
-
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt1"].ToString();
-
-                }
-
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt1"].ToString();
-
-                }
-
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt2"].ToString();
-
-                }
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + i;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt2"].ToString();
-
-                }
-
-
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt3"].ToString();
-
-                }
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + i;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt3"].ToString();
-
-                }
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt4"].ToString();
-
-                }
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt4"].ToString();
-
-                }
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt5"].ToString();
-
-                }
-
-
-
-
-                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
-                {
-                    count = count + 1;
-                    ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt5"].ToString();
-
-                }
-
-
-
-                serialPort1.PortName = Cls_Public.PublicDT.DefaultView[0]["PortName"].ToString();
-                serialPort1.Open();
-                serialPort1.DiscardInBuffer();
-                EventLog.WriteEntry("Start serialPort1 Event", EventLogEntryType.Information);
-
-
-                //aTimer = new System.Timers.Timer(10000);
-
-                //// Hook up the Elapsed event for the timer.
-                //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-
-                //// Set the Interval to 2 seconds (2000 milliseconds).
-                //aTimer.Interval = 10000;
-                //aTimer.Enabled = true;
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                ListOfStartShifTime[i] = Dt.DefaultView[i]["ShiftBeginHourTxt"].ToString();
+                count = i;
             }
-            catch (Exception E)
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                TimeSpan Time = new TimeSpan();
+                Time = TimeSpan.Parse(Dt.DefaultView[i]["ShiftEndHourTxt"].ToString());
+                TimeSpan ts = TimeSpan.FromMinutes(-2);
+
+                var ts2 = Time.Add(ts);
+                string Hour = ts2.Hours.ToString().Length == 2 ? ts2.Hours.ToString() : "0" + ts2.Hours.ToString();
+                string Minute = ts2.Minutes.ToString().Length == 2 ? ts2.Minutes.ToString() : "0" + ts2.Minutes.ToString();
+                ListOfStartShifTime[count] = Hour + ":" + Minute;
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt1"].ToString();
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
             {
 
-                EventLog.WriteEntry("Error Start  ", E.Message.ToString());
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt1"].ToString();
+            }
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt2"].ToString();
 
             }
 
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + i;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt2"].ToString();
+
+            }
+
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt3"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + i;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt3"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt4"].ToString();
+
+            }
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt4"].ToString();
+            }
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftBeginBreakTimeTxt5"].ToString();
+            }
+
+
+
+
+            for (int i = 0; i <= Dt.Rows.Count - 1; i++)
+            {
+                count = count + 1;
+                ListOfStartShifTime[count] = Dt.DefaultView[i]["ShiftEndBreakTimeTxt5"].ToString();
+            }
+
+
+
         }
 
-        protected override void OnStop()
-        {
-            EventLog.WriteEntry("STOP PCS TEC Service ", EventLogEntryType.Information);
 
-            //BLL.Cls_PublicOperations.Dt = Bll_Client.GetAllCientWithOutDiuratiion();
-            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            //{
-
-            //    DateTime FirstDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiStartDateTime"].ToString());
-            //    DateTime EndDate = DateTime.Parse(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MiladiFinishDateTime"].ToString());
-            //    totalHours = (EndDate - FirstDate).TotalSeconds;
-            //    Bll_Client.UpdateClientDuratuin(BLL.Cls_PublicOperations.Dt.DefaultView[i]["DeviceStateID"].ToString(), totalHours.ToString());
-
-            //}
-
-
-        }
-
-        protected override void OnShutdown()
+        private void GetListOfProcessAssignForThisComputer()
         {
 
-            EventLog.WriteEntry("ShutDown PCS TEC Service ", EventLogEntryType.Information);
 
-        }
+            DAL.Cls_DevicesLine DALDEVICE = new Cls_DevicesLine();
 
-        //      protected override void OnShutdown()
-        //      {
-        //          base.OnShutdown();
-        //          for(int i = 1; i <= 24; i++)
-        //          {
-
-        //sqlstr = "select * from  Tb_Client where DeviceStateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + 1048 + "') AND (DeviceLineId = '" + i + "')  ORDER BY DeviceStateID DESC)";
-        //          Cls_Public.PublicDT = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
-        //              if (string.IsNullOrEmpty(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString()))
-        //              {
-
-        //          DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
-        //          DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
+            
+            Dt = DALDEVICE.GetAllDeviceWithInformation().DefaultView.Table.Select("computername ='" + Dns.GetHostName()    +"'").CopyToDataTable ();
 
 
-        //          totalHours = (EndDate - FirstDate).TotalSeconds;
-        //          sqlstr = "update    Tb_Client  set duration=" + totalHours + ", enddate ='" + CurShamsiDate + "',MiladiFinishDateTime=convert(datetime,'" + DateTime.Now.ToString() + "') , endtime='" + DateTime.Now.ToString("HH:mm:ss:ff") + "',[Count]=" + ++CountOfPuls1 + " where DevicestateID=(SELECT        TOP (1) DeviceStateID  FROM            dbo.Tb_Client  WHERE        (DeviceID = '" + i + "') AND (DeviceLineId = '" + 1048 + "')  ORDER BY DeviceStateID DESC)";
-        //          Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
-
-        //              }
-
-        //          }
-
-        //      }
-
-
-        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
-            try
+            if (Dt.Rows.Count > 0)
             {
 
 
-                IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
 
-                //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
 
-                DateTime thisDate = DateTime.Now;
-                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
-                stresive1 = serialPort1.ReadLine();
+                DeviceId = int.Parse(Dt.DefaultView[0]["deviceid"].ToString());
 
-                display1();
-                //Thread thread1 = new Thread(new ThreadStart(display1));
-                //thread1.Start();
-                //thread1.Join();
+                for (int i = 0; i <= Dt.Rows.Count-1; i++)
+                {
+                    ListOfSoftwares[0,i] = Dt.DefaultView[0]["LineId"].ToString();
+                    ListOfSoftwares[1, i] = Dt.DefaultView[0]["ProcessName"].ToString();
+
+                }
 
 
             }
 
-            catch { }
         }
 
-        private void display1()
+        private void CheckForHowToWork()
         {
-            try
+            string time = DateTime.Now.ToString("HH:mm");
+
+
+
+            foreach (string x in ListOfStartShifTime)
             {
-                String strcode;
-                string val;
-                int num;
 
-                strcode = stresive1.Substring(0, 9);
-                val = stresive1.Substring(10, 3);
-                num = int.Parse(val);
-                val = Convert.ToString(num, 2);
-                val = val.PadLeft(8, '0');
-
-
-
-                //if (DateTime.Now.Hour == 23)
-                //{
-                //    IsNewShift = false;
-                //    // EventLog.WriteEntry("false IS NEXT DAY VALUE IN " + DateTime.Now.ToString(), EventLogEntryType.Information);
-
-                //}
-                //if (DateTime.Now.Hour == 23 && DateTime.Now.Minute == 59 && DateTime.Now.Second == 59 && IsNewShift == false)
-                //{
-                //  EventLog.WriteEntry("Time 0:00 --  " + DateTime.Now.ToString(), EventLogEntryType.Information);
-
-
-                string time = DateTime.Now.ToString("HH:mm");
-
-
-
-                foreach (string x in ListOfStartShifTime)
+                if (time == x && (DateTime.Now - LastTimeForShift).TotalSeconds > 60)
                 {
 
-                    if (time == x && (DateTime.Now - LastTimeForShift).TotalSeconds > 60)
-                    {
 
-                        //   EventLog.WriteEntry("Insert Break Time  New Shift   In Timers in " + DateTime.Now.ToString(), EventLogEntryType.Information);
-
-                        InsertData1(1048, 1, Convert.ToInt32(!LstState1));
-                        InsertData2(1048, 2, Convert.ToInt32(!LstState2));
-                        InsertData3(1048, 3, Convert.ToInt32(!LstState3));
-                        InsertData4(1048, 4, Convert.ToInt32(!LstState4));
-                        InsertData5(1048, 5, Convert.ToInt32(!LstState5));
-                        InsertData6(1048, 6, Convert.ToInt32(!LstState6));
-                        InsertData7(1048, 7, Convert.ToInt32(!LstState7));
-                        InsertData8(1048, 8, Convert.ToInt32(!LstState8));
-                        InsertData9(1048, 9, Convert.ToInt32(!LstState9));
-                        InsertData10(1048, 10, Convert.ToInt32(!LstState10));
-                        InsertData11(1048, 11, Convert.ToInt32(!LstState11));
-                        InsertData12(1048, 12, Convert.ToInt32(!LstState12));
-                        InsertData13(1048, 13, Convert.ToInt32(!LstState13));
-                        InsertData14(1048, 14, Convert.ToInt32(!LstState14));
-                        InsertData15(1048, 15, Convert.ToInt32(!LstState15));
-                        InsertData16(1048, 16, Convert.ToInt32(!LstState16));
-                        InsertData17(1048, 17, Convert.ToInt32(!LstState17));
-                        InsertData18(1048, 18, Convert.ToInt32(!LstState18));
-                        InsertData19(1048, 19, Convert.ToInt32(!LstState19));
-                        InsertData20(1048, 20, Convert.ToInt32(!LstState20));
-                        InsertData21(1048, 21, Convert.ToInt32(!LstState21));
-                        InsertData22(1048, 22, Convert.ToInt32(!LstState22));
-                        InsertData23(1048, 23, Convert.ToInt32(!LstState23));
-                        InsertData24(1048, 24, Convert.ToInt32(!LstState24));
+                    InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
 
 
-                        //   Thread.Sleep(1000);
+                    //   Thread.Sleep(1000);
 
-                        LastTimeForShift = DateTime.Now;
+                    LastTimeForShift = DateTime.Now;
 
+                    //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
 
-                        //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                }
 
+                else
 
-
-
-
-                    }
-
+                {
 
 
-                    else
-                    {
-
-                        if (strcode == "INPUT= 65")
-                        {
-                            if (val.Substring(0, 1) == "1") { InsertData17(1048, 17, 1); } else { InsertData17(1048, 17, 0); }
-                            if (val.Substring(1, 1) == "1") { InsertData18(1048, 18, 1); } else { InsertData18(1048, 18, 0); }
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(2, 1) == "1" && val.Substring(1, 1) == "1")
-                            {
-                                InsertData19(1048, 19, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(2, 1) == "1") { InsertData19(1048, 19, 1); } else { InsertData19(1048, 19, 0); }
-
-                            }
-                            if (val.Substring(3, 1) == "1") { InsertData20(1048, 20, 1); } else { InsertData20(1048, 20, 0); }
-                            if (val.Substring(4, 1) == "1") { InsertData21(1048, 21, 1); } else { InsertData21(1048, 21, 0); }
-                            if (val.Substring(5, 1) == "1") { InsertData22(1048, 22, 1); } else { InsertData22(1048, 22, 0); }
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(5, 1) == "1" && val.Substring(6, 1) == "1")
-                            {
-                                InsertData23(1048, 23, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(6, 1) == "1") { InsertData23(1048, 23, 1); } else { InsertData23(1048, 23, 0); }
-
-                            }
-
-
-
-                            if (val.Substring(7, 1) == "1") { InsertData24(1048, 24, 1); } else { InsertData24(1048, 24, 0); }
-
-                        }
-
-                        if (strcode == "INPUT= 66")
-                        {
-
-
-                            if (val.Substring(0, 1) == "1") { InsertData9(1048, 9, 1); } else { InsertData9(1048, 9, 0); }
-                            if (val.Substring(1, 1) == "1") { InsertData10(1048, 10, 1); } else { InsertData10(1048, 10, 0); }
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(2, 1) == "1" && val.Substring(1, 1) == "1")
-                            {
-                                InsertData11(1048, 11, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(2, 1) == "1") { InsertData11(1048, 11, 1); } else { InsertData11(1048, 11, 0); }
-
-
-                            }
-                            if (val.Substring(3, 1) == "1") { InsertData12(1048, 12, 1); } else { InsertData12(1048, 12, 0); }
-                            if (val.Substring(4, 1) == "1") { InsertData13(1048, 13, 1); } else { InsertData13(1048, 13, 0); }
-                            if (val.Substring(5, 1) == "1") { InsertData14(1048, 14, 1); } else { InsertData14(1048, 14, 0); }
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(6, 1) == "1" && val.Substring(5, 1) == "1")
-                            {
-                                InsertData15(1048, 15, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(6, 1) == "1") { InsertData15(1048, 15, 1); } else { InsertData15(1048, 15, 0); }
-
-
-                            }
-                            if (val.Substring(7, 1) == "1") { InsertData16(1048, 16, 1); } else { InsertData16(1048, 16, 0); }
-
-                        }
-                        if (strcode == "INPUT= 67")
-                        {
-
-                            if (val.Substring(7, 1) == "1") { InsertData1(1048, 1, 1); } else { InsertData1(1048, 1, 0); }
-                            if (val.Substring(6, 1) == "1") { InsertData2(1048, 2, 1); } else { InsertData2(1048, 2, 0); }
-
-
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(6, 1) == "1" && val.Substring(5, 1) == "1")
-                            {
-                                InsertData3(1048, 3, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(5, 1) == "1") { InsertData3(1048, 3, 1); } else { InsertData3(1048, 3, 0); }
-
-                            }
-
-                            if (val.Substring(4, 1) == "1") { InsertData4(1048, 4, 1); } else { InsertData4(1048, 4, 0); }
-                            if (val.Substring(3, 1) == "1") { InsertData5(1048, 5, 1); } else { InsertData5(1048, 5, 0); }
-                            if (val.Substring(2, 1) == "1") { InsertData6(1048, 6, 1); } else { InsertData6(1048, 6, 0); }
-
-                            // اگر J/s بود و بعد همزمان تعویض قطعه شد پالس جاب ستاپ 0 میشه تا فقط تعویض قطعه محسوب بشه
-
-                            if (val.Substring(2, 1) == "1" && val.Substring(1, 1) == "1")
-                            {
-                                InsertData7(1048, 7, 0);
-                            }
-                            else
-                            {
-                                if (val.Substring(1, 1) == "1") { InsertData7(1048, 7, 1); } else { InsertData7(1048, 7, 0); }
-
-                            }
-
-
-                            if (val.Substring(0, 1) == "1") { InsertData8(1048, 8, 1); } else { InsertData8(1048, 8, 0); }
-
-                        }
-                    }
                 }
             }
-            catch { }
+        }
 
-            serialPort1.DiscardInBuffer();
 
-            serialPort1.DiscardOutBuffer();
+
+
+
+        private void CheckProcessState(string ProcessName)
+        {
 
 
         }
 
-        //  private void InsertClient(int DeviceID, int DeviceLineId, string startDate, string StartTime, string EndDate, string EndTime, int Duration, int StateId, int Count, DateTime MiladiStartDateTime, DateTime MiladiFinishDateTime)
+
+
+
+
         private void InsertClient(int DeviceID, int DeviceLineId, string startDate, string StartTime, int StateId, int Count, DateTime MiladiStartDateTime)
 
         {
@@ -3114,9 +2870,6 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
             catch { }
         }
-
-
-
 
 
     }

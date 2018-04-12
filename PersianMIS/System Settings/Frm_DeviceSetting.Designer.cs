@@ -76,6 +76,8 @@
             this.Tab_NewDevice = new Telerik.WinControls.UI.RadPageViewPage();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.Gp_CreateDeviceLine = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.Txt_ProcessName = new Telerik.WinControls.UI.RadTextBox();
+            this.Lbl_ProcessName = new Telerik.WinControls.UI.RadLabel();
             this.Chk_ActiveLineForShowGroup = new Telerik.WinControls.UI.RadCheckBox();
             this.radLabel14 = new Telerik.WinControls.UI.RadLabel();
             this.TxtGapTime = new System.Windows.Forms.NumericUpDown();
@@ -129,6 +131,8 @@
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
             this.radScrollablePanel1.SuspendLayout();
             this.Gp_CreateDeviceLine.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ProcessName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Lbl_ProcessName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chk_ActiveLineForShowGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).BeginInit();
@@ -173,7 +177,7 @@
             // 
             // MainStatusBar
             // 
-            this.MainStatusBar.Location = new System.Drawing.Point(0, 660);
+            this.MainStatusBar.Location = new System.Drawing.Point(0, 685);
             this.MainStatusBar.Name = "MainStatusBar";
             this.MainStatusBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.MainStatusBar.Size = new System.Drawing.Size(1106, 24);
@@ -189,8 +193,8 @@
             this.Main_Page.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
-            this.Main_Page.SelectedPage = this.Tab_NewDevice;
-            this.Main_Page.Size = new System.Drawing.Size(1106, 660);
+            this.Main_Page.SelectedPage = this.Tab_ListOfDevices;
+            this.Main_Page.Size = new System.Drawing.Size(1106, 685);
             this.Main_Page.TabIndex = 4;
             this.Main_Page.SelectedPageChanged += new System.EventHandler(this.Main_Page_SelectedPageChanged);
             // 
@@ -200,7 +204,7 @@
             this.Tab_ListOfDevices.ItemSize = new System.Drawing.SizeF(158F, 34F);
             this.Tab_ListOfDevices.Location = new System.Drawing.Point(10, 43);
             this.Tab_ListOfDevices.Name = "Tab_ListOfDevices";
-            this.Tab_ListOfDevices.Size = new System.Drawing.Size(1085, 606);
+            this.Tab_ListOfDevices.Size = new System.Drawing.Size(1085, 631);
             this.Tab_ListOfDevices.Text = "لیست دستگاه های تعریف شده";
             // 
             // Grd_ListOfDevice
@@ -278,7 +282,7 @@
             this.Grd_ListOfDevice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grd_ListOfDevice.ShowChildViewCaptions = true;
             this.Grd_ListOfDevice.ShowHeaderCellButtons = true;
-            this.Grd_ListOfDevice.Size = new System.Drawing.Size(1085, 606);
+            this.Grd_ListOfDevice.Size = new System.Drawing.Size(1085, 631);
             this.Grd_ListOfDevice.TabIndex = 0;
             this.Grd_ListOfDevice.Click += new System.EventHandler(this.Grd_ListOfDevice_Click);
             // 
@@ -338,7 +342,7 @@
             this.Tab_NewDevice.ItemSize = new System.Drawing.SizeF(112F, 34F);
             this.Tab_NewDevice.Location = new System.Drawing.Point(10, 43);
             this.Tab_NewDevice.Name = "Tab_NewDevice";
-            this.Tab_NewDevice.Size = new System.Drawing.Size(1085, 606);
+            this.Tab_NewDevice.Size = new System.Drawing.Size(1085, 631);
             this.Tab_NewDevice.Text = "تعریف دستگاه جدید";
             // 
             // radScrollablePanel1
@@ -356,8 +360,8 @@
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.TreeViewDevice2);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.Img_Device);
             this.radScrollablePanel1.PanelContainer.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1083, 604);
-            this.radScrollablePanel1.Size = new System.Drawing.Size(1085, 606);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1083, 629);
+            this.radScrollablePanel1.Size = new System.Drawing.Size(1085, 631);
             this.radScrollablePanel1.TabIndex = 0;
             this.radScrollablePanel1.Text = "radScrollablePanel1";
             // 
@@ -365,6 +369,8 @@
             // 
             this.Gp_CreateDeviceLine.CanvasColor = System.Drawing.SystemColors.Control;
             this.Gp_CreateDeviceLine.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.Gp_CreateDeviceLine.Controls.Add(this.Txt_ProcessName);
+            this.Gp_CreateDeviceLine.Controls.Add(this.Lbl_ProcessName);
             this.Gp_CreateDeviceLine.Controls.Add(this.Chk_ActiveLineForShowGroup);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel14);
             this.Gp_CreateDeviceLine.Controls.Add(this.TxtGapTime);
@@ -394,7 +400,7 @@
             this.Gp_CreateDeviceLine.Controls.Add(this.Txt_InputCaption);
             this.Gp_CreateDeviceLine.Location = new System.Drawing.Point(778, 165);
             this.Gp_CreateDeviceLine.Name = "Gp_CreateDeviceLine";
-            this.Gp_CreateDeviceLine.Size = new System.Drawing.Size(293, 436);
+            this.Gp_CreateDeviceLine.Size = new System.Drawing.Size(293, 461);
             // 
             // 
             // 
@@ -418,11 +424,31 @@
             this.Gp_CreateDeviceLine.TabIndex = 30;
             this.Gp_CreateDeviceLine.Visible = false;
             // 
+            // Txt_ProcessName
+            // 
+            this.Txt_ProcessName.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Txt_ProcessName.Location = new System.Drawing.Point(12, 307);
+            this.Txt_ProcessName.Name = "Txt_ProcessName";
+            this.Txt_ProcessName.NullText = "عنوان پروسه";
+            this.Txt_ProcessName.Size = new System.Drawing.Size(166, 26);
+            this.Txt_ProcessName.TabIndex = 54;
+            // 
+            // Lbl_ProcessName
+            // 
+            this.Lbl_ProcessName.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_ProcessName.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Lbl_ProcessName.Location = new System.Drawing.Point(230, 309);
+            this.Lbl_ProcessName.Name = "Lbl_ProcessName";
+            this.Lbl_ProcessName.Size = new System.Drawing.Size(54, 24);
+            this.Lbl_ProcessName.TabIndex = 50;
+            this.Lbl_ProcessName.Text = "نام پروسه:";
+            this.Lbl_ProcessName.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Chk_ActiveLineForShowGroup
             // 
             this.Chk_ActiveLineForShowGroup.BackColor = System.Drawing.Color.Transparent;
             this.Chk_ActiveLineForShowGroup.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Chk_ActiveLineForShowGroup.Location = new System.Drawing.Point(150, 335);
+            this.Chk_ActiveLineForShowGroup.Location = new System.Drawing.Point(150, 361);
             this.Chk_ActiveLineForShowGroup.Name = "Chk_ActiveLineForShowGroup";
             this.Chk_ActiveLineForShowGroup.Size = new System.Drawing.Size(135, 24);
             this.Chk_ActiveLineForShowGroup.TabIndex = 53;
@@ -432,7 +458,7 @@
             // 
             this.radLabel14.BackColor = System.Drawing.Color.Transparent;
             this.radLabel14.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel14.Location = new System.Drawing.Point(87, 311);
+            this.radLabel14.Location = new System.Drawing.Point(87, 337);
             this.radLabel14.Name = "radLabel14";
             this.radLabel14.Size = new System.Drawing.Size(28, 24);
             this.radLabel14.TabIndex = 52;
@@ -441,7 +467,7 @@
             // 
             // TxtGapTime
             // 
-            this.TxtGapTime.Location = new System.Drawing.Point(115, 308);
+            this.TxtGapTime.Location = new System.Drawing.Point(115, 336);
             this.TxtGapTime.Maximum = new decimal(new int[] {
             1215752191,
             23,
@@ -455,7 +481,7 @@
             // 
             this.radLabel13.BackColor = System.Drawing.Color.Transparent;
             this.radLabel13.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radLabel13.Location = new System.Drawing.Point(163, 311);
+            this.radLabel13.Location = new System.Drawing.Point(163, 337);
             this.radLabel13.Name = "radLabel13";
             this.radLabel13.Size = new System.Drawing.Size(125, 24);
             this.radLabel13.TabIndex = 51;
@@ -506,7 +532,7 @@
             // 
             this.Btn_CommiteNewDevice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_CommiteNewDevice.Image = global::PersianMIS.Properties.Resources.Create_Shift__Okpng;
-            this.Btn_CommiteNewDevice.Location = new System.Drawing.Point(80, 397);
+            this.Btn_CommiteNewDevice.Location = new System.Drawing.Point(80, 422);
             this.Btn_CommiteNewDevice.Name = "Btn_CommiteNewDevice";
             this.Btn_CommiteNewDevice.Size = new System.Drawing.Size(133, 33);
             this.Btn_CommiteNewDevice.TabIndex = 46;
@@ -517,7 +543,7 @@
             // 
             this.Btn_UpdateInputLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_UpdateInputLine.Image = global::PersianMIS.Properties.Resources.editButton;
-            this.Btn_UpdateInputLine.Location = new System.Drawing.Point(12, 360);
+            this.Btn_UpdateInputLine.Location = new System.Drawing.Point(12, 385);
             this.Btn_UpdateInputLine.Name = "Btn_UpdateInputLine";
             this.Btn_UpdateInputLine.Size = new System.Drawing.Size(133, 33);
             this.Btn_UpdateInputLine.TabIndex = 45;
@@ -528,7 +554,7 @@
             // 
             this.Btn_CreateNewLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_CreateNewLine.Image = global::PersianMIS.Properties.Resources.Add_Btn;
-            this.Btn_CreateNewLine.Location = new System.Drawing.Point(151, 360);
+            this.Btn_CreateNewLine.Location = new System.Drawing.Point(151, 385);
             this.Btn_CreateNewLine.Name = "Btn_CreateNewLine";
             this.Btn_CreateNewLine.Size = new System.Drawing.Size(133, 33);
             this.Btn_CreateNewLine.TabIndex = 44;
@@ -949,7 +975,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 684);
+            this.ClientSize = new System.Drawing.Size(1106, 709);
             this.Controls.Add(this.Main_Page);
             this.Controls.Add(this.MainStatusBar);
             this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -977,6 +1003,8 @@
             this.radScrollablePanel1.ResumeLayout(false);
             this.Gp_CreateDeviceLine.ResumeLayout(false);
             this.Gp_CreateDeviceLine.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txt_ProcessName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Lbl_ProcessName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chk_ActiveLineForShowGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtGapTime)).EndInit();
@@ -1079,5 +1107,7 @@
         private System.Windows.Forms.NumericUpDown TxtGapTime;
         private Telerik.WinControls.UI.RadLabel radLabel13;
         private Telerik.WinControls.UI.RadCheckBox Chk_ActiveLineForShowGroup;
+        private Telerik.WinControls.UI.RadTextBox Txt_ProcessName;
+        private Telerik.WinControls.UI.RadLabel Lbl_ProcessName;
     }
 }

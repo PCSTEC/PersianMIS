@@ -12,10 +12,10 @@ namespace BLL
     {
         DAL.Cls_DevicesLine DAL_DeviceLine = new Cls_DevicesLine();
 
-        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID,  int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string  ActiveStateDesc, string DeActiveStateDesc , int GapTime , Boolean ISGroup )
+        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID,  int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string  ActiveStateDesc, string DeActiveStateDesc , int GapTime , Boolean ISGroup,string  ProcessName)
         {
 
-            DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime , ISGroup);
+            DAL_DeviceLine.Insert(SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc , GapTime , ISGroup, ProcessName);
 
         }
         public DataTable GetDeviceLineById(string ID)
@@ -56,9 +56,9 @@ namespace BLL
             DAL_DeviceLine.Delete(SPName, DeviceId, LineId);
 
         }
-        public void Update (string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int Gaptime , Boolean isgroup)
+        public void Update (string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int Gaptime , Boolean isgroup,string ProcessName)
         {
-            DAL_DeviceLine.Update (SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc, Gaptime , isgroup);
+            DAL_DeviceLine.Update (SPname, LineId, LineDesc, DeviceId, PulsID, InputPortTypeId, ProductLineId, ActiveColor, DeActiveColor, LineActive,   ActiveStateDesc,   DeActiveStateDesc, Gaptime , isgroup, ProcessName);
 
         }
         public DataTable GetDeviceLineById(string DeviceId, string LineId)

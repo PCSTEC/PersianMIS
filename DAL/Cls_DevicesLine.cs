@@ -9,7 +9,7 @@ namespace DAL
 {
     public class Cls_DevicesLine
     {
-        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean ISGroup)
+        public void Insert(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean ISGroup,string  ProcessName)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
@@ -28,13 +28,15 @@ namespace DAL
             Cls_Public.Pers.Sp_AddParam("@ActiveStateDesc", System.Data.SqlDbType.NVarChar, ActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeActiveStateDesc", System.Data.SqlDbType.NVarChar, DeActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@GapTime", System.Data.SqlDbType.Int, GapTime , System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ProcessName", System.Data.SqlDbType.NChar , ProcessName, System.Data.ParameterDirection.Input);
 
+          
             Cls_Public.Pers.Sp_Exe(SPname, Cls_Public.CnnStr, true);
             Cls_Public.Pers.ClearParameter();
         }
 
 
-        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean isgroup)
+        public void Update(string SPname, int LineId, string LineDesc, int DeviceId, int PulsID, int InputPortTypeId, int ProductLineId, string ActiveColor, string DeActiveColor, Boolean LineActive, string ActiveStateDesc, string DeActiveStateDesc , int GapTime,Boolean isgroup,string ProcessName)
         {
             Cls_Public.Pers.ClearParameter();
             Cls_Public.Pers.Sp_AddParam("@LineId", System.Data.SqlDbType.Int, LineId, System.Data.ParameterDirection.Input);
@@ -51,6 +53,7 @@ namespace DAL
             Cls_Public.Pers.Sp_AddParam("@ActiveStateDesc", System.Data.SqlDbType.NVarChar, ActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@DeActiveStateDesc", System.Data.SqlDbType.NVarChar, DeActiveStateDesc, System.Data.ParameterDirection.Input);
             Cls_Public.Pers.Sp_AddParam("@GapTime", System.Data.SqlDbType.Int, GapTime, System.Data.ParameterDirection.Input);
+            Cls_Public.Pers.Sp_AddParam("@ProcessName", System.Data.SqlDbType.NChar, ProcessName, System.Data.ParameterDirection.Input);
 
             Cls_Public.Pers.Sp_Exe(SPname, Cls_Public.CnnStr, true);
             Cls_Public.Pers.ClearParameter();
@@ -92,7 +95,7 @@ namespace DAL
 
 
 
-            Cls_Public.SqlStr =  "select * from Vw_LineInfo   " ;
+            Cls_Public.SqlStr = "select * from Vw_LineInfo   order by LineId asc";
 
 
             Cls_Public.PublicDT = Cls_Public.Pers.GetDataTable(Cls_Public.CnnStr, Cls_Public.SqlStr);
