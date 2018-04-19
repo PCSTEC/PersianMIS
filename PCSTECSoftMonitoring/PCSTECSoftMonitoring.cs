@@ -26,7 +26,7 @@ namespace PCSTECSoftMonitoring
         Persistent.DataAccess.DataAccess Pers = new Persistent.DataAccess.DataAccess();
         string stresive1;
         string[] ListOfStartShifTime = new string[60];
-        string[,] ListOfSoftwares = new string[2,60];
+        string[,] ListOfSoftwares = new string[2, 60];
 
         PersianCalendar pc = new PersianCalendar();
         string sqlstr = "";
@@ -172,7 +172,7 @@ namespace PCSTECSoftMonitoring
 
         protected override void OnStart(string[] args)
         {
-          
+            System.Diagnostics.Debugger.Launch();
             GetListOfActiveShifts();
 
             GetListOfProcessAssignForThisComputer();
@@ -220,9 +220,11 @@ FROM            dbo.tbRCL_Shifts INNER JOIN
                          dbo.tbRCL_Calendar_Machin ON dbo.tbRCL_CalendarWeek.WeekID = dbo.tbRCL_Calendar_Machin.CalWeekID INNER JOIN
                          dbo.tbRCL_CalendarDayStatus ON dbo.tbRCL_Calendar_Machin.CalDayStatusID = dbo.tbRCL_CalendarDayStatus.DayStatusID ON 
                          dbo.tbRCL_ShiftAscribe_Machin.AscFromDate = dbo.tbRCL_Calendar_Machin.CalIraniDate
-WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLineId IN (N'" + Dns.GetHostName()  + "'))";
+WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLineId IN (N'" + Dns.GetHostName() + "'))";
 
-            Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
+            Dt = Pers.GetDataTable(Cls_Public.CnnStrHumanResource, sqlstr);
+
+
             int count = 0;
 
 
@@ -336,8 +338,8 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
             DAL.Cls_DevicesLine DALDEVICE = new Cls_DevicesLine();
 
-            
-            Dt = DALDEVICE.GetAllDeviceWithInformation().DefaultView.Table.Select("computername ='" + Dns.GetHostName()    +"'").CopyToDataTable ();
+
+            Dt = DALDEVICE.GetAllDeviceWithInformation().DefaultView.Table.Select("computername ='" + Dns.GetHostName() + "'").CopyToDataTable();
 
 
             if (Dt.Rows.Count > 0)
@@ -348,11 +350,12 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
                 DeviceId = int.Parse(Dt.DefaultView[0]["deviceid"].ToString());
 
-                for (int i = 0; i <= Dt.Rows.Count-1; i++)
+                for (int i = 0; i <= Dt.Rows.Count - 1; i++)
                 {
-                    ListOfSoftwares[0,i] = Dt.DefaultView[0]["LineId"].ToString();
-                    ListOfSoftwares[1, i] = Dt.DefaultView[0]["ProcessName"].ToString();
+                    ListOfSoftwares[i, 0] = Dt.DefaultView[0]["LineId"].ToString();
+                    ListOfSoftwares[i, 1] = Dt.DefaultView[0]["ProcessName"].ToString();
 
+                    
                 }
 
 
@@ -373,14 +376,118 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
                 {
 
 
-                    InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
+                    if (ListOfSoftwares.Length > 0)
+                    {
+                        for (int i = 0; i <= ListOfSoftwares.Length - 1; i++)
+                        {
+
+                            switch (int.Parse(ListOfSoftwares[i, 0]))
+                            {
+                                 
+                                case 1:
+                                    InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
+
+                                    break;
+                                case 2:
+                                    InsertData2(DeviceId, 2, Convert.ToInt32(!LstState2));
+
+                                    break;
+                                case 3:
+                                    InsertData3(DeviceId, 3, Convert.ToInt32(!LstState3));
+
+                                    break;
+                                case 4:
+                                    InsertData4(DeviceId, 4, Convert.ToInt32(!LstState4));
+
+                                    break;
+                                case 5:
+                                    InsertData5(DeviceId, 5, Convert.ToInt32(!LstState5));
+
+                                    break;
+                                case 6:
+                                    InsertData6(DeviceId, 6, Convert.ToInt32(!LstState6));
+
+                                    break;
+                                case 7:
+                                    InsertData7(DeviceId, 7, Convert.ToInt32(!LstState7));
+
+                                    break;
+                                case 8:
+                                    InsertData8(DeviceId, 8, Convert.ToInt32(!LstState8));
+
+                                    break;
+                                case 9:
+                                    InsertData9(DeviceId, 9, Convert.ToInt32(!LstState9));
+
+                                    break;
+                                case 10:
+                                    InsertData10(DeviceId, 10, Convert.ToInt32(!LstState10));
+
+                                    break;
+                                case 11:
+                                    InsertData11(DeviceId, 11, Convert.ToInt32(!LstState11));
+
+                                    break;
+                                case 12:
+                                    InsertData12(DeviceId, 12, Convert.ToInt32(!LstState12));
+
+                                    break;
+                                case 13:
+                                    InsertData13(DeviceId, 13, Convert.ToInt32(!LstState13));
+
+                                    break;
+                                case 14:
+                                    InsertData14(DeviceId, 14, Convert.ToInt32(!LstState14));
+
+                                    break;
+                                case 15:
+                                    InsertData15(DeviceId, 15, Convert.ToInt32(!LstState15));
+
+                                    break;
+                                case 16:
+                                    InsertData16(DeviceId, 16, Convert.ToInt32(!LstState16));
+
+                                    break;
+                                case 17:
+                                    InsertData17(DeviceId, 17, Convert.ToInt32(!LstState17));
+
+                                    break;
+                                case 18:
+                                    InsertData18(DeviceId, 18, Convert.ToInt32(!LstState18));
+
+                                    break;
+                                case 19:
+                                    InsertData19(DeviceId, 19, Convert.ToInt32(!LstState19));
+
+                                    break;
+                                case 20:
+                                    InsertData20(DeviceId, 20, Convert.ToInt32(!LstState20));
+
+                                    break;
+                                case 21:
+                                    InsertData21(DeviceId, 21, Convert.ToInt32(!LstState21));
+
+                                    break;
+                                case 22:
+                                    InsertData22(DeviceId, 22, Convert.ToInt32(!LstState22));
+
+                                    break;
+                                case 23:
+                                    InsertData23(DeviceId, 23, Convert.ToInt32(!LstState23));
+
+                                    break;
+                                case 24:
+                                    InsertData24(DeviceId, 24, Convert.ToInt32(!LstState24));
+                                    break;
+                            }
+
+                            LastTimeForShift = DateTime.Now;
 
 
-                    //   Thread.Sleep(1000);
+                        }
+                    }
 
-                    LastTimeForShift = DateTime.Now;
-
-                    //   EventLog.WriteEntry("set IsNewShift to false in  " + DateTime.Now.ToString(), EventLogEntryType.Information);
+                    
 
                 }
 
@@ -388,8 +495,112 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
                 {
 
+                    for (int i = 0; i <= ListOfSoftwares.Length - 1; i++)
+                    {
 
-                }
+                        switch (int.Parse(ListOfSoftwares[i, 0]))
+                        {
+
+                            case 1:
+
+                             /// Compare Data Is Contain ,   if(.conten)
+                                InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
+
+                                break;
+                            case 2:
+                                InsertData2(DeviceId, 2, Convert.ToInt32(!LstState2));
+
+                                break;
+                            case 3:
+                                InsertData3(DeviceId, 3, Convert.ToInt32(!LstState3));
+
+                                break;
+                            case 4:
+                                InsertData4(DeviceId, 4, Convert.ToInt32(!LstState4));
+
+                                break;
+                            case 5:
+                                InsertData5(DeviceId, 5, Convert.ToInt32(!LstState5));
+
+                                break;
+                            case 6:
+                                InsertData6(DeviceId, 6, Convert.ToInt32(!LstState6));
+
+                                break;
+                            case 7:
+                                InsertData7(DeviceId, 7, Convert.ToInt32(!LstState7));
+
+                                break;
+                            case 8:
+                                InsertData8(DeviceId, 8, Convert.ToInt32(!LstState8));
+
+                                break;
+                            case 9:
+                                InsertData9(DeviceId, 9, Convert.ToInt32(!LstState9));
+
+                                break;
+                            case 10:
+                                InsertData10(DeviceId, 10, Convert.ToInt32(!LstState10));
+
+                                break;
+                            case 11:
+                                InsertData11(DeviceId, 11, Convert.ToInt32(!LstState11));
+
+                                break;
+                            case 12:
+                                InsertData12(DeviceId, 12, Convert.ToInt32(!LstState12));
+
+                                break;
+                            case 13:
+                                InsertData13(DeviceId, 13, Convert.ToInt32(!LstState13));
+
+                                break;
+                            case 14:
+                                InsertData14(DeviceId, 14, Convert.ToInt32(!LstState14));
+
+                                break;
+                            case 15:
+                                InsertData15(DeviceId, 15, Convert.ToInt32(!LstState15));
+
+                                break;
+                            case 16:
+                                InsertData16(DeviceId, 16, Convert.ToInt32(!LstState16));
+
+                                break;
+                            case 17:
+                                InsertData17(DeviceId, 17, Convert.ToInt32(!LstState17));
+
+                                break;
+                            case 18:
+                                InsertData18(DeviceId, 18, Convert.ToInt32(!LstState18));
+
+                                break;
+                            case 19:
+                                InsertData19(DeviceId, 19, Convert.ToInt32(!LstState19));
+
+                                break;
+                            case 20:
+                                InsertData20(DeviceId, 20, Convert.ToInt32(!LstState20));
+
+                                break;
+                            case 21:
+                                InsertData21(DeviceId, 21, Convert.ToInt32(!LstState21));
+
+                                break;
+                            case 22:
+                                InsertData22(DeviceId, 22, Convert.ToInt32(!LstState22));
+
+                                break;
+                            case 23:
+                                InsertData23(DeviceId, 23, Convert.ToInt32(!LstState23));
+
+                                break;
+                            case 24:
+                                InsertData24(DeviceId, 24, Convert.ToInt32(!LstState24));
+                                break;
+                        }
+
+                    }
             }
         }
 
@@ -2844,32 +3055,32 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
             }
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            try
-            {
-                IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
+        //private void OnTimedEvent(object source, ElapsedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        IraniDate.IraniDate.IraniDate irdate = new IraniDate.IraniDate.IraniDate();
 
-                //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
+        //        //  IraniDate.IraniDate  Irdate = IraniDate.IraniDate  ;
 
-                DateTime thisDate = DateTime.Now;
+        //        DateTime thisDate = DateTime.Now;
 
-                serialPort1.DiscardInBuffer();
+        //        serialPort1.DiscardInBuffer();
 
-                serialPort1.DiscardOutBuffer();
-                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
-                stresive1 = serialPort1.ReadLine();
+        //        serialPort1.DiscardOutBuffer();
+        //        CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
+        //        stresive1 = serialPort1.ReadLine();
 
-                display1();
-                //Thread thread1 = new Thread(new ThreadStart(display1));
-                //thread1.Start();
-                //thread1.Join();
+        //        display1();
+        //        //Thread thread1 = new Thread(new ThreadStart(display1));
+        //        //thread1.Start();
+        //        //thread1.Join();
 
 
-            }
+        //    }
 
-            catch { }
-        }
+        //    catch { }
+        //}
 
 
     }
