@@ -223,7 +223,7 @@
             // 
             // Tab_RunTime
             // 
-            this.Tab_RunTime.IsSelected = false;
+            this.Tab_RunTime.IsSelected = true;
             this.Tab_RunTime.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_LineStateBorder,
             this.Btn_AllLineStateBorder});
@@ -297,7 +297,6 @@
             // 
             // Btn_AddStationBorder
             // 
-            this.Btn_AddStationBorder.Enabled = false;
             this.Btn_AddStationBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AddStation});
             this.Btn_AddStationBorder.Name = "Btn_AddStationBorder";
@@ -314,7 +313,6 @@
             // 
             // Btn_EditStationInfoBorder
             // 
-            this.Btn_EditStationInfoBorder.Enabled = false;
             this.Btn_EditStationInfoBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_EditStationInfo});
             this.Btn_EditStationInfoBorder.Name = "Btn_EditStationInfoBorder";
@@ -331,7 +329,6 @@
             // 
             // Btn_ChangeBackgroundBorder
             // 
-            this.Btn_ChangeBackgroundBorder.Enabled = false;
             this.Btn_ChangeBackgroundBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ChangeBackground});
             this.Btn_ChangeBackgroundBorder.Name = "Btn_ChangeBackgroundBorder";
@@ -586,7 +583,7 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = true;
+            this.Tab_Setting.IsSelected = false;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
@@ -646,7 +643,6 @@
             // 
             // Btn_Personely
             // 
-            this.Btn_Personely.Enabled = false;
             this.Btn_Personely.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.BtnPersonelyManage});
             this.Btn_Personely.Name = "Btn_Personely";

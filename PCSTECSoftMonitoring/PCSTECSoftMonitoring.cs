@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using BLL;
@@ -172,16 +173,18 @@ namespace PCSTECSoftMonitoring
 
         protected override void OnStart(string[] args)
         {
-            System.Diagnostics.Debugger.Launch();
+     //       System.Diagnostics.Debugger.Launch();
             GetListOfActiveShifts();
 
             GetListOfProcessAssignForThisComputer();
 
             while (true)
             {
+                DateTime thisDate = DateTime.Now;
+                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
 
                 CheckForHowToWork();
-
+                Thread.Sleep(30000);
             }
 
         }
@@ -352,10 +355,11 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
                 for (int i = 0; i <= Dt.Rows.Count - 1; i++)
                 {
+
                     ListOfSoftwares[i, 0] = Dt.DefaultView[0]["LineId"].ToString();
+
                     ListOfSoftwares[i, 1] = Dt.DefaultView[0]["ProcessName"].ToString();
 
-                    
                 }
 
 
@@ -369,7 +373,7 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
 
 
-            foreach (string x in ListOfStartShifTime)
+            foreach (string x in ListOfStartShifTime.Where(s => s != null && s.Trim().Length > 1))
             {
 
                 if (time == x && (DateTime.Now - LastTimeForShift).TotalSeconds > 60)
@@ -383,7 +387,7 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
                             switch (int.Parse(ListOfSoftwares[i, 0]))
                             {
-                                 
+
                                 case 1:
                                     InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
 
@@ -487,120 +491,119 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
                         }
                     }
 
-                    
+
 
                 }
 
-                else
+            }
 
+
+
+            for (int i = 0; i <= (Convert.ToInt32(ListOfSoftwares.GetUpperBound(0)) - 1); i++)
+            {
+
+                switch (int.Parse(ListOfSoftwares[i, 0]))
                 {
 
-                    for (int i = 0; i <= ListOfSoftwares.Length - 1; i++)
-                    {
+                    case 1:
 
-                        switch (int.Parse(ListOfSoftwares[i, 0]))
-                        {
 
-                            case 1:
+                        InsertData1(DeviceId, 1, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                             /// Compare Data Is Contain ,   if(.conten)
-                                InsertData1(DeviceId, 1, Convert.ToInt32(!LstState1));
+                        break;
+                    case 2:
+                        InsertData2(DeviceId, 2, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 2:
-                                InsertData2(DeviceId, 2, Convert.ToInt32(!LstState2));
+                        break;
+                    case 3:
+                        InsertData3(DeviceId, 3, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 3:
-                                InsertData3(DeviceId, 3, Convert.ToInt32(!LstState3));
+                        break;
+                    case 4:
+                        InsertData4(DeviceId, 4, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 4:
-                                InsertData4(DeviceId, 4, Convert.ToInt32(!LstState4));
+                        break;
+                    case 5:
+                        InsertData5(DeviceId, 5, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 5:
-                                InsertData5(DeviceId, 5, Convert.ToInt32(!LstState5));
+                        break;
+                    case 6:
+                        InsertData6(DeviceId, 6, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 6:
-                                InsertData6(DeviceId, 6, Convert.ToInt32(!LstState6));
+                        break;
+                    case 7:
+                        InsertData7(DeviceId, 7, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 7:
-                                InsertData7(DeviceId, 7, Convert.ToInt32(!LstState7));
+                        break;
+                    case 8:
+                        InsertData8(DeviceId, 8, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 8:
-                                InsertData8(DeviceId, 8, Convert.ToInt32(!LstState8));
+                        break;
+                    case 9:
+                        InsertData9(DeviceId, 9, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 9:
-                                InsertData9(DeviceId, 9, Convert.ToInt32(!LstState9));
+                        break;
+                    case 10:
+                        InsertData10(DeviceId, 10, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 10:
-                                InsertData10(DeviceId, 10, Convert.ToInt32(!LstState10));
+                        break;
+                    case 11:
+                        InsertData11(DeviceId, 11, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 11:
-                                InsertData11(DeviceId, 11, Convert.ToInt32(!LstState11));
+                        break;
+                    case 12:
+                        InsertData12(DeviceId, 12, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 12:
-                                InsertData12(DeviceId, 12, Convert.ToInt32(!LstState12));
+                        break;
+                    case 13:
+                        InsertData13(DeviceId, 13, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 13:
-                                InsertData13(DeviceId, 13, Convert.ToInt32(!LstState13));
+                        break;
+                    case 14:
+                        InsertData14(DeviceId, 14, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 14:
-                                InsertData14(DeviceId, 14, Convert.ToInt32(!LstState14));
+                        break;
+                    case 15:
+                        InsertData15(DeviceId, 15, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 15:
-                                InsertData15(DeviceId, 15, Convert.ToInt32(!LstState15));
+                        break;
+                    case 16:
+                        InsertData16(DeviceId, 16, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 16:
-                                InsertData16(DeviceId, 16, Convert.ToInt32(!LstState16));
+                        break;
+                    case 17:
+                        InsertData17(DeviceId, 17, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 17:
-                                InsertData17(DeviceId, 17, Convert.ToInt32(!LstState17));
+                        break;
+                    case 18:
+                        InsertData18(DeviceId, 18, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 18:
-                                InsertData18(DeviceId, 18, Convert.ToInt32(!LstState18));
+                        break;
+                    case 19:
+                        InsertData19(DeviceId, 19, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 19:
-                                InsertData19(DeviceId, 19, Convert.ToInt32(!LstState19));
+                        break;
+                    case 20:
+                        InsertData20(DeviceId, 20, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 20:
-                                InsertData20(DeviceId, 20, Convert.ToInt32(!LstState20));
+                        break;
+                    case 21:
+                        InsertData21(DeviceId, 21, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 21:
-                                InsertData21(DeviceId, 21, Convert.ToInt32(!LstState21));
+                        break;
+                    case 22:
+                        InsertData22(DeviceId, 22, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 22:
-                                InsertData22(DeviceId, 22, Convert.ToInt32(!LstState22));
+                        break;
+                    case 23:
+                        InsertData23(DeviceId, 23, Convert.ToInt32(ProcessWorkingCheck(i)));
 
-                                break;
-                            case 23:
-                                InsertData23(DeviceId, 23, Convert.ToInt32(!LstState23));
+                        break;
+                    case 24:
+                        InsertData24(DeviceId, 24, Convert.ToInt32(ProcessWorkingCheck(i)));
+                        break;
+                }
 
-                                break;
-                            case 24:
-                                InsertData24(DeviceId, 24, Convert.ToInt32(!LstState24));
-                                break;
-                        }
-
-                    }
             }
         }
 
@@ -608,35 +611,97 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
 
 
 
-        private void CheckProcessState(string ProcessName)
+        private bool ProcessWorkingCheck(int IndexOfSoftwareList)
         {
+            string ProcessName = "";
+            int LastStartIndex = 0;
+            string[] ListOfProcess = new string[60];
+            bool Result = false;
+            //for (int z = 1; z <= 100; z++)
+            //{
 
 
+                if (ListOfSoftwares[IndexOfSoftwareList, 1].Contains(","))
+                {
+
+
+                    for (int n = 1; n <= ListOfSoftwares[IndexOfSoftwareList, 1].ToString().Trim().Length ; n++)
+                    {
+                        if (ListOfSoftwares[IndexOfSoftwareList, 1].ToString()[n - 1] == Convert.ToChar(","))
+                        {
+                            int LastIndex = Array.FindLastIndex(ListOfProcess, Item => Item != null && Item.Length > 1);
+                            ListOfProcess[(LastIndex == -1) ? 0 : LastIndex + 1] = ProcessName;
+                            LastStartIndex = n;
+                            ProcessName = "";
+                        }
+
+                        else
+                        {
+                            ProcessName = ProcessName + ListOfSoftwares[IndexOfSoftwareList, 1].ToString()[n - 1].ToString();
+                        }
+                    }
+
+
+                    for (int n = 0; n <= Array.FindLastIndex(ListOfProcess, Item => Item != null && Item.Length > 1); n++)
+                    {
+
+                        if (CheckProcessState(ListOfProcess[n].ToString().Trim()))
+                        {
+                            Result = true;
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    if (CheckProcessState(ListOfSoftwares[IndexOfSoftwareList, 1].ToString().Trim()))
+                    {
+                        Result = true;
+
+                    }
+                }
+            //}
+            return Result;
+        }
+
+        private bool CheckProcessState(string ProcessName)
+        {
+            Process[] processes = Process.GetProcessesByName(ProcessName.ToString().Trim());
+            if (processes.Length > 0)
+            {
+                PerformanceCounter myAppCpu =
+             new PerformanceCounter(
+                 "Process", "% Processor Time", ProcessName, true);
+
+                for (int Cnt = 0; Cnt <= 20; Cnt++)
+                {
+                    //EventLog.WriteEntry("For " + ProcessName, EventLogEntryType.Information);
+                    double pct = myAppCpu.NextValue();
+                    if (pct > 0)
+                    {
+                        // EventLog.WriteEntry("pct >0 " + ProcessName, EventLogEntryType.Information);
+
+                        return true;
+                    }
+                    Thread.Sleep(100);
+
+                }
+
+
+            }
+        
+
+            
+            return false;
         }
 
 
 
 
 
-        private void InsertClient(int DeviceID, int DeviceLineId, string startDate, string StartTime, int StateId, int Count, DateTime MiladiStartDateTime)
 
-        {
 
-            Pers.ClearParameter();
-            Pers.Sp_AddParam("@DeviceID", System.Data.SqlDbType.Int, DeviceID, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@DeviceLineId", System.Data.SqlDbType.Int, DeviceLineId, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@startDate", System.Data.SqlDbType.NVarChar, startDate, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@StartTime", System.Data.SqlDbType.NVarChar, StartTime, System.Data.ParameterDirection.Input);
-            // Pers.Sp_AddParam("@EndDate", System.Data.SqlDbType.NVarChar, EndDate, System.Data.ParameterDirection.Input);
-            //    Pers.Sp_AddParam("@EndTime", System.Data.SqlDbType.NVarChar, EndTime, System.Data.ParameterDirection.Input);
-            //   Pers.Sp_AddParam("@Duration", System.Data.SqlDbType.Int, Duration, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@StateId", System.Data.SqlDbType.Int, StateId, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@Count", System.Data.SqlDbType.Int, Count, System.Data.ParameterDirection.Input);
-            Pers.Sp_AddParam("@MiladiStartDateTime", System.Data.SqlDbType.DateTime, MiladiStartDateTime, System.Data.ParameterDirection.Input);
-            //    Pers.Sp_AddParam("@MiladiFinishDateTime", System.Data.SqlDbType.DateTime, MiladiFinishDateTime, System.Data.ParameterDirection.Input);
-            Pers.Sp_Exe("SP_InsertClient", Cls_Public.CnnStr, true);
-            Pers.ClearParameter();
-        }
 
 
         private void InsertData1(int DeviceId, int DeviceLineId, int StateID)
@@ -915,7 +980,6 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
                         DateTime FirstDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiStartDateTime"].ToString());
                         DateTime EndDate = DateTime.Parse(Cls_Public.PublicDT.DefaultView[0]["MiladiFinishDateTime"].ToString());
                         totalHours = (EndDate - FirstDate).TotalSeconds;
-
 
                         if (totalHours <= 60)
                         {

@@ -34,8 +34,6 @@
             // serviceProcessInstaller1
             // 
             this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalService;
-            this.serviceProcessInstaller1.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceInstaller1});
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 
@@ -44,11 +42,13 @@
             this.serviceInstaller1.DelayedAutoStart = true;
             this.serviceInstaller1.DisplayName = "PCSTECSoftMonitoring";
             this.serviceInstaller1.ServiceName = "PCSTECSoftMonitoring";
+            this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1});
+            this.serviceProcessInstaller1,
+            this.serviceInstaller1});
 
         }
 
