@@ -162,9 +162,9 @@ namespace PCSTECSoftMonitoring
         Boolean LstState23 = false;
         Boolean LstState24 = false;
         int DeviceId = 0;
-        private static System.Timers.Timer aTimer;
 
 
+        private static System.Timers.Timer MainTimer;
 
         public PCSTECSoftMonitoring()
         {
@@ -173,19 +173,22 @@ namespace PCSTECSoftMonitoring
 
         protected override void OnStart(string[] args)
         {
-     //       System.Diagnostics.Debugger.Launch();
+       // System.Diagnostics.Debugger.Launch();
             GetListOfActiveShifts();
 
             GetListOfProcessAssignForThisComputer();
 
-            while (true)
-            {
-                DateTime thisDate = DateTime.Now;
-                CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
 
-                CheckForHowToWork();
-                Thread.Sleep(30000);
-            }
+            MainTimer = new System.Timers.Timer(1000);
+
+            // Hook up the Elapsed event for the timer.
+            MainTimer.Elapsed += new ElapsedEventHandler(MainTimer_Tick);
+
+            // Set the Interval to 2 seconds (2000 milliseconds).
+            MainTimer.Interval = 1000;
+            MainTimer.Enabled = true;
+
+            //  StartMonitoring();
 
         }
 
@@ -194,6 +197,11 @@ namespace PCSTECSoftMonitoring
 
         }
 
+
+        private void StartMonitoring()
+        {
+         
+        }
         private void GetListOfActiveShifts()
         {
             LastTimeForShift = DateTime.Now;
@@ -3117,6 +3125,16 @@ WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLin
                 Pers.ExecuteNoneQuery(sqlstr, Cls_Public.CnnStr);
 
             }
+        }
+
+       
+            private   void MainTimer_Tick(object source, ElapsedEventArgs e)
+        {
+            DateTime thisDate = DateTime.Now;
+            CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
+
+            CheckForHowToWork();
+            Thread.Sleep(30000);
         }
 
         //private void OnTimedEvent(object source, ElapsedEventArgs e)
