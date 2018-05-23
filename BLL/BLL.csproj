@@ -51,6 +51,7 @@
     <Compile Include="Cls_ProductLines.cs" />
     <Compile Include="Cls_PublicOperations.cs" />
     <Compile Include="Cls_Station.cs" />
+    <Compile Include="CSL_Personely.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

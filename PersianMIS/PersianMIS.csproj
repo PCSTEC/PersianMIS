@@ -252,6 +252,18 @@
     <Compile Include="Public Class\CustomSchedulerNavigatorLocalizationProvider.cs" />
     <Compile Include="Public Class\PersianCulture.cs" />
     <Compile Include="Public Class\WorkWithImages.cs" />
+    <Compile Include="PublicTabs\Frm_MessageSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PublicTabs\Frm_MessageSetting.Designer.cs">
+      <DependentUpon>Frm_MessageSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublicTabs\Frm_SelectPuls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PublicTabs\Frm_SelectPuls.Designer.cs">
+      <DependentUpon>Frm_SelectPuls.cs</DependentUpon>
+    </Compile>
     <Compile Include="State\SampleState.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -362,6 +374,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="PublicTabs\Frm_MessageSetting.resx">
+      <DependentUpon>Frm_MessageSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublicTabs\Frm_SelectPuls.resx">
+      <DependentUpon>Frm_SelectPuls.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="State\SampleState.resx">
       <DependentUpon>SampleState.cs</DependentUpon>
     </EmbeddedResource>

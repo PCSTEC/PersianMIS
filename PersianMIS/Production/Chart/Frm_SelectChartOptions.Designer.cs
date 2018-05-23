@@ -53,9 +53,9 @@
             this.Cmb_DataTypeShow = new Telerik.WinControls.UI.RadDropDownList();
             this.label3 = new System.Windows.Forms.Label();
             this.ThemplateChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             this.SelectDataPage = new Telerik.WinControls.UI.RadPageViewPage();
             this.MainTree = new Telerik.WinControls.UI.RadTreeView();
+            this.Btn_Save = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.MainPageView)).BeginInit();
             this.MainPageView.SuspendLayout();
             this.SelectDataTab.SuspendLayout();
@@ -70,9 +70,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ChartTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_DataTypeShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThemplateChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             this.SelectDataPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +84,7 @@
             this.MainPageView.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.MainPageView.Location = new System.Drawing.Point(0, 0);
             this.MainPageView.Name = "MainPageView";
-            this.MainPageView.SelectedPage = this.SelectDataTab;
+            this.MainPageView.SelectedPage = this.SelectDataPage;
             this.MainPageView.Size = new System.Drawing.Size(678, 691);
             this.MainPageView.TabIndex = 0;
             this.MainPageView.Text = "انتخاب داده";
@@ -95,7 +95,7 @@
             this.SelectDataTab.Controls.Add(this.ThemplateChart);
             this.SelectDataTab.Controls.Add(this.Btn_Save);
             this.SelectDataTab.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.SelectDataTab.ItemSize = new System.Drawing.SizeF(88F, 34F);
+            this.SelectDataTab.ItemSize = new System.Drawing.SizeF(84F, 30F);
             this.SelectDataTab.Location = new System.Drawing.Point(10, 43);
             this.SelectDataTab.Name = "SelectDataTab";
             this.SelectDataTab.Size = new System.Drawing.Size(657, 637);
@@ -326,6 +326,26 @@
             title1.Text = "Polar Chart";
             this.ThemplateChart.Titles.Add(title1);
             // 
+            // SelectDataPage
+            // 
+            this.SelectDataPage.Controls.Add(this.MainTree);
+            this.SelectDataPage.ItemSize = new System.Drawing.SizeF(67F, 30F);
+            this.SelectDataPage.Location = new System.Drawing.Point(10, 39);
+            this.SelectDataPage.Name = "SelectDataPage";
+            this.SelectDataPage.Size = new System.Drawing.Size(657, 641);
+            this.SelectDataPage.Text = "انتخاب داده";
+            // 
+            // MainTree
+            // 
+            this.MainTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTree.Location = new System.Drawing.Point(0, 0);
+            this.MainTree.Name = "MainTree";
+            this.MainTree.Size = new System.Drawing.Size(657, 641);
+            this.MainTree.SpacingBetweenNodes = -1;
+            this.MainTree.TabIndex = 1;
+            this.MainTree.Text = "radTreeView1";
+            this.MainTree.NodeCheckedChanged += new Telerik.WinControls.UI.TreeNodeCheckedEventHandler(this.MainTree_NodeCheckedChanged);
+            // 
             // Btn_Save
             // 
             this.Btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -336,26 +356,6 @@
             this.Btn_Save.TabIndex = 59;
             this.Btn_Save.Text = "ذخیره";
             this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
-            // 
-            // SelectDataPage
-            // 
-            this.SelectDataPage.Controls.Add(this.MainTree);
-            this.SelectDataPage.ItemSize = new System.Drawing.SizeF(71F, 34F);
-            this.SelectDataPage.Location = new System.Drawing.Point(10, 43);
-            this.SelectDataPage.Name = "SelectDataPage";
-            this.SelectDataPage.Size = new System.Drawing.Size(657, 696);
-            this.SelectDataPage.Text = "انتخاب داده";
-            // 
-            // MainTree
-            // 
-            this.MainTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainTree.Location = new System.Drawing.Point(0, 0);
-            this.MainTree.Name = "MainTree";
-            this.MainTree.Size = new System.Drawing.Size(657, 696);
-            this.MainTree.SpacingBetweenNodes = -1;
-            this.MainTree.TabIndex = 1;
-            this.MainTree.Text = "radTreeView1";
-            this.MainTree.NodeCheckedChanged += new Telerik.WinControls.UI.TreeNodeCheckedEventHandler(this.MainTree_NodeCheckedChanged);
             // 
             // Frm_SelectChartOptions
             // 
@@ -390,9 +390,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Txt_ChartTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cmb_DataTypeShow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThemplateChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             this.SelectDataPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainTree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Save)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

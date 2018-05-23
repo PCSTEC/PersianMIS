@@ -442,5 +442,11 @@ namespace PersianMIS
            // MainDesctopAlert.ContentImage  = global::PersianMIS.Properties.Resources.EndLogo1;
           
         }
+
+        private void Btn_SendSms_Click(object sender, EventArgs e)
+        {
+            Form Frm = new PublicTabs.Frm_MessageSetting();
+            Frm.ShowDialog();
+        }
     }
 }

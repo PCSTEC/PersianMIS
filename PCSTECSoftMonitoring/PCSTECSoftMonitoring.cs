@@ -210,7 +210,7 @@ namespace PCSTECSoftMonitoring
                          dbo.tbRCL_ShiftAscribe_Machin.Ascription, dbo.tbRCL_ShiftAscribe_Machin.AcsStateID, dbo.tbRCL_ShiftAscribe_Machin.AscFromDate, dbo.tbRCL_ShiftAscribe_Machin.AscToDate, 
                          dbo.tbRCL_ShiftAscState.StateName, dbo.tbRCL_Shifts.ShiftID, dbo.tbRCL_Shifts.ShiftBeginHour, dbo.tbRCL_Shifts.ShiftBeginHourTxt, dbo.tbRCL_Shifts.ShiftEndHour, dbo.tbRCL_Shifts.ShiftEndHourTxt, 
                          dbo.tbRCL_Shifts.ShiftDayStateID, dbo.tbRCL_Shifts.ShiftToDayStateID, dbo.tbRCL_Shifts.ShiftBeginBreakTime1, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftEndBreakTime1, 
-                         dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftDayState1ID, dbo.tbRCL_Shifts.ShiftToDayState1ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime2, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt2, 
+                         dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftDayState1ID, جکdbo.tbRCL_Shifts.ShiftToDayState1ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime2, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt2, 
                          dbo.tbRCL_Shifts.ShiftEndBreakTime2, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt2, dbo.tbRCL_Shifts.ShiftDayState2ID, dbo.tbRCL_Shifts.ShiftToDayState2ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime3, 
                          dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt3, dbo.tbRCL_Shifts.ShiftEndBreakTime3, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt3, dbo.tbRCL_Shifts.ShiftDayState3ID, dbo.tbRCL_Shifts.ShiftToDayState3ID, 
                          dbo.tbRCL_Shifts.ShiftBeginBreakTime4, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt4, dbo.tbRCL_Shifts.ShiftEndBreakTime4, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt4, dbo.tbRCL_Shifts.ShiftDayState4ID, 
