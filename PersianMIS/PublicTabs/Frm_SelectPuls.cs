@@ -17,11 +17,14 @@ namespace PersianMIS.PublicTabs
        
 
 
-        public String DeviceIdStr { get; set; }
-        public  String DeviceLineIdStr { get; set; }
-        public  String StateIdStr { get; set; }
+        public int  DeviceId  { get; set; }
 
+        public  int  DeviceLineId  { get; set; }
 
+        public  int  StateId  { get; set; }
+
+        public int  DeviceLinePrimaryId { get; set; }
+         
 
 
         BLL.Cls_ProductLines Bll_ProductLine = new Cls_ProductLines();
@@ -55,10 +58,15 @@ namespace PersianMIS.PublicTabs
 
         private void MainTree_NodeMouseClick(object sender, RadTreeViewEventArgs e)
         {
-            DeviceIdStr = ((DataRowView)e.Node.Parent.Parent.Parent.DataBoundItem)["DeviceId"].ToString();
-            DeviceLineIdStr = ((DataRowView)e.Node.Parent.DataBoundItem)["lineid"].ToString();
-            StateIdStr = ((DataRowView)e.Node.DataBoundItem)["stateid"].ToString();
+            try
+            {
+                DeviceId = Convert.ToInt32(((DataRowView)e.Node.Parent.Parent.Parent.DataBoundItem)["DeviceId"].ToString());
+                DeviceLineId = Convert.ToInt32(((DataRowView)e.Node.Parent.DataBoundItem)["lineid"].ToString());
+                StateId = Convert.ToInt32(((DataRowView)e.Node.DataBoundItem)["stateid"].ToString());
 
+                DeviceLinePrimaryId = Convert.ToInt32(Bll_DeviceLine.GetDeviceLineById(DeviceId.ToString(), DeviceLineId.ToString()).DefaultView[0]["id"].ToString());
+            }
+            catch { }
         }
     }
 }

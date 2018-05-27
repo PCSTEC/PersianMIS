@@ -55,6 +55,7 @@
     <Compile Include="Cls_Device.cs" />
     <Compile Include="Cls_DevicesLine.cs" />
     <Compile Include="Cls_GetData.cs" />
+    <Compile Include="CLS_Message.cs" />
     <Compile Include="CLS_Personely.cs" />
     <Compile Include="Cls_ProductLines.cs" />
     <Compile Include="Cls_Public.cs" />

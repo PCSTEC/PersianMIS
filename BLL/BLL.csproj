@@ -48,6 +48,7 @@
     <Compile Include="CLS_Device.cs" />
     <Compile Include="CLS_DeviceLine.cs" />
     <Compile Include="Cls_GetData.cs" />
+    <Compile Include="CLS_Message.cs" />
     <Compile Include="Cls_ProductLines.cs" />
     <Compile Include="Cls_PublicOperations.cs" />
     <Compile Include="Cls_Station.cs" />
