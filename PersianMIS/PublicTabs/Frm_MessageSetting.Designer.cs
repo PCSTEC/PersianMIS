@@ -67,6 +67,9 @@
             this.Main_Page = new Telerik.WinControls.UI.RadPageView();
             this.Tab_ListOfAssignedSMS = new Telerik.WinControls.UI.RadPageViewPage();
             this.Grd_ListOfDevice = new Telerik.WinControls.UI.RadGridView();
+            this.MainContexMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Mnu_Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_NewAssignSMS = new Telerik.WinControls.UI.RadPageViewPage();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.Gp_CreateDeviceLine = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -89,14 +92,15 @@
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MainContexMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Mnu_Edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.Mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.TxtRepeatMessageAtTimeDuration = new System.Windows.Forms.NumericUpDown();
+            this.radLabel7 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.Main_Page)).BeginInit();
             this.Main_Page.SuspendLayout();
             this.Tab_ListOfAssignedSMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice.MasterTemplate)).BeginInit();
+            this.MainContexMenu.SuspendLayout();
             this.Tab_NewAssignSMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
@@ -121,7 +125,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.MainContexMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtRepeatMessageAtTimeDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,7 +140,7 @@
             this.Main_Page.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
-            this.Main_Page.SelectedPage = this.Tab_ListOfAssignedSMS;
+            this.Main_Page.SelectedPage = this.Tab_NewAssignSMS;
             this.Main_Page.Size = new System.Drawing.Size(806, 635);
             this.Main_Page.TabIndex = 5;
             // 
@@ -235,6 +241,28 @@
             this.Grd_ListOfDevice.Size = new System.Drawing.Size(785, 581);
             this.Grd_ListOfDevice.TabIndex = 0;
             // 
+            // MainContexMenu
+            // 
+            this.MainContexMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Mnu_Edit,
+            this.Mnu_Delete});
+            this.MainContexMenu.Name = "contextMenuStrip1";
+            this.MainContexMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MainContexMenu.Size = new System.Drawing.Size(167, 48);
+            // 
+            // Mnu_Edit
+            // 
+            this.Mnu_Edit.Name = "Mnu_Edit";
+            this.Mnu_Edit.Size = new System.Drawing.Size(166, 22);
+            this.Mnu_Edit.Text = "&ویرایش اطلاعات";
+            this.Mnu_Edit.Click += new System.EventHandler(this.Mnu_Edit_Click);
+            // 
+            // Mnu_Delete
+            // 
+            this.Mnu_Delete.Name = "Mnu_Delete";
+            this.Mnu_Delete.Size = new System.Drawing.Size(166, 22);
+            this.Mnu_Delete.Text = "&حذف رکورد انتخابی";
+            // 
             // Tab_NewAssignSMS
             // 
             this.Tab_NewAssignSMS.Controls.Add(this.radScrollablePanel1);
@@ -265,6 +293,9 @@
             // 
             this.Gp_CreateDeviceLine.CanvasColor = System.Drawing.SystemColors.Control;
             this.Gp_CreateDeviceLine.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.Gp_CreateDeviceLine.Controls.Add(this.radLabel6);
+            this.Gp_CreateDeviceLine.Controls.Add(this.TxtRepeatMessageAtTimeDuration);
+            this.Gp_CreateDeviceLine.Controls.Add(this.radLabel7);
             this.Gp_CreateDeviceLine.Controls.Add(this.Btn_SelectPuls);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel4);
             this.Gp_CreateDeviceLine.Controls.Add(this.radLabel2);
@@ -463,7 +494,7 @@
             // 
             this.Btn_CreateNewLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Btn_CreateNewLine.Image = global::PersianMIS.Properties.Resources.save;
-            this.Btn_CreateNewLine.Location = new System.Drawing.Point(131, 451);
+            this.Btn_CreateNewLine.Location = new System.Drawing.Point(131, 484);
             this.Btn_CreateNewLine.Name = "Btn_CreateNewLine";
             this.Btn_CreateNewLine.Size = new System.Drawing.Size(160, 33);
             this.Btn_CreateNewLine.TabIndex = 44;
@@ -580,27 +611,44 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // MainContexMenu
+            // radLabel6
             // 
-            this.MainContexMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Mnu_Edit,
-            this.Mnu_Delete});
-            this.MainContexMenu.Name = "contextMenuStrip1";
-            this.MainContexMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainContexMenu.Size = new System.Drawing.Size(167, 70);
+            this.radLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel6.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radLabel6.Location = new System.Drawing.Point(146, 438);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(33, 24);
+            this.radLabel6.TabIndex = 68;
+            this.radLabel6.Text = "دقیقه";
+            this.radLabel6.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
-            // Mnu_Edit
+            // TxtRepeatMessageAtTimeDuration
             // 
-            this.Mnu_Edit.Name = "Mnu_Edit";
-            this.Mnu_Edit.Size = new System.Drawing.Size(166, 22);
-            this.Mnu_Edit.Text = "&ویرایش اطلاعات";
-            this.Mnu_Edit.Click += new System.EventHandler(this.Mnu_Edit_Click);
+            this.TxtRepeatMessageAtTimeDuration.Location = new System.Drawing.Point(181, 437);
+            this.TxtRepeatMessageAtTimeDuration.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
+            this.TxtRepeatMessageAtTimeDuration.Name = "TxtRepeatMessageAtTimeDuration";
+            this.TxtRepeatMessageAtTimeDuration.Size = new System.Drawing.Size(51, 28);
+            this.TxtRepeatMessageAtTimeDuration.TabIndex = 67;
+            this.TxtRepeatMessageAtTimeDuration.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // Mnu_Delete
+            // radLabel7
             // 
-            this.Mnu_Delete.Name = "Mnu_Delete";
-            this.Mnu_Delete.Size = new System.Drawing.Size(166, 22);
-            this.Mnu_Delete.Text = "&حذف رکورد انتخابی";
+            this.radLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel7.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.radLabel7.Location = new System.Drawing.Point(242, 438);
+            this.radLabel7.Name = "radLabel7";
+            this.radLabel7.Size = new System.Drawing.Size(107, 24);
+            this.radLabel7.TabIndex = 66;
+            this.radLabel7.Text = "مدت زمان تکرار پیام :";
+            this.radLabel7.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // Frm_MessageSetting
             // 
@@ -624,6 +672,7 @@
             this.Tab_ListOfAssignedSMS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice)).EndInit();
+            this.MainContexMenu.ResumeLayout(false);
             this.Tab_NewAssignSMS.ResumeLayout(false);
             this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
@@ -649,7 +698,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.MainContexMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtRepeatMessageAtTimeDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -685,5 +736,8 @@
         private System.Windows.Forms.ContextMenuStrip MainContexMenu;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Edit;
         private System.Windows.Forms.ToolStripMenuItem Mnu_Delete;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
+        private System.Windows.Forms.NumericUpDown TxtRepeatMessageAtTimeDuration;
+        private Telerik.WinControls.UI.RadLabel radLabel7;
     }
 }

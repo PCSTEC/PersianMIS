@@ -12,10 +12,17 @@ namespace BLL
 
         DAL.CLS_Message DAL_Message = new DAL.CLS_Message();
 
-        public void Insert ( int PersonCode  , int DeviceLinePrimaryId , int StateId , int DurationTime, string MssagePrefixTitle , string MessageBodyFormat)
+        public void Insert ( int PersonCode  , int DeviceLinePrimaryId , int StateId , int DurationTime, string MssagePrefixTitle , string MessageBodyFormat,int RepeatMessageAtTime)
         {
-            DAL_Message.Insert(PersonCode, DeviceLinePrimaryId, StateId, DurationTime, MssagePrefixTitle, MessageBodyFormat);
+            DAL_Message.Insert(PersonCode, DeviceLinePrimaryId, StateId, DurationTime, MssagePrefixTitle, MessageBodyFormat, RepeatMessageAtTime);
         }
+
+
+        public void Update(int PersonCode, int DeviceLinePrimaryId, int StateId, int DurationTime, string MssagePrefixTitle, string MessageBodyFormat, int MessageThemplateID, int RepeatMessageAtTime)
+        {
+            DAL_Message.Update (PersonCode, DeviceLinePrimaryId, StateId, DurationTime, MssagePrefixTitle, MessageBodyFormat, MessageThemplateID, RepeatMessageAtTime);
+        }
+
         public DataTable GetListOfMessageBodyItems()
         {
             return DAL_Message.GetListOfMessageBodyItems();
@@ -30,6 +37,20 @@ namespace BLL
         {
             
             return     DAL_Message.GetSpecialMessageThemplateById(MessageThemplateID);
+        }
+
+
+        public DataTable GetEmergancyMessageList()
+        {
+            return DAL_Message.GetEmergancyMessageList();
+       
+        }
+
+
+        public DataTable GetSendMessagesByMessageThemplateID(int MessageThemplateID)
+        {
+            return DAL_Message.GetSendMessagesByMessageThemplateID(MessageThemplateID);
+         
         }
     }
 }

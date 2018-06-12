@@ -265,7 +265,7 @@
             // 
             // Tab_Control
             // 
-            this.Tab_Control.IsSelected = true;
+            this.Tab_Control.IsSelected = false;
             this.Tab_Control.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ShowALlStationOnSpecialLineBorder,
             this.Btn_AddStationBorder,
@@ -297,6 +297,7 @@
             // 
             // Btn_AddStationBorder
             // 
+            this.Btn_AddStationBorder.Enabled = false;
             this.Btn_AddStationBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_AddStation});
             this.Btn_AddStationBorder.Name = "Btn_AddStationBorder";
@@ -313,6 +314,7 @@
             // 
             // Btn_EditStationInfoBorder
             // 
+            this.Btn_EditStationInfoBorder.Enabled = false;
             this.Btn_EditStationInfoBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_EditStationInfo});
             this.Btn_EditStationInfoBorder.Name = "Btn_EditStationInfoBorder";
@@ -329,6 +331,7 @@
             // 
             // Btn_ChangeBackgroundBorder
             // 
+            this.Btn_ChangeBackgroundBorder.Enabled = false;
             this.Btn_ChangeBackgroundBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_ChangeBackground});
             this.Btn_ChangeBackgroundBorder.Name = "Btn_ChangeBackgroundBorder";
@@ -584,7 +587,7 @@
             // 
             // Tab_Setting
             // 
-            this.Tab_Setting.IsSelected = false;
+            this.Tab_Setting.IsSelected = true;
             this.Tab_Setting.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameterBorder,
             this.Btn_defineProductLinesBorder,
@@ -597,6 +600,7 @@
             // 
             // Btn_DefineParameterBorder
             // 
+            this.Btn_DefineParameterBorder.Enabled = false;
             this.Btn_DefineParameterBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_DefineParameter});
             this.Btn_DefineParameterBorder.Name = "Btn_DefineParameterBorder";
@@ -613,6 +617,7 @@
             // 
             // Btn_defineProductLinesBorder
             // 
+            this.Btn_defineProductLinesBorder.Enabled = false;
             this.Btn_defineProductLinesBorder.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_defineProductLines});
             this.Btn_defineProductLinesBorder.Name = "Btn_defineProductLinesBorder";
@@ -644,6 +649,7 @@
             // 
             // Btn_Personely
             // 
+            this.Btn_Personely.Enabled = false;
             this.Btn_Personely.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.BtnPersonelyManage});
             this.Btn_Personely.Name = "Btn_Personely";
@@ -666,6 +672,7 @@
             // 
             // Btn_Calander
             // 
+            this.Btn_Calander.Enabled = false;
             this.Btn_Calander.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.Btn_Calendar});
             this.Btn_Calander.Name = "Btn_Calander";

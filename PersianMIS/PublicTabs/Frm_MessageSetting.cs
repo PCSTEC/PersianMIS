@@ -15,8 +15,10 @@ namespace PersianMIS.PublicTabs
         BLL.CSL_Personely Bll_Personely = new BLL.CSL_Personely();
         BLL.CLS_Message Bll_Message = new BLL.CLS_Message();
         int DeviceLinePrimaryId = 0;
-        int StateId = 0;
+        int StateId, MessageThemplateID = 0;
         BLL.Cls_PublicOperations Bll_Public = new BLL.Cls_PublicOperations();
+
+        Boolean IsEditMode = false;
         public Frm_MessageSetting()
         {
             InitializeComponent();
@@ -49,6 +51,7 @@ namespace PersianMIS.PublicTabs
             Cmb_ListOfPersons.DataSource = Bll_Personely.GetListOfActivePersonels();
             Cmb_ListOfPersons.ValueMember = "personcode";
             Cmb_ListOfPersons.DisplayMember = "name";
+            Cmb_ListOfPersons.AutoCompleteMode = AutoCompleteMode.Suggest;
         }
 
         private void Btn_SelectPuls_Click(object sender, EventArgs e)
@@ -74,13 +77,33 @@ namespace PersianMIS.PublicTabs
                 string MessageBodyItems = "0";
                 for (int i = 0; i <= LstOfSelectedMessageBodyItems.Items.Count - 1; i++)
                 {
+
                     MessageBodyItems = MessageBodyItems + "," + LstOfSelectedMessageBodyItems.Items[i].Value;
                 }
-                Bll_Message.Insert(Convert.ToInt32(Cmb_ListOfPersons.SelectedValue), DeviceLinePrimaryId, StateId, Convert.ToInt32(TxtDurationTime.Value), Txt_PrefixCaption.Text, MessageBodyItems);
-                MessageBox.Show("اطلاعات با موفقیت ثبت گردید ", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearObjects();
+                if (IsEditMode)
+                {
+                    if (MessageBox.Show("آیا مطمن هستید از ویرایش رکورد انتخابی ؟ ", Properties.Settings.Default.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Bll_Message.Update(Convert.ToInt32(Cmb_ListOfPersons.SelectedValue), DeviceLinePrimaryId, StateId, Convert.ToInt32(TxtDurationTime.Value), Txt_PrefixCaption.Text, MessageBodyItems, MessageThemplateID, Convert.ToInt32(TxtRepeatMessageAtTimeDuration .Value));
+                    }
+                    else
+                    {
+                        MessageBox.Show("عملیات لغو گردید ", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearObjects();
+                        return;
+                    }
+                }
+                else
+                {
+
+                    Bll_Message.Insert(Convert.ToInt32(Cmb_ListOfPersons.SelectedValue), DeviceLinePrimaryId, StateId, Convert.ToInt32(TxtDurationTime.Value), Txt_PrefixCaption.Text, MessageBodyItems, Convert.ToInt32(TxtRepeatMessageAtTimeDuration.Value));
+
+                }
+
+                    MessageBox.Show("اطلاعات با موفقیت ثبت گردید", Properties.Settings.Default.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearObjects();
+                }
             }
-        }
 
 
 
@@ -98,6 +121,7 @@ namespace PersianMIS.PublicTabs
             fillGrd();
             FillLst();
             TxtDurationTime.Value = 1;
+            TxtRepeatMessageAtTimeDuration.Value = 1;
             Txt_PrefixCaption.Text = "";
             StateId = 0;
             DeviceLinePrimaryId = 0;
@@ -136,43 +160,40 @@ namespace PersianMIS.PublicTabs
 
             BLL.Cls_PublicOperations.Dt = Bll_Message.GetSpecialMessageThemplateById(Convert.ToInt32(Grd_ListOfDevice.CurrentRow.Cells["MessageThemplateID"].Value.ToString()));
 
-            Cmb_ListOfPersons.SelectedValue = BLL.Cls_PublicOperations.Dt.DefaultView[0]["personcode"].ToString();
+            Cmb_ListOfPersons.SelectedValue = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["personcode"].ToString());
 
-             
-        
+
+
 
             int countOfMessageBodyItems = BLL.Cls_PublicOperations.Dt.DefaultView[0]["MessageBodyFormat"].ToString().Split(',').Length - 1;
-            string Str = "";
-
 
             MatchCollection allMatchResults = null;
             var regexObj = new Regex(@",\w*");
             allMatchResults = regexObj.Matches(BLL.Cls_PublicOperations.Dt.DefaultView[0]["MessageBodyFormat"].ToString());
-            foreach(var Item in allMatchResults)
+            foreach (var Item in allMatchResults)
             {
-                Item.ToString().Replace(",", "");
-
-
-
-                ////////ListItem selectedListItem = ddl.Items.FindByValue("2");
-
-                ////////if (selectedListItem != null)
-                ////////{
-                ////////    selectedListItem.Selected = true;
-                ////////}
-
-                ////////LstOfMessageBodyItems.Filter()
-                ////////LstOfSelectedMessageBodyItems.Items.Add(new Telerik.WinControls.UI.RadListDataItem(LstOfMessageBodyItems.SelectedItem.Text, LstOfMessageBodyItems.SelectedItem.Value)); 
-
-
-
+                string str = Item.ToString().Replace(",", "");
+                for (int i = 0; i <= LstOfMessageBodyItems.Items.Count - 1; i++)
+                {
+                    LstOfMessageBodyItems.SelectedIndex = i;
+                    if (LstOfMessageBodyItems.SelectedItem.Value.ToString() == str)
+                    {
+                        LstOfSelectedMessageBodyItems.Items.Add(new Telerik.WinControls.UI.RadListDataItem(LstOfMessageBodyItems.SelectedItem.Text, LstOfMessageBodyItems.SelectedItem.Value));
+                        LstOfMessageBodyItems.Items.Remove(LstOfMessageBodyItems.SelectedItem);
+                    }
+                }
             }
+            DeviceLinePrimaryId= Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["DeviceLinePrimaryId"].ToString());
+            StateId= Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["stateid"].ToString());
 
-            //for(int i = 0; i <= countOfMessageBodyItems - 1; i++)
-            //{
-            //    Str=
-            //}
+            Txt_PrefixCaption.Text = BLL.Cls_PublicOperations.Dt.DefaultView[0]["MssagePrefixTitle"].ToString();
 
+            TxtDurationTime.Value = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["durationtime"].ToString());
+            TxtRepeatMessageAtTimeDuration.Value = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["RepeatMessageAtTime"].ToString());
+
+            IsEditMode = true;
+            Main_Page.SelectedPage = Tab_NewAssignSMS;
+            MessageThemplateID = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[0]["MessageThemplateID"].ToString());
         }
     }
 }

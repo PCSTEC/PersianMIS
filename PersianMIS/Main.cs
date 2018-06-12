@@ -24,6 +24,7 @@ namespace PersianMIS
         BLL.Cls_Station Bll_Station = new BLL.Cls_Station();
         BLL.Cls_GetData Bll_GetData = new BLL.Cls_GetData();
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
+        BLL.Cls_Logs Bll_Log = new BLL.Cls_Logs();
         int CurrentStationId;
         # endregion
 
@@ -46,6 +47,10 @@ namespace PersianMIS
             //MainDesctopAlert.AutoSize = true;
             //MainDesctopAlert.ScreenPosition = AlertScreenPosition.BottomLeft;
             //MainDesctopAlert.Show();
+
+            Bll_Log.InsertLoginsLog(DateTime.Now, Environment.MachineName,Environment.UserName );
+
+
         }
 
         private void Mnu_Exit_Click(object sender, EventArgs e)
