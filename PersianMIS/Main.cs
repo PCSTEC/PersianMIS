@@ -26,6 +26,15 @@ namespace PersianMIS
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         BLL.Cls_Logs Bll_Log = new BLL.Cls_Logs();
         int CurrentStationId;
+
+
+
+
+        PersianCalendar pc = new PersianCalendar();
+        string CurShamsiDate = "";
+        BLL.CLS_Message Cls_Message = new BLL.CLS_Message();
+        BLL.Cls_PublicOperations Cls_Public = new BLL.Cls_PublicOperations();
+        DataTable Dt = new DataTable();
         # endregion
 
         public Main()
@@ -48,7 +57,7 @@ namespace PersianMIS
             //MainDesctopAlert.ScreenPosition = AlertScreenPosition.BottomLeft;
             //MainDesctopAlert.Show();
 
-            Bll_Log.InsertLoginsLog(DateTime.Now, Environment.MachineName,Environment.UserName );
+            Bll_Log.InsertLoginsLog(DateTime.Now, Environment.MachineName, Environment.UserName);
 
 
         }
@@ -437,15 +446,62 @@ namespace PersianMIS
 
         private void Btn_AllLineState_Click(object sender, EventArgs e)
         {
+            DateTime thisDate = DateTime.Now;
+            CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
+            BLL.Cls_PublicOperations.Dt = Cls_Message.GetEmergancyMessageList();
+            string MessageBody = "";
+            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            {
+                Dt = Cls_Message.GetSendMessagesByMessageThemplateID(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageThemplateID"].ToString()));
+                if (Dt.Rows.Count > 0)
+                {
+
+                    // Check to How Delay To Last Send This Themplate Message To Person 
+                    DateTime startTime = Convert.ToDateTime(Dt.DefaultView[0]["SendDateTime"].ToString());
+                    DateTime endTime = DateTime.Now;
+                    TimeSpan span = endTime.Subtract(startTime);
+                    if (span.TotalMinutes >= Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["RepeatMessageAtTime"].ToString()))
+                    {
+                        MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
+                        Dt = Cls_Message.GetListOfMessageBodyItems();
+                        Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
+                        for (int n = 0; n <= Dt.Rows.Count - 1; n++)
+                        {
+                            // fill Message Body
+                            MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
+                        }
 
 
 
+                    }
+
+
+                }
+                else
+                {
+                    // fill Message Body
+
+                    MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
+                    Dt = Cls_Message.GetListOfMessageBodyItems();
+                    Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
+                    for (int n = 0; n <= Dt.Rows.Count - 1; n++)
+                    {
+                        // Send Message 
+                        MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
+                    }
+
+                    // Send Message 
+
+                }
+
+
+
+            }
         }
-
         private void Main_Activated(object sender, EventArgs e)
         {
-           // MainDesctopAlert.ContentImage  = global::PersianMIS.Properties.Resources.EndLogo1;
-          
+            // MainDesctopAlert.ContentImage  = global::PersianMIS.Properties.Resources.EndLogo1;
+
         }
 
         private void Btn_SendSms_Click(object sender, EventArgs e)

@@ -56,8 +56,9 @@ namespace PCSTECSMSSender
                         Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[0]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
                         for(int n = 0; n <= Dt.Rows.Count - 1; n++)
                         {
-                         
-                           
+                            // Send Message 
+
+
                         }
 
                     }
