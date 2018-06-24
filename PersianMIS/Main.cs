@@ -26,7 +26,7 @@ namespace PersianMIS
         BLL.CLS_Client Bll_Client = new BLL.CLS_Client();
         BLL.Cls_Logs Bll_Log = new BLL.Cls_Logs();
         int CurrentStationId;
-
+        int CurMessageThemplateID = 0;
 
 
 
@@ -446,58 +446,100 @@ namespace PersianMIS
 
         private void Btn_AllLineState_Click(object sender, EventArgs e)
         {
-            DateTime thisDate = DateTime.Now;
-            CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
-            BLL.Cls_PublicOperations.Dt = Cls_Message.GetEmergancyMessageList();
-            string MessageBody = "";
-            for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
-            {
-                Dt = Cls_Message.GetSendMessagesByMessageThemplateID(Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageThemplateID"].ToString()));
-                if (Dt.Rows.Count > 0)
-                {
+            //DateTime thisDate = DateTime.Now;
+            //CurShamsiDate = string.Format("{0}/{1}/{2}", pc.GetYear(thisDate), pc.GetMonth(thisDate).ToString("00"), pc.GetDayOfMonth(thisDate).ToString("00"));
+            //BLL.Cls_PublicOperations.Dt = Cls_Message.GetEmergancyMessageList();
+            //string MessageBody = "";
+            //for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
+            //{
+            //    CurMessageThemplateID = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageThemplateID"].ToString());
+            //    Dt = Cls_Message.GetSendMessagesByMessageThemplateID(CurMessageThemplateID);
+            //    if (Dt.Rows.Count > 0)
+            //    {
 
-                    // Check to How Delay To Last Send This Themplate Message To Person 
-                    DateTime startTime = Convert.ToDateTime(Dt.DefaultView[0]["SendDateTime"].ToString());
-                    DateTime endTime = DateTime.Now;
-                    TimeSpan span = endTime.Subtract(startTime);
-                    if (span.TotalMinutes >= Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["RepeatMessageAtTime"].ToString()))
-                    {
-                        MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
-                        Dt = Cls_Message.GetListOfMessageBodyItems();
-                        Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
-                        for (int n = 0; n <= Dt.Rows.Count - 1; n++)
-                        {
-                            // fill Message Body
-                            MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
-                        }
-
-
-
-                    }
+            //        // Check to How Delay To Last Send This Themplate Message To Person 
+            //        DateTime startTime = Convert.ToDateTime(Dt.DefaultView[0]["SendDateTime"].ToString());
+            //        DateTime endTime = DateTime.Now;
+            //        TimeSpan span = endTime.Subtract(startTime);
+            //        if (span.TotalMinutes >= Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["RepeatMessageAtTime"].ToString()))
+            //        {
+            //            MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
+            //            Dt = Cls_Message.GetListOfMessageBodyItems();
+            //            Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
+            //            for (int n = 0; n <= Dt.Rows.Count - 1; n++)
+            //            {
+            //                // fill Message Body
+            //                MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
+            //            }
 
 
-                }
-                else
-                {
-                    // fill Message Body
+            //            // Send Message 
+            //            SendSms(MessageBody, Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Mobile"].ToString()));
 
-                    MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
-                    Dt = Cls_Message.GetListOfMessageBodyItems();
-                    Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
-                    for (int n = 0; n <= Dt.Rows.Count - 1; n++)
-                    {
-                        // Send Message 
-                        MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
-                    }
+            //        }
 
-                    // Send Message 
+            //    }
 
-                }
+            //    else
+            //    {
+            //        // fill Message Body
 
+            //        MessageBody = BLL.Cls_PublicOperations.Dt.DefaultView[i]["MssagePrefixTitle"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i]["Name"].ToString() + Environment.NewLine;
+            //        Dt = Cls_Message.GetListOfMessageBodyItems();
+            //        Dt = Dt.DefaultView.Table.Select("MessageBodyItemId in (" + BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageBodyFormat"].ToString() + ")").CopyToDataTable();
+            //        for (int n = 0; n <= Dt.Rows.Count - 1; n++)
+            //        {
+            //            // Send Message 
+            //            MessageBody = MessageBody + Dt.DefaultView[n]["MessageBodyItemText"].ToString() + ": " + BLL.Cls_PublicOperations.Dt.DefaultView[i][Dt.DefaultView[n]["MessageBodyItem"].ToString()].ToString() + Environment.NewLine;
+            //        }
 
+            //        // Send Message 
+            //        SendSms(MessageBody, Convert.ToInt64(BLL.Cls_PublicOperations.Dt.DefaultView[i]["Mobile"].ToString()));
 
-            }
+            //    }
+
+            //}
+      
         }
+
+
+
+
+        //private void SendSms(string MessageBodys, long MobileNumber)
+        //{
+        //    int smsLineID = 0;
+        //    List<ir.sms.ip.WebServiceSmsSend> sendDetails = new List<ir.sms.ip.WebServiceSmsSend>();
+
+        //    BLL.CLS_Message BllMessage = new BLL.CLS_Message();
+        //    Dt = BllMessage.Get_AllMessageServerSettings();
+        //    string messageBody = string.Empty;
+        //    long mobileNo = 0;
+        //    bool isFlash = Convert.ToBoolean(Dt.DefaultView[0]["isFlash"]);
+        //    messageBody = MessageBodys;
+        //    mobileNo = MobileNumber;
+
+
+        //    sendDetails.Add(new ir.sms.ip.WebServiceSmsSend()
+        //    {
+        //        IsFlash = isFlash,
+        //        MessageBody = messageBody,
+        //        MobileNo = mobileNo
+        //    });
+
+
+        //    ir.sms.ip.SendReceive ws = new ir.sms.ip.SendReceive();
+
+        //    if (!int.TryParse(Dt.DefaultView[0]["MessageServerNumber"].ToString(), out smsLineID)) throw new Exception("smsLineID is missing");
+
+        //    //         DateTime sendSince = this.dtmSendSince.Value.Date.AddHours(this.tmSendSince.Value.Hour).AddMinutes(this.tmSendSince.Value.Minute).AddSeconds(this.tmSendSince.Value.Second);
+
+        //    string message = string.Empty;
+
+        //    long[] result = ws.SendMessage(Dt.DefaultView[0]["UserName"].ToString(), Dt.DefaultView[0]["Password"].ToString(), sendDetails.ToArray(), smsLineID, null, ref message);
+        //    BllMessage.InsertSendMessages(CurMessageThemplateID, DateTime.Now);
+
+        //}
+
         private void Main_Activated(object sender, EventArgs e)
         {
             // MainDesctopAlert.ContentImage  = global::PersianMIS.Properties.Resources.EndLogo1;

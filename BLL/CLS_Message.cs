@@ -17,6 +17,17 @@ namespace BLL
             DAL_Message.Insert(PersonCode, DeviceLinePrimaryId, StateId, DurationTime, MssagePrefixTitle, MessageBodyFormat, RepeatMessageAtTime);
         }
 
+        public void InsertMessageServerSettings(int MessageServerNumber, Boolean IsFlash, string UserName, string Password)
+        {
+            DAL_Message.InsertMessageServerSettings(MessageServerNumber, IsFlash, UserName, Password);
+        }
+
+        public void InsertSendMessages(int MessageThemplateID, DateTime SendDateTime)
+        {
+            DAL_Message.InsertSendMessages(MessageThemplateID, SendDateTime );
+        }
+
+
 
         public void Update(int PersonCode, int DeviceLinePrimaryId, int StateId, int DurationTime, string MssagePrefixTitle, string MessageBodyFormat, int MessageThemplateID, int RepeatMessageAtTime)
         {
@@ -26,6 +37,12 @@ namespace BLL
         public DataTable GetListOfMessageBodyItems()
         {
             return DAL_Message.GetListOfMessageBodyItems();
+        }
+
+
+        public DataTable Get_AllMessageServerSettings()
+        {
+            return DAL_Message.Get_AllMessageServerSettings();
         }
 
         public DataTable GetAllMessageThemplates()
