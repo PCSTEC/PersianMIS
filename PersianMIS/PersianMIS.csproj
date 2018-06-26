@@ -214,6 +214,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageProcess\Frm_ManageSubProcessItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProcess\Frm_ManageSubProcessItems.Designer.cs">
+      <DependentUpon>Frm_ManageSubProcessItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageProcess\PersianDiagramRibbonBarLocalizationProvider.cs" />
     <Compile Include="PCSTECDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageProcess\Frm_MainProcess.resx">
       <DependentUpon>Frm_MainProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProcess\Frm_ManageSubProcessItems.resx">
+      <DependentUpon>Frm_ManageSubProcessItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductionControl\ShowProductionStatusUserControl.resx">
       <DependentUpon>ShowProductionStatusUserControl.cs</DependentUpon>

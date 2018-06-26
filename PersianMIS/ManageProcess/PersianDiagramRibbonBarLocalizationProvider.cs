@@ -18,7 +18,7 @@ namespace PersianMIS.ManageProcess
                     return "باز کردن";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonCopy:
                     return "کپی";
-                case DiagramRibbonBarStringId.DiagramRibbonBarButtonConnectorTool :
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonConnectorTool:
                     return "ابزار ارتباطی";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonCut:
                     return "برداشت";
@@ -50,11 +50,11 @@ namespace PersianMIS.ManageProcess
                     return "ارسال به رو";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonSendToBack:
                     return "ارسال به پشت";
-                case DiagramRibbonBarStringId.DiagramRibbonBarButtonShowGrid :
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonShowGrid:
                     return "نمایش جدول";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonTextTool:
                     return "ابزار متن";
-                case DiagramRibbonBarStringId.DiagramRibbonBarButtonUndo :
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonUndo:
                     return "برگشت به عقب";
                 case DiagramRibbonBarStringId.DiagramRibbonBarClipboardGroup:
                     return "حافظه موقت";
@@ -78,7 +78,7 @@ namespace PersianMIS.ManageProcess
                     return "بزرگ نمایی";
                 case DiagramRibbonBarStringId.DiagramRibbonBarLayoutGroup:
                     return "گروه";
-             
+
                 case DiagramRibbonBarStringId.DiagramRibbonBarPrintGroup:
                     return "چاپ";
                 case DiagramRibbonBarStringId.DiagramRibbonBarPropertiesGroup:
@@ -91,7 +91,7 @@ namespace PersianMIS.ManageProcess
                     return "ابزار";
                 case DiagramRibbonBarStringId.DiagramRibbonBarZoomGroup:
                     return "بزرگ نمایی";
-        
+
                 case DiagramRibbonBarStringId.DiagramRibbonLabelBackground:
                     return "برچسب زمینه";
                 case DiagramRibbonBarStringId.DiagramRibbonLabelGridColor:
@@ -100,11 +100,11 @@ namespace PersianMIS.ManageProcess
                     return "تنظیم بر اساس جدول";
                 case DiagramRibbonBarStringId.DiagramRibbonBarButtonSnapToItems:
                     return "تنظیم بر اساس محتوی";
-                case DiagramRibbonBarStringId.DiagramRibbonBarArrangementGroup :
+                case DiagramRibbonBarStringId.DiagramRibbonBarArrangementGroup:
                     return "مرتب سازی ";
-                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringForward :
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringForward:
                     return "جابجایی به جلو";
-                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringToTop :
+                case DiagramRibbonBarStringId.DiagramRibbonBarButtonBringToTop:
                     return "جابجایی به بالا";
                 default:
                     return base.GetLocalizedString(id);

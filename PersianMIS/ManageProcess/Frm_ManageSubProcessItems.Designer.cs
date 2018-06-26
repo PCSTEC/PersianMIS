@@ -1,6 +1,6 @@
-﻿namespace PersianMIS.PublicTabs
+﻿namespace PersianMIS.ManageProcess
 {
-    partial class Frm_MessageSetting
+    partial class Frm_ManageSubProcessItems
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -63,13 +62,10 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem22 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem23 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem24 = new Telerik.WinControls.UI.RadListDataItem();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MessageSetting));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ManageSubProcessItems));
             this.Main_Page = new Telerik.WinControls.UI.RadPageView();
             this.Tab_ListOfAssignedSMS = new Telerik.WinControls.UI.RadPageViewPage();
             this.Grd_ListOfDevice = new Telerik.WinControls.UI.RadGridView();
-            this.MainContexMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Mnu_Edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.Mnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.Tab_NewAssignSMS = new Telerik.WinControls.UI.RadPageViewPage();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.Gp_CreateDeviceLine = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -100,7 +96,6 @@
             this.Tab_ListOfAssignedSMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice.MasterTemplate)).BeginInit();
-            this.MainContexMenu.SuspendLayout();
             this.Tab_NewAssignSMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
@@ -141,8 +136,8 @@
             this.Main_Page.Location = new System.Drawing.Point(0, 0);
             this.Main_Page.Name = "Main_Page";
             this.Main_Page.SelectedPage = this.Tab_ListOfAssignedSMS;
-            this.Main_Page.Size = new System.Drawing.Size(806, 635);
-            this.Main_Page.TabIndex = 5;
+            this.Main_Page.Size = new System.Drawing.Size(811, 632);
+            this.Main_Page.TabIndex = 6;
             // 
             // Tab_ListOfAssignedSMS
             // 
@@ -150,13 +145,12 @@
             this.Tab_ListOfAssignedSMS.ItemSize = new System.Drawing.SizeF(186F, 34F);
             this.Tab_ListOfAssignedSMS.Location = new System.Drawing.Point(10, 43);
             this.Tab_ListOfAssignedSMS.Name = "Tab_ListOfAssignedSMS";
-            this.Tab_ListOfAssignedSMS.Size = new System.Drawing.Size(785, 581);
+            this.Tab_ListOfAssignedSMS.Size = new System.Drawing.Size(790, 578);
             this.Tab_ListOfAssignedSMS.Text = "لیست پیامک های تخصیص داده شده";
             // 
             // Grd_ListOfDevice
             // 
             this.Grd_ListOfDevice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
-            this.Grd_ListOfDevice.ContextMenuStrip = this.MainContexMenu;
             this.Grd_ListOfDevice.Cursor = System.Windows.Forms.Cursors.Default;
             this.Grd_ListOfDevice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Grd_ListOfDevice.EnableCustomSorting = true;
@@ -238,30 +232,8 @@
             this.Grd_ListOfDevice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grd_ListOfDevice.ShowChildViewCaptions = true;
             this.Grd_ListOfDevice.ShowHeaderCellButtons = true;
-            this.Grd_ListOfDevice.Size = new System.Drawing.Size(785, 581);
+            this.Grd_ListOfDevice.Size = new System.Drawing.Size(790, 578);
             this.Grd_ListOfDevice.TabIndex = 0;
-            // 
-            // MainContexMenu
-            // 
-            this.MainContexMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Mnu_Edit,
-            this.Mnu_Delete});
-            this.MainContexMenu.Name = "contextMenuStrip1";
-            this.MainContexMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.MainContexMenu.Size = new System.Drawing.Size(167, 48);
-            // 
-            // Mnu_Edit
-            // 
-            this.Mnu_Edit.Name = "Mnu_Edit";
-            this.Mnu_Edit.Size = new System.Drawing.Size(166, 22);
-            this.Mnu_Edit.Text = "&ویرایش اطلاعات";
-            this.Mnu_Edit.Click += new System.EventHandler(this.Mnu_Edit_Click);
-            // 
-            // Mnu_Delete
-            // 
-            this.Mnu_Delete.Name = "Mnu_Delete";
-            this.Mnu_Delete.Size = new System.Drawing.Size(166, 22);
-            this.Mnu_Delete.Text = "&حذف رکورد انتخابی";
             // 
             // Tab_NewAssignSMS
             // 
@@ -269,7 +241,7 @@
             this.Tab_NewAssignSMS.ItemSize = new System.Drawing.SizeF(107F, 34F);
             this.Tab_NewAssignSMS.Location = new System.Drawing.Point(10, 43);
             this.Tab_NewAssignSMS.Name = "Tab_NewAssignSMS";
-            this.Tab_NewAssignSMS.Size = new System.Drawing.Size(785, 581);
+            this.Tab_NewAssignSMS.Size = new System.Drawing.Size(790, 578);
             this.Tab_NewAssignSMS.Text = "تعریف پیامک جدید";
             // 
             // radScrollablePanel1
@@ -284,8 +256,9 @@
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.Gp_CreateDeviceLine);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.groupPanel1);
             this.radScrollablePanel1.PanelContainer.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(783, 579);
-            this.radScrollablePanel1.Size = new System.Drawing.Size(785, 581);
+            this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(18, 1);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(771, 559);
+            this.radScrollablePanel1.Size = new System.Drawing.Size(790, 578);
             this.radScrollablePanel1.TabIndex = 0;
             this.radScrollablePanel1.Text = "radScrollablePanel1";
             // 
@@ -386,7 +359,6 @@
             this.Btn_SelectPuls.Size = new System.Drawing.Size(240, 33);
             this.Btn_SelectPuls.TabIndex = 56;
             this.Btn_SelectPuls.Text = "پالس مورد نظر خود را انتخاب نمایید";
-            this.Btn_SelectPuls.Click += new System.EventHandler(this.Btn_SelectPuls_Click);
             // 
             // radLabel4
             // 
@@ -431,7 +403,6 @@
             this.Btn_AddItem.Name = "Btn_AddItem";
             this.Btn_AddItem.Size = new System.Drawing.Size(30, 35);
             this.Btn_AddItem.TabIndex = 62;
-            this.Btn_AddItem.Click += new System.EventHandler(this.Btn_AddItem_Click);
             // 
             // Btn_RemoveItem
             // 
@@ -441,7 +412,6 @@
             this.Btn_RemoveItem.Name = "Btn_RemoveItem";
             this.Btn_RemoveItem.Size = new System.Drawing.Size(30, 35);
             this.Btn_RemoveItem.TabIndex = 61;
-            this.Btn_RemoveItem.Click += new System.EventHandler(this.Btn_RemoveItem_Click);
             // 
             // LstOfSelectedMessageBodyItems
             // 
@@ -538,7 +508,6 @@
             this.Btn_CreateNewLine.Size = new System.Drawing.Size(160, 33);
             this.Btn_CreateNewLine.TabIndex = 44;
             this.Btn_CreateNewLine.Text = "ذخیره قالب پیامک جدید";
-            this.Btn_CreateNewLine.Click += new System.EventHandler(this.Btn_CreateNewLine_Click);
             // 
             // Cmb_ListOfPersons
             // 
@@ -650,29 +619,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Frm_MessageSetting
+            // Frm_ManageSubProcessItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 635);
+            this.ClientSize = new System.Drawing.Size(811, 632);
             this.Controls.Add(this.Main_Page);
-            this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Frm_MessageSetting";
+            this.MaximizeBox = false;
+            this.Name = "Frm_ManageSubProcessItems";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تنظیمات ارسال پیامک";
-            this.Load += new System.EventHandler(this.Frm_MessageSetting_Load);
+            this.Text = "مراحل اجرای عملیات";
             ((System.ComponentModel.ISupportInitialize)(this.Main_Page)).EndInit();
             this.Main_Page.ResumeLayout(false);
             this.Tab_ListOfAssignedSMS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ListOfDevice)).EndInit();
-            this.MainContexMenu.ResumeLayout(false);
             this.Tab_NewAssignSMS.ResumeLayout(false);
             this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
@@ -714,15 +681,9 @@
         private Telerik.WinControls.UI.RadPageViewPage Tab_NewAssignSMS;
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
         private DevComponents.DotNetBar.Controls.GroupPanel Gp_CreateDeviceLine;
-        private Telerik.WinControls.UI.RadLabel radLabel14;
-        private System.Windows.Forms.NumericUpDown TxtDurationTime;
-        private Telerik.WinControls.UI.RadLabel radLabel13;
-        private Telerik.WinControls.UI.RadButton Btn_CreateNewLine;
-        private Telerik.WinControls.UI.RadDropDownList Cmb_ListOfPersons;
-        private Telerik.WinControls.UI.RadLabel radLabel9;
-        private Telerik.WinControls.UI.RadLabel radLabel5;
-        private Telerik.WinControls.UI.RadTextBox Txt_PrefixCaption;
-        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
+        private System.Windows.Forms.NumericUpDown TxtRepeatMessageAtTimeDuration;
+        private Telerik.WinControls.UI.RadLabel radLabel7;
         private Telerik.WinControls.UI.RadButton Btn_SelectPuls;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadLabel radLabel2;
@@ -731,13 +692,16 @@
         private Telerik.WinControls.UI.RadButton Btn_RemoveItem;
         private Telerik.WinControls.UI.RadListControl LstOfSelectedMessageBodyItems;
         private Telerik.WinControls.UI.RadListControl LstOfMessageBodyItems;
+        private Telerik.WinControls.UI.RadTextBox Txt_PrefixCaption;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel radLabel14;
+        private System.Windows.Forms.NumericUpDown TxtDurationTime;
+        private Telerik.WinControls.UI.RadLabel radLabel13;
+        private Telerik.WinControls.UI.RadButton Btn_CreateNewLine;
+        private Telerik.WinControls.UI.RadDropDownList Cmb_ListOfPersons;
+        private Telerik.WinControls.UI.RadLabel radLabel9;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ContextMenuStrip MainContexMenu;
-        private System.Windows.Forms.ToolStripMenuItem Mnu_Edit;
-        private System.Windows.Forms.ToolStripMenuItem Mnu_Delete;
-        private Telerik.WinControls.UI.RadLabel radLabel6;
-        private System.Windows.Forms.NumericUpDown TxtRepeatMessageAtTimeDuration;
-        private Telerik.WinControls.UI.RadLabel radLabel7;
     }
 }

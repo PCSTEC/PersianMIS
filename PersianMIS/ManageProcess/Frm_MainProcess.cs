@@ -26,6 +26,8 @@ namespace PersianMIS.Process
             {
                 Item.Key = "";
             }
+
+            
         }
 
 
@@ -122,7 +124,7 @@ namespace PersianMIS.Process
                         RdMainDiagram.Items[i].Tag = ++MaxTag;
                         RdMainDiagram.Items[i].Name = "Obj" + MaxTag;
                     }
- 
+
                 }
 
 
@@ -131,14 +133,12 @@ namespace PersianMIS.Process
                 {
 
                     Telerik.WinControls.UI.RadDiagramShape X = (Telerik.WinControls.UI.RadDiagramShape)SelectedItem.Items[0];
+                    Telerik.WinControls.UI.RadDiagramShape SelectedObject =(Telerik.WinControls.UI.RadDiagramShape)SelectedItem.SelectedItem ;
 
-
-                    MessageBox.Show(X.Tag.ToString());
-                    if (X.ShapeText == "123")
-                    {
-                        MessageBox.Show("Is 123");
-                    }
-
+                    Form Frm = new Frm_ManageSubProcessItems();
+                    Frm.Text = SelectedObject.Tag .ToString();
+                    Frm.ShowDialog();
+                        
 
 
 
@@ -154,28 +154,28 @@ namespace PersianMIS.Process
 
 
 
-   
 
-    
+
+
 
         private void RdMainDiagram_CommandExecuted(object sender, Telerik.Windows.Diagrams.Core.CommandEventArgs e)
         {
 
-            try
-            {
-                foreach (var x in RdMainDiagram.Items)
-                {
-                    if (x.Tag != null)
-                    {
-                        x.Tag = ++MaxTag;
-                    }
+            //try
+            //{
+            //    foreach (var x in RdMainDiagram.Items)
+            //    {
+            //        if (x.Tag != null)
+            //        {
+            //            x.Tag = ++MaxTag;
+            //        }
 
-                }
-            }
-            catch
-            {
+            //    }
+            //}
+            //catch
+            //{
 
-            }
+            //}
 
             //RadDiagramElement X = (RadDiagramElement)sender;
             //X.Tag = ++MaxTag;
@@ -196,6 +196,25 @@ namespace PersianMIS.Process
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RdMainDiagram_Click(object sender, EventArgs e)
+        {
+            try
+            {
+ Telerik.WinControls.UI.RadDiagram SelectedItem = (Telerik.WinControls.UI.RadDiagram)sender;
+            if (SelectedItem.Items.Count > 0)
+            {
+
+                Telerik.WinControls.UI.RadDiagramShape X = (Telerik.WinControls.UI.RadDiagramShape)SelectedItem.Items[0];
+                X.IsEditable = false;
+            }
+            }
+            catch
+            {
+
+            }
+           
         }
     }
 }
