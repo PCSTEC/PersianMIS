@@ -118,27 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Rd_Menu.StartButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAVBJREFUOE/Fkz9PAkEQxe9b2FnZaIklNZYk0lKDtb2fCT8O/+FAoyAS4HZv9447
-        HOfNsQtqLIwmXvLy3ryd+XUX/MV3xqqymj8UbnAbVGfzF7t7I3Jqte59/k642UOC5o4bm2Zk0pyQBbDv
-        LHc2YbHj3WW841YAWb4jbRJScULIAOToeL65vfsibVJ5PwCynNaRpvVGEzIA0m1iWqE/Fu+4PQ9Itxkt
-        lit6Xa4p3W4FAMdcqzfout4U1UQN7lf8nh0ASZLS83whQgZAulnRefE8Y4fw7gHWJjR9fBIhA2DYH3gu
-        la/okgUvlSucK37PA+LY0DiciJABcN1o/Eluz5gDQOuYBoMR9YcjQgYA3h8M6eT0/EgX4m7PA5TS1O72
-        qN3pETIA8A7P7U5Xesm841wp5QHVMJzYKFIURRFLCaDIxfwxFzNucAvAr/+F//yC4B3hWS7Z8DymkQAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="office2010SilverTheme1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="telerikMetroTheme1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>554, 56</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>110</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABABILAAASCwAAAAAAAAAA
