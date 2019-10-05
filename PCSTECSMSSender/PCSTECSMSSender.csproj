@@ -132,10 +132,15 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://ip.sms.ir/ws/SendReceive.asmx">
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://ip.sms.ir/ws/SendReceive.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ir.sms.ip\</RelPath>
-      <UpdateFromURL>http://ip.sms.ir/ws/SendReceive.asmx</UpdateFromURL>
+      <UpdateFromURL>https://ip.sms.ir/ws/SendReceive.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -146,11 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\ir.sms.ip\SendReceive.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ProjectInstaller.resx">
-      <DependentUpon>ProjectInstaller.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

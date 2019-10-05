@@ -32,7 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Persistent, Version=1.0.4163.19430, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,6 +59,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{b274f6b5-1179-4c7c-8e91-028779542b05}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistent\Persistent.vbproj">
+      <Project>{f326b3c4-7562-4bbd-9f90-7324a9a955e9}</Project>
+      <Name>Persistent</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

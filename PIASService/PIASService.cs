@@ -161,6 +161,7 @@ namespace PIASService
         Boolean LstState22 = false;
         Boolean LstState23 = false;
         Boolean LstState24 = false;
+
         private static System.Timers.Timer aTimer;
         public PCSTECService()
         {
@@ -186,7 +187,7 @@ namespace PIASService
 
             //}
 
-            // System.Diagnostics.Debugger.Launch();
+            System.Diagnostics.Debugger.Launch();
             try
             {
 
@@ -203,34 +204,8 @@ namespace PIASService
 
                 LastTimeForShift = DateTime.Now;
 
-                // sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
-                sqlstr = @"SELECT        dbo.tbRCL_ShiftAscribe_Machin.AscribeID, dbo.tbRCL_ShiftAscribe_Machin.AscShiftID, dbo.tbRCL_Shifts.ShiftTitle, dbo.tbRCL_Shifts.ShiftType, dbo.tbRCL_ShiftAscribe_Machin.AscMDepartID, 
-                         dbo.tbRCL_ShiftAscribe_Machin.Ascription, dbo.tbRCL_ShiftAscribe_Machin.AcsStateID, dbo.tbRCL_ShiftAscribe_Machin.AscFromDate, dbo.tbRCL_ShiftAscribe_Machin.AscToDate, 
-                         dbo.tbRCL_ShiftAscState.StateName, dbo.tbRCL_Shifts.ShiftID, dbo.tbRCL_Shifts.ShiftBeginHour, dbo.tbRCL_Shifts.ShiftBeginHourTxt, dbo.tbRCL_Shifts.ShiftEndHour, dbo.tbRCL_Shifts.ShiftEndHourTxt, 
-                         dbo.tbRCL_Shifts.ShiftDayStateID, dbo.tbRCL_Shifts.ShiftToDayStateID, dbo.tbRCL_Shifts.ShiftBeginBreakTime1, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftEndBreakTime1, 
-                         dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt1, dbo.tbRCL_Shifts.ShiftDayState1ID, dbo.tbRCL_Shifts.ShiftToDayState1ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime2, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt2, 
-                         dbo.tbRCL_Shifts.ShiftEndBreakTime2, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt2, dbo.tbRCL_Shifts.ShiftDayState2ID, dbo.tbRCL_Shifts.ShiftToDayState2ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime3, 
-                         dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt3, dbo.tbRCL_Shifts.ShiftEndBreakTime3, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt3, dbo.tbRCL_Shifts.ShiftDayState3ID, dbo.tbRCL_Shifts.ShiftToDayState3ID, 
-                         dbo.tbRCL_Shifts.ShiftBeginBreakTime4, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt4, dbo.tbRCL_Shifts.ShiftEndBreakTime4, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt4, dbo.tbRCL_Shifts.ShiftDayState4ID, 
-                         dbo.tbRCL_Shifts.ShiftToDayState4ID, dbo.tbRCL_Shifts.ShiftBeginBreakTime5, dbo.tbRCL_Shifts.ShiftBeginBreakTimeTxt5, dbo.tbRCL_Shifts.ShiftEndBreakTime5, dbo.tbRCL_Shifts.ShiftEndBreakTimeTxt5, 
-                         dbo.tbRCL_Shifts.ShiftDayState5ID, dbo.tbRCL_Shifts.ShiftToDayState5ID, dbo.tbRCL_Shifts.s, ISNULL(dbo.tbRCL_CalendarWeek.WeekIraniDayName, 'ثبت نشده') AS StartDateName, 
-                         ISNULL(dbo.tbRCL_CalendarDayStatus.DayStatusName, 'ثبت نشده') AS StartStatusName, ISNULL(tbRCL_CalendarWeek_1.WeekIraniDayName, 'ثبت نشده') AS EndDateName, 
-                         ISNULL(tbRCL_CalendarDayStatus_1.DayStatusName, 'ثبت نشده') AS EndStatusName, dbo.tbRCL_Shifts.Active, GetListOfProductLines.ProductLineId, GetListOfProductLines.ProductLineDesc, 
-                         GetListOfProductLines.Description
-FROM            dbo.tbRCL_Shifts INNER JOIN
-                         dbo.tbRCL_ShiftAscribe_Machin ON dbo.tbRCL_Shifts.ShiftID = dbo.tbRCL_ShiftAscribe_Machin.AscShiftID INNER JOIN
-                         dbo.tbRCL_ShiftAscState ON dbo.tbRCL_ShiftAscribe_Machin.AcsStateID = dbo.tbRCL_ShiftAscState.StateID INNER JOIN
-                         PCSTEC.dbo.GetListOfProductLines() AS GetListOfProductLines ON dbo.tbRCL_ShiftAscribe_Machin.AscMDepartID = GetListOfProductLines.ID LEFT OUTER JOIN
-                         dbo.tbRCL_Calendar_Machin AS tbRCL_Calendar_Machin_1 INNER JOIN
-                         dbo.tbRCL_CalendarDayStatus AS tbRCL_CalendarDayStatus_1 ON tbRCL_Calendar_Machin_1.CalDayStatusID = tbRCL_CalendarDayStatus_1.DayStatusID INNER JOIN
-                         dbo.tbRCL_CalendarWeek AS tbRCL_CalendarWeek_1 ON tbRCL_Calendar_Machin_1.CalWeekID = tbRCL_CalendarWeek_1.WeekID ON 
-                         dbo.tbRCL_ShiftAscribe_Machin.AscToDate = tbRCL_Calendar_Machin_1.CalIraniDate LEFT OUTER JOIN
-                         dbo.tbRCL_CalendarWeek INNER JOIN
-                         dbo.tbRCL_Calendar_Machin ON dbo.tbRCL_CalendarWeek.WeekID = dbo.tbRCL_Calendar_Machin.CalWeekID INNER JOIN
-                         dbo.tbRCL_CalendarDayStatus ON dbo.tbRCL_Calendar_Machin.CalDayStatusID = dbo.tbRCL_CalendarDayStatus.DayStatusID ON 
-                         dbo.tbRCL_ShiftAscribe_Machin.AscFromDate = dbo.tbRCL_Calendar_Machin.CalIraniDate
-WHERE        (dbo.tbRCL_Shifts.Active = 1) AND (GetListOfProductLines.ProductLineId IN (N'G1205', N'G1206',N'G1201',N'G1011',N'G1141',N'G1022',N'G1021'))";
-
+                 sqlstr = "SELECT        HumanResource.dbo.tbRCL_Shifts.*, Active AS Expr1  FROM            HumanResource.dbo.tbRCL_Shifts  WHERE        (Active = 1)";
+                                                         
                 Dt = Pers.GetDataTable(Cls_Public.CnnStr, sqlstr);
                 int count = 0;
 

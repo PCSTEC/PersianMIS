@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Timers;
-
+  
 namespace PCSTECSMSSender
 {
     public partial class PCSTECSMSSender : ServiceBase
@@ -46,13 +41,13 @@ namespace PCSTECSMSSender
             string MessageBody = "";
             for (int i = 0; i <= BLL.Cls_PublicOperations.Dt.Rows.Count - 1; i++)
             {
-                 MessageBody = "";
+                MessageBody = "";
                 CurMessageThemplateID = Convert.ToInt32(BLL.Cls_PublicOperations.Dt.DefaultView[i]["MessageThemplateID"].ToString());
                 Dt = Cls_Message.GetSendMessagesByMessageThemplateID(CurMessageThemplateID);
-          
-                    if (Dt.Rows.Count > 0)
+
+                if (Dt.Rows.Count > 0)
                 {
-                   
+
                     // Check to How Delay To Last Send This Themplate Message To Person 
                     DateTime startTime = Convert.ToDateTime(Dt.DefaultView[0]["SendDateTime"].ToString());
                     DateTime endTime = DateTime.Now;
@@ -101,6 +96,7 @@ namespace PCSTECSMSSender
 
          private void SendSms(string MessageBodys, long MobileNumber)
         {
+
             int smsLineID = 0;
             List<ir.sms.ip.WebServiceSmsSend> sendDetails = new List<ir.sms.ip.WebServiceSmsSend>();
 
@@ -130,7 +126,7 @@ namespace PCSTECSMSSender
             string message = string.Empty;
 
             long[] result = ws.SendMessage(Dt.DefaultView[0]["UserName"].ToString(), Dt.DefaultView[0]["Password"].ToString(), sendDetails.ToArray(), smsLineID, null, ref message);
-            BllMessage.InsertSendMessages(CurMessageThemplateID, DateTime.Now );
+            BllMessage.InsertSendMessages(CurMessageThemplateID, DateTime.Now);
         }
         protected override void OnStop()
         {
